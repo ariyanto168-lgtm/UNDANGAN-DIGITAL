@@ -73,28 +73,6 @@
     .cover-style-19 { border: 4px solid #ef4444; border-radius: 2rem; background: #450a0a; }
     .cover-style-20 { border: 6px double #ffffff; border-radius: 3rem; background: #000000; box-shadow: 0 0 40px rgba(255,255,255,0.3); }
 
-    /* 20 Section Cover Styles */
-    .sec-style-1 { background: #ffffff; border-radius: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-    .sec-style-2 { background: linear-gradient(135deg, #fdf2f8, #fce7f3); border-radius: 2rem; border: 2px solid #f472b6; }
-    .sec-style-3 { background: #0b0f19; color: #ffffff; border-radius: 1.5rem; border: 1px solid #00f0ff; box-shadow: 0 0 20px rgba(0,240,255,0.2); }
-    .sec-style-4 { background: #000000; color: #8ace00; border-radius: 2rem; border: 2px dashed #8ace00; }
-    .sec-style-5 { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 2rem; border: 2px solid #c084fc; }
-    .sec-style-6 { background: #0f172a; color: #38bdf8; border-radius: 1.5rem; border: 1px solid #38bdf8; }
-    .sec-style-7 { background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 2rem; border: 2px solid #fb923c; }
-    .sec-style-8 { background: #18181b; color: #a855f7; border-radius: 1.5rem; border: 2px dashed #a855f7; }
-    .sec-style-9 { background: linear-gradient(135deg, #fff1f2, #ffe4e6); border-radius: 2rem; border: 2px solid #fb7185; }
-    .sec-style-10 { background: linear-gradient(135deg, #0f172a, #1e293b); color: #f43f5e; border-radius: 2rem; border: 2px solid #f43f5e; }
-    .sec-style-11 { background: #064e3b; color: #34d399; border-radius: 1.5rem; border: 2px solid #34d399; }
-    .sec-style-12 { background: #1c1917; color: #facc15; border-radius: 2rem; border: 2px solid #facc15; }
-    .sec-style-13 { background: #18181b; color: #f472b6; border-radius: 1.5rem; border: 2px dashed #f472b6; }
-    .sec-style-14 { background: #1e1b4b; color: #818cf8; border-radius: 2rem; border: 2px solid #818cf8; }
-    .sec-style-15 { background: #042f2e; color: #2dd4bf; border-radius: 1.5rem; border: 2px solid #2dd4bf; }
-    .sec-style-16 { background: #292524; color: #fb923c; border-radius: 2rem; border: 2px solid #fb923c; }
-    .sec-style-17 { background: #2e1065; color: #c084fc; border-radius: 1.5rem; border: 2px solid #c084fc; }
-    .sec-style-18 { background: #082f49; color: #38bdf8; border-radius: 2rem; border: 2px dashed #38bdf8; }
-    .sec-style-19 { background: #450a0a; color: #f87171; border-radius: 1.5rem; border: 2px solid #f87171; }
-    .sec-style-20 { background: #000000; color: #ffffff; border-radius: 2rem; border: 3px double #ffffff; box-shadow: 0 0 25px rgba(255,255,255,0.2); }
-
     .typewriter-cursor::after {
       content: '|';
       animation: blink 0.8s infinite;
@@ -329,7 +307,7 @@
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
         <div class="flex space-x-2 border-b border-gray-200 pb-2 overflow-x-auto text-sm">
           <button onclick="switchTab('genz')" class="tab-btn px-3 py-1.5 font-bold text-pink-600 border-b-2 border-pink-600 whitespace-nowrap cursor-pointer">🎨 Gen-Z Preset (20x)</button>
-          <button onclick="switchTab("textTable")" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">📋 Tabel Text</button>
+          <button onclick="switchTab('textTable')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">📋 Tabel Text</button>
           <button onclick="switchTab('wa')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">💬 Pesan WA</button>
           <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">👥 Buku Tamu</button>
           <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🚀 Section</button>
@@ -513,7 +491,6 @@ Terima kasih. 🙏</textarea>
       { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru Rian & Siska!" }
     ];
 
-    // Text elements data for the Text Table
     let textElements = {
       coupleName: "Rian & Siska",
       badgeText: "The Wedding Of",
@@ -525,7 +502,6 @@ Terima kasih. 🙏</textarea>
 
     let isPlaying = false;
 
-    // Populate 20 options for each Gen-Z category
     function initGenZDropdowns() {
       const modelSel = document.getElementById('editModelPreset');
       const paletteSel = document.getElementById('editPalettePreset');
@@ -534,7 +510,7 @@ Terima kasih. 🙏</textarea>
       const frontTextSel = document.getElementById('editFrontTextPreset');
 
       for (let i = 1; i <= 20; i++) {
-        modelSel.innerHTML += `<option value="${i}">🔥 Model Gen-Z #${i} (Aesthetic Preset)</option>`;
+        modelSel.innerHTML += `<option value="${i}">🔥 Model Gen-Z #${i}</option>`;
         paletteSel.innerHTML += `<option value="${i}">🎨 Palet Warna Gen-Z #${i}</option>`;
         coverSel.innerHTML += `<option value="${i}">✨ Cover Depan Gen-Z #${i}</option>`;
         secCoverSel.innerHTML += `<option value="${i}">📦 Cover Laman Section #${i}</option>`;
@@ -545,9 +521,8 @@ Terima kasih. 🙏</textarea>
     function renderTextTable() {
       const tbody = document.getElementById('textTableBody');
       tbody.innerHTML = '';
-      
       const labels = {
-        coupleName: "Nama Pasangan (Cover & Hero)",
+        coupleName: "Nama Pasangan",
         badgeText: "Label Atas Cover",
         subText: "Sub-teks Cover",
         eventDate: "Tanggal Acara",
@@ -570,12 +545,10 @@ Terima kasih. 🙏</textarea>
     function saveTextTable() {
       for (let key in textElements) {
         const input = document.getElementById(`table-text-${key}`);
-        if (input) {
-          textElements[key] = input.value;
-        }
+        if (input) textElements[key] = input.value;
       }
       applyTextTableChanges();
-      alert('Tabel Text berhasil disimpan dan diperbarui secara live!');
+      alert('Tabel Text berhasil disimpan!');
     }
 
     function applyTextTableChanges() {
@@ -594,16 +567,8 @@ Terima kasih. 🙏</textarea>
 
     function applyGenZPresets() {
       const coverNum = document.getElementById('editCoverPreset').value;
-      const secNum = document.getElementById('editSectionCoverPreset').value;
-      const paletteNum = document.getElementById('editPalettePreset').value;
-
-      // Apply Cover Style
       const cover = document.getElementById('coverSection');
       cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto cover-style-${coverNum}`;
-
-      // Apply Section Cover Style to dynamic sections container
-      // (Bisa dikustomisasi lebih lanjut sesuai pilihan)
-      console.log(`Applied Palette #${paletteNum}, Section Style #${secNum}`);
     }
 
     initGenZDropdowns();
