@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Editor Suite v5.3.0 Dynamic Sections</title>
+  <title>Undangan Digital - Master Editor Suite v5.6.0 Dynamic Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@
     .cover-motif-6 { border: 3px solid #00f0ff; border-radius: 1.5rem; box-shadow: 0 0 30px rgba(0,240,255,0.6); background: #0b0f19; }
     .cover-motif-30 { border: double 6px transparent; border-radius: 2.5rem; background-image: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), linear-gradient(to right, #ff007f, #7928ca, #00f0ff); background-origin: border-box; background-clip: padding-box, border-box; }
 
-    .typewriter-effect::after {
+    .typewriter-cursor::after {
       content: '|';
       animation: blink 0.8s infinite;
       color: #ff007f;
@@ -68,7 +68,7 @@
 </head>
 <body id="bodyThemeContainer" class="relative antialiased">
 
-  <!-- COVER UTAMA DENGAN LAMPU HIAS -->
+  <!-- COVER UTAMA -->
   <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 cover-motif-1 text-white overflow-y-auto">
     <div class="fairy-lights-container">
       <div class="fairy-light"></div>
@@ -85,13 +85,13 @@
     
     <div class="w-full flex items-center justify-between text-[11px] pt-4 relative z-10">
       <span class="bg-pink-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
-        <i class="fa-solid fa-gear text-[10px]"></i> Admin Editor
+        <i class="fa-solid fa-gear text-[10px]"></i> Admin v5.6.0
       </span>
       <span class="bg-slate-800/80 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30 text-[10px] tracking-wider uppercase">
         The Wedding Of
       </span>
       <span class="bg-emerald-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
-        <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> Tersinkronisasi
+        <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> v5.6.0 Active
       </span>
     </div>
 
@@ -112,7 +112,7 @@
     </div>
 
     <div class="text-[11px] text-slate-400 space-y-1 pb-2 relative z-10">
-      <button onclick="alert('Database tersinkronisasi dengan aman!')" class="text-slate-300 hover:text-white underline text-[10px] bg-slate-800/60 px-2 py-0.5 rounded cursor-pointer">
+      <button onclick="alert('Database v5.6.0 tersinkronisasi dengan aman!')" class="text-slate-300 hover:text-white underline text-[10px] bg-slate-800/60 px-2 py-0.5 rounded cursor-pointer">
         <i class="fa-solid fa-database mr-1 text-pink-400"></i> Cek Koneksi DB
       </button>
       <p class="text-[10px] text-slate-500 pt-1">Powered by Ari GPM</p>
@@ -158,7 +158,7 @@
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm">
           <i class="fa-solid fa-heart"></i>
         </div>
-        <p id="quoteText" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-effect">
+        <p id="quoteText" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">
           "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."
         </p>
         <p class="text-xs font-bold text-slate-700">(QS. Ar-Rum: 21)</p>
@@ -210,7 +210,7 @@
         </div>
       </section>
 
-      <!-- DYNAMIC SECTIONS CONTAINER (TEMPAT SECTION TAMBAHAN MUNCUL OTOMATIS) -->
+      <!-- DYNAMIC SECTIONS CONTAINER -->
       <div id="dynamicSectionsWrapper" class="space-y-0"></div>
 
       <!-- RSVP -->
@@ -252,7 +252,7 @@
       </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.3.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.6.0</p>
       </div>
     </footer>
   </main>
@@ -264,8 +264,8 @@
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-shield-halved"></i>
           <div>
-            <h2 class="text-lg font-bold">Master Editor Suite v5.3.0</h2>
-            <p class="text-[10px] text-pink-200">Dynamic Sections • Secured</p>
+            <h2 class="text-lg font-bold">Master Editor Suite v5.6.0</h2>
+            <p class="text-[10px] text-pink-200">Typewriter Section Manager • Secured</p>
           </div>
         </div>
         <button onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -280,14 +280,14 @@
         <p class="text-xs text-gray-500">PIN Default Editor: <span class="font-mono font-bold text-pink-600">1234</span></p>
         <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
         <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2.5 rounded-xl font-bold transition shadow-md cursor-pointer">Buka Kunci Editor</button>
-        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.3.0)</p>
+        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.6.0)</p>
       </div>
 
       <!-- EDITOR BODY -->
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
         <div class="flex space-x-2 border-b border-gray-200 pb-2 overflow-x-auto text-sm">
           <button onclick="switchTab('teks')" class="tab-btn px-3 py-1.5 font-bold text-pink-600 border-b-2 border-pink-600 whitespace-nowrap cursor-pointer">✨ Teks & Motif</button>
-          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🔗 Tamu & WA</button>
+          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🔗 Kirim WA</button>
           <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🚀 Kelola Section</button>
           <button onclick="switchTab('foto')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🖼 Galeri</button>
         </div>
@@ -319,42 +319,84 @@
           </div>
         </div>
 
-        <!-- TAB GUESTS & WA -->
-        <div id="tab-guests" class="editor-tab hidden space-y-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Generator Link WhatsApp Undangan Tamu</label>
-            <input type="text" id="generatorGuestName" placeholder="Nama Tamu (Cth: Bpk Budi)" class="w-full p-2.5 border rounded-xl text-sm mb-2">
-            <button onclick="generateWhatsAppLink()" class="w-full bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer">Buat Link Kirim WA</button>
-            <textarea id="resultWaLink" readonly class="w-full p-2.5 border rounded-xl text-xs mt-2 bg-gray-50" rows="2" placeholder="Link WhatsApp otomatis muncul di sini..."></textarea>
+        <!-- TAB GUESTS & WA MANAGER -->
+        <div id="tab-guests" class="editor-tab hidden space-y-5">
+          <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-3">
+            <h4 class="font-bold text-emerald-900 text-xs"><i class="fa-brands fa-whatsapp mr-1 text-emerald-600"></i> Buat Link Tamu Perorangan (Pribadi)</h4>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Nama Tamu Undangan</label>
+              <input type="text" id="generatorGuestName" placeholder="Cth: Bpk. Budi Santoso" class="w-full p-2.5 border rounded-xl text-xs bg-white">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Nomor WhatsApp Tamu (Opsional, Awali 62)</label>
+              <input type="text" id="generatorPhone" placeholder="Cth: 6281234567890" class="w-full p-2.5 border rounded-xl text-xs bg-white">
+            </div>
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button onclick="generateWhatsAppLink('copy')" class="bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
+                📋 Salin Teks Pesan
+              </button>
+              <button onclick="generateWhatsAppLink('send')" class="bg-emerald-700 hover:bg-emerald-800 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
+                🚀 Langsung Kirim WA
+              </button>
+            </div>
+            <textarea id="resultWaLink" readonly class="w-full p-2 border rounded-xl text-[11px] mt-1 bg-white" rows="3" placeholder="Hasil preview pesan WA otomatis di sini..."></textarea>
+          </div>
+
+          <div class="bg-purple-50 p-4 rounded-2xl border border-purple-200 space-y-3">
+            <h4 class="font-bold text-purple-900 text-xs"><i class="fa-solid fa-bullhorn mr-1 text-purple-600"></i> Share Undangan Umum (Massal / Grup)</h4>
+            <p class="text-[11px] text-gray-600">Gunakan ini untuk dibagikan ke grup keluarga, teman kantor, atau status WhatsApp.</p>
+            <button onclick="shareGeneralWhatsApp()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
+              📢 Sebarkan ke Grup / Status WA
+            </button>
           </div>
         </div>
 
-        <!-- TAB KELOLA SECTIONS (TAMBAH / KURANG SESUAI KEINGINAN) -->
+        <!-- TAB KELOLA SECTIONS (DENGAN KONTROL TYPEWRITER & KECEPATAN) -->
         <div id="tab-sections" class="editor-tab hidden space-y-4">
           <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-3">
-            <h4 class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1"></i> Tambah Section Baru</h4>
+            <h4 id="secFormTitle" class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1"></i> Tambah / Edit Section</h4>
             <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Judul Section (Cth: Kisah Cinta / Rekening)</label>
-              <input type="text" id="newSecTitle" placeholder="Judul Section" class="w-full p-2 border rounded-xl text-xs bg-white">
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Judul Section</label>
+              <input type="text" id="newSecTitle" placeholder="Cth: Kisah Cinta / Rekening" class="w-full p-2 border rounded-xl text-xs bg-white">
             </div>
             <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Isi Konten / Deskripsi</label>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Isi Teks / Konten Section</label>
               <textarea id="newSecContent" rows="3" placeholder="Tulis isi atau informasi lengkap di sini..." class="w-full p-2 border rounded-xl text-xs bg-white"></textarea>
             </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">URL Gambar Pendukung (Opsional)</label>
-              <input type="text" id="newSecImg" placeholder="https://..." class="w-full p-2 border rounded-xl text-xs bg-white">
+            
+            <!-- Pengaturan Typewriter ON/OFF & Kecepatan -->
+            <div class="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
+              <label class="flex items-center space-x-2 text-xs font-bold text-amber-950 cursor-pointer">
+                <input type="checkbox" id="newSecTwToggle" class="w-4 h-4 accent-amber-600" checked>
+                <span>Aktifkan Efek Ketik Berjalan (Typewriter) ✍️</span>
+              </label>
+              <div>
+                <label class="block text-[10px] font-semibold text-gray-600 mb-1">Kecepatan Ketik (Dimmer Cepat / Lambat)</label>
+                <select id="newSecTwSpeed" class="w-full p-1.5 border rounded-lg text-xs bg-slate-50 font-medium">
+                  <option value="20">⚡ Cepat (20ms)</option>
+                  <option value="50" selected>🚶 Sedang / Normal (50ms)</option>
+                  <option value="100">🐢 Lambat (100ms)</option>
+                </select>
+              </div>
             </div>
-            <button onclick="addDynamicSection()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
-              ➕ Tambahkan ke Undangan
-            </button>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Upload Foto Pendukung dari HP (Opsional)</label>
+              <input type="file" id="newSecFile" accept="image/*" class="w-full p-2 border rounded-xl text-xs bg-white text-gray-600">
+            </div>
+            <div class="flex space-x-2 pt-1">
+              <button onclick="saveDynamicSection()" id="saveSecBtn" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
+                <span id="saveSecBtnText">➕ Tambahkan ke Undangan</span>
+              </button>
+              <button onclick="cancelEditSection()" id="cancelEditBtn" class="hidden bg-gray-500 hover:bg-gray-600 text-white px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer">
+                Batal
+              </button>
+            </div>
           </div>
 
           <div class="space-y-2">
-            <h4 class="font-bold text-gray-700 text-xs">Daftar Section Tambahan Aktif:</h4>
-            <div id="manageSectionsList" class="space-y-2 max-h-40 overflow-y-auto">
-              <!-- List section aktif akan muncul disini secara otomatis -->
-            </div>
+            <h4 class="font-bold text-gray-700 text-xs">Daftar Section Aktif (Auto-Update):</h4>
+            <div id="manageSectionsList" class="space-y-2 max-h-48 overflow-y-auto pr-1"></div>
           </div>
         </div>
 
@@ -389,10 +431,26 @@
 
   <!-- JAVASCRIPT UTAMA -->
   <script>
-    // Data Dynamic Sections (bisa ditambah/kurang dinamis)
     let dynamicSections = [
-      { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500" }
+      { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500", typewriter: true, speed: 50 }
     ];
+    let editingSectionId = null;
+
+    // Fungsi menjalankan efek ketik (typewriter) bertahap
+    function runTypewriterEffect(elementId, text, speed) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.innerHTML = "";
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          el.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
 
     function renderDynamicSections() {
       const wrapper = document.getElementById('dynamicSectionsWrapper');
@@ -407,67 +465,154 @@
       }
 
       dynamicSections.forEach((sec, index) => {
+        const textElemId = `dyn-text-${sec.id}`;
+        
         // Render ke Tampilan Utama Undangan
         const secEl = document.createElement('section');
         secEl.className = "py-12 px-6 bg-white border-t border-slate-100 text-center space-y-4";
         secEl.innerHTML = `
           <h2 class="text-2xl font-bold text-slate-900">${escapeHtml(sec.title)}</h2>
           ${sec.img ? `<div class="w-full h-48 rounded-2xl overflow-hidden shadow-md my-3"><img src="${sec.img}" class="w-full h-full object-cover"></div>` : ''}
-          <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(sec.content)}</p>
+          <p id="${textElemId}" class="text-xs text-slate-600 leading-relaxed ${sec.typewriter ? 'typewriter-cursor' : ''}">${sec.typewriter ? '' : escapeHtml(sec.content)}</p>
         `;
         wrapper.appendChild(secEl);
 
-        // Render ke Panel Editor (Menu Kelola)
+        // Jika typewriter aktif, jalankan efek ketik saat section dirender
+        if (sec.typewriter) {
+          setTimeout(() => {
+            runTypewriterEffect(textElemId, sec.content, Number(sec.speed));
+          }, 300);
+        }
+
+        // Render ke Panel Pengelola (Manager List)
         const itemEl = document.createElement('div');
-        itemEl.className = "flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-200 text-xs";
+        itemEl.className = "flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-200 text-xs shadow-sm";
         itemEl.innerHTML = `
-          <span class="font-bold text-gray-800 truncate max-w-[200px]">${index + 1}. ${escapeHtml(sec.title)}</span>
-          <button onclick="deleteDynamicSection(${sec.id})" class="bg-rose-500 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold cursor-pointer hover:bg-rose-600">Hapus</button>
+          <div class="truncate max-w-[170px]">
+            <span class="font-bold text-gray-800">${index + 1}. ${escapeHtml(sec.title)}</span>
+            <span class="block text-[9px] text-gray-400">Typewriter: ${sec.typewriter ? 'ON (' + sec.speed + 'ms)' : 'OFF'}</span>
+          </div>
+          <div class="flex space-x-1">
+            <button onclick="startEditSection(${sec.id})" class="bg-blue-500 text-white px-2 py-1 rounded-lg text-[10px] font-bold cursor-pointer hover:bg-blue-600">Edit</button>
+            <button onclick="deleteDynamicSection(${sec.id})" class="bg-rose-500 text-white px-2 py-1 rounded-lg text-[10px] font-bold cursor-pointer hover:bg-rose-600">Hapus</button>
+          </div>
         `;
         manageList.appendChild(itemEl);
       });
     }
 
-    function addDynamicSection() {
+    function saveDynamicSection() {
       const title = document.getElementById('newSecTitle').value.trim();
       const content = document.getElementById('newSecContent').value.trim();
-      const img = document.getElementById('newSecImg').value.trim();
+      const typewriter = document.getElementById('newSecTwToggle').checked;
+      const speed = document.getElementById('newSecTwSpeed').value;
+      const fileInput = document.getElementById('newSecFile');
 
       if (!title || !content) {
         alert('Judul dan Konten section wajib diisi!');
         return;
       }
 
-      const newSec = {
-        id: Date.now(),
-        title: title,
-        content: content,
-        img: img
+      const processSave = (imgUrl) => {
+        if (editingSectionId !== null) {
+          dynamicSections = dynamicSections.map(sec => {
+            if (sec.id === editingSectionId) {
+              return {
+                id: sec.id,
+                title: title,
+                content: content,
+                img: imgUrl !== undefined ? imgUrl : sec.img,
+                typewriter: typewriter,
+                speed: speed
+              };
+            }
+            return sec;
+          });
+          editingSectionId = null;
+          document.getElementById('secFormTitle').innerHTML = '<i class="fa-solid fa-layer-group mr-1"></i> Tambah / Edit Section';
+          document.getElementById('saveSecBtnText').innerText = '➕ Tambahkan ke Undangan';
+          document.getElementById('cancelEditBtn').classList.add('hidden');
+          alert('Section berhasil diperbarui!');
+        } else {
+          dynamicSections.push({
+            id: Date.now(),
+            title: title,
+            content: content,
+            img: imgUrl || '',
+            typewriter: typewriter,
+            speed: speed
+          });
+          alert('Section baru berhasil ditambahkan!');
+        }
+
+        // Reset Form Input
+        document.getElementById('newSecTitle').value = '';
+        document.getElementById('newSecContent').value = '';
+        document.getElementById('newSecFile').value = '';
+        document.getElementById('newSecTwToggle').checked = true;
+        document.getElementById('newSecTwSpeed').value = '50';
+        renderDynamicSections();
       };
 
-      dynamicSections.push(newSec);
-      renderDynamicSections();
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          processSave(e.target.result);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        let existingImg = '';
+        if (editingSectionId !== null) {
+          const current = dynamicSections.find(s => s.id === editingSectionId);
+          existingImg = current ? current.img : '';
+        }
+        processSave(existingImg);
+      }
+    }
 
-      // Reset input form
+    function startEditSection(id) {
+      const sec = dynamicSections.find(s => s.id === id);
+      if (!sec) return;
+      
+      editingSectionId = id;
+      document.getElementById('newSecTitle').value = sec.title;
+      document.getElementById('newSecContent').value = sec.content;
+      document.getElementById('newSecTwToggle').checked = sec.typewriter !== undefined ? sec.typewriter : true;
+      document.getElementById('newSecTwSpeed').value = sec.speed || '50';
+      document.getElementById('newSecFile').value = ''; 
+      
+      document.getElementById('secFormTitle').innerHTML = `<i class="fa-solid fa-pen-to-square mr-1 text-blue-600"></i> Edit Section: <b>${escapeHtml(sec.title)}</b>`;
+      document.getElementById('saveSecBtnText').innerText = '💾 Simpan Perubahan';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+      
+      document.getElementById('tab-sections').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function cancelEditSection() {
+      editingSectionId = null;
       document.getElementById('newSecTitle').value = '';
       document.getElementById('newSecContent').value = '';
-      document.getElementById('newSecImg').value = '';
-
-      alert('Section baru berhasil ditambahkan ke undangan!');
+      document.getElementById('newSecFile').value = '';
+      document.getElementById('newSecTwToggle').checked = true;
+      document.getElementById('newSecTwSpeed').value = '50';
+      document.getElementById('secFormTitle').innerHTML = '<i class="fa-solid fa-layer-group mr-1"></i> Tambah / Edit Section';
+      document.getElementById('saveSecBtnText').innerText = '➕ Tambahkan ke Undangan';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
     }
 
     function deleteDynamicSection(id) {
       if (confirm('Yakin ingin menghapus section ini?')) {
         dynamicSections = dynamicSections.filter(sec => sec.id !== id);
+        if (editingSectionId === id) {
+          cancelEditSection();
+        }
         renderDynamicSections();
         alert('Section berhasil dihapus.');
       }
     }
 
-    // Jalankan render awal saat halaman dimuat
     renderDynamicSections();
 
-    // URL Params Nama Tamu
     const urlParams = new URLSearchParams(window.location.search);
     const toParam = urlParams.get('to');
     if (toParam) {
@@ -487,9 +632,7 @@
       const music = document.getElementById('bgMusic');
       music.play().catch(() => {});
 
-      setTimeout(() => {
-        cover.style.display = 'none';
-      }, 700);
+      setTimeout(() => { cover.style.display = 'none'; }, 700);
     }
 
     let isPlaying = false;
@@ -548,29 +691,42 @@
 
       const cover = document.getElementById('coverSection');
       cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto ${frame}`;
-
       document.getElementById('coverBgImage').style.backgroundImage = `url('${photoUrl}')`;
 
       const titleEl = document.getElementById('coverCoupleName');
-      if (pulseActive) {
-        titleEl.classList.add('pulse-glow-active');
-      } else {
-        titleEl.classList.remove('pulse-glow-active');
-      }
+      if (pulseActive) { titleEl.classList.add('pulse-glow-active'); } else { titleEl.classList.remove('pulse-glow-active'); }
     }
 
-    function generateWhatsAppLink() {
+    function generateWhatsAppLink(action) {
       const guest = document.getElementById('generatorGuestName').value.trim();
+      const phone = document.getElementById('generatorPhone').value.trim();
       if (!guest) {
         alert('Masukkan nama tamu terlebih dahulu!');
         return;
       }
       const encoded = encodeURIComponent(guest);
       const link = `https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/?to=${encoded}`;
-      const message = `Halo ${guest}, tanpa mengurangi rasa hormat, kami mengundang Anda di acara pernikahan kami. Berikut tautan undangannya:\n\n${link}`;
+      const message = `Halo ${guest},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.\n\nBerikut tautan undangan digital kami:\n${link}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir.\n\nTerima kasih.`;
+      
       document.getElementById('resultWaLink').value = message;
-      navigator.clipboard.writeText(message);
-      alert('Pesan dan Link WhatsApp berhasil dibuat & disalin ke clipboard!');
+
+      if (action === 'copy') {
+        navigator.clipboard.writeText(message);
+        alert('Pesan dan Link khusus ' + guest + ' berhasil disalin!');
+      } else if (action === 'send') {
+        let waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        if (phone) {
+          const cleanPhone = phone.replace(/\D/g, '');
+          waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+        }
+        window.open(waUrl, '_blank');
+      }
+    }
+
+    function shareGeneralWhatsApp() {
+      const generalMessage = `✨ UNDANGAN PERNIKAHAN (v5.6.0) ✨\n\nRian & Siska\nMinggu, 25 Oktober 2026\n\nTanpa mengurangi rasa hormat, kami mengundang bapak/ibu/teman sekalian untuk memberikan doa restu pada acara pernikahan kami. Berikut tautan undangannya:\n\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/\n\nTerima kasih banyak atas perhatian & doa restunya. 🙏`;
+      const waUrl = `https://wa.me/?text=${encodeURIComponent(generalMessage)}`;
+      window.open(waUrl, '_blank');
     }
 
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
