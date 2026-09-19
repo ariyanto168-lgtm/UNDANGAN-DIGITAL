@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v9.4.0</title>
+  <title>Undangan Digital - Master Gen-Z v9.7.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <style>
-    html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease; }
+    html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.4s ease, color 0.4s ease; }
     
     @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
     .pulse-glow-active { animation: textPulse var(--pulse-speed, 2.5s) infinite ease-in-out; }
@@ -25,7 +25,17 @@
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    .btn-super-responsive { touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; }
+    /* TOMBOL ANTI MACET MUTLAK */
+    .btn-bulletproof {
+        position: relative;
+        z-index: 999999 !important;
+        pointer-events: auto !important;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        cursor: pointer;
+    }
+
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
@@ -33,7 +43,7 @@
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
   <!-- COVER UTAMA -->
-  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-[100] flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center cover-base text-white overflow-y-auto">
+  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-[100] flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center cover-base text-white overflow-hidden">
     <div class="fairy-lights-container pointer-events-none">
       <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
       <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
@@ -43,36 +53,38 @@
     
     <div></div>
 
-    <div class="space-y-3 py-4 relative z-10 pointer-events-none">
+    <div class="space-y-3 py-2 relative z-10 pointer-events-none">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
       <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <div class="w-full max-w-xs space-y-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-20">
+    <!-- KARTU TOMBOL (DIJAMIN 100% RESPONSIF) -->
+    <div class="w-full max-w-xs space-y-3 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-50 pointer-events-auto">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs pointer-events-none">Minggu, 25 Oktober 2026</p>
       
-      <button type="button" onclick="openInvitation()" class="btn-super-responsive w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_20px_rgba(236,72,153,0.4)] active:scale-95 transition-transform duration-200 flex items-center justify-center space-x-2 cursor-pointer text-sm relative z-50">
+      <!-- TOMBOL BUKA UNDANGAN DENGAN ID KHUSUS -->
+      <button type="button" id="openInvitationBtn" class="btn-bulletproof w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.6)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
         <span class="pointer-events-none">Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none"><p>Powered by Ari GPM (v9.4.0)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none"><p>Powered by Ari GPM (v9.7.0)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
   <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-white text-slate-800 pb-16">
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
-      <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer btn-super-responsive">
+      <button type="button" id="toggleMusicBtn" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition btn-bulletproof">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm pointer-events-none"></i></div>
         <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600 pointer-events-none">Music</span>
       </button>
-      <button type="button" onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer btn-super-responsive">
+      <button type="button" id="openAdminBtn" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition btn-bulletproof">
         <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-gear text-sm pointer-events-none"></i></div>
         <span class="text-[10px] font-semibold mt-1 pointer-events-none">Admin</span>
       </button>
-      <button type="button" onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer btn-super-responsive">
+      <button type="button" id="openShareBtn" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition btn-bulletproof">
         <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-share-nodes text-sm pointer-events-none"></i></div>
         <span class="text-[10px] font-semibold mt-1 pointer-events-none">Bagikan</span>
       </button>
@@ -90,7 +102,7 @@
         </div>
       </section>
 
-      <!-- QUOTES DENGAN TYPEWRITER AKTIF -->
+      <!-- QUOTES TYPEWRITER -->
       <section class="py-12 px-6 text-center bg-white space-y-4">
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-heart"></i></div>
         <p id="quoteTextDisplay" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</p>
@@ -126,18 +138,17 @@
           <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%20Selatan%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
-          <button onclick="window.open('https://maps.app.goo.gl/xxx', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md btn-super-responsive">Buka di Google Maps</button>
+          <button type="button" id="openMapsBtn" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md btn-bulletproof">Buka di Google Maps</button>
         </div>
       </section>
 
-      <!-- AMPLOP DIGITAL & QRIS MOD (DINAMIS DARI DATA) -->
+      <!-- AMPLOP DIGITAL -->
       <section class="py-12 px-6 bg-white text-center space-y-6">
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl mb-2 shadow-sm"><i class="fa-solid fa-gift"></i></div>
         <h2 class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
         <p class="text-xs text-slate-500 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami. Tanda kasih dapat disalurkan melalui:</p>
         
         <div class="space-y-4 max-w-xs mx-auto">
-          <!-- QRIS CARD -->
           <div id="qrisContainerDisplay" class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3 border border-slate-800">
             <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
             <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center border border-slate-700">
@@ -146,12 +157,11 @@
             <p class="text-[10px] text-slate-400">Scan melalui GoPay, OVO, DANA, BCA Mobile, dll.</p>
           </div>
 
-          <!-- REKENING MANUAL CARD -->
           <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3 border border-blue-600">
             <h3 id="displayBankName" class="font-bold text-sm text-blue-200">Bank BCA</h3>
             <p id="displayRekNumber" class="font-mono text-xl font-bold tracking-widest">1234567890</p>
             <p id="displayRekOwner" class="text-xs text-blue-100 uppercase">A.N Rian Pratama</p>
-            <button onclick="copyToClipboard(document.getElementById('displayRekNumber').innerText, document.getElementById('displayBankName').innerText)" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold btn-super-responsive">Salin Nomor Rekening</button>
+            <button type="button" id="copyRekBtn" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold btn-bulletproof">Salin Nomor Rekening</button>
           </div>
         </div>
       </section>
@@ -165,7 +175,7 @@
             <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
           <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500"></textarea>
-          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md btn-super-responsive">Kirim Ucapan & Absen</button>
+          <button type="button" id="submitWishBtn" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md btn-bulletproof">Kirim Ucapan & Absen</button>
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
@@ -176,7 +186,7 @@
       <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.4.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.7.0</p>
       </div>
     </footer>
   </main>
@@ -187,9 +197,9 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white px-6 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.4.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.7.0</p></div>
         </div>
-        <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer btn-super-responsive"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
+        <button type="button" id="closeAdminModalBtn" class="text-white/80 hover:text-white cursor-pointer btn-bulletproof"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
       </div>
 
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
@@ -197,7 +207,7 @@
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
         <p class="text-xs text-slate-400">PIN Default Editor: <span class="font-mono font-bold text-pink-400">1234</span></p>
         <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="Masukkan PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
-        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg btn-super-responsive">Buka Dashboard Admin</button>
+        <button type="button" id="verifyPinBtn" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg btn-bulletproof">Buka Dashboard Admin</button>
       </div>
 
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
@@ -207,7 +217,7 @@
         </div>
 
         <div id="adminModuleView" class="hidden space-y-4">
-          <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 btn-super-responsive">
+          <button type="button" id="backDashboardBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 btn-bulletproof">
             <i class="fa-solid fa-arrow-left pointer-events-none"></i><span class="pointer-events-none">Kembali ke Dashboard</span>
           </button>
           <div id="moduleContentArea" class="space-y-4 pb-4"></div>
@@ -222,22 +232,19 @@
       <h3 class="font-bold text-lg">Bagikan Undangan</h3>
       <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
       <div class="space-y-2 pt-1">
-        <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs btn-super-responsive">Kirim via WhatsApp (wa.me)</button>
-        <button type="button" onclick="closeShareModal()" class="w-full bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs btn-super-responsive">Tutup</button>
+        <button type="button" id="shareWaBtn" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs btn-bulletproof">Kirim via WhatsApp (wa.me)</button>
+        <button type="button" id="closeShareModalBtn" class="w-full bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs btn-bulletproof">Tutup</button>
       </div>
     </div>
   </div>
 
   <audio id="bgMusic" loop><source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v9.4.0 -->
+  <!-- JAVASCRIPT SYSTEM v9.7.0 -->
   <script>
-    const defaultText = {
-      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", eventDate: "2026-10-25",
-      quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...", footerCouple: "Rian & Siska"
-    };
-    
-    let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
-    let invitedGuests = JSON.parse(localStorage.getItem('ari_invitedGuests')) || [];
-    let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
-    let genZConfig = JSON.parse(localStorage.getItem('ari_genZConfig
+    const realThemes = [
+        { id: 1, name: "Luxury Gold", bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", border: "#d4af37", shadow: "rgba(212,175,55,0.4)" },
+        { id: 2, name: "Romantic Floral", bg: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=1000", border: "#ffb6c1", shadow: "rgba(255,182,193,0.4)" },
+        { id: 3, name: "Dark Elegance", bg: "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=1000", border: "#ffffff", shadow: "rgba(255,255,255,0.4)" },
+        { id: 4, name: "Neon Cyberpunk", bg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=1000", border: "#00f0ff", shadow: "rgba(0,240,255,0.6)" },
+        { id: 5, name: "Rustic Nature", bg: "https://images.unsplash.com/photo-14654
