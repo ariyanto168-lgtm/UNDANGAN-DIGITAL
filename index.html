@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v10.0.0</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- 20 GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
@@ -42,43 +41,41 @@
     
     <div class="absolute inset-0 opacity-50 bg-cover bg-center -z-10 transition-all duration-700" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
     
-    <div></div>
-
-    <div class="space-y-3 py-2" style="z-index: 5;">
+    <div class="space-y-3 py-2 mt-8" style="z-index: 5;">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
       <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- TOMBOL BUKA UNDANGAN (DIJAMIN 100% TEMBUS & TERISOLASI DARI ERROR AUDIO) -->
-    <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl" style="z-index: 100000; position: relative;">
+    <!-- TOMBOL BUKA UNDANGAN (EXTREME TOUCH FIX) -->
+    <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl mb-8" style="z-index: 100000; position: relative; pointer-events: auto;">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
       
-      <button type="button" onclick="openInvitation()" style="cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
-        <span>Buka Undangan ✨</span>
+      <button type="button" onclick="openInvitation()" ontouchstart="openInvitation()" style="cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; position: relative; z-index: 999999;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
+        <span class="pointer-events-none">Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.0.0)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2 absolute bottom-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.1.0)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
-  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16" style="background-color: #f8fafc;">
+  <main id="mainContent" style="display: none; opacity: 0;" class="transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16 bg-slate-50">
     
     <!-- NAVIGATION -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
-        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
-        <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600">Music</span>
+        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm pointer-events-none"></i></div>
+        <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600 pointer-events-none">Music</span>
       </button>
       <button type="button" onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer">
-        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-gear text-sm"></i></div>
-        <span class="text-[10px] font-semibold mt-1">Admin</span>
+        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-gear text-sm pointer-events-none"></i></div>
+        <span class="text-[10px] font-semibold mt-1 pointer-events-none">Admin</span>
       </button>
       <button type="button" onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer">
-        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-share-nodes text-sm"></i></div>
-        <span class="text-[10px] font-semibold mt-1">Bagikan</span>
+        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-share-nodes text-sm pointer-events-none"></i></div>
+        <span class="text-[10px] font-semibold mt-1 pointer-events-none">Bagikan</span>
       </button>
     </nav>
 
@@ -166,7 +163,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.0.0 (Ultimate Bulletproof)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.0 (Extreme Touch Fix)</p>
       </div>
     </footer>
   </main>
@@ -177,9 +174,9 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.0.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.0</p></div>
         </div>
-        <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
       </div>
 
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
@@ -208,7 +205,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.0.0 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.0 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -222,8 +219,7 @@
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
       quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
       titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta
-Jl. Sudirman No. 1",
+      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
       titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
@@ -231,13 +227,7 @@ Jl. Sudirman No. 1",
     let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
     let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let giftConfig = JSON.parse(localStorage.getItem('ari_giftConfig')) || { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
-    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},
-
-Tanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.
-
-{link}
-
-Terima kasih. 🙏";
+    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.\n\n{link}\n\nTerima kasih. 🙏";
     
     let ultimateConfig = JSON.parse(localStorage.getItem('ari_ultimateConfig')) || {
         font: "Plus Jakarta Sans",
@@ -248,6 +238,7 @@ Terima kasih. 🙏";
     };
 
     let isPlaying = false;
+    let isInvitationOpened = false; // Mencegah double-click yang bikin web hang
 
     function saveAllDataToDevice() {
         localStorage.setItem('ari_textElements', JSON.stringify(textElements));
@@ -290,10 +281,10 @@ Terima kasih. 🙏";
       adminModules.forEach(mod => {
         grid.innerHTML += `
           <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
-            <div class="flex justify-between items-start">
+            <div class="flex justify-between items-start pointer-events-none">
               <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
             </div>
-            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
+            <div class="pointer-events-none"><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
           </div>
         `;
       });
@@ -552,8 +543,7 @@ Terima kasih. 🙏";
             const el = document.getElementById(elementId);
             if(el) {
                 if(idMap[elementId] === 'alamat') {
-                    el.innerHTML = textElements[idMap[elementId]].replace(/
-/g, '<br>');
+                    el.innerHTML = textElements[idMap[elementId]].replace(/\n/g, '<br>');
                 } else {
                     el.innerText = textElements[idMap[elementId]];
                 }
@@ -581,52 +571,61 @@ Terima kasih. 🙏";
     }
 
     // ==========================================
-    // BULLETPROOF OPEN INVITATION (ISOLASI ERROR)
+    // EXTREME BULLETPROOF OPEN INVITATION FIX
     // ==========================================
     function openInvitation() {
-      // 1. Eksekusi visual transisi halaman UTAMA secara instan dan aman
+      if(isInvitationOpened) return; // Cegah tombol ditekan dua kali (hang)
+      isInvitationOpened = true;
+
       const cover = document.getElementById('coverSection');
       const main = document.getElementById('mainContent');
       
+      // 1. Paksa Tampilkan Laman Utama Seketika (Tanpa mempedulikan error lain)
       if (main) { 
-          main.classList.remove('hidden'); 
           main.style.display = 'block'; 
+          main.classList.remove('hidden'); 
           setTimeout(() => { 
-              main.classList.remove('opacity-0'); 
               main.style.opacity = '1'; 
-          }, 10); 
+              main.classList.remove('opacity-0'); 
+          }, 50); 
       }
       
+      // 2. Buang Cover ke atas layar
       if (cover) { 
-          cover.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease'; 
-          cover.style.transform = 'translateY(-100%)'; 
+          cover.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'; 
+          cover.style.transform = 'translateY(-100vh)'; 
           cover.style.opacity = '0'; 
-          setTimeout(() => { 
-              cover.style.display = 'none'; 
-          }, 500); 
+          setTimeout(() => { cover.style.display = 'none'; }, 800); 
       }
       
       window.scrollTo(0, 0);
 
-      // 2. Musik diisolasi dalam try-catch agar jika gagal/diblokir browser, laman tetap TERBUKA 100%
-      try {
-          const audio = document.getElementById('bgMusic');
-          if (audio) { 
-              audio.volume = ultimateConfig.musicVolume || 0.5;
-              if (ultimateConfig.musicUrl && audio.src !== ultimateConfig.musicUrl) {
-                  audio.src = ultimateConfig.musicUrl;
+      // 3. Render Audio Diberi Jeda agar Layar Prioritas Utama
+      setTimeout(() => {
+          try {
+              const audio = document.getElementById('bgMusic');
+              if (audio) { 
+                  audio.volume = ultimateConfig.musicVolume || 0.5;
+                  if (ultimateConfig.musicUrl && audio.src !== ultimateConfig.musicUrl) {
+                      audio.src = ultimateConfig.musicUrl;
+                  }
+                  
+                  // Safe Play Promise
+                  const playPromise = audio.play();
+                  if (playPromise !== undefined) {
+                      playPromise.then(() => {
+                          isPlaying = true; 
+                          const icon = document.getElementById('musicIcon'); 
+                          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+                      }).catch((e) => {
+                          console.warn('Browser memblokir autoplay audio:', e);
+                      });
+                  }
               }
-              audio.play().then(() => { 
-                  isPlaying = true; 
-                  const icon = document.getElementById('musicIcon'); 
-                  if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
-              }).catch((e) => {
-                  console.log('Autoplay audio ditahan browser (laman tetap terbuka normal):', e);
-              }); 
+          } catch(err) {
+              console.warn('Audio gagal dieksekusi:', err);
           }
-      } catch(err) {
-          console.log('Error musik terisolasi:', err);
-      }
+      }, 150);
     }
 
     function toggleMusic() {
@@ -636,11 +635,11 @@ Terima kasih. 🙏";
       if (!music) return;
       if (isPlaying) { 
           music.pause(); 
-          if(icon) icon.className = "fa-solid fa-music text-sm"; 
+          if(icon) icon.className = "fa-solid fa-music text-sm pointer-events-none"; 
           if(label) label.innerText = "Paused"; 
       } else { 
-          music.play().catch(e => console.log(e)); 
-          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+          music.play().catch(e => console.warn(e)); 
+          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm pointer-events-none"; 
           if(label) label.innerText = "Playing"; 
       }
       isPlaying = !isPlaying;
@@ -670,9 +669,7 @@ Terima kasih. 🙏";
 
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
-    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨
-${textElements.coupleName}
-https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
+    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨\n${textElements.coupleName}\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
 
     window.onload = function() {
         applyUltimateConfig();
@@ -691,4 +688,3 @@ https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
   </script>
 </body>
 </html>
-
