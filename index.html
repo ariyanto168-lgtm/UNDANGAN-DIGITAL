@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z Dashboard v8.2.0</title>
+  <title>Undangan Digital - Master Gen-Z Dashboard v8.3.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
       display: flex;
       justify-content: space-around;
       padding: 12px 10px;
-      pointer-events: none;
+      pointer-events: none; /* MEMASTIKAN LAMPU TIDAK MENCEGAT KLIK */
       z-index: 10;
     }
     .fairy-light {
@@ -61,6 +61,13 @@
       margin-left: 2px;
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* FIX: MEMASTIKAN TOMBOL SELALU BISA DIKLIK */
+    .btn-buka-undangan {
+        position: relative;
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+    }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -78,11 +85,11 @@
       <div class="fairy-light"></div>
     </div>
 
-    <div class="absolute inset-0 opacity-30 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center -z-10 pointer-events-none" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
     
-    <div></div>
+    <div class="pointer-events-none"></div>
 
-    <div class="space-y-3 py-4 relative z-20">
+    <div class="space-y-3 py-4 relative z-20 pointer-events-none">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">
         The Wedding Of
       </span>
@@ -94,16 +101,16 @@
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">
         Tamu Undangan
       </div>
-      <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
+      <p id="coverDateDisplay" class="text-slate-300 text-xs pointer-events-none">Minggu, 25 Oktober 2026</p>
       
-      <!-- TOMBOL BUKA UNDANGAN (DIJAMIN TIDAK MACET) -->
-      <button type="button" onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer text-sm relative z-30">
+      <!-- TOMBOL BUKA UNDANGAN (FIXED Z-INDEX & POINTER EVENTS) -->
+      <button type="button" onclick="openInvitation()" class="btn-buka-undangan w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer text-sm">
         <span>Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 relative z-20">
-      <p>Powered by Ari GPM (v8.2.0)</p>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-20 pointer-events-none">
+      <p>Powered by Ari GPM (v8.3.0)</p>
     </div>
   </div>
 
@@ -253,7 +260,7 @@
       </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v8.2.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v8.3.0</p>
       </div>
     </footer>
   </main>
@@ -268,7 +275,7 @@
           <i class="fa-solid fa-gauge-high text-lg"></i>
           <div>
             <h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2>
-            <p class="text-[10px] text-pink-100">Master Control Center v8.2.0</p>
+            <p class="text-[10px] text-pink-100">Master Control Center v8.3.0</p>
           </div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -338,13 +345,4 @@
       { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", typewriter: true, speed: 50 }
     ];
     let invitedGuests = [
-      { id: 1, name: "Bpk. Budi Santoso", phone: "6281234567890" }
-    ];
-    let attendanceList = [
-      { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }
-    ];
-    let textElements = {
-      coupleName: "Rian & Siska",
-      badgeText: "The Wedding Of",
-      subText: "Kepada Yth. Bestie & Tamu Undangan",
-      eventDate: "2026-1
+      { id: 1, 
