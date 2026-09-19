@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z Suite v7.0.0</title>
+  <title>Undangan Digital - Master Gen-Z Dashboard v8.0.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -57,21 +57,6 @@
     .cover-style-3 { border: 4px solid #00f0ff; border-radius: 1.5rem; box-shadow: 0 0 30px rgba(0,240,255,0.6); background: #0b0f19; }
     .cover-style-4 { border: 6px double #8ace00; border-radius: 3rem; background: #000000; box-shadow: 0 0 35px rgba(138,206,0,0.5); }
     .cover-style-5 { border: 4px solid #d946ef; border-radius: 2rem; background: linear-gradient(135deg, #2e0854, #0f172a); box-shadow: 0 0 30px rgba(217,70,239,0.5); }
-    .cover-style-6 { border: 3px solid #38bdf8; border-radius: 1rem; background: linear-gradient(145deg, #030712, #1e293b); }
-    .cover-style-7 { border: 5px solid #f97316; border-radius: 2.5rem; background: linear-gradient(120deg, #18181b, #451a03); }
-    .cover-style-8 { border: 4px dashed #a855f7; border-radius: 2rem; background: #09090b; }
-    .cover-style-9 { border: 4px solid #f43f5e; border-radius: 2.5rem; background: linear-gradient(135deg, #311026, #0f172a); }
-    .cover-style-10 { border: double 6px transparent; border-radius: 2.5rem; background-image: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), linear-gradient(to right, #ff007f, #7928ca, #00f0ff); background-origin: border-box; background-clip: padding-box, border-box; }
-    .cover-style-11 { border: 4px solid #10b981; border-radius: 2rem; background: #022c22; }
-    .cover-style-12 { border: 4px solid #eab308; border-radius: 1.5rem; background: #1c1917; }
-    .cover-style-13 { border: 4px dashed #ec4899; border-radius: 3rem; background: #18181b; }
-    .cover-style-14 { border: 5px solid #6366f1; border-radius: 2rem; background: #0f172a; }
-    .cover-style-15 { border: 4px solid #14b8a6; border-radius: 2.5rem; background: #042f2e; }
-    .cover-style-16 { border: 4px solid #f97316; border-radius: 1rem; background: #292524; }
-    .cover-style-17 { border: 4px solid #8b5cf6; border-radius: 2rem; background: #1e1b4b; }
-    .cover-style-18 { border: 4px dashed #06b6d4; border-radius: 2.5rem; background: #082f49; }
-    .cover-style-19 { border: 4px solid #ef4444; border-radius: 2rem; background: #450a0a; }
-    .cover-style-20 { border: 6px double #ffffff; border-radius: 3rem; background: #000000; box-shadow: 0 0 40px rgba(255,255,255,0.3); }
 
     .typewriter-cursor::after {
       content: '|';
@@ -122,7 +107,7 @@
     </div>
 
     <div class="text-[10px] text-slate-500 pb-2 relative z-10">
-      <p>Powered by Ari GPM (v7.0.0 Gen-Z Suite)</p>
+      <p>Powered by Ari GPM (v8.0.0 Gen-Z Dashboard)</p>
     </div>
   </div>
 
@@ -272,196 +257,72 @@
       </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Suite v7.0.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v8.0.0</p>
       </div>
     </footer>
   </main>
 
-  <!-- ADMIN MODAL -->
+  <!-- ADMIN MODAL (GEN-Z DASHBOARD & MODULE VIEWS) -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white px-6 py-4 flex items-center justify-between">
+    <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
+      
+      <!-- HEADER ADMIN -->
+      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white px-6 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-shield-halved"></i>
+          <i class="fa-solid fa-gauge-high text-lg"></i>
           <div>
-            <h2 class="text-lg font-bold">Master Gen-Z Suite v7.0.0</h2>
-            <p class="text-[10px] text-pink-200">20+ Preset, Text Table & WA Hub • Secured</p>
+            <h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2>
+            <p class="text-[10px] text-pink-100">Master Control Center v8.0.0</p>
           </div>
         </div>
         <button onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
 
       <!-- PIN SECTION -->
-      <div id="pinSection" class="p-6 space-y-4 text-center my-auto">
-        <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+      <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
+        <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30">
           <i class="fa-solid fa-lock"></i>
         </div>
-        <h3 class="font-bold text-gray-800">Verifikasi Master Lock</h3>
-        <p class="text-xs text-gray-500">PIN Default Editor: <span class="font-mono font-bold text-pink-600">1234</span></p>
-        <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
-        <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2.5 rounded-xl font-bold transition shadow-md cursor-pointer">Buka Kunci Editor</button>
-        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v7.0.0)</p>
+        <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
+        <p class="text-xs text-slate-400">PIN Default Editor: <span class="font-mono font-bold text-pink-400">1234</span></p>
+        <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
+        <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold transition shadow-lg cursor-pointer">Buka Dashboard Admin</button>
       </div>
 
-      <!-- EDITOR BODY -->
+      <!-- EDITOR BODY (DASHBOARD & DYNAMIC MODULES) -->
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
-        <div class="flex space-x-2 border-b border-gray-200 pb-2 overflow-x-auto text-sm">
-          <button onclick="switchTab('genz')" class="tab-btn px-3 py-1.5 font-bold text-pink-600 border-b-2 border-pink-600 whitespace-nowrap cursor-pointer">🎨 Gen-Z Preset (20x)</button>
-          <button onclick="switchTab('textTable')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">📋 Tabel Text</button>
-          <button onclick="switchTab('wa')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">💬 Pesan WA</button>
-          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">👥 Buku Tamu</button>
-          <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🚀 Section</button>
-        </div>
-
-        <!-- TAB GEN-Z PRESETS (20 MODEL, 20 PALET, 20 COVER, 20 SECTION COVER, 20 FRONT TEXT) -->
-        <div id="tab-genz" class="editor-tab space-y-4">
-          <div class="bg-pink-50 p-4 rounded-2xl border border-pink-200 space-y-3">
-            <h4 class="font-bold text-pink-900 text-xs"><i class="fa-solid fa-wand-magic-sparkles mr-1 text-pink-600"></i> Pilih Model & Preset Utama (1 - 20)</h4>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Model Utama Gen-Z</label>
-              <select id="editModelPreset" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-pink-700" onchange="applyGenZPresets()">
-                <!-- Diisi via JS 20 Model -->
-              </select>
-            </div>
+        
+        <!-- DASHBOARD GRID (CARD MENU) -->
+        <div id="adminDashboardView" class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-300">⚡ Pilih Menu Dashboard</h3>
+            <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded-full border border-cyan-500/30">Auto-Scalable</span>
           </div>
 
-          <div class="bg-purple-50 p-4 rounded-2xl border border-purple-200 space-y-3">
-            <h4 class="font-bold text-purple-900 text-xs"><i class="fa-solid fa-palette mr-1 text-purple-600"></i> Pilih Tema Palet Gen-Z (1 - 20)</h4>
-            <select id="editPalettePreset" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-purple-700" onchange="applyGenZPresets()">
-              <!-- Diisi via JS 20 Palet -->
-            </select>
-          </div>
-
-          <div class="bg-cyan-50 p-4 rounded-2xl border border-cyan-200 space-y-3">
-            <h4 class="font-bold text-cyan-900 text-xs"><i class="fa-solid fa-shield mr-1 text-cyan-600"></i> Pilih Cover Depan Gen-Z (1 - 20)</h4>
-            <select id="editCoverPreset" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-cyan-700" onchange="applyGenZPresets()">
-              <!-- Diisi via JS 20 Cover -->
-            </select>
-          </div>
-
-          <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-3">
-            <h4 class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1 text-amber-600"></i> Pilih Cover Laman Section (1 - 20)</h4>
-            <select id="editSectionCoverPreset" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-amber-700" onchange="applyGenZPresets()">
-              <!-- Diisi via JS 20 Section Covers -->
-            </select>
-          </div>
-
-          <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-3">
-            <h4 class="font-bold text-emerald-900 text-xs"><i class="fa-solid fa-font mr-1 text-emerald-600"></i> Pilih Gaya Front Text Gen-Z (1 - 20)</h4>
-            <select id="editFrontTextPreset" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-emerald-700" onchange="applyGenZPresets()">
-              <!-- Diisi via JS 20 Front Texts -->
-            </select>
+          <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3">
+            <!-- Card items will be dynamically generated by JS for extreme flexibility -->
           </div>
         </div>
 
-        <!-- TAB TABEL TEMPAT TEXT (TEXT TABLE MANAGER) -->
-        <div id="tab-textTable" class="editor-tab hidden space-y-4">
-          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-300 space-y-3">
-            <h4 class="font-bold text-slate-900 text-xs"><i class="fa-solid fa-table mr-1 text-indigo-600"></i> Tabel Tempat Text Undangan</h4>
-            <p class="text-[10px] text-slate-600">Kelola dan ubah seluruh teks utama undangan melalui tabel terstruktur di bawah ini:</p>
-            
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs bg-white rounded-xl border border-slate-200 overflow-hidden">
-                <thead class="bg-slate-200 text-slate-700">
-                  <tr>
-                    <th class="p-2 border-b">Elemen Text</th>
-                    <th class="p-2 border-b">Isi / Nilai Saat Ini</th>
-                  </tr>
-                </thead>
-                <tbody id="textTableBody">
-                  <!-- Dibuat dinamis via JS -->
-                </tbody>
-              </table>
-            </div>
-            <button onclick="saveTextTable()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-xl font-bold text-xs shadow cursor-pointer">
-              💾 Simpan Perubahan Tabel Text
-            </button>
+        <!-- MODULE CONTENT CONTAINER (HIDDEN UNTIL CARD CLICKED) -->
+        <div id="adminModuleView" class="hidden space-y-4">
+          <button onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer border border-slate-700">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Kembali ke Dashboard</span>
+          </button>
+          
+          <div id="moduleContentArea" class="space-y-4">
+            <!-- Module content inserted here dynamically -->
           </div>
         </div>
 
-        <!-- TAB CUSTOM TEMPLATE WA -->
-        <div id="tab-wa" class="editor-tab hidden space-y-4">
-          <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-3">
-            <h4 class="font-bold text-emerald-900 text-xs"><i class="fa-brands fa-whatsapp mr-1 text-emerald-600"></i> Kustomisasi Template Pesan WA</h4>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Gunakan tag <code class="text-pink-600">{nama}</code> & <code class="text-pink-600">{link}</code></label>
-              <textarea id="editWaTemplate" rows="6" class="w-full p-2.5 border rounded-xl text-xs bg-white font-mono">Halo {nama},
-
-Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.
-
-Berikut tautan undangan digital kami:
-{link}
-
-Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir.
-
-Terima kasih. 🙏</textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB BUKU TAMU & ABSEN -->
-        <div id="tab-guests" class="editor-tab hidden space-y-5">
-          <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-3">
-            <h4 class="font-bold text-emerald-900 text-xs"><i class="fa-solid fa-address-book mr-1 text-emerald-600"></i> Tambah Daftar Tamu Undangan</h4>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Nama Tamu</label>
-              <input type="text" id="newGuestNameInput" placeholder="Cth: Bpk. Budi Santoso" class="w-full p-2.5 border rounded-xl text-xs bg-white">
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">No. WhatsApp (Awali 62)</label>
-              <input type="text" id="newGuestPhoneInput" placeholder="Cth: 6281234567890" class="w-full p-2.5 border rounded-xl text-xs bg-white">
-            </div>
-            <div class="grid grid-cols-2 gap-2 pt-1">
-              <button onclick="addInvitedGuest()" class="bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
-                ➕ Simpan ke Daftar
-              </button>
-              <button onclick="shareToAllGuests()" class="bg-emerald-800 hover:bg-emerald-900 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
-                📢 Kirim ke Semua Tamu
-              </button>
-            </div>
-          </div>
-
-          <div class="space-y-2">
-            <h4 class="font-bold text-gray-700 text-xs">Daftar Tamu Tersimpan (<span id="guestCountBadge">0</span>):</h4>
-            <div id="invitedGuestsListContainer" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
-          </div>
-
-          <div class="bg-blue-50 p-4 rounded-2xl border border-blue-200 space-y-3">
-            <div class="flex justify-between items-center">
-              <h4 class="font-bold text-blue-900 text-xs"><i class="fa-solid fa-clipboard-user mr-1 text-blue-600"></i> Rekap Absen Kehadiran (RSVP)</h4>
-              <span id="absenSummaryBadge" class="text-[10px] font-bold bg-blue-200 text-blue-900 px-2 py-0.5 rounded-full">Hadir: 0 | Absen: 0</span>
-            </div>
-            <div id="absenListContainer" class="space-y-2 max-h-40 overflow-y-auto pr-1">
-              <p class="text-[11px] text-gray-400 italic">Belum ada data absen masuk.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB KELOLA SECTIONS -->
-        <div id="tab-sections" class="editor-tab hidden space-y-4">
-          <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-3">
-            <h4 id="secFormTitle" class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1"></i> Tambah / Edit Section</h4>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Judul Section</label>
-              <input type="text" id="newSecTitle" placeholder="Cth: Kisah Cinta / Rekening" class="w-full p-2 border rounded-xl text-xs bg-white">
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Isi Teks / Konten Section</label>
-              <textarea id="newSecContent" rows="3" placeholder="Tulis isi atau informasi lengkap..." class="w-full p-2 border rounded-xl text-xs bg-white"></textarea>
-            </div>
-            <button onclick="saveDynamicSection()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
-              <span id="saveSecBtnText">➕ Tambahkan ke Undangan</span>
-            </button>
-          </div>
-          <div id="manageSectionsList" class="space-y-2 max-h-48 overflow-y-auto pr-1"></div>
-        </div>
       </div>
     </div>
   </div>
 
   <!-- SHARE MODAL -->
   <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-4 text-center">
+    <div class="bg-white text-gray-900 w-full max-w-sm rounded-3xl shadow-2xl p-6 space-y-4 text-center">
       <h3 class="font-bold text-lg">Bagikan Undangan</h3>
       <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
       <div class="space-y-2 pt-1">
@@ -476,253 +337,4 @@ Terima kasih. 🙏</textarea>
 
   <!-- AUDIO BACKSOUND -->
   <audio id="bgMusic" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-  </audio>
-
-  <!-- JAVASCRIPT UTAMA -->
-  <script>
-    let dynamicSections = [
-      { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", typewriter: true, speed: 50 }
-    ];
-    let invitedGuests = [
-      { id: 1, name: "Bpk. Budi Santoso", phone: "6281234567890" }
-    ];
-    let attendanceList = [
-      { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru Rian & Siska!" }
-    ];
-
-    let textElements = {
-      coupleName: "Rian & Siska",
-      badgeText: "The Wedding Of",
-      subText: "Kepada Yth. Bestie & Tamu Undangan",
-      eventDate: "2026-10-25",
-      quoteText: "\"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...\"",
-      footerCouple: "Rian & Siska"
-    };
-
-    let isPlaying = false;
-
-    function initGenZDropdowns() {
-      const modelSel = document.getElementById('editModelPreset');
-      const paletteSel = document.getElementById('editPalettePreset');
-      const coverSel = document.getElementById('editCoverPreset');
-      const secCoverSel = document.getElementById('editSectionCoverPreset');
-      const frontTextSel = document.getElementById('editFrontTextPreset');
-
-      for (let i = 1; i <= 20; i++) {
-        modelSel.innerHTML += `<option value="${i}">🔥 Model Gen-Z #${i}</option>`;
-        paletteSel.innerHTML += `<option value="${i}">🎨 Palet Warna Gen-Z #${i}</option>`;
-        coverSel.innerHTML += `<option value="${i}">✨ Cover Depan Gen-Z #${i}</option>`;
-        secCoverSel.innerHTML += `<option value="${i}">📦 Cover Laman Section #${i}</option>`;
-        frontTextSel.innerHTML += `<option value="${i}">✍️ Front Text Style #${i}</option>`;
-      }
-    }
-
-    function renderTextTable() {
-      const tbody = document.getElementById('textTableBody');
-      tbody.innerHTML = '';
-      const labels = {
-        coupleName: "Nama Pasangan",
-        badgeText: "Label Atas Cover",
-        subText: "Sub-teks Cover",
-        eventDate: "Tanggal Acara",
-        quoteText: "Teks Kutipan / Ayat",
-        footerCouple: "Teks Footer Bawah"
-      };
-
-      for (let key in textElements) {
-        tbody.innerHTML += `
-          <tr>
-            <td class="p-2 border-b font-medium text-slate-700">${labels[key] || key}</td>
-            <td class="p-2 border-b">
-              <input type="text" id="table-text-${key}" value="${textElements[key]}" class="w-full p-1.5 border rounded-lg text-xs bg-slate-50">
-            </td>
-          </tr>
-        `;
-      }
-    }
-
-    function saveTextTable() {
-      for (let key in textElements) {
-        const input = document.getElementById(`table-text-${key}`);
-        if (input) textElements[key] = input.value;
-      }
-      applyTextTableChanges();
-      alert('Tabel Text berhasil disimpan!');
-    }
-
-    function applyTextTableChanges() {
-      document.getElementById('coverCoupleName').innerText = textElements.coupleName;
-      document.getElementById('mainHeroTitle').innerText = textElements.coupleName;
-      document.getElementById('footerCouple').innerText = textElements.footerCouple;
-      document.getElementById('coverBadgeText').innerText = textElements.badgeText;
-      document.getElementById('coverSubText').innerText = textElements.subText;
-      document.getElementById('quoteText').innerText = textElements.quoteText;
-
-      if (textElements.eventDate) {
-        const formattedDate = new Date(textElements.eventDate).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        document.getElementById('coverDateDisplay').innerText = formattedDate;
-      }
-    }
-
-    function applyGenZPresets() {
-      const coverNum = document.getElementById('editCoverPreset').value;
-      const cover = document.getElementById('coverSection');
-      cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto cover-style-${coverNum}`;
-    }
-
-    initGenZDropdowns();
-    renderTextTable();
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const toParam = urlParams.get('to');
-    if (toParam) {
-      document.getElementById('guestName').innerText = decodeURIComponent(toParam);
-      document.getElementById('guestInputName').value = decodeURIComponent(toParam);
-    }
-
-    function openInvitation() {
-      const cover = document.getElementById('coverSection');
-      const main = document.getElementById('mainContent');
-      
-      cover.style.transform = 'translateY(-100%)';
-      main.classList.remove('hidden');
-      setTimeout(() => main.classList.remove('opacity-0'), 50);
-      window.scrollTo(0, 0);
-      
-      const music = document.getElementById('bgMusic');
-      const icon = document.getElementById('musicIcon');
-      const label = document.getElementById('musicLabel');
-      
-      music.play().then(() => {
-        isPlaying = true;
-        icon.className = "fa-solid fa-music animate-spin text-sm";
-        label.innerText = "Playing";
-      }).catch(() => {});
-
-      setTimeout(() => { cover.style.display = 'none'; }, 700);
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById('bgMusic');
-      const icon = document.getElementById('musicIcon');
-      const label = document.getElementById('musicLabel');
-      
-      if (isPlaying) {
-        music.pause();
-        icon.className = "fa-solid fa-music text-sm";
-        label.innerText = "Paused";
-      } else {
-        music.play();
-        icon.className = "fa-solid fa-music animate-spin text-sm";
-        label.innerText = "Playing";
-      }
-      isPlaying = !isPlaying;
-    }
-
-    function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-    function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
-
-    function verifyPin() {
-      const pin = document.getElementById('adminPinInput').value;
-      if (pin === '1234') {
-        document.getElementById('pinSection').classList.add('hidden');
-        document.getElementById('editorBody').classList.remove('hidden');
-      } else {
-        alert('PIN Salah! Gunakan PIN default: 1234');
-      }
-    }
-
-    function switchTab(tabName) {
-      document.querySelectorAll('.editor-tab').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('border-b-2', 'border-pink-600', 'font-bold', 'text-pink-600');
-        btn.classList.add('text-gray-600');
-      });
-      document.getElementById('tab-' + tabName).classList.remove('hidden');
-      event.currentTarget.classList.add('border-b-2', 'border-pink-600', 'font-bold', 'text-pink-600');
-      event.currentTarget.classList.remove('text-gray-600');
-    }
-
-    function addInvitedGuest() {
-      const name = document.getElementById('newGuestNameInput').value.trim();
-      const phone = document.getElementById('newGuestPhoneInput').value.trim();
-      if (!name) { alert('Nama tamu wajib diisi!'); return; }
-      invitedGuests.push({ id: Date.now(), name: name, phone: phone });
-      document.getElementById('newGuestNameInput').value = '';
-      document.getElementById('newGuestPhoneInput').value = '';
-      renderInvitedGuests();
-      alert('Tamu berhasil ditambahkan!');
-    }
-
-    function renderInvitedGuests() {
-      const container = document.getElementById('invitedGuestsListContainer');
-      const badge = document.getElementById('guestCountBadge');
-      container.innerHTML = '';
-      badge.innerText = invitedGuests.length;
-      invitedGuests.forEach((g, idx) => {
-        container.innerHTML += `
-          <div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-emerald-200 text-xs shadow-sm">
-            <span class="font-bold text-gray-800">${idx + 1}. ${g.name}</span>
-            <button onclick="sendToGuest(${idx})" class="bg-emerald-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i></button>
-          </div>
-        `;
-      });
-    }
-
-    function sendToGuest(index) {
-      const g = invitedGuests[index];
-      const template = document.getElementById('editWaTemplate').value;
-      const link = `https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/?to=${encodeURIComponent(g.name)}`;
-      const message = template.replace(/{nama}/g, g.name).replace(/{link}/g, link);
-      let waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      if (g.phone) waUrl = `https://wa.me/${g.phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
-    }
-
-    function shareToAllGuests() {
-      if (invitedGuests.length === 0) { alert('Daftar tamu kosong!'); return; }
-      invitedGuests.forEach((g, idx) => {
-        setTimeout(() => {
-          const template = document.getElementById('editWaTemplate').value;
-          const link = `https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/?to=${encodeURIComponent(g.name)}`;
-          const message = template.replace(/{nama}/g, g.name).replace(/{link}/g, link);
-          window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
-        }, idx * 800);
-      });
-    }
-
-    function shareGeneralWhatsApp() {
-      const template = document.getElementById('editWaTemplate').value;
-      const message = template.replace(/{nama}/g, 'Bapak/Ibu/Saudara/i').replace(/{link}/g, 'https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/');
-      window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
-    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
-
-    const weddingDate = new Date("October 25, 2026 08:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      if (distance < 0) return;
-      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
-
-    function submitWish() {
-      const name = document.getElementById('guestInputName').value.trim();
-      const status = document.getElementById('attendanceStatus').value;
-      const message = document.getElementById('guestMessage').value.trim();
-      if (!name || !message) { alert('Isi nama dan pesan!'); return; }
-      attendanceList.unshift({ name, status, message });
-      document.getElementById('wishesList').innerHTML += `<div class="bg-white p-4 rounded-2xl border text-xs"><b>${name} (${status})</b>: ${message}</div>`;
-      alert('Berhasil dikirim!');
-    }
-    
-    renderInvitedGuests();
-  </script>
-</body>
-</html>
+    <source src="https://www.bensound.com/bensound-music/benso
