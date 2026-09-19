@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.35</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.36</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.35)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.36)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -89,6 +89,7 @@
         <div id="categoryParticlesContainer"></div>
         <div class="relative z-10 space-y-3 pb-8">
           <div id="dynamicSticker-hero" class="flex justify-center mb-2"></div>
+          <div id="dynamicPhotosGrid-hero" class="grid grid-cols-2 gap-2 mb-3"></div>
           <span id="text-badge" data-key="badgeText" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
           <h1 id="text-heroTitle" data-key="heroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
           <p id="text-heroSub" data-key="heroSub" class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
@@ -98,7 +99,7 @@
       <!-- SECTION 2: QUOTES -->
       <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
         <div id="dynamicSticker-quotes" class="flex justify-center mb-2"></div>
-        <div id="dynamicPhoto-quotes" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
+        <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
         <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
@@ -106,6 +107,7 @@
       <!-- SECTION 3: MEMPELAI -->
       <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="dynamicSticker-mempelai" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhotosGrid-mempelai" class="grid grid-cols-2 gap-2 mb-3"></div>
         <h2 id="text-titleMempelai" data-key="titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
           <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile1FrameContainer">
@@ -127,6 +129,7 @@
       <!-- SECTION 4: VIDEO MP4 (URL MODE) -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="dynamicSticker-video" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
         <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center">
@@ -140,7 +143,7 @@
       <!-- SECTION 5: LOKASI -->
       <section data-section-key="lokasi" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="dynamicSticker-lokasi" class="flex justify-center mb-2"></div>
-        <div id="dynamicPhoto-lokasi" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
+        <div id="dynamicPhotosGrid-lokasi" class="grid grid-cols-2 gap-2 mb-3"></div>
         <h2 id="text-titleLokasi" data-key="titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
         <div class="bg-white/80 p-4 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <p id="text-alamat" data-key="alamat" class="text-xs text-slate-600">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
@@ -151,10 +154,10 @@
         </div>
       </section>
 
-      <!-- SECTION 6: AMPLOP -->
-      <section data-section-key="amplop" class="py-10 px-6 text-center section-overlay space-y-6">
+      <!-- SECTION 6: AMPLOP (DENGAN SAKLAR SEMBUNYI/TAMPIL) -->
+      <section data-section-key="amplop" id="amplopSectionContainer" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="dynamicSticker-amplop" class="flex justify-center mb-2"></div>
-        <div id="dynamicPhoto-amplop" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
+        <div id="dynamicPhotosGrid-amplop" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
         <h2 id="text-titleGift" data-key="titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
         <p id="text-subGift" data-key="subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
@@ -176,7 +179,7 @@
       <!-- SECTION 7: RSVP & SHARELOK -->
       <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
         <div id="dynamicSticker-rsvp" class="flex justify-center mb-2"></div>
-        <div id="dynamicPhoto-rsvp" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
+        <div id="dynamicPhotosGrid-rsvp" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
@@ -199,7 +202,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.35 (Fixed GIF & Custom Upload)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.36 (Amplop Toggle & Unlimited Multi-Photos)</p>
       </div>
     </footer>
   </main>
@@ -210,7 +213,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.35</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.36</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -255,7 +258,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.35 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.36 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -446,7 +449,7 @@
         textElements[k] = { text: defaultText[k], typewriter: true };
     }
 
-    let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
+    let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
     let attendanceList = [
         { name: "Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx", status: "Hadir", message: "Selamat menempuh hidup baru!" }
     ];
@@ -471,16 +474,19 @@
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
     };
 
-    let sectionPhotos = { quotes: '', lokasi: '', amplop: '', rsvp: '' };
+    // Unlimited multi-photos per section & visibility switches
+    let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
+    let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
     let sectionStickers = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
 
     try {
-        if(localStorage.getItem('ari_textElements_v35')) {
+        if(localStorage.getItem('ari_textElements_v36')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v36'));
+        } else if(localStorage.getItem('ari_textElements_v35')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v35'));
-        } else if(localStorage.getItem('ari_textElements_v34')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v34'));
         }
-        if(localStorage.getItem('ari_sectionPhotos')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos'));
+        if(localStorage.getItem('ari_sectionPhotos_v36')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v36'));
+        if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionStickers')) sectionStickers = JSON.parse(localStorage.getItem('ari_sectionStickers'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
@@ -495,8 +501,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v35', JSON.stringify(textElements));
-            localStorage.setItem('ari_sectionPhotos', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_textElements_v36', JSON.stringify(textElements));
+            localStorage.setItem('ari_sectionPhotos_v36', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionStickers', JSON.stringify(sectionStickers));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
@@ -509,7 +516,7 @@
     }
 
     function generateBackup() {
-        const data = { textElements, sectionPhotos, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
+        const data = { textElements, sectionPhotos, sectionPhotoVisibility, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Disalin!"); }
@@ -520,6 +527,7 @@
             const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
             if(decoded.textElements) textElements = decoded.textElements;
             if(decoded.sectionPhotos) sectionPhotos = decoded.sectionPhotos;
+            if(decoded.sectionPhotoVisibility) sectionPhotoVisibility = decoded.sectionPhotoVisibility;
             if(decoded.sectionStickers) sectionStickers = decoded.sectionStickers;
             if(decoded.giftConfig) giftConfig = decoded.giftConfig;
             if(decoded.ultimateConfig) ultimateConfig = decoded.ultimateConfig;
@@ -536,13 +544,13 @@
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset & Animasi', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'animasiStiker', title: 'Animasi, GIF & Stiker', desc: '20 Koleksi Stiker + Upload GIF', icon: 'fa-face-grin-stars', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Upload Foto Dinamis', desc: 'Unggah Foto di Semua Section', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'dynamicPhotos', title: 'Upload Multi-Foto Dinamis', desc: 'Tanpa Batas + Saklar Tampil', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Data Sharelok Tamu', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks & On/Off Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'gift', title: 'Amplop, QRIS & Saklar', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'guests', title: 'Buku Tamu & Sharelok', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
       { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data Update', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
@@ -644,26 +652,51 @@
           </div>`;
       }
       else if (id === 'dynamicPhotos') {
+          const sectionList = [
+              { key: 'hero', name: '1. Cover / Hero Section' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Video Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' }
+          ];
+
+          let photoAdminHtml = '';
+          sectionList.forEach(sec => {
+              let currentArr = sectionPhotos[sec.key] || [];
+              let isVisible = sectionPhotoVisibility[sec.key] !== false ? 'checked' : '';
+              
+              let thumbsHtml = '';
+              currentArr.forEach((imgUrl, imgIdx) => {
+                  thumbsHtml += `
+                    <div class="relative w-16 h-16 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
+                      <img src="${imgUrl}" class="w-full h-full object-cover">
+                      <button onclick="removeSectionPhoto('${sec.key}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-5 h-5 text-[10px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>`;
+              });
+
+              photoAdminHtml += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-rose-300">${sec.name}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                    <input type="checkbox" id="visPhoto-${sec.key}" ${isVisible} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                    <span>Tampilkan Foto</span>
+                  </label>
+                </div>
+                <p class="text-[10px] text-slate-400">Upload banyak foto sekaligus (tanpa batas):</p>
+                <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+                <div class="flex flex-wrap gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic">Belum ada foto</span>'}</div>
+              </div>`;
+          });
+
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">🖼️ Upload Foto Dinamis di Semua Section</h4>
-            <p class="text-slate-400">Unggah foto kustom untuk menghiasi section tertentu.</p>
-            
-            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
-              <label class="block text-slate-300 font-bold">1. Foto Section Quotes</label>
-              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'quotes')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-
-              <label class="block text-slate-300 font-bold pt-2">2. Foto Section Lokasi</label>
-              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'lokasi')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-
-              <label class="block text-slate-300 font-bold pt-2">3. Foto Section Amplop Digital</label>
-              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'amplop')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-
-              <label class="block text-slate-300 font-bold pt-2">4. Foto Section RSVP & Ucapan</label>
-              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'rsvp')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-            </div>
-            
-            <button onclick="clearAllSectionPhotos()" class="w-full bg-rose-900 text-white py-2 rounded-xl font-bold">Hapus Semua Foto Section</button>
+            <h4 class="font-bold text-rose-400 text-sm">🖼️ Upload Multi-Foto Dinamis Tanpa Batas & Saklar</h4>
+            <p class="text-slate-400">Anda dapat mengunggah banyak foto per section sekaligus dan menyalakan/mematikan tombol saklar tampilnya.</p>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${photoAdminHtml}</div>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Foto & Saklar</button>
           </div>`;
       }
       else if (id === 'databaseWarga') {
@@ -819,11 +852,20 @@
           </div>`;
       } 
       else if (id === 'gift') {
+        let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital</h4>
-            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <label class="block text-slate-300 font-bold">Upload QRIS</label>
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & Saklar Tampil/Sembunyi</h4>
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
+                  <span class="font-bold text-white">Tampilkan Amplop Digital di Undangan</span>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                  </label>
+                </div>
+
+                <label class="block text-slate-300 font-bold pt-2">Upload QRIS</label>
                 <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
                 <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
                 <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="No Rek" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
@@ -853,6 +895,48 @@
             alert(`GIF kustom untuk ${sectionKey} berhasil diunggah dan langsung aktif!`);
         };
         reader.readAsDataURL(file);
+    }
+
+    function handleMultiPhotoUpload(event, sectionKey) {
+        const files = event.target.files;
+        if(!files || files.length === 0) return;
+        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
+
+        let loadedCount = 0;
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                sectionPhotos[sectionKey].push(e.target.result);
+                loadedCount++;
+                if(loadedCount === files.length) {
+                    saveAllDataToDevice();
+                    openAdminModule('dynamicPhotos');
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function removeSectionPhoto(sectionKey, index) {
+        if(sectionPhotos[sectionKey]) {
+            sectionPhotos[sectionKey].splice(index, 1);
+            saveAllDataToDevice();
+            openAdminModule('dynamicPhotos');
+        }
+    }
+
+    function saveMultiPhotoConfig() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(sec => {
+            const cb = document.getElementById(`visPhoto-${sec}`);
+            if(cb) {
+                sectionPhotoVisibility[sec] = cb.checked;
+            }
+        });
+        saveAllDataToDevice();
+        applySectionPhotos();
+        alert('Foto dinamis & saklar berhasil disimpan!');
+        backToDashboard();
     }
 
     function saveAllStickers() {
@@ -945,40 +1029,28 @@
         backToDashboard();
     }
 
-    function handleSectionPhotoUpload(event, sectionKey) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            sectionPhotos[sectionKey] = e.target.result;
-            saveAllDataToDevice();
-            applySectionPhotos();
-            alert(`Foto untuk section ${sectionKey} berhasil diunggah!`);
-        };
-        reader.readAsDataURL(file);
-    }
-
-    function clearAllSectionPhotos() {
-        if(confirm('Hapus semua foto kustom di semua section?')) {
-            sectionPhotos = { quotes: '', lokasi: '', amplop: '', rsvp: '' };
-            saveAllDataToDevice();
-            applySectionPhotos();
-            alert('Semua foto section dihapus.');
-        }
-    }
-
     function applySectionPhotos() {
-        for(let key in sectionPhotos) {
-            const container = document.getElementById(`dynamicPhoto-${key}`);
-            if(!container) continue;
-            if(sectionPhotos[key]) {
-                container.classList.remove('hidden');
-                container.querySelector('img').src = sectionPhotos[key];
-            } else {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(key => {
+            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
+            if(!container) return;
+            
+            const isVisible = sectionPhotoVisibility[key] !== false;
+            const photosArr = sectionPhotos[key] || [];
+
+            if(!isVisible || photosArr.length === 0) {
+                container.innerHTML = '';
                 container.classList.add('hidden');
-                container.querySelector('img').src = '';
+                return;
             }
-        }
+
+            container.classList.remove('hidden');
+            let gridHtml = '';
+            photosArr.forEach(url => {
+                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
+            });
+            container.innerHTML = gridHtml;
+        });
     }
 
     function addWargaToDb() {
@@ -1171,15 +1243,26 @@
     }
 
     function saveGiftConfig() {
+        giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
         giftConfig.bank = document.getElementById('inputBankName').value;
         giftConfig.number = document.getElementById('inputRekNumber').value;
         giftConfig.owner = document.getElementById('inputRekOwner').value;
         saveAllDataToDevice();
         applyGiftToDOM();
-        alert('Amplop Disimpan!');
+        alert('Amplop & Saklar Disimpan!');
+        backToDashboard();
     }
 
     function applyGiftToDOM() {
+        const amplopSection = document.getElementById('amplopSectionContainer');
+        if(amplopSection) {
+            if(giftConfig.visible === false) {
+                amplopSection.style.display = 'none';
+            } else {
+                amplopSection.style.display = 'block';
+            }
+        }
+
         const dbn = document.getElementById('displayBankName');
         const drn = document.getElementById('displayRekNumber');
         const dro = document.getElementById('displayRekOwner');
