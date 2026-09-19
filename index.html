@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Editor v5.0.0</title>
+  <title>Undangan Digital - Master Editor Suite v5.3.0 Dynamic Sections</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -19,35 +19,41 @@
       animation: textPulse var(--pulse-speed, 2.5s) infinite ease-in-out;
     }
 
+    /* Efek Lampu Hias Kelap-Kelip (Fairy Lights) */
+    .fairy-lights-container {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 10px;
+      pointer-events: none;
+      z-index: 30;
+    }
+    .fairy-light {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: #ffeb3b;
+      box-shadow: 0 0 12px #ffeb3b, 0 0 22px #ff9800;
+      animation: twinkle 1.2s infinite alternate;
+    }
+    .fairy-light:nth-child(even) {
+      background: #ff4081;
+      box-shadow: 0 0 12px #ff4081, 0 0 22px #e91e63;
+      animation-delay: 0.6s;
+    }
+    .fairy-light:nth-child(3n) {
+      background: #00e5ff;
+      box-shadow: 0 0 12px #00e5ff, 0 0 22px #00b0ff;
+      animation-delay: 0.3s;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.7); }
+      100% { opacity: 1; transform: scale(1.3); }
+    }
+
     .cover-motif-1 { border: 4px solid #d4af37; border-radius: 2rem; box-shadow: 0 0 30px rgba(212,175,55,0.4); background: linear-gradient(135deg, rgba(20,20,20,0.85), rgba(40,40,40,0.95)); }
     .cover-motif-2 { border: 4px dashed #ff007f; border-radius: 2.5rem; box-shadow: 0 0 25px rgba(255,0,127,0.5); background: linear-gradient(135deg, #1a0a1c, #2d0c2e); }
-    .cover-motif-3 { border: 4px solid #3b82f6; border-radius: 1.5rem; box-shadow: 0 0 25px rgba(59,130,246,0.5); background: linear-gradient(135deg, #0f172a, #1e3a8a); }
-    .cover-motif-4 { border: 4px solid #ef4444; border-radius: 2rem; box-shadow: 0 0 30px rgba(239,68,68,0.6); background: linear-gradient(135deg, #450a0a, #7f1d1d); }
-    .cover-motif-5 { border: 4px solid #10b981; border-radius: 2rem; box-shadow: 0 0 25px rgba(16,185,129,0.5); background: linear-gradient(135deg, #064e3b, #022c22); }
     .cover-motif-6 { border: 3px solid #00f0ff; border-radius: 1.5rem; box-shadow: 0 0 30px rgba(0,240,255,0.6); background: #0b0f19; }
-    .cover-motif-7 { border: 3px solid #fbcfe8; border-radius: 2.5rem; background: linear-gradient(135deg, #831843, #500724); }
-    .cover-motif-8 { border: 3px double #d97706; border-radius: 1rem; background: linear-gradient(135deg, #78350f, #451a03); }
-    .cover-motif-9 { border: 2px solid #ffffff; border-radius: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.5); background: linear-gradient(135deg, #111827, #030712); }
-    .cover-motif-10 { border: 4px dotted #ec4899; border-radius: 2rem; background: linear-gradient(135deg, #500724, #1f0410); }
-    .cover-motif-11 { border: 4px ridge #fbbf24; border-radius: 1.5rem; background: linear-gradient(135deg, #1e3a8a, #172554); }
-    .cover-motif-12 { border: 4px solid #f43f5e; border-radius: 3rem; background: linear-gradient(135deg, #4c0519, #881337); }
-    .cover-motif-13 { border: 3px solid #f59e0b; border-radius: 2rem; background: linear-gradient(135deg, #451a03, #292524); }
-    .cover-motif-14 { border: 3px solid #a855f7; border-radius: 2rem; box-shadow: 0 0 30px rgba(168,85,247,0.6); background: linear-gradient(135deg, #2e1065, #0f0728); }
-    .cover-motif-15 { border: 5px solid #1e293b; border-radius: 2rem; box-shadow: inset 0 0 30px rgba(0,0,0,0.8); background: linear-gradient(135deg, #334155, #0f172a); }
-    .cover-motif-16 { border: 3px solid #fed7aa; border-radius: 2.5rem; background: linear-gradient(135deg, #9a3412, #431407); }
-    .cover-motif-17 { border: 3px solid #60a5fa; border-radius: 1.5rem; background: linear-gradient(135deg, #1e40af, #1e3a8a); }
-    .cover-motif-18 { border: 4px solid #dc2626; border-radius: 2rem; background: linear-gradient(135deg, #7f1d1d, #991b1b); }
-    .cover-motif-19 { border: 4px double #b45309; border-radius: 2rem; background: linear-gradient(135deg, #78350f, #713f12); }
-    .cover-motif-20 { border: 3px solid #06b6d4; border-radius: 2rem; box-shadow: 0 0 25px rgba(6,182,212,0.5); background: linear-gradient(135deg, #0891b2, #164e63); }
-    .cover-motif-21 { border: 4px solid #f97316; border-radius: 2rem; background: linear-gradient(135deg, #c2410c, #7c2d12); }
-    .cover-motif-22 { border: 3px solid #e2e8f0; border-radius: 2rem; background: linear-gradient(135deg, #334155, #1e293b); }
-    .cover-motif-23 { border: 4px solid #047857; border-radius: 2.5rem; background: linear-gradient(135deg, #065f46, #022c22); }
-    .cover-motif-24 { border: 3px solid #c084fc; border-radius: 2rem; background: linear-gradient(135deg, #581c87, #3b0764); }
-    .cover-motif-25 { border: 4px solid #22c55e; border-radius: 1.5rem; box-shadow: 0 0 25px rgba(34,197,94,0.6); background: linear-gradient(135deg, #14532d, #052e16); }
-    .cover-motif-26 { border: 3px solid #000000; border-radius: 1rem; background: linear-gradient(135deg, #ffffff, #f1f5f9); color: #000 !important; }
-    .cover-motif-27 { border: 3px solid #fb7185; border-radius: 3rem; background: linear-gradient(135deg, #9f1239, #4c0519); }
-    .cover-motif-28 { border: 3px solid #bc6c25; border-radius: 2rem; background: linear-gradient(135deg, #654321, #38220f); }
-    .cover-motif-29 { border: 4px solid #d946ef; border-radius: 2rem; box-shadow: 0 0 30px rgba(217,70,239,0.5); background: linear-gradient(135deg, #701a75, #4a044e); }
     .cover-motif-30 { border: double 6px transparent; border-radius: 2.5rem; background-image: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), linear-gradient(to right, #ff007f, #7928ca, #00f0ff); background-origin: border-box; background-clip: padding-box, border-box; }
 
     .typewriter-effect::after {
@@ -58,60 +64,214 @@
       margin-left: 2px;
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .toast-animate { animation: slideUp 0.3s ease-out forwards; }
-
-    .draggable-card { cursor: grab; transition: transform 0.2s, box-shadow 0.2s; }
-    .draggable-card:active { cursor: grabbing; }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased">
 
-  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-center p-3 md:p-6 text-center bg-cover bg-center transition-transform duration-700 cover-motif-1 text-white overflow-y-auto"></div>
+  <!-- COVER UTAMA DENGAN LAMPU HIAS -->
+  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 cover-motif-1 text-white overflow-y-auto">
+    <div class="fairy-lights-container">
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+      <div class="fairy-light"></div>
+    </div>
 
-  <div id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative">
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+    
+    <div class="w-full flex items-center justify-between text-[11px] pt-4 relative z-10">
+      <span class="bg-pink-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
+        <i class="fa-solid fa-gear text-[10px]"></i> Admin Editor
+      </span>
+      <span class="bg-slate-800/80 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30 text-[10px] tracking-wider uppercase">
+        The Wedding Of
+      </span>
+      <span class="bg-emerald-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
+        <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> Tersinkronisasi
+      </span>
+    </div>
+
+    <div class="space-y-3 py-4 relative z-10">
+      <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active">Rian & Siska</h1>
+      <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
+    </div>
+
+    <div class="w-full max-w-xs space-y-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-10">
+      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">
+        Tamu Undangan
+      </div>
+      <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
+      
+      <button type="button" onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer text-sm">
+        <span>Buka Undangan ✨</span>
+      </button>
+    </div>
+
+    <div class="text-[11px] text-slate-400 space-y-1 pb-2 relative z-10">
+      <button onclick="alert('Database tersinkronisasi dengan aman!')" class="text-slate-300 hover:text-white underline text-[10px] bg-slate-800/60 px-2 py-0.5 rounded cursor-pointer">
+        <i class="fa-solid fa-database mr-1 text-pink-400"></i> Cek Koneksi DB
+      </button>
+      <p class="text-[10px] text-slate-500 pt-1">Powered by Ari GPM</p>
+    </div>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-slate-50 text-slate-800">
     <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
-      <button onclick="toggleMusic()" id="musicBtn" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-pink-700 transition active:scale-95 border-2 border-white" title="Musik">
+      <button onclick="toggleMusic()" id="musicBtn" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-pink-700 transition active:scale-95 border-2 border-white cursor-pointer" title="Musik">
         <i id="musicIcon" class="fa-solid fa-music animate-spin"></i>
       </button>
-      <button onclick="openAdminModal()" class="w-12 h-12 bg-amber-500 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-amber-600 transition active:scale-95 border-2 border-white" title="Buka Editor Master">
+      <button onclick="openAdminModal()" class="w-12 h-12 bg-amber-500 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-amber-600 transition active:scale-95 border-2 border-white cursor-pointer" title="Buka Editor Master">
         <i class="fa-solid fa-gear"></i>
       </button>
-      <button onclick="openShareModal()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-purple-700 transition active:scale-95 border-2 border-white" title="Bagikan Undangan">
+      <button onclick="openShareModal()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-purple-700 transition active:scale-95 border-2 border-white cursor-pointer" title="Bagikan Undangan">
         <i class="fa-solid fa-share-nodes"></i>
       </button>
     </div>
 
-    <div id="sectionsContainer" class="space-y-0" ondragover="event.preventDefault()"></div>
+    <div id="sectionsContainer" class="space-y-0">
+      <!-- HERO SECTION -->
+      <section class="relative h-[85vh] flex flex-col justify-end p-6 text-center text-white bg-slate-950">
+        <div class="fairy-lights-container">
+          <div class="fairy-light"></div>
+          <div class="fairy-light"></div>
+          <div class="fairy-light"></div>
+          <div class="fairy-light"></div>
+          <div class="fairy-light"></div>
+          <div class="fairy-light"></div>
+        </div>
+        <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+        <div class="relative z-10 space-y-3 pb-8">
+          <span class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
+          <h1 id="mainHeroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
+          <p class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
+        </div>
+      </section>
 
-    <div id="footerContainer" class="p-6 text-center space-y-4 border-t">
-      <p class="text-xs font-medium opacity-90">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila kawan-kawan berkenan hadir.</p>
-      <h3 class="font-syne text-xl font-bold" id="footerCouple">Rian & Siska</h3>
-      <button onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2">
+      <!-- QUOTES -->
+      <section class="py-12 px-6 text-center bg-white space-y-4">
+        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p id="quoteText" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-effect">
+          "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."
+        </p>
+        <p class="text-xs font-bold text-slate-700">(QS. Ar-Rum: 21)</p>
+      </section>
+
+      <!-- MEMPELAI -->
+      <section class="py-12 px-6 bg-slate-100 text-center space-y-8">
+        <div class="space-y-2">
+          <h2 class="text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
+          <p class="text-xs text-slate-500">Menuju hari bahagia ikatan suci pernikahan</p>
+        </div>
+        <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" alt="Rian" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900">Rian Pratama, S.Kom.</h3>
+          <p class="text-xs text-pink-600 font-medium">Putra dari Bpk. Budi & Ibu Siti</p>
+        </div>
+        <div class="text-2xl text-pink-500 font-bold">&</div>
+        <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Siska" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900">Siska Amalia, S.Pd.</h3>
+          <p class="text-xs text-pink-600 font-medium">Putri dari Bpk. Joko & Ibu Ani</p>
+        </div>
+      </section>
+
+      <!-- COUNTDOWN -->
+      <section class="py-12 px-6 bg-slate-900 text-white text-center space-y-6">
+        <h2 class="text-2xl font-bold">Menuju Hari Bahagia</h2>
+        <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
+          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+            <span id="days" class="block text-xl font-bold text-pink-400">00</span>
+            <span class="text-[10px] text-slate-400 uppercase">Hari</span>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+            <span id="hours" class="block text-xl font-bold text-pink-400">00</span>
+            <span class="text-[10px] text-slate-400 uppercase">Jam</span>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+            <span id="minutes" class="block text-xl font-bold text-pink-400">00</span>
+            <span class="text-[10px] text-slate-400 uppercase">Menit</span>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+            <span id="seconds" class="block text-xl font-bold text-pink-400">00</span>
+            <span class="text-[10px] text-slate-400 uppercase">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- DYNAMIC SECTIONS CONTAINER (TEMPAT SECTION TAMBAHAN MUNCUL OTOMATIS) -->
+      <div id="dynamicSectionsWrapper" class="space-y-0"></div>
+
+      <!-- RSVP -->
+      <section class="py-12 px-6 bg-slate-100 space-y-6">
+        <div class="text-center space-y-2">
+          <h2 class="text-2xl font-bold text-slate-900">Ucapan & Doa</h2>
+          <p class="text-xs text-slate-500">Berikan ucapan dan konfirmasi kehadiran Anda.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
+          <select id="attendanceStatus" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
+            <option value="Hadir">Hadir</option>
+            <option value="Berhalangan Hadir">Berhalangan Hadir</option>
+          </select>
+          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500"></textarea>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-xl text-xs shadow-md transition cursor-pointer">
+            Kirim Ucapan
+          </button>
+        </div>
+        <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1">
+            <div class="flex justify-between font-bold text-slate-800">
+              <span>Budi Santoso</span>
+              <span class="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full">Hadir</span>
+            </div>
+            <p class="text-slate-500">Selamat menempuh hidup baru Rian & Siska! Semoga sakinah mawaddah warahmah.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="p-6 text-center space-y-4 border-t bg-white">
+      <p class="text-xs font-medium text-slate-600">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila kawan-kawan berkenan hadir.</p>
+      <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
+      <button onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2 cursor-pointer">
         <i class="fa-solid fa-share"></i>
         <span>Bagikan Undangan Ini</span>
       </button>
-      <div class="pt-4 border-t opacity-80">
+      <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.0.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.3.0</p>
       </div>
-    </div>
-  </div>
+    </footer>
+  </main>
 
+  <!-- ADMIN MODAL -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white text-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white px-6 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-shield-halved"></i>
           <div>
-            <h2 class="font-syne text-lg font-bold">Master Editor Suite v5.0.0</h2>
-            <p class="text-[10px] text-pink-200">Bug-Free Syntax Edition • Secured</p>
+            <h2 class="text-lg font-bold">Master Editor Suite v5.3.0</h2>
+            <p class="text-[10px] text-pink-200">Dynamic Sections • Secured</p>
           </div>
         </div>
-        <button onclick="closeAdminModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
 
+      <!-- PIN SECTION -->
       <div id="pinSection" class="p-6 space-y-4 text-center my-auto">
         <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
           <i class="fa-solid fa-lock"></i>
@@ -119,133 +279,351 @@
         <h3 class="font-bold text-gray-800">Verifikasi Master Lock</h3>
         <p class="text-xs text-gray-500">PIN Default Editor: <span class="font-mono font-bold text-pink-600">1234</span></p>
         <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
-        <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2.5 rounded-xl font-bold transition shadow-md">Buka Kunci Editor</button>
-        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.0.0)</p>
+        <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2.5 rounded-xl font-bold transition shadow-md cursor-pointer">Buka Kunci Editor</button>
+        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.3.0)</p>
       </div>
 
+      <!-- EDITOR BODY -->
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
         <div class="flex space-x-2 border-b border-gray-200 pb-2 overflow-x-auto text-sm">
-          <button onclick="switchTab('teks')" class="tab-btn px-3 py-1.5 font-bold text-pink-600 border-b-2 border-pink-600 whitespace-nowrap">✨ Motif, Neon & Dimmer</button>
-          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap">🔗 Tamu & WA</button>
-          <button onclick="switchTab('typewriter')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap">⌨️ Typewriter</button>
-          <button onclick="switchTab('foto')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap">🖼 Galeri</button>
-          <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap">🚀 Sections</button>
-          <button onclick="switchTab('scroll')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap">📜 Scroll</button>
+          <button onclick="switchTab('teks')" class="tab-btn px-3 py-1.5 font-bold text-pink-600 border-b-2 border-pink-600 whitespace-nowrap cursor-pointer">✨ Teks & Motif</button>
+          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🔗 Tamu & WA</button>
+          <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🚀 Kelola Section</button>
+          <button onclick="switchTab('foto')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-pink-600 whitespace-nowrap cursor-pointer">🖼 Galeri</button>
         </div>
 
+        <!-- TAB TEKS & MOTIF -->
         <div id="tab-teks" class="editor-tab space-y-4">
           <div>
             <label class="block text-xs font-semibold text-gray-600 mb-1">Nama Pasangan / Tokoh Utama</label>
-            <input type="text" id="editCoupleName" class="w-full p-2.5 border rounded-xl text-sm font-medium">
+            <input type="text" id="editCoupleName" value="Rian & Siska" class="w-full p-2.5 border rounded-xl text-sm font-medium" oninput="applyLiveEdits()">
           </div>
           <div>
             <label class="block text-xs font-semibold text-gray-600 mb-1">Tanggal Acara / Momen</label>
-            <input type="date" id="editEventDate" class="w-full p-2.5 border rounded-xl text-sm font-medium">
+            <input type="date" id="editEventDate" value="2026-10-25" class="w-full p-2.5 border rounded-xl text-sm font-medium" oninput="applyLiveEdits()">
           </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Pilih Huruf (20 Fonts)</label>
-              <select id="editFontFamily" class="w-full p-2.5 border rounded-xl text-sm bg-white font-bold text-pink-700">
-                <option value="'Syne', sans-serif">1. Syne (Modern Bold)</option>
-                <option value="'Playfair Display', serif">2. Playfair Display</option>
-                <option value="'Space Grotesk', sans-serif">3. Space Grotesk</option>
-                <option value="'Outfit', sans-serif">4. Outfit Trendy</option>
-                <option value="'Plus Jakarta Sans', sans-serif">5. Plus Jakarta Sans</option>
-                <option value="'Cinzel', serif">6. Cinzel Luxury</option>
-                <option value="'Great Vibes', cursive">7. Great Vibes Script</option>
-                <option value="'Pacifico', cursive">8. Pacifico Wave</option>
-                <option value="'Bungee', cursive">9. Bungee Arcade</option>
-                <option value="'Caveat', cursive">10. Caveat Handwritten</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Tema Vibe</label>
-              <select id="editThemeVibe" class="w-full p-2.5 border rounded-xl text-sm bg-pink-50 font-bold text-pink-700">
-                <option value="y2k">1. Y2K Bubblegum Pink</option>
-                <option value="sage">2. Matcha Sage</option>
-                <option value="cyber">3. Cyberpunk Dark</option>
-                <option value="minimalist">4. Clean Minimalist</option>
-                <option value="sunset">5. Sunset Glow</option>
-              </select>
-            </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Pilih Motif Bingkai Cover</label>
+            <select id="editCoverFrame" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-pink-700" onchange="applyLiveEdits()">
+              <option value="cover-motif-1">💍 1. Nikah Classic Gold</option>
+              <option value="cover-motif-2">🎂 2. Ultah Party Pink</option>
+              <option value="cover-motif-6">🚀 6. Cyber Neon Glow</option>
+              <option value="cover-motif-30">✨ 30. Futuristic Luxury</option>
+            </select>
           </div>
-
           <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 space-y-3">
-            <div class="bg-purple-100/80 p-3 rounded-xl border border-purple-300 flex items-center justify-between">
-              <div>
-                <span class="block text-xs font-bold text-purple-950">Master Neon & Glow Switch</span>
-                <span class="text-[10px] text-purple-700">Matikan / nyalakan seluruh efek cahaya neon & glow</span>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" id="editNeonMasterToggle" class="sr-only peer" checked>
-                <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-              </label>
-            </div>
+            <label class="flex items-center space-x-2 text-xs font-bold text-purple-950 cursor-pointer">
+              <input type="checkbox" id="editPulseActive" class="w-4 h-4 accent-purple-600" checked onchange="applyLiveEdits()">
+              <span>Aktifkan Mode Denyut Huruf (Pulse Glow) ❤️✨</span>
+            </label>
+          </div>
+        </div>
 
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-purple-900 mb-1">Gaya Glow</label>
-                <select id="editGlowStyle" class="w-full p-2 border rounded-xl text-xs bg-white font-bold text-purple-700">
-                  <option value="">Tanpa Glow</option>
-                  <option value="glow-neon-pink">✨ Neon Pink</option>
-                  <option value="glow-cyber-cyan">💠 Cyber Cyan</option>
-                  <option value="glow-acid-lime">🟢 Acid Lime</option>
-                  <option value="glow-electric-purple">🟣 Electric Purple</option>
-                  <option value="glow-sunset-orange">🟠 Sunset Orange</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-purple-900 mb-1">Intensitas Glow</label>
-                <input type="range" id="editGlowIntensity" min="0.2" max="2.0" step="0.1" value="1.0" class="w-full accent-purple-600 mt-2">
-              </div>
-            </div>
+        <!-- TAB GUESTS & WA -->
+        <div id="tab-guests" class="editor-tab hidden space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Generator Link WhatsApp Undangan Tamu</label>
+            <input type="text" id="generatorGuestName" placeholder="Nama Tamu (Cth: Bpk Budi)" class="w-full p-2.5 border rounded-xl text-sm mb-2">
+            <button onclick="generateWhatsAppLink()" class="w-full bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer">Buat Link Kirim WA</button>
+            <textarea id="resultWaLink" readonly class="w-full p-2.5 border rounded-xl text-xs mt-2 bg-gray-50" rows="2" placeholder="Link WhatsApp otomatis muncul di sini..."></textarea>
+          </div>
+        </div>
 
-            <div class="pt-2 border-t border-purple-200 space-y-2">
-              <label class="flex items-center space-x-2 text-xs font-bold text-purple-950 cursor-pointer">
-                <input type="checkbox" id="editPulseActive" class="w-4 h-4 accent-purple-600" checked>
-                <span>Aktifkan Mode Denyut Huruf (Pulse Glow) ❤️✨</span>
-              </label>
-              <div>
-                <label class="block text-[10px] font-semibold text-purple-900 mb-1">Kecepatan Denyut (Pulse Speed)</label>
-                <select id="editPulseSpeed" class="w-full p-2 border rounded-xl text-xs bg-white font-bold text-purple-700">
-                  <option value="0.8s">⚡ Sangat Cepat (0.8s)</option>
-                  <option value="1.5s">🚀 Cepat (1.5s)</option>
-                  <option value="2.5s">✨ Normal / Santai (2.5s)</option>
-                  <option value="4.0s">🌊 Lambat / Smooth (4.0s)</option>
-                </select>
-              </div>
+        <!-- TAB KELOLA SECTIONS (TAMBAH / KURANG SESUAI KEINGINAN) -->
+        <div id="tab-sections" class="editor-tab hidden space-y-4">
+          <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-3">
+            <h4 class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1"></i> Tambah Section Baru</h4>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Judul Section (Cth: Kisah Cinta / Rekening)</label>
+              <input type="text" id="newSecTitle" placeholder="Judul Section" class="w-full p-2 border rounded-xl text-xs bg-white">
             </div>
-
-            <div class="pt-2 border-t border-purple-200">
-              <label class="block text-xs font-semibold text-purple-900 mb-1">Kecerahan Theme / Dimmer</label>
-              <input type="range" id="editThemeBrightness" min="0.3" max="1.5" step="0.05" value="1.0" class="w-full accent-purple-600">
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Isi Konten / Deskripsi</label>
+              <textarea id="newSecContent" rows="3" placeholder="Tulis isi atau informasi lengkap di sini..." class="w-full p-2 border rounded-xl text-xs bg-white"></textarea>
             </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">URL Gambar Pendukung (Opsional)</label>
+              <input type="text" id="newSecImg" placeholder="https://..." class="w-full p-2 border rounded-xl text-xs bg-white">
+            </div>
+            <button onclick="addDynamicSection()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer shadow">
+              ➕ Tambahkan ke Undangan
+            </button>
           </div>
 
-          <div class="border-t pt-3 space-y-3 bg-pink-50/50 p-4 rounded-2xl border border-pink-200">
-            <h4 class="text-xs font-bold text-pink-900"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Studio 30 Motif Bingkai Cover</h4>
-            <div>
-              <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih 1 dari 30 Motif Cover Depan</label>
-              <select id="editCoverFrame" class="w-full p-2.5 border rounded-xl text-xs bg-white font-bold text-pink-700">
-                <option value="cover-motif-1">💍 1. Nikah Classic Gold</option>
-                <option value="cover-motif-2">🎂 2. Ultah Party Pink</option>
-                <option value="cover-motif-3">🎓 3. Kelulusan Academic Blue</option>
-                <option value="cover-motif-4">❤️ 4. Cinta / Valentine Red</option>
-                <option value="cover-motif-5">☪️ 5. Khitan / Islami Green</option>
-                <option value="cover-motif-6">🚀 6. Cyber Neon Glow</option>
-                <option value="cover-motif-7">🌸 7. Floral Pink Vibe</option>
-                <option value="cover-motif-8">📜 8. Retro Sepia Vintage</option>
-                <option value="cover-motif-9">✨ 9. Minimalist Gold/White</option>
-                <option value="cover-motif-10">🎉 10. Sparkle Ultah Dot</option>
-                <option value="cover-motif-11">🎓 11. Laurel Graduation Gold</option>
-                <option value="cover-motif-12">💕 12. Romantic Heart Glow</option>
-                <option value="cover-motif-13">🕌 13. Islamic Gold Ornament</option>
-                <option value="cover-motif-14">🔮 14. Cyber Purple Neon</option>
-                <option value="cover-motif-15">🖤 15. Velvet Dark Luxury</option>
-                <option value="cover-motif-16">🍑 16. Peach Ultah Soft</option>
-                <option value="cover-motif-17">📘 17. Academic Light Blue</option>
-                <option value="cover-motif-18">🌹 18. Passion Red Romance</option>
-                <option value="cover-motif-19">🌾 19. Batik Gold Tradisional</option>
-                <option value="cover-motif-20">🌐 20. Holographic Cyan</option>
-   
+          <div class="space-y-2">
+            <h4 class="font-bold text-gray-700 text-xs">Daftar Section Tambahan Aktif:</h4>
+            <div id="manageSectionsList" class="space-y-2 max-h-40 overflow-y-auto">
+              <!-- List section aktif akan muncul disini secara otomatis -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB FOTO -->
+        <div id="tab-foto" class="editor-tab hidden space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">URL Foto Utama Cover</label>
+            <input type="text" id="editCoverPhotoUrl" value="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000" class="w-full p-2.5 border rounded-xl text-sm font-medium" oninput="applyLiveEdits()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white text-gray-900 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-4 text-center">
+      <h3 class="font-bold text-lg">Bagikan Undangan</h3>
+      <p class="text-xs text-slate-500">Salin link website resmi undanganmu:</p>
+      <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
+      <div class="grid grid-cols-2 gap-2 pt-2">
+        <button onclick="copyShareLink()" class="bg-pink-600 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer">Salin Link</button>
+        <button onclick="closeShareModal()" class="bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIO BACKSOUND -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- JAVASCRIPT UTAMA -->
+  <script>
+    // Data Dynamic Sections (bisa ditambah/kurang dinamis)
+    let dynamicSections = [
+      { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500" }
+    ];
+
+    function renderDynamicSections() {
+      const wrapper = document.getElementById('dynamicSectionsWrapper');
+      const manageList = document.getElementById('manageSectionsList');
+      
+      wrapper.innerHTML = '';
+      manageList.innerHTML = '';
+
+      if (dynamicSections.length === 0) {
+        manageList.innerHTML = '<p class="text-[11px] text-gray-400 italic">Belum ada section tambahan.</p>';
+        return;
+      }
+
+      dynamicSections.forEach((sec, index) => {
+        // Render ke Tampilan Utama Undangan
+        const secEl = document.createElement('section');
+        secEl.className = "py-12 px-6 bg-white border-t border-slate-100 text-center space-y-4";
+        secEl.innerHTML = `
+          <h2 class="text-2xl font-bold text-slate-900">${escapeHtml(sec.title)}</h2>
+          ${sec.img ? `<div class="w-full h-48 rounded-2xl overflow-hidden shadow-md my-3"><img src="${sec.img}" class="w-full h-full object-cover"></div>` : ''}
+          <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(sec.content)}</p>
+        `;
+        wrapper.appendChild(secEl);
+
+        // Render ke Panel Editor (Menu Kelola)
+        const itemEl = document.createElement('div');
+        itemEl.className = "flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-200 text-xs";
+        itemEl.innerHTML = `
+          <span class="font-bold text-gray-800 truncate max-w-[200px]">${index + 1}. ${escapeHtml(sec.title)}</span>
+          <button onclick="deleteDynamicSection(${sec.id})" class="bg-rose-500 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold cursor-pointer hover:bg-rose-600">Hapus</button>
+        `;
+        manageList.appendChild(itemEl);
+      });
+    }
+
+    function addDynamicSection() {
+      const title = document.getElementById('newSecTitle').value.trim();
+      const content = document.getElementById('newSecContent').value.trim();
+      const img = document.getElementById('newSecImg').value.trim();
+
+      if (!title || !content) {
+        alert('Judul dan Konten section wajib diisi!');
+        return;
+      }
+
+      const newSec = {
+        id: Date.now(),
+        title: title,
+        content: content,
+        img: img
+      };
+
+      dynamicSections.push(newSec);
+      renderDynamicSections();
+
+      // Reset input form
+      document.getElementById('newSecTitle').value = '';
+      document.getElementById('newSecContent').value = '';
+      document.getElementById('newSecImg').value = '';
+
+      alert('Section baru berhasil ditambahkan ke undangan!');
+    }
+
+    function deleteDynamicSection(id) {
+      if (confirm('Yakin ingin menghapus section ini?')) {
+        dynamicSections = dynamicSections.filter(sec => sec.id !== id);
+        renderDynamicSections();
+        alert('Section berhasil dihapus.');
+      }
+    }
+
+    // Jalankan render awal saat halaman dimuat
+    renderDynamicSections();
+
+    // URL Params Nama Tamu
+    const urlParams = new URLSearchParams(window.location.search);
+    const toParam = urlParams.get('to');
+    if (toParam) {
+      document.getElementById('guestName').innerText = decodeURIComponent(toParam);
+      document.getElementById('guestInputName').value = decodeURIComponent(toParam);
+    }
+
+    function openInvitation() {
+      const cover = document.getElementById('coverSection');
+      const main = document.getElementById('mainContent');
+      
+      cover.style.transform = 'translateY(-100%)';
+      main.classList.remove('hidden');
+      setTimeout(() => main.classList.remove('opacity-0'), 50);
+      window.scrollTo(0, 0);
+      
+      const music = document.getElementById('bgMusic');
+      music.play().catch(() => {});
+
+      setTimeout(() => {
+        cover.style.display = 'none';
+      }, 700);
+    }
+
+    let isPlaying = false;
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      const icon = document.getElementById('musicIcon');
+      if (isPlaying) {
+        music.pause();
+        icon.className = "fa-solid fa-music";
+      } else {
+        music.play();
+        icon.className = "fa-solid fa-music animate-spin";
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
+    function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
+
+    function verifyPin() {
+      const pin = document.getElementById('adminPinInput').value;
+      if (pin === '1234') {
+        document.getElementById('pinSection').classList.add('hidden');
+        document.getElementById('editorBody').classList.remove('hidden');
+      } else {
+        alert('PIN Salah! Gunakan PIN default: 1234');
+      }
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.editor-tab').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-b-2', 'border-pink-600', 'font-bold', 'text-pink-600');
+        btn.classList.add('text-gray-600');
+      });
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      event.currentTarget.classList.add('border-b-2', 'border-pink-600', 'font-bold', 'text-pink-600');
+      event.currentTarget.classList.remove('text-gray-600');
+    }
+
+    function applyLiveEdits() {
+      const name = document.getElementById('editCoupleName').value;
+      const dateVal = document.getElementById('editEventDate').value;
+      const frame = document.getElementById('editCoverFrame').value;
+      const photoUrl = document.getElementById('editCoverPhotoUrl').value;
+      const pulseActive = document.getElementById('editPulseActive').checked;
+
+      document.getElementById('coverCoupleName').innerText = name;
+      document.getElementById('mainHeroTitle').innerText = name;
+      document.getElementById('footerCouple').innerText = name;
+
+      if (dateVal) {
+        const formattedDate = new Date(dateVal).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('coverDateDisplay').innerText = formattedDate;
+      }
+
+      const cover = document.getElementById('coverSection');
+      cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto ${frame}`;
+
+      document.getElementById('coverBgImage').style.backgroundImage = `url('${photoUrl}')`;
+
+      const titleEl = document.getElementById('coverCoupleName');
+      if (pulseActive) {
+        titleEl.classList.add('pulse-glow-active');
+      } else {
+        titleEl.classList.remove('pulse-glow-active');
+      }
+    }
+
+    function generateWhatsAppLink() {
+      const guest = document.getElementById('generatorGuestName').value.trim();
+      if (!guest) {
+        alert('Masukkan nama tamu terlebih dahulu!');
+        return;
+      }
+      const encoded = encodeURIComponent(guest);
+      const link = `https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/?to=${encoded}`;
+      const message = `Halo ${guest}, tanpa mengurangi rasa hormat, kami mengundang Anda di acara pernikahan kami. Berikut tautan undangannya:\n\n${link}`;
+      document.getElementById('resultWaLink').value = message;
+      navigator.clipboard.writeText(message);
+      alert('Pesan dan Link WhatsApp berhasil dibuat & disalin ke clipboard!');
+    }
+
+    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
+    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    function copyShareLink() {
+      navigator.clipboard.writeText('https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/');
+      alert('Link website berhasil disalin!');
+    }
+
+    const weddingDate = new Date("October 25, 2026 08:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      if (distance < 0) return;
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function submitWish() {
+      const name = document.getElementById('guestInputName').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const message = document.getElementById('guestMessage').value.trim();
+
+      if (!name || !message) {
+        alert('Mohon isi nama dan pesan ucapan terlebih dahulu!');
+        return;
+      }
+
+      const list = document.getElementById('wishesList');
+      const statusBadgeColor = status === 'Hadir' ? 'text-emerald-600 bg-emerald-50' : 'text-rose-600 bg-rose-50';
+
+      const newCard = document.createElement('div');
+      newCard.className = 'bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1';
+      newCard.innerHTML = `
+        <div class="flex justify-between font-bold text-slate-800">
+          <span>${escapeHtml(name)}</span>
+          <span class="${statusBadgeColor} text-[10px] px-2 py-0.5 rounded-full">${status}</span>
+        </div>
+        <p class="text-slate-500">${escapeHtml(message)}</p>
+      `;
+
+      list.prepend(newCard);
+      document.getElementById('guestMessage').value = '';
+      alert('Terima kasih, ucapan dan konfirmasi berhasil dikirim!');
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>
