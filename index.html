@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v9.9.0</title>
+  <title>Undangan Digital - Master Gen-Z v10.0.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- 20 GOOGLE FONTS -->
@@ -28,9 +28,7 @@
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Overlay untuk background section dari galeri agar teks tetap terbaca */
-    .section-overlay { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(3px); margin: 10px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .dark-section-overlay { background-color: rgba(15, 23, 42, 0.85); backdrop-filter: blur(3px); }
+    .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -52,22 +50,23 @@
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- TOMBOL ANTI MACET -->
+    <!-- TOMBOL BUKA UNDANGAN (DIJAMIN 100% TEMBUS & TERISOLASI DARI ERROR AUDIO) -->
     <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl" style="z-index: 100000; position: relative;">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
+      
       <button type="button" onclick="openInvitation()" style="cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
         <span>Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2" style="z-index: 5;"><p>Powered by Ari GPM (v9.9.0)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.0.0)</p></div>
   </div>
 
-  <!-- KONTEN UTAMA DENGAN BACKGROUND DINAMIS -->
+  <!-- KONTEN UTAMA -->
   <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16" style="background-color: #f8fafc;">
     
-    <!-- NAVIGATION BAWAH -->
+    <!-- NAVIGATION -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
@@ -95,7 +94,7 @@
         </div>
       </section>
 
-      <!-- QUOTES TYPEWRITER -->
+      <!-- QUOTES -->
       <section class="py-10 px-6 text-center section-overlay space-y-4">
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-heart"></i></div>
         <p id="quoteTextDisplay" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
@@ -149,7 +148,7 @@
 
       <!-- RSVP -->
       <section class="py-10 px-6 section-overlay space-y-6">
-        <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Absen</h2></div>
+        <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
           <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
@@ -167,7 +166,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v9.9.0 (Ultimate)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.0.0 (Ultimate Bulletproof)</p>
       </div>
     </footer>
   </main>
@@ -178,7 +177,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v9.9.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.0.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -209,9 +208,8 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v9.9.0 -->
+  <!-- JAVASCRIPT SYSTEM v10.0.0 -->
   <script>
-    // 20 FONT NYATA
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
         "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
@@ -219,24 +217,28 @@
         "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
 
-    // DINAMIS TEXT (Mewakili Semua Laman)
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
       quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
       titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
+      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta
+Jl. Sudirman No. 1",
       titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
     
-    // STATE DATA
     let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
     let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let giftConfig = JSON.parse(localStorage.getItem('ari_giftConfig')) || { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
-    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.\n\n{link}\n\nTerima kasih. 🙏";
+    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},
+
+Tanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.
+
+{link}
+
+Terima kasih. 🙏";
     
-    // Konfigurasi Baru (Background, Font, Musik)
     let ultimateConfig = JSON.parse(localStorage.getItem('ari_ultimateConfig')) || {
         font: "Plus Jakarta Sans",
         coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
@@ -249,4 +251,444 @@
 
     function saveAllDataToDevice() {
         localStorage.setItem('ari_textElements', JSON.stringify(textElements));
-        localStor
+        localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
+        localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
+        localStorage.setItem('ari_waTemplate', waTemplate);
+        localStorage.setItem('ari_ultimateConfig', JSON.stringify(ultimateConfig));
+    }
+
+    function generateBackup() {
+        const data = { textElements, attendanceList, giftConfig, waTemplate, ultimateConfig };
+        document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    }
+    function copyBackup() { document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Kode Backup Disalin!"); }
+    function restoreBackup() {
+        try {
+            const str = document.getElementById('restoreInput').value.trim();
+            if(!str) return alert('Masukkan kode!');
+            const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
+            if(decoded.textElements) localStorage.setItem('ari_textElements', JSON.stringify(decoded.textElements));
+            if(decoded.giftConfig) localStorage.setItem('ari_giftConfig', JSON.stringify(decoded.giftConfig));
+            if(decoded.ultimateConfig) localStorage.setItem('ari_ultimateConfig', JSON.stringify(decoded.ultimateConfig));
+            if(decoded.attendanceList) localStorage.setItem('ari_attendanceList', JSON.stringify(decoded.attendanceList));
+            alert('Restore Berhasil! Halaman dimuat ulang.'); location.reload();
+        } catch(e) { alert('Kode tidak valid!'); }
+    }
+
+    const adminModules = [
+      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data Update', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' },
+      { id: 'design', title: 'Desain Dinamis', desc: 'Font & Background Galeri', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'music', title: 'Kontrol Musik', desc: 'Volume & Upload Lagu', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'textTable', title: 'Auto-Teks Lengkap', desc: 'Ubah Semua Tulisan Web', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'guests', title: 'Buku Tamu & WA', desc: 'Rekap Kehadiran', icon: 'fa-address-book', gradient: 'from-amber-500 to-orange-500' }
+    ];
+
+    function renderDashboardCards() {
+      const grid = document.getElementById('dashboardCardsGrid');
+      grid.innerHTML = '';
+      adminModules.forEach(mod => {
+        grid.innerHTML += `
+          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
+            <div class="flex justify-between items-start">
+              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
+            </div>
+            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
+          </div>
+        `;
+      });
+    }
+
+    function openAdminModule(id) {
+      document.getElementById('adminDashboardView').classList.add('hidden');
+      document.getElementById('adminModuleView').classList.remove('hidden');
+      const area = document.getElementById('moduleContentArea');
+      
+      if (id === 'backup') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">1. Generate Kode Backup</button>
+                <textarea id="backupOutput" readonly rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
+                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">2. Salin Kode</button>
+            </div>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <textarea id="restoreInput" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup lama di sini..."></textarea>
+                <button onclick="restoreBackup()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Restore Data Sekarang</button>
+            </div>
+          </div>`;
+      } 
+      else if (id === 'design') {
+        let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain Dinamis Ultimate</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">1. Pilih 20 Real Font</label>
+              <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">2. Upload Background Cover (Dari Galeri)</label>
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'cover')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">3. Upload Background Laman / Section</label>
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'section')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
+              <button onclick="ultimateConfig.sectionBg=''; applyUltimateConfig(); saveAllDataToDevice(); alert('Background Laman Dihapus')" class="mt-2 text-[10px] bg-red-600 text-white px-2 py-1 rounded">Hapus Background Laman</button>
+            </div>
+
+            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Desain</span>
+            </button>
+          </div>`;
+      }
+      else if (id === 'music') {
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🎵 Kontrol Musik Lengkap</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+                <label class="block text-slate-300 font-bold">Volume Suara</label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="${ultimateConfig.musicVolume}" onchange="changeVolume(this.value)" class="w-full accent-pink-500">
+                
+                <label class="block text-slate-300 font-bold pt-2">Ganti Lagu (Upload Audio/MP3)</label>
+                <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white">
+                
+                <label class="block text-slate-300 font-bold pt-2">Atau Gunakan Link URL Musik</label>
+                <input type="text" id="musicUrlInput" value="${ultimateConfig.musicUrl.length < 500 ? ultimateConfig.musicUrl : 'Audio ter-upload dari HP'}" placeholder="https://link-lagu.mp3" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-400 font-mono text-[10px]">
+            </div>
+
+            <button onclick="saveMusicConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Musik</span>
+            </button>
+          </div>`;
+      }
+      else if (id === 'textTable') {
+        let rows = '';
+        for(let key in textElements) { 
+            rows += `<tr><td class="p-2 border-b border-slate-700 text-slate-400 font-mono text-[10px]">${key}</td><td class="p-2 border-b border-slate-700"><input type="text" id="txt-${key}" value="${textElements[key]}" class="w-full p-1.5 bg-slate-900 border border-slate-600 rounded text-xs text-white"></td></tr>`; 
+        }
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks (Seluruh Laman)</h4>
+            <div class="overflow-x-auto max-h-64"><table class="w-full text-left bg-slate-800/50 rounded-lg">${rows}</table></div>
+            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold shadow-lg flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Teks</span>
+            </button>
+          </div>`;
+      } 
+      else if (id === 'gift') {
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & QRIS</h4>
+            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <label class="block text-slate-300 font-bold">1. Upload QRIS Baru</label>
+                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
+                <div id="qrisPreviewBox" class="w-24 h-24 mx-auto bg-slate-900 rounded flex items-center justify-center overflow-hidden mt-2 border border-slate-600">
+                    ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="w-full h-full object-cover">` : '<span class="text-[9px]">Preview</span>'}
+                </div>
+            </div>
+            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <label class="block text-slate-300 font-bold">2. Rekening Manual</label>
+                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Bank BCA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="A.N" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+            </div>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Amplop</button>
+          </div>`;
+      } 
+      else if (id === 'guests') {
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & Template WA</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <label class="block text-slate-300 font-bold">Template Pesan WhatsApp</label>
+                <textarea id="editWaTemplate" rows="4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-[10px]">${waTemplate}</textarea>
+                <button onclick="waTemplate = document.getElementById('editWaTemplate').value; saveAllDataToDevice(); alert('Disimpan!');" class="w-full bg-blue-600 text-white py-2 rounded font-bold">Simpan Template WA</button>
+            </div>
+            <label class="block text-slate-300 font-bold mt-2">Daftar Kehadiran</label>
+            <div id="adminGuestList" class="space-y-2 max-h-40 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
+          </div>`;
+        setTimeout(renderAdminWishes, 50);
+      }
+    }
+
+    function backToDashboard() {
+      document.getElementById('adminModuleView').classList.add('hidden');
+      document.getElementById('adminDashboardView').classList.remove('hidden');
+    }
+
+    function handleImageUpload(event, type) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const base64 = e.target.result;
+            if(type === 'cover') { ultimateConfig.coverBg = base64; alert("Cover siap disimpan."); }
+            if(type === 'section') { ultimateConfig.sectionBg = base64; alert("Background laman siap disimpan."); }
+            if(type === 'qris') { giftConfig.qrisImage = base64; document.getElementById('qrisPreviewBox').innerHTML = `<img src="${base64}" class="w-full h-full object-cover">`; alert("QRIS siap disimpan."); }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function handleAudioUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            ultimateConfig.musicUrl = e.target.result;
+            document.getElementById('musicUrlInput').value = "Audio ter-upload dari HP";
+            alert("Lagu berhasil dimuat. Klik Simpan Musik.");
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function applyUltimateConfig() {
+        document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
+        
+        const coverBg = document.getElementById('coverBgImage');
+        const heroBg = document.getElementById('mainHeroBg');
+        if(coverBg) coverBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+        if(heroBg) heroBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+
+        const mainContent = document.getElementById('mainContent');
+        if(ultimateConfig.sectionBg) {
+            mainContent.style.backgroundImage = `url('${ultimateConfig.sectionBg}')`;
+        } else {
+            mainContent.style.backgroundImage = 'none';
+            mainContent.style.backgroundColor = '#f8fafc';
+        }
+
+        const audio = document.getElementById('bgMusic');
+        if(audio) {
+            audio.volume = ultimateConfig.musicVolume;
+            if(audio.src !== ultimateConfig.musicUrl && ultimateConfig.musicUrl) {
+                audio.src = ultimateConfig.musicUrl;
+            }
+        }
+    }
+
+    function changeVolume(val) {
+        ultimateConfig.musicVolume = parseFloat(val);
+        const audio = document.getElementById('bgMusic');
+        if(audio) audio.volume = ultimateConfig.musicVolume;
+    }
+
+    function saveDesignConfig() {
+        ultimateConfig.font = document.getElementById('editFont').value;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        alert("Desain berhasil disimpan & diterapkan!");
+    }
+
+    function saveMusicConfig() {
+        const urlInput = document.getElementById('musicUrlInput').value;
+        if(urlInput && !urlInput.includes("Audio ter-upload")) {
+            ultimateConfig.musicUrl = urlInput;
+        }
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        alert("Musik berhasil disimpan!");
+    }
+
+    function saveTextTable() {
+      for (let key in textElements) { 
+          const input = document.getElementById(`txt-${key}`); 
+          if (input) textElements[key] = input.value; 
+      }
+      saveAllDataToDevice();
+      applyTextElementsToDOM();
+      alert('Teks berhasil disimpan!');
+    }
+
+    function saveGiftConfig() {
+        giftConfig.bank = document.getElementById('inputBankName').value;
+        giftConfig.number = document.getElementById('inputRekNumber').value;
+        giftConfig.owner = document.getElementById('inputRekOwner').value;
+        saveAllDataToDevice();
+        applyGiftToDOM();
+        alert('Amplop berhasil disimpan!');
+    }
+
+    function applyGiftToDOM() {
+        document.getElementById('displayBankName').innerText = giftConfig.bank;
+        document.getElementById('displayRekNumber').innerText = giftConfig.number;
+        document.getElementById('displayRekOwner').innerText = giftConfig.owner;
+        const qrisBox = document.getElementById('qrisImageRender');
+        if (giftConfig.qrisImage) {
+            qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain">`;
+        } else {
+            qrisBox.innerHTML = `<span class="text-[10px] text-slate-400">Belum ada QRIS</span>`;
+        }
+    }
+
+    function runTypewriter() {
+        const el = document.getElementById('quoteTextDisplay');
+        if(!el) return;
+        const text = textElements.quoteText;
+        el.innerText = "";
+        let i = 0;
+        function type() {
+            if (i < text.length) { el.innerText += text.charAt(i); i++; setTimeout(type, 40); }
+        }
+        type();
+    }
+
+    function applyTextElementsToDOM() {
+        const idMap = {
+            'coverCoupleName': 'coupleName', 'coverBadgeText': 'badgeText', 'coverSubText': 'subText', 'coverDateDisplay': 'dateDisplay',
+            'text-badge': 'badgeText', 'text-heroTitle': 'heroTitle', 'text-heroSub': 'heroSub',
+            'text-titleMempelai': 'titleMempelai', 'text-groomName': 'groomName', 'text-brideName': 'brideName',
+            'text-titleLokasi': 'titleLokasi', 'text-alamat': 'alamat',
+            'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
+            'text-titleRsvp': 'titleRsvp', 'text-footerCouple': 'footerCouple'
+        };
+
+        for (let elementId in idMap) {
+            const el = document.getElementById(elementId);
+            if(el) {
+                if(idMap[elementId] === 'alamat') {
+                    el.innerHTML = textElements[idMap[elementId]].replace(/
+/g, '<br>');
+                } else {
+                    el.innerText = textElements[idMap[elementId]];
+                }
+            }
+        }
+        runTypewriter();
+    }
+
+    function renderWishesToDOM() {
+        const container = document.getElementById('wishesList');
+        if(!container) return;
+        container.innerHTML = '';
+        attendanceList.forEach(w => {
+            container.innerHTML += `<div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-1 shadow-sm"><div class="flex justify-between font-bold text-slate-800"><span>${w.name}</span><span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span></div><p class="text-slate-600">${w.message}</p></div>`;
+        });
+    }
+
+    function renderAdminWishes() {
+      const container = document.getElementById('adminGuestList');
+      if (!container) return;
+      container.innerHTML = '';
+      attendanceList.forEach(w => {
+        container.innerHTML += `<div class="bg-slate-800 p-2 rounded text-[10px] text-slate-300 border border-slate-700"><b>${w.name} (${w.status})</b><br>${w.message}</div>`;
+      });
+    }
+
+    // ==========================================
+    // BULLETPROOF OPEN INVITATION (ISOLASI ERROR)
+    // ==========================================
+    function openInvitation() {
+      // 1. Eksekusi visual transisi halaman UTAMA secara instan dan aman
+      const cover = document.getElementById('coverSection');
+      const main = document.getElementById('mainContent');
+      
+      if (main) { 
+          main.classList.remove('hidden'); 
+          main.style.display = 'block'; 
+          setTimeout(() => { 
+              main.classList.remove('opacity-0'); 
+              main.style.opacity = '1'; 
+          }, 10); 
+      }
+      
+      if (cover) { 
+          cover.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease'; 
+          cover.style.transform = 'translateY(-100%)'; 
+          cover.style.opacity = '0'; 
+          setTimeout(() => { 
+              cover.style.display = 'none'; 
+          }, 500); 
+      }
+      
+      window.scrollTo(0, 0);
+
+      // 2. Musik diisolasi dalam try-catch agar jika gagal/diblokir browser, laman tetap TERBUKA 100%
+      try {
+          const audio = document.getElementById('bgMusic');
+          if (audio) { 
+              audio.volume = ultimateConfig.musicVolume || 0.5;
+              if (ultimateConfig.musicUrl && audio.src !== ultimateConfig.musicUrl) {
+                  audio.src = ultimateConfig.musicUrl;
+              }
+              audio.play().then(() => { 
+                  isPlaying = true; 
+                  const icon = document.getElementById('musicIcon'); 
+                  if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+              }).catch((e) => {
+                  console.log('Autoplay audio ditahan browser (laman tetap terbuka normal):', e);
+              }); 
+          }
+      } catch(err) {
+          console.log('Error musik terisolasi:', err);
+      }
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      const icon = document.getElementById('musicIcon');
+      const label = document.getElementById('musicLabel');
+      if (!music) return;
+      if (isPlaying) { 
+          music.pause(); 
+          if(icon) icon.className = "fa-solid fa-music text-sm"; 
+          if(label) label.innerText = "Paused"; 
+      } else { 
+          music.play().catch(e => console.log(e)); 
+          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+          if(label) label.innerText = "Playing"; 
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { alert(`Rekening ${bank} (${text}) disalin!`); }); }
+    function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
+    function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
+    function verifyPin() {
+      const pin = document.getElementById('adminPinInput');
+      if (pin && pin.value.trim() === '1234') { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); } 
+      else { alert('PIN Salah! (1234)'); }
+    }
+    function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
+
+    function submitWish() {
+      const name = document.getElementById('guestInputName').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const message = document.getElementById('guestMessage').value.trim();
+      if (!name || !message) return alert('Isi nama & pesan!');
+      attendanceList.unshift({ name, status, message });
+      saveAllDataToDevice();
+      renderWishesToDOM();
+      alert('Ucapan berhasil dikirim!');
+      document.getElementById('guestMessage').value = '';
+    }
+
+    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
+    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨
+${textElements.coupleName}
+https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
+
+    window.onload = function() {
+        applyUltimateConfig();
+        applyTextElementsToDOM();
+        applyGiftToDOM();
+        renderWishesToDOM();
+        renderDashboardCards();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const toParam = urlParams.get('to');
+        if (toParam) {
+            document.getElementById('guestName').innerText = decodeURIComponent(toParam);
+            document.getElementById('guestInputName').value = decodeURIComponent(toParam);
+        }
+    };
+  </script>
+</body>
+</html>
+
