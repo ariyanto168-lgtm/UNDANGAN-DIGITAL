@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v9.8.0</title>
+  <title>Undangan Digital - Master Gen-Z v9.9.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <!-- 20 GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <style>
     html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.4s ease, color 0.4s ease; }
+    body { transition: background 0.4s ease, color 0.4s ease; font-family: 'Plus Jakarta Sans', sans-serif; }
     
     @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
-    .pulse-glow-active { animation: textPulse var(--pulse-speed, 2.5s) infinite ease-in-out; }
+    .pulse-glow-active { animation: textPulse 2.5s infinite ease-in-out; }
 
     .fairy-lights-container { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding: 12px 10px; pointer-events: none; z-index: 10; }
     .fairy-light { width: 9px; height: 9px; border-radius: 50%; background: #ffeb3b; box-shadow: 0 0 12px #ffeb3b, 0 0 22px #ff9800; animation: twinkle 1.2s infinite alternate; }
@@ -21,25 +23,26 @@
     @keyframes twinkle { 0% { opacity: 0.3; transform: scale(0.7); } 100% { opacity: 1; transform: scale(1.3); } }
 
     .cover-base { border-radius: 2rem; background: linear-gradient(135deg, rgba(20,20,20,0.85), rgba(40,40,40,0.95)); transition: all 0.5s ease; }
-
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Overlay untuk background section dari galeri agar teks tetap terbaca */
+    .section-overlay { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(3px); margin: 10px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .dark-section-overlay { background-color: rgba(15, 23, 42, 0.85); backdrop-filter: blur(3px); }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
   <!-- COVER UTAMA -->
   <div id="coverSection" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 24px; text-align: center;" class="cover-base text-white overflow-hidden">
-    
     <div class="fairy-lights-container" style="pointer-events: none;">
       <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
       <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
     </div>
     
-    <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10 transition-all duration-700" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
+    <div class="absolute inset-0 opacity-50 bg-cover bg-center -z-10 transition-all duration-700" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
     
     <div></div>
 
@@ -49,22 +52,22 @@
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- KARTU TOMBOL UTAMA (DIJAMIN BISA DITEKAN) -->
+    <!-- TOMBOL ANTI MACET -->
     <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl" style="z-index: 100000; position: relative;">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
-      
-      <!-- TOMBOL BUKA UNDANGAN DENGAN ONCLICK LANGSUNG -->
       <button type="button" onclick="openInvitation()" style="cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
         <span>Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2" style="z-index: 5;"><p>Powered by Ari GPM (v9.8.0)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2" style="z-index: 5;"><p>Powered by Ari GPM (v9.9.0)</p></div>
   </div>
 
-  <!-- KONTEN UTAMA -->
-  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-white text-slate-800 pb-16">
+  <!-- KONTEN UTAMA DENGAN BACKGROUND DINAMIS -->
+  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16" style="background-color: #f8fafc;">
+    
+    <!-- NAVIGATION BAWAH -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
@@ -80,103 +83,91 @@
       </button>
     </nav>
 
-    <div id="sectionsContainer" class="space-y-0">
+    <div id="sectionsContainer" class="space-y-4 pt-4 px-2">
       <!-- HERO -->
-      <section class="relative h-[85vh] flex flex-col justify-end p-6 text-center text-white bg-slate-950">
-        <div id="mainHeroBg" class="absolute inset-0 opacity-40 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+      <section class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
+        <div id="mainHeroBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
         <div class="relative z-10 space-y-3 pb-8">
-          <span class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
-          <h1 id="mainHeroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
-          <p class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
+          <span id="text-badge" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
+          <h1 id="text-heroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
+          <p id="text-heroSub" class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
         </div>
       </section>
 
       <!-- QUOTES TYPEWRITER -->
-      <section class="py-12 px-6 text-center bg-white space-y-4">
+      <section class="py-10 px-6 text-center section-overlay space-y-4">
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-heart"></i></div>
-        <p id="quoteTextDisplay" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</p>
+        <p id="quoteTextDisplay" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
       <!-- MEMPELAI -->
-      <section class="py-12 px-6 bg-slate-100 text-center space-y-8">
-        <h2 class="text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
-        <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
-          <h3 class="text-2xl font-bold text-slate-900">Rian Pratama, S.Kom.</h3>
+      <section class="py-10 px-6 text-center section-overlay space-y-6">
+        <h2 id="text-titleMempelai" class="text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
+          <h3 id="text-groomName" class="text-2xl font-bold text-slate-900">Rian Pratama</h3>
         </div>
         <div class="text-2xl text-pink-500 font-bold">&</div>
-        <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
-          <h3 class="text-2xl font-bold text-slate-900">Siska Amalia, S.Pd.</h3>
-        </div>
-      </section>
-
-      <!-- GALERI -->
-      <section class="py-12 px-0 bg-white text-center space-y-6">
-        <div class="px-6 space-y-2"><h2 class="text-3xl font-bold text-slate-900">Galeri Cinta</h2></div>
-        <div class="flex overflow-x-auto gap-4 snap-x snap-mandatory px-6 pb-6 hide-scrollbar">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=500" class="snap-center w-64 h-80 object-cover rounded-2xl flex-shrink-0 shadow-lg">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500" class="snap-center w-64 h-80 object-cover rounded-2xl flex-shrink-0 shadow-lg">
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
+          <h3 id="text-brideName" class="text-2xl font-bold text-slate-900">Siska Amalia</h3>
         </div>
       </section>
 
       <!-- LOKASI -->
-      <section class="py-12 px-6 bg-slate-100 text-center space-y-6">
-        <h2 class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
-        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+      <section class="py-10 px-6 text-center section-overlay space-y-6">
+        <h2 id="text-titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
+        <div class="bg-white/80 p-4 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+          <p id="text-alamat" class="text-xs text-slate-600">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
           <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%20Selatan%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
           <button type="button" onclick="window.open('https://maps.app.goo.gl/xxx', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
         </div>
       </section>
 
       <!-- AMPLOP DIGITAL -->
-      <section class="py-12 px-6 bg-white text-center space-y-6">
-        <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl mb-2 shadow-sm"><i class="fa-solid fa-gift"></i></div>
-        <h2 class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
-        <p class="text-xs text-slate-500 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami. Tanda kasih dapat disalurkan melalui:</p>
+      <section class="py-10 px-6 text-center section-overlay space-y-6">
+        <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
+        <h2 id="text-titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
+        <p id="text-subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
         
         <div class="space-y-4 max-w-xs mx-auto">
-          <div id="qrisContainerDisplay" class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3 border border-slate-800">
+          <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
             <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
-            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center border border-slate-700">
-              <span class="text-[10px] text-slate-400">Belum ada QRIS</span>
-            </div>
-            <p class="text-[10px] text-slate-400">Scan melalui GoPay, OVO, DANA, BCA Mobile, dll.</p>
+            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center border border-slate-700"></div>
           </div>
-
-          <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3 border border-blue-600">
+          <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3">
             <h3 id="displayBankName" class="font-bold text-sm text-blue-200">Bank BCA</h3>
             <p id="displayRekNumber" class="font-mono text-xl font-bold tracking-widest">1234567890</p>
             <p id="displayRekOwner" class="text-xs text-blue-100 uppercase">A.N Rian Pratama</p>
-            <button type="button" onclick="copyToClipboard(document.getElementById('displayRekNumber').innerText, document.getElementById('displayBankName').innerText)" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold cursor-pointer">Salin Nomor Rekening</button>
+            <button type="button" onclick="copyToClipboard(document.getElementById('displayRekNumber').innerText, document.getElementById('displayBankName').innerText)" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold cursor-pointer">Salin Rekening</button>
           </div>
         </div>
       </section>
 
       <!-- RSVP -->
-      <section class="py-12 px-6 bg-slate-100 space-y-6">
-        <div class="text-center space-y-2"><h2 class="text-2xl font-bold text-slate-900">Ucapan & Absen</h2></div>
-        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
-          <select id="attendanceStatus" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
+      <section class="py-10 px-6 section-overlay space-y-6">
+        <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Absen</h2></div>
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+          <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
             <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
-          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500"></textarea>
-          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan & Absen</button>
+          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan</button>
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
     </div>
 
     <!-- FOOTER -->
-    <footer class="p-6 text-center space-y-4 border-t bg-white">
-      <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
-      <div class="pt-4 border-t text-slate-400">
+    <footer class="p-6 text-center space-y-4 mt-8 section-overlay">
+      <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
+      <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.8.0</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v9.9.0 (Ultimate)</p>
       </div>
     </footer>
   </main>
@@ -184,10 +175,10 @@
   <!-- ADMIN MODAL -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
-      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white px-6 py-4 flex items-center justify-between">
+      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.8.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v9.9.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -196,19 +187,19 @@
         <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
         <p class="text-xs text-slate-400">PIN Default Editor: <span class="font-mono font-bold text-pink-400">1234</span></p>
-        <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="Masukkan PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
-        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard Admin</button>
+        <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none">
+        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard</button>
       </div>
 
-      <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
+      <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
-          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Pilih Menu Dashboard</h3></div>
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Ultimate</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
 
         <div id="adminModuleView" class="hidden space-y-4">
           <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer">
-            <i class="fa-solid fa-arrow-left"></i><span>Kembali ke Dashboard</span>
+            <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
           </button>
           <div id="moduleContentArea" class="space-y-4 pb-4"></div>
         </div>
@@ -216,394 +207,46 @@
     </div>
   </div>
 
-  <!-- SHARE MODAL -->
-  <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-sm rounded-3xl shadow-2xl p-6 space-y-4 text-center">
-      <h3 class="font-bold text-lg">Bagikan Undangan</h3>
-      <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
-      <div class="space-y-2 pt-1">
-        <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs cursor-pointer">Kirim via WhatsApp (wa.me)</button>
-        <button type="button" onclick="closeShareModal()" class="w-full bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
-      </div>
-    </div>
-  </div>
+  <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <audio id="bgMusic" loop><source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
-
-  <!-- JAVASCRIPT SYSTEM v9.8.0 -->
+  <!-- JAVASCRIPT SYSTEM v9.9.0 -->
   <script>
-    const realThemes = [
-        { id: 1, name: "Luxury Gold", bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", border: "#d4af37", shadow: "rgba(212,175,55,0.4)" },
-        { id: 2, name: "Romantic Floral", bg: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=1000", border: "#ffb6c1", shadow: "rgba(255,182,193,0.4)" },
-        { id: 3, name: "Dark Elegance", bg: "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=1000", border: "#ffffff", shadow: "rgba(255,255,255,0.4)" },
-        { id: 4, name: "Neon Cyberpunk", bg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=1000", border: "#00f0ff", shadow: "rgba(0,240,255,0.6)" },
-        { id: 5, name: "Rustic Nature", bg: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=1000", border: "#8ace00", shadow: "rgba(138,206,0,0.5)" },
-        { id: 6, name: "Sunset Beach", bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000", border: "#ff7b00", shadow: "rgba(255,123,0,0.5)" },
-        { id: 7, name: "Minimalist White", bg: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=1000", border: "#cccccc", shadow: "rgba(200,200,200,0.4)" },
-        { id: 8, name: "Royal Blue Velvet", bg: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1000", border: "#0051ff", shadow: "rgba(0,81,255,0.5)" },
-        { id: 9, name: "Vintage Paper", bg: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=1000", border: "#b58863", shadow: "rgba(181,136,99,0.5)" },
-        { id: 10, name: "Emerald Dream", bg: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000", border: "#00a86b", shadow: "rgba(0,168,107,0.5)" },
-        { id: 11, name: "Cherry Blossom", bg: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1000", border: "#ff69b4", shadow: "rgba(255,105,180,0.5)" },
-        { id: 12, name: "Starry Night", bg: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1000", border: "#9400d3", shadow: "rgba(148,0,211,0.5)" },
-        { id: 13, name: "Autumn Forest", bg: "https://images.unsplash.com/photo-1507783590507-393278546b3f?auto=format&fit=crop&q=80&w=1000", border: "#d2691e", shadow: "rgba(210,105,30,0.5)" },
-        { id: 14, name: "Bohemian Boho", bg: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=1000", border: "#f4a460", shadow: "rgba(244,164,96,0.5)" },
-        { id: 15, name: "Lavender Mist", bg: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&q=80&w=1000", border: "#e6e6fa", shadow: "rgba(230,230,250,0.5)" },
-        { id: 16, name: "Modern Concrete", bg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000", border: "#708090", shadow: "rgba(112,128,144,0.5)" },
-        { id: 17, name: "Tropical Palm", bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000", border: "#2e8b57", shadow: "rgba(46,139,87,0.5)" },
-        { id: 18, name: "Marble Luxury", bg: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", border: "#e0e0e0", shadow: "rgba(224,224,224,0.5)" },
-        { id: 19, name: "Midnight Purple", bg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000", border: "#800080", shadow: "rgba(128,0,128,0.5)" },
-        { id: 20, name: "Sunshine Warmth", bg: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&q=80&w=1000", border: "#ffd700", shadow: "rgba(255,215,0,0.5)" }
+    // 20 FONT NYATA
+    const realFonts = [
+        "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
+        "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
+        "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
+        "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
 
+    // DINAMIS TEXT (Mewakili Semua Laman)
     const defaultText = {
-      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", eventDate: "2026-10-25",
-      quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...", footerCouple: "Rian & Siska"
+      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
+      heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
+      quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
+      titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
+      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
+      titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
+      titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
     
+    // STATE DATA
     let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
-    let invitedGuests = JSON.parse(localStorage.getItem('ari_invitedGuests')) || [];
     let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
-    let genZConfig = JSON.parse(localStorage.getItem('ari_genZConfig')) || { cover: 1 };
     let giftConfig = JSON.parse(localStorage.getItem('ari_giftConfig')) || { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
     let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.\n\n{link}\n\nTerima kasih. 🙏";
+    
+    // Konfigurasi Baru (Background, Font, Musik)
+    let ultimateConfig = JSON.parse(localStorage.getItem('ari_ultimateConfig')) || {
+        font: "Plus Jakarta Sans",
+        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
+        sectionBg: "", 
+        musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3",
+        musicVolume: 0.5
+    };
+
     let isPlaying = false;
 
     function saveAllDataToDevice() {
         localStorage.setItem('ari_textElements', JSON.stringify(textElements));
-        localStorage.setItem('ari_invitedGuests', JSON.stringify(invitedGuests));
-        localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
-        localStorage.setItem('ari_genZConfig', JSON.stringify(genZConfig));
-        localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
-        localStorage.setItem('ari_waTemplate', waTemplate);
-    }
-
-    function generateBackup() {
-        const data = { textElements, invitedGuests, attendanceList, genZConfig, giftConfig, waTemplate };
-        document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-    }
-    function copyBackup() {
-        document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Kode Backup Disalin!");
-    }
-    function restoreBackup() {
-        try {
-            const str = document.getElementById('restoreInput').value.trim();
-            if(!str) return alert('Masukkan kode!');
-            const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
-            if(decoded.textElements) localStorage.setItem('ari_textElements', JSON.stringify(decoded.textElements));
-            if(decoded.giftConfig) localStorage.setItem('ari_giftConfig', JSON.stringify(decoded.giftConfig));
-            if(decoded.genZConfig) localStorage.setItem('ari_genZConfig', JSON.stringify(decoded.genZConfig));
-            if(decoded.attendanceList) localStorage.setItem('ari_attendanceList', JSON.stringify(decoded.attendanceList));
-            alert('Restore Berhasil! Halaman dimuat ulang.'); location.reload();
-        } catch(e) { alert('Kode tidak valid!'); }
-    }
-
-    const adminModules = [
-      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data Update', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' },
-      { id: 'genz', title: '20 Master Tema & Cover', desc: 'Pilih Background Nyata', icon: 'fa-wand-magic-sparkles', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'textTable', title: 'Tabel Teks & Typewriter', desc: 'Kelola Teks Utama', icon: 'fa-table', gradient: 'from-purple-500 to-indigo-500' },
-      { id: 'gift', title: 'Amplop Digital & QRIS', desc: 'Atur Rekening & Foto QRIS', icon: 'fa-gift', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'wa', title: 'Pesan WhatsApp', desc: 'Kustomisasi Chat', icon: 'fa-brands fa-whatsapp', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran', icon: 'fa-address-book', gradient: 'from-amber-500 to-orange-500' }
-    ];
-
-    function renderDashboardCards() {
-      const grid = document.getElementById('dashboardCardsGrid');
-      if(!grid) return;
-      grid.innerHTML = '';
-      adminModules.forEach(mod => {
-        grid.innerHTML += `
-          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
-            <div class="flex justify-between items-start">
-              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
-              <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
-            </div>
-            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
-          </div>
-        `;
-      });
-    }
-
-    function openAdminModule(id) {
-      document.getElementById('adminDashboardView').classList.add('hidden');
-      document.getElementById('adminModuleView').classList.remove('hidden');
-      const area = document.getElementById('moduleContentArea');
-      
-      if (id === 'backup') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
-            <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 space-y-3">
-                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-bold cursor-pointer">Generate Kode Backup</button>
-                <textarea id="backupOutput" readonly rows="3" class="w-full bg-gray-900 border border-gray-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
-                <button onclick="copyBackup()" class="w-full bg-gray-700 text-white py-2 rounded-lg font-bold cursor-pointer">Salin Kode</button>
-            </div>
-            <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 space-y-3">
-                <textarea id="restoreInput" rows="3" class="w-full bg-gray-900 border border-gray-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup..."></textarea>
-                <button onclick="restoreBackup()" class="w-full bg-green-600 text-white py-2.5 rounded-lg font-bold cursor-pointer">Restore Data Sekarang</button>
-            </div>
-          </div>`;
-      } else if (id === 'genz') {
-        let themeOptions = realThemes.map(t => `<option value="${t.id}" ${genZConfig.cover == t.id ? 'selected' : ''}>Tema #${t.id} - ${t.name}</option>`).join('');
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 Pilih dari 20 Master Tema & Background Nyata</h4>
-            <div>
-              <label class="block text-slate-400 mb-2">Pilih 1 dari 20 Tema Estetik</label>
-              <select id="editCoverPreset" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl font-bold text-cyan-300 shadow-inner">${themeOptions}</select>
-            </div>
-            <button onclick="saveGenZConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold cursor-pointer shadow-lg flex items-center justify-center space-x-2 mt-4">
-                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Pengaturan Tema</span>
-            </button>
-          </div>`;
-      } else if (id === 'textTable') {
-        let rows = '';
-        for(let key in textElements) { rows += `<tr><td class="p-2 border-b border-slate-700 text-slate-300">${key}</td><td class="p-2 border-b border-slate-700"><input type="text" id="table-text-${key}" value="${textElements[key]}" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-xs text-white"></td></tr>`; }
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-indigo-400 text-sm">📋 Tabel Teks Utama & Typewriter</h4>
-            <div class="overflow-x-auto"><table class="w-full text-left bg-slate-800/50 rounded-xl overflow-hidden">${rows}</table></div>
-            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold cursor-pointer shadow-lg flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Pengaturan Teks</span>
-            </button>
-          </div>`;
-      } else if (id === 'gift') {
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-blue-400 text-sm">🎁 Amplop Digital (QRIS & Rekening Manual)</h4>
-            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <label class="block text-slate-300 font-bold">1. Upload Foto QRIS dari HP</label>
-                <input type="file" id="qrisFileInput" accept="image/*" onchange="previewQrisImage(event)" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700">
-                <div id="qrisPreviewBox" class="w-32 h-32 mx-auto bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden border border-slate-600 mt-2">
-                    ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="w-full h-full object-cover">` : '<span class="text-[10px] text-slate-500">Preview QRIS</span>'}
-                </div>
-            </div>
-            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <label class="block text-slate-300 font-bold">2. Input No Rekening Manual</label>
-                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Nama Bank (cth: Bank BCA)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor Rekening" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white font-mono">
-                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama (A.N ...)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-            </div>
-            <button type="button" onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold cursor-pointer shadow-lg flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Pengaturan Amplop</span>
-            </button>
-          </div>`;
-      } else if (id === 'wa') {
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">💬 Template Pesan WhatsApp</h4>
-            <textarea id="editWaTemplate" rows="6" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl font-mono text-white leading-relaxed">${waTemplate}</textarea>
-            <button type="button" onclick="saveWaTemplate()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold cursor-pointer shadow-lg flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-floppy-disk"></i><span>Simpan Template WA</span>
-            </button>
-          </div>`;
-      } else if (id === 'guests') {
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">👥 Data Kehadiran / Buku Tamu</h4>
-            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto mt-2"></div>
-          </div>`;
-        setTimeout(renderAdminWishes, 50);
-      }
-    }
-
-    function backToDashboard() {
-      document.getElementById('adminModuleView').classList.add('hidden');
-      document.getElementById('adminDashboardView').classList.remove('hidden');
-    }
-
-    let tempQrisBase64 = giftConfig.qrisImage;
-    function previewQrisImage(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                tempQrisBase64 = e.target.result;
-                document.getElementById('qrisPreviewBox').innerHTML = `<img src="${tempQrisBase64}" class="w-full h-full object-cover">`;
-            }
-            reader.readAsDataURL(file);
-        }
-    }
-
-    function saveGiftConfig() {
-        giftConfig.bank = document.getElementById('inputBankName').value;
-        giftConfig.number = document.getElementById('inputRekNumber').value;
-        giftConfig.owner = document.getElementById('inputRekOwner').value;
-        giftConfig.qrisImage = tempQrisBase64;
-        saveAllDataToDevice();
-        applyGiftToDOM();
-        alert('Pengaturan Amplop Digital & QRIS berhasil disimpan!');
-    }
-
-    function applyGiftToDOM() {
-        document.getElementById('displayBankName').innerText = giftConfig.bank;
-        document.getElementById('displayRekNumber').innerText = giftConfig.number;
-        document.getElementById('displayRekOwner').innerText = giftConfig.owner;
-        const qrisBox = document.getElementById('qrisImageRender');
-        if (giftConfig.qrisImage) {
-            qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain">`;
-        } else {
-            qrisBox.innerHTML = `<span class="text-[10px] text-slate-400">Belum ada QRIS</span>`;
-        }
-    }
-
-    function applyCoverToDOM() {
-      const theme = realThemes.find(t => t.id == genZConfig.cover) || realThemes[0];
-      const cover = document.getElementById('coverSection');
-      const coverBg = document.getElementById('coverBgImage');
-      const heroBg = document.getElementById('mainHeroBg');
-
-      if(coverBg) coverBg.style.backgroundImage = `url('${theme.bg}')`;
-      if(heroBg) heroBg.style.backgroundImage = `url('${theme.bg}')`;
-      if(cover) {
-          cover.style.border = `4px solid ${theme.border}`;
-          cover.style.boxShadow = `0 0 30px ${theme.shadow}`;
-      }
-    }
-
-    function saveGenZConfig() {
-      genZConfig.cover = document.getElementById('editCoverPreset').value;
-      saveAllDataToDevice();
-      applyCoverToDOM();
-      alert('Tema & Background berhasil disimpan & diterapkan!');
-    }
-
-    function runTypewriter() {
-        const el = document.getElementById('quoteTextDisplay');
-        if(!el) return;
-        const text = textElements.quoteText;
-        el.innerText = "";
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                el.innerText += text.charAt(i);
-                i++;
-                setTimeout(type, 40);
-            }
-        }
-        type();
-    }
-
-    function applyTextElementsToDOM() {
-      document.getElementById('coverCoupleName').innerText = textElements.coupleName;
-      document.getElementById('mainHeroTitle').innerText = textElements.coupleName;
-      document.getElementById('footerCouple').innerText = textElements.footerCouple;
-      document.getElementById('coverBadgeText').innerText = textElements.badgeText;
-      document.getElementById('coverSubText').innerText = textElements.subText;
-      runTypewriter();
-    }
-
-    function saveTextTable() {
-      for (let key in textElements) { const input = document.getElementById(`table-text-${key}`); if (input) textElements[key] = input.value; }
-      saveAllDataToDevice();
-      applyTextElementsToDOM();
-      alert('Tabel Teks & Typewriter berhasil disimpan!');
-    }
-
-    function saveWaTemplate() {
-      waTemplate = document.getElementById('editWaTemplate').value;
-      saveAllDataToDevice();
-      alert('Template WhatsApp berhasil disimpan!');
-    }
-
-    function renderWishesToDOM() {
-        const container = document.getElementById('wishesList');
-        if(!container) return;
-        container.innerHTML = '';
-        attendanceList.forEach(w => {
-            container.innerHTML += `<div class="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1"><div class="flex justify-between font-bold text-slate-800"><span>${w.name}</span><span class="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full">${w.status}</span></div><p class="text-slate-500">${w.message}</p></div>`;
-        });
-    }
-
-    function renderAdminWishes() {
-      const container = document.getElementById('adminGuestList');
-      if (!container) return;
-      container.innerHTML = '';
-      attendanceList.forEach(w => {
-        container.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-xs text-slate-300"><b>${w.name} (${w.status})</b><br>${w.message}</div>`;
-      });
-    }
-
-    // FUNGSI UTAMA BUKA UNDANGAN (DIJAMIN 100% TEMBUS DI SEMUA HP)
-    function openInvitation() {
-      const cover = document.getElementById('coverSection');
-      const main = document.getElementById('mainContent');
-      
-      if (main) { 
-          main.classList.remove('hidden'); 
-          main.style.display = 'block'; 
-          setTimeout(() => { main.classList.remove('opacity-0'); main.style.opacity = '1'; }, 10); 
-      }
-      if (cover) { 
-          cover.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease'; 
-          cover.style.transform = 'translateY(-100%)'; 
-          cover.style.opacity = '0'; 
-          setTimeout(() => { cover.style.display = 'none'; }, 500); 
-      }
-      
-      const music = document.getElementById('bgMusic');
-      if (music) { 
-          music.play().then(() => { 
-              isPlaying = true; 
-              const icon = document.getElementById('musicIcon'); 
-              if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
-          }).catch((e) => console.log('Audio autoplay ditahan: ', e)); 
-      }
-      window.scrollTo(0, 0);
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById('bgMusic');
-      const icon = document.getElementById('musicIcon');
-      const label = document.getElementById('musicLabel');
-      if (!music) return;
-      if (isPlaying) { music.pause(); if(icon) icon.className = "fa-solid fa-music text-sm"; if(label) label.innerText = "Paused"; } 
-      else { music.play(); if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; if(label) label.innerText = "Playing"; }
-      isPlaying = !isPlaying;
-    }
-
-    function copyToClipboard(text, bankName) {
-      navigator.clipboard.writeText(text).then(() => { alert(`Nomor rekening ${bankName} (${text}) disalin!`); }).catch(err => { alert('Gagal menyalin.'); });
-    }
-
-    function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-    function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
-    function verifyPin() {
-      const pinInput = document.getElementById('adminPinInput');
-      if (pinInput && pinInput.value.trim() === '1234') { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); } 
-      else { alert('PIN Salah! (Default: 1234)'); }
-    }
-    function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-
-    function submitWish() {
-      const name = document.getElementById('guestInputName').value.trim();
-      const status = document.getElementById('attendanceStatus').value;
-      const message = document.getElementById('guestMessage').value.trim();
-      if (!name || !message) return alert('Isi nama & pesan!');
-      attendanceList.unshift({ name, status, message });
-      saveAllDataToDevice();
-      renderWishesToDOM();
-      alert('Ucapan berhasil dikirim!');
-      document.getElementById('guestMessage').value = '';
-    }
-
-    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
-    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
-    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨\n${textElements.coupleName}\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
-
-    window.onload = function() {
-        applyTextElementsToDOM();
-        applyCoverToDOM();
-        applyGiftToDOM();
-        renderWishesToDOM();
-        renderDashboardCards();
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const toParam = urlParams.get('to');
-        if (toParam) {
-            document.getElementById('guestName').innerText = decodeURIComponent(toParam);
-            document.getElementById('guestInputName').value = decodeURIComponent(toParam);
-        }
-    };
-  </script>
-</body>
-</html>
+        localStor
