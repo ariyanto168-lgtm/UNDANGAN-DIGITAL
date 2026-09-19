@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.17</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.20</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,18 +16,9 @@
     @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
     .pulse-glow-active { animation: textPulse 2.5s infinite ease-in-out; }
 
-    .fairy-lights-container { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding: 12px 10px; pointer-events: none; z-index: 10; }
-    .fairy-light { width: 9px; height: 9px; border-radius: 50%; background: #ffeb3b; box-shadow: 0 0 12px #ffeb3b, 0 0 22px #ff9800; animation: twinkle 1.2s infinite alternate; }
-    .fairy-light:nth-child(even) { background: #ff4081; box-shadow: 0 0 12px #ff4081, 0 0 22px #e91e63; animation-delay: 0.6s; }
-    .fairy-light:nth-child(3n) { background: #00e5ff; box-shadow: 0 0 12px #00e5ff, 0 0 22px #00b0ff; animation-delay: 0.3s; }
-    @keyframes twinkle { 0% { opacity: 0.3; transform: scale(0.7); } 100% { opacity: 1; transform: scale(1.3); } }
-
-    .cover-base { position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; z-index: 999999; background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(40,40,40,0.95)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease; }
+    .cover-base { position: fixed; inset: 0; z-index: 9999999; background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(40,40,40,0.98)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; touch-action: manipulation; }
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
     .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
   </style>
 </head>
@@ -35,31 +26,26 @@
 
   <!-- COVER UTAMA -->
   <div id="coverSection" class="cover-base text-white text-center">
-    <div class="fairy-lights-container" style="pointer-events: none;">
-      <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
-      <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
-    </div>
+    <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
     
-    <div class="absolute inset-0 opacity-50 bg-cover bg-center -z-10 transition-all duration-700" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
-    
-    <div class="space-y-2 mb-6" style="pointer-events: none;">
+    <div class="space-y-2 mb-6 relative z-10" style="pointer-events: none;">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
       <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- KOTAK & TOMBOL BUKA UNDANGAN (BRUTE-FORCE ANTI MACET PERMANEN v10.1.17) -->
-    <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl" style="position: relative; z-index: 2147483647; pointer-events: auto;">
-      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate" style="pointer-events: none;">Tamu Undangan</div>
-      <p id="coverDateDisplay" class="text-slate-300 text-xs" style="pointer-events: none;">Minggu, 25 Oktober 2026</p>
+    <!-- KOTAK & TOMBOL BUKA UNDANGAN (DIRECT TOUCH v10.1.20) -->
+    <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl relative" style="z-index: 2147483647;">
+      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
+      <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
       
-      <!-- 3 Lapis Pelatuk: onclick, ontouchstart, dan dipasang ID untuk EventListener JS -->
-      <button id="bruteForceBtn" type="button" onclick="forceOpenCover(event)" ontouchstart="forceOpenCover(event)" style="width: 100%; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); color: white; font-weight: bold; padding: 16px 24px; border-radius: 12px; box-shadow: 0 0 25px rgba(236,72,153,0.8); border: none; font-size: 14px; position: relative; z-index: 2147483647; pointer-events: auto;">
+      <!-- Tombol dengan onclick dan ontouchend langsung -->
+      <button type="button" onclick="bukaUndanganSekarang()" ontouchend="bukaUndanganSekarang(); event.preventDefault();" style="width: 100%; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); color: white; font-weight: bold; padding: 16px 24px; border-radius: 12px; box-shadow: 0 0 25px rgba(236,72,153,0.8); border: none; font-size: 14px; position: relative; z-index: 2147483647;">
         Buka Undangan ✨
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6" style="pointer-events: none;"><p>Powered by Ari GPM (v10.1.17)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6 relative z-10"><p>Powered by Ari GPM (v10.1.20)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -171,7 +157,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.17 (Anti Macet Permanen)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.20 (Direct Touch Fix)</p>
       </div>
     </footer>
   </main>
@@ -182,7 +168,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.17</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.20</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -227,7 +213,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.17 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.20 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -236,11 +222,27 @@
         "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
 
-    // 20 KATEGORI ACARA (ANTI HALU)
     const eventPresetsList = {
       pernikahan: {
         badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sa
+        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
+      },
+      khitanan: {
+        badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
+        heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
+        quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
+        titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
+        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
+      },
+      ultah: {
+        badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
+        heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
+        quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
+        titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
+        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
+      },
+      rapatrt: {
+        badgeText: "Undangan Resmi", coupleNa
