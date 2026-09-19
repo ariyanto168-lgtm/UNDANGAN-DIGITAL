@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.37</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.39</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- EmailJS SDK untuk Kirim Email Asli -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
   
@@ -65,7 +67,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.37)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.39)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -210,7 +212,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.37 (Elegant Toast Notifications)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.39 (Real Email OTP via EmailJS)</p>
       </div>
     </footer>
   </main>
@@ -221,7 +223,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.37</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.39</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -229,9 +231,10 @@
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
         <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
-        <p class="text-xs text-slate-400">PIN Default Editor: <span class="font-mono font-bold text-pink-400">1234</span></p>
+        <p class="text-xs text-slate-400">PIN Default: <span class="font-mono font-bold text-pink-400">1234</span> | Email: <span class="font-mono font-bold text-cyan-400" id="displayAdminEmailHint">admin@ariyanto.com</span></p>
         <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none">
         <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard</button>
+        <button type="button" onclick="openForgotPinView()" class="text-xs text-pink-400 underline pt-2 block mx-auto cursor-pointer">Lupa PIN?</button>
       </div>
 
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
@@ -266,7 +269,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.37 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.39 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -487,6 +490,15 @@
     }
 
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
+    let adminAuth = { 
+        pin: "1234", 
+        email: "admin@ariyanto.com",
+        emailjsServiceId: "",
+        emailjsTemplateId: "",
+        emailjsPublicKey: ""
+    };
+    let activeOtpData = { code: "", purpose: "", tempEmail: "", tempPin: "" };
+
     let attendanceList = [
         { name: "Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx", status: "Hadir", message: "Selamat menempuh hidup baru!" }
     ];
@@ -516,12 +528,13 @@
     let sectionStickers = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
 
     try {
-        if(localStorage.getItem('ari_textElements_v37')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v37'));
-        } else if(localStorage.getItem('ari_textElements_v36')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v36'));
+        if(localStorage.getItem('ari_textElements_v39')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v39'));
+        } else if(localStorage.getItem('ari_textElements_v38')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v38'));
         }
-        if(localStorage.getItem('ari_sectionPhotos_v37')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v37'));
+        if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
+        if(localStorage.getItem('ari_sectionPhotos_v39')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v39'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionStickers')) sectionStickers = JSON.parse(localStorage.getItem('ari_sectionStickers'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
@@ -537,8 +550,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v37', JSON.stringify(textElements));
-            localStorage.setItem('ari_sectionPhotos_v37', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_textElements_v39', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v39', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionStickers', JSON.stringify(sectionStickers));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
@@ -552,7 +566,7 @@
     }
 
     function generateBackup() {
-        const data = { textElements, sectionPhotos, sectionPhotoVisibility, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
+        const data = { textElements, adminAuth, sectionPhotos, sectionPhotoVisibility, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { 
@@ -566,6 +580,7 @@
             if(!str) return showToast('Masukkan kode backup terlebih dahulu!', 'error');
             const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
             if(decoded.textElements) textElements = decoded.textElements;
+            if(decoded.adminAuth) adminAuth = decoded.adminAuth;
             if(decoded.sectionPhotos) sectionPhotos = decoded.sectionPhotos;
             if(decoded.sectionPhotoVisibility) sectionPhotoVisibility = decoded.sectionPhotoVisibility;
             if(decoded.sectionStickers) sectionStickers = decoded.sectionStickers;
@@ -592,6 +607,7 @@
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks & On/Off Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop, QRIS & Saklar', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'keamananAkun', title: 'Keamanan Akun & Email Asli', desc: 'Ubah PIN, Lupa PIN, & Ganti Email OTP Real', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
       { id: 'guests', title: 'Buku Tamu & Sharelok', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
       { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data Update', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
@@ -797,6 +813,39 @@
             <button onclick="saveGenZFrameAndSpeed()" class="w-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Pengaturan Gen-Z</button>
           </div>`;
       }
+      else if (id === 'keamananAkun') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🔒 Keamanan Akun & Email Asli (EmailJS SDK)</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-cyan-300 text-[11px]">Konfigurasi EmailJS (Opsional untuk Kirim Email Asli)</h5>
+              <input type="text" id="ejsServiceId" value="${adminAuth.emailjsServiceId || ''}" placeholder="EmailJS Service ID (contoh: service_xxxx)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsTemplateId" value="${adminAuth.emailjsTemplateId || ''}" placeholder="EmailJS Template ID (contoh: template_xxxx)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsPublicKey" value="${adminAuth.emailjsPublicKey || ''}" placeholder="EmailJS Public Key (User ID)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="saveEmailJsConfig()" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Simpan Konfigurasi EmailJS</button>
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-pink-400">1. Ubah PIN Admin</h5>
+              <input type="password" id="oldPinInput" placeholder="PIN Lama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="password" id="newPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="processChangePin()" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Simpan PIN Baru</button>
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-cyan-400">2. Ganti Email (Verifikasi OTP ke Email Lama)</h5>
+              <p class="text-[10px] text-slate-400">Email saat ini: <span class="font-mono text-white">${adminAuth.email}</span></p>
+              <input type="email" id="newEmailInput" placeholder="Email Baru" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="requestEmailOtp()" class="w-full bg-cyan-600 text-white py-2 rounded-lg font-bold">Kirim OTP Asli ke Email Lama</button>
+              
+              <div id="emailOtpSection" class="hidden space-y-2 pt-2 border-t border-slate-700">
+                <input type="text" id="emailOtpInput" placeholder="Masukkan 4 Digit Kode OTP" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs text-center font-mono tracking-widest">
+                <button onclick="verifyAndChangeEmail()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Verifikasi & Ganti Email</button>
+              </div>
+            </div>
+          </div>`;
+      }
       else if (id === 'backup') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
@@ -896,7 +945,7 @@
         let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & Saklar Tampil/Sembunyi</h4>
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & Saklar Tampil/Sembunyikan</h4>
             <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
                   <span class="font-bold text-white">Tampilkan Amplop Digital di Undangan</span>
@@ -923,6 +972,132 @@
           </div>`;
         setTimeout(renderAdminWishes, 50);
       }
+    }
+
+    // SECURITY & REAL EMAIL (EMAILJS) FUNCTIONS
+    function saveEmailJsConfig() {
+        adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
+        adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
+        adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
+        saveAllDataToDevice();
+        showToast('Konfigurasi EmailJS berhasil disimpan!');
+    }
+
+    function sendRealEmailOtp(targetEmail, otpCode, callback) {
+        if (!adminAuth.emailjsServiceId || !adminAuth.emailjsTemplateId || !adminAuth.emailjsPublicKey) {
+            // Jika belum dikonfigurasi, gunakan fallback toast / alert agar tetap bisa diuji
+            showToast(`[Mode Simulation/Alert] Kode OTP Anda: ${otpCode}`, 'error');
+            if(callback) callback(true);
+            return;
+        }
+
+        // Inisialisasi EmailJS
+        emailjs.init(adminAuth.emailjsPublicKey);
+        const templateParams = {
+            to_email: targetEmail,
+            passcode_otp: otpCode,
+            message: `Kode verifikasi OTP Anda adalah: ${otpCode}. Jangan berikan kode ini kepada siapapun.`
+        };
+
+        emailjs.send(adminAuth.emailjsServiceId, adminAuth.emailjsTemplateId, templateParams)
+            .then(function(response) {
+                showToast(`Email OTP asli berhasil dikirim ke ${targetEmail}!`);
+                if(callback) callback(true);
+            }, function(error) {
+                showToast('Gagal mengirim email OTP! Periksa konfigurasi EmailJS Anda.', 'error');
+                if(callback) callback(false);
+            });
+    }
+
+    function processChangePin() {
+        const oldPin = document.getElementById('oldPinInput').value.trim();
+        const newPin = document.getElementById('newPinInput').value.trim();
+        if(oldPin !== adminAuth.pin) return showToast('PIN lama salah!', 'error');
+        if(!newPin || newPin.length < 3) return showToast('PIN baru minimal 3 karakter!', 'error');
+        
+        adminAuth.pin = newPin;
+        saveAllDataToDevice();
+        showToast('PIN berhasil diubah!');
+        document.getElementById('oldPinInput').value = '';
+        document.getElementById('newPinInput').value = '';
+    }
+
+    function requestEmailOtp() {
+        const newEmail = document.getElementById('newEmailInput').value.trim();
+        if(!newEmail || !newEmail.includes('@')) return showToast('Masukkan email baru yang valid!', 'error');
+        
+        const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+        activeOtpData = { code: generatedOtp, purpose: 'change_email', tempEmail: newEmail };
+        
+        sendRealEmailOtp(adminAuth.email, generatedOtp, (success) => {
+            if(success) {
+                document.getElementById('emailOtpSection').classList.remove('hidden');
+            }
+        });
+    }
+
+    function verifyAndChangeEmail() {
+        const enteredOtp = document.getElementById('emailOtpInput').value.trim();
+        if(enteredOtp !== activeOtpData.code) return showToast('Kode OTP salah!', 'error');
+
+        adminAuth.email = activeOtpData.tempEmail;
+        saveAllDataToDevice();
+        updateAdminEmailHint();
+        showToast('Email berhasil diubah secara permanen!');
+        document.getElementById('emailOtpSection').classList.add('hidden');
+        document.getElementById('newEmailInput').value = '';
+        document.getElementById('emailOtpInput').value = '';
+    }
+
+    function openForgotPinView() {
+        const pinSec = document.getElementById('pinSection');
+        pinSec.innerHTML = `
+          <div class="space-y-3 text-left">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold text-base text-pink-400">🔑 Lupa PIN (Reset via Real Email OTP)</h3>
+              <button onclick="location.reload()" class="text-slate-400 hover:text-white text-xs">Kembali</button>
+            </div>
+            <p class="text-[11px] text-slate-300">Masukkan email admin terdaftar (<span class="font-mono text-cyan-300">${adminAuth.email}</span>):</p>
+            <input type="email" id="forgotEmailInput" placeholder="Email Terdaftar" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded text-white text-xs">
+            <button onclick="sendForgotPinOtp()" class="w-full bg-pink-600 text-white py-2.5 rounded-lg font-bold text-xs">Kirim OTP Asli ke Email</button>
+            
+            <div id="forgotOtpBox" class="hidden space-y-2 pt-2">
+              <input type="text" id="forgotOtpInput" placeholder="Kode OTP (4 Digit)" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-white text-xs text-center font-mono tracking-widest">
+              <input type="password" id="forgotNewPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-white text-xs">
+              <button onclick="verifyAndResetPin()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs">Verifikasi & Reset PIN</button>
+            </div>
+          </div>`;
+    }
+
+    function sendForgotPinOtp() {
+        const email = document.getElementById('forgotEmailInput').value.trim();
+        if(email !== adminAuth.email) return showToast('Email tidak terdaftar di sistem!', 'error');
+
+        const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+        activeOtpData = { code: generatedOtp, purpose: 'forgot_pin' };
+        
+        sendRealEmailOtp(email, generatedOtp, (success) => {
+            if(success) {
+                document.getElementById('forgotOtpBox').classList.remove('hidden');
+            }
+        });
+    }
+
+    function verifyAndResetPin() {
+        const otp = document.getElementById('forgotOtpInput').value.trim();
+        const newPin = document.getElementById('forgotNewPinInput').value.trim();
+        if(otp !== activeOtpData.code) return showToast('Kode OTP salah!', 'error');
+        if(!newPin || newPin.length < 3) return showToast('PIN baru minimal 3 karakter!', 'error');
+
+        adminAuth.pin = newPin;
+        saveAllDataToDevice();
+        showToast('PIN berhasil direset! Silakan login dengan PIN baru.');
+        setTimeout(() => location.reload(), 1500);
+    }
+
+    function updateAdminEmailHint() {
+        const hint = document.getElementById('displayAdminEmailHint');
+        if(hint) hint.innerText = adminAuth.email;
     }
 
     function handleCustomGifUpload(event, sectionKey) {
@@ -1474,13 +1649,13 @@
     
     function verifyPin() {
       const pin = document.getElementById('adminPinInput');
-      if (pin && pin.value.trim() === '1234') { 
+      if (pin && pin.value.trim() === adminAuth.pin) { 
           document.getElementById('pinSection').classList.add('hidden'); 
           document.getElementById('editorBody').classList.remove('hidden'); 
           backToDashboard(); 
           showToast('Login Admin Berhasil!');
       } else { 
-          showToast('PIN Salah! (Default: 1234)', 'error'); 
+          showToast('PIN Salah!', 'error'); 
       }
     }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
@@ -1518,6 +1693,7 @@
         try { applyTextElementsToDOM(); } catch(e) {}
         try { applySectionPhotos(); } catch(e) {}
         try { applySectionStickers(); } catch(e) {}
+        try { updateAdminEmailHint(); } catch(e) {}
 
         try {
             const urlParams = new URLSearchParams(window.location.search);
