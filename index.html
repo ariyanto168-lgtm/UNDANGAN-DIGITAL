@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v9.5.0</title>
+  <title>Undangan Digital - Master Gen-Z v9.4.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none"><p>Powered by Ari GPM (v9.5.0)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none"><p>Powered by Ari GPM (v9.4.0)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -130,7 +130,7 @@
         </div>
       </section>
 
-      <!-- AMPLOP DIGITAL -->
+      <!-- AMPLOP DIGITAL & QRIS MOD (DINAMIS DARI DATA) -->
       <section class="py-12 px-6 bg-white text-center space-y-6">
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl mb-2 shadow-sm"><i class="fa-solid fa-gift"></i></div>
         <h2 class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
@@ -176,7 +176,7 @@
       <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.5.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.4.0</p>
       </div>
     </footer>
   </main>
@@ -187,7 +187,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white px-6 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.5.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.4.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer btn-super-responsive"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
       </div>
@@ -230,11 +230,14 @@
 
   <audio id="bgMusic" loop><source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v9.5.0 (20 Master Themes & Backup) -->
+  <!-- JAVASCRIPT SYSTEM v9.4.0 -->
   <script>
-    // 20 PILIHAN TEMA / BACKGROUND COVER NYATA
-    const realThemes = [
-        { id: 1, name: "Luxury Gold", bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", border: "#d4af37", shadow: "rgba(212,175,55,0.4)" },
-        { id: 2, name: "Romantic Floral", bg: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=1000", border: "#ffb6c1", shadow: "rgba(255,182,193,0.4)" },
-        { id: 3, name: "Dark Elegance", bg: "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=1000", border: "#ffffff", shadow: "rgba(255,255,255,0.4)" },
-        { id: 4, name: "Neon Cyberpunk", bg: "https://images.unsplash.com/photo-1557672172-298
+    const defaultText = {
+      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", eventDate: "2026-10-25",
+      quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...", footerCouple: "Rian & Siska"
+    };
+    
+    let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
+    let invitedGuests = JSON.parse(localStorage.getItem('ari_invitedGuests')) || [];
+    let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
+    let genZConfig = JSON.parse(localStorage.getItem('ari_genZConfig
