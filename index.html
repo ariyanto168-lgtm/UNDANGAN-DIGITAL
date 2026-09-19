@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.32</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.34</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.32)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.34)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -88,6 +88,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
         <div id="categoryParticlesContainer"></div>
         <div class="relative z-10 space-y-3 pb-8">
+          <div id="dynamicSticker-hero" class="flex justify-center mb-2"></div>
           <span id="text-badge" data-key="badgeText" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
           <h1 id="text-heroTitle" data-key="heroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
           <p id="text-heroSub" data-key="heroSub" class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
@@ -95,13 +96,16 @@
       </section>
 
       <!-- SECTION 2: QUOTES -->
-      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4">
+      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
+        <div id="dynamicSticker-quotes" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhoto-quotes" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
         <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
       <!-- SECTION 3: MEMPELAI -->
       <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="dynamicSticker-mempelai" class="flex justify-center mb-2"></div>
         <h2 id="text-titleMempelai" data-key="titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
           <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile1FrameContainer">
@@ -122,6 +126,7 @@
 
       <!-- SECTION 4: VIDEO MP4 (URL MODE) -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
+        <div id="dynamicSticker-video" class="flex justify-center mb-2"></div>
         <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
         <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center">
@@ -134,6 +139,8 @@
 
       <!-- SECTION 5: LOKASI -->
       <section data-section-key="lokasi" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="dynamicSticker-lokasi" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhoto-lokasi" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
         <h2 id="text-titleLokasi" data-key="titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
         <div class="bg-white/80 p-4 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <p id="text-alamat" data-key="alamat" class="text-xs text-slate-600">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
@@ -146,6 +153,8 @@
 
       <!-- SECTION 6: AMPLOP -->
       <section data-section-key="amplop" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="dynamicSticker-amplop" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhoto-amplop" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
         <h2 id="text-titleGift" data-key="titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
         <p id="text-subGift" data-key="subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
@@ -166,6 +175,8 @@
 
       <!-- SECTION 7: RSVP & SHARELOK -->
       <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
+        <div id="dynamicSticker-rsvp" class="flex justify-center mb-2"></div>
+        <div id="dynamicPhoto-rsvp" class="hidden mb-3 rounded-2xl overflow-hidden shadow-md max-h-48"><img src="" class="w-full h-full object-cover"></div>
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
@@ -184,10 +195,11 @@
 
     <!-- FOOTER -->
     <footer class="p-6 text-center space-y-4 mt-8 section-overlay">
+      <div id="dynamicSticker-footer" class="flex justify-center mb-2"></div>
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.32 (Unified Wa.me & Sharelok Database)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.34 (20 Animations & Stickers Engine)</p>
       </div>
     </footer>
   </main>
@@ -198,7 +210,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.32</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.34</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -243,7 +255,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.32 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.34 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -406,6 +418,29 @@
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
 
+    const collectionStickers20 = [
+      { name: "✨ Bintang Berkilau", url: "https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif" },
+      { name: "💖 Cinta Bersemi", url: "https://media.giphy.com/media/10UxkF41b4s3p6/giphy.gif" },
+      { name: "💍 Cincin Berlian", url: "https://media.giphy.com/media/l4pTjOu0x3JjmO5zy/giphy.gif" },
+      { name: "💐 Bunga Mekar", url: "https://media.giphy.com/media/xT5LMGfQrCBcDXKUEn/giphy.gif" },
+      { name: "🕊️ Merpati Putih", url: "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" },
+      { name: "🎉 Konfeti Pesta", url: "https://media.giphy.com/media/3o7TKWpu2WEifyKzew/giphy.gif" },
+      { name: "🎂 Kue Perayaan", url: "https://media.giphy.com/media/xT5LMPqrh7mCPYCdGM/giphy.gif" },
+      { name: "🌟 Sparkle Gold", url: "https://media.giphy.com/media/3o7TKxZ64H8X5B48g0/giphy.gif" },
+      { name: "🎈 Balon Udara", url: "https://media.giphy.com/media/26u6dTP6p4y0iyBIQ/giphy.gif" },
+      { name: "☕ Secangkir Kopi", url: "https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif" },
+      { name: "🏡 Rumah Idaman", url: "https://media.giphy.com/media/10UxkF41b4s3p6/giphy.gif" },
+      { name: "🎓 Toga Wisuda", url: "https://media.giphy.com/media/l4pTjOu0x3JjmO5zy/giphy.gif" },
+      { name: "👶 Bayi Lucu", url: "https://media.giphy.com/media/xT5LMGfQrCBcDXKUEn/giphy.gif" },
+      { name: "🌙 Bulan Sabit", url: "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" },
+      { name: "🏆 Piala Juara", url: "https://media.giphy.com/media/3o7TKWpu2WEifyKzew/giphy.gif" },
+      { name: "🛍️ Belanja Seru", url: "https://media.giphy.com/media/xT5LMPqrh7mCPYCdGM/giphy.gif" },
+      { name: "💡 Lampu Kreatif", url: "https://media.giphy.com/media/3o7TKxZ64H8X5B48g0/giphy.gif" },
+      { name: "🎨 Palet Seni", url: "https://media.giphy.com/media/26u6dTP6p4y0iyBIQ/giphy.gif" },
+      { name: "🍃 Daun Sejuk", url: "https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif" },
+      { name: "✨ Magic Glow", url: "https://media.giphy.com/media/10UxkF41b4s3p6/giphy.gif" }
+    ];
+
     let textElements = {};
     for(let k in defaultText) {
         textElements[k] = { text: defaultText[k], typewriter: true };
@@ -436,12 +471,17 @@
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
     };
 
+    let sectionPhotos = { quotes: '', lokasi: '', amplop: '', rsvp: '' };
+    let sectionStickers = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+
     try {
-        if(localStorage.getItem('ari_textElements_v32')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v32'));
-        } else if(localStorage.getItem('ari_textElements_v31')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v31'));
+        if(localStorage.getItem('ari_textElements_v34')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v34'));
+        } else if(localStorage.getItem('ari_textElements_v33')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v33'));
         }
+        if(localStorage.getItem('ari_sectionPhotos')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos'));
+        if(localStorage.getItem('ari_sectionStickers')) sectionStickers = JSON.parse(localStorage.getItem('ari_sectionStickers'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
@@ -455,7 +495,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v32', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v34', JSON.stringify(textElements));
+            localStorage.setItem('ari_sectionPhotos', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionStickers', JSON.stringify(sectionStickers));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
@@ -467,7 +509,7 @@
     }
 
     function generateBackup() {
-        const data = { textElements, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
+        const data = { textElements, sectionPhotos, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Disalin!"); }
@@ -477,6 +519,8 @@
             if(!str) return alert('Masukkan kode!');
             const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
             if(decoded.textElements) textElements = decoded.textElements;
+            if(decoded.sectionPhotos) sectionPhotos = decoded.sectionPhotos;
+            if(decoded.sectionStickers) sectionStickers = decoded.sectionStickers;
             if(decoded.giftConfig) giftConfig = decoded.giftConfig;
             if(decoded.ultimateConfig) ultimateConfig = decoded.ultimateConfig;
             if(decoded.attendanceList) attendanceList = decoded.attendanceList;
@@ -490,8 +534,10 @@
 
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset & Animasi', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'animasiStiker', title: 'Animasi, GIF & Stiker', desc: '20 Koleksi Stiker per Section', icon: 'fa-face-grin-stars', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Pribadi & Massal + Sharelok', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'dynamicPhotos', title: 'Upload Foto Dinamis', desc: 'Unggah Foto di Semua Section', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Data Sharelok Tamu', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
@@ -536,6 +582,40 @@
             </div>
           </div>`;
       }
+      else if (id === 'animasiStiker') {
+          let stickerOptions = collectionStickers20.map((s, i) => `<option value="${s.url}">${s.name}</option>`).join('');
+          const sections = [
+              { key: 'hero', name: '1. Cover / Hero Section' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Video Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' },
+              { key: 'footer', name: '8. Footer' }
+          ];
+          
+          let htmlSections = '';
+          sections.forEach(sec => {
+              let currentUrl = sectionStickers[sec.key] || '';
+              htmlSections += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <label class="block text-slate-300 font-bold">${sec.name}</label>
+                <select id="stickerSelect-${sec.key}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold text-xs">
+                  <option value="">-- Tanpa Animasi / Stiker --</option>
+                  ${collectionStickers20.map(s => `<option value="${s.url}" ${currentUrl === s.url ? 'selected' : ''}>${s.name}</option>`).join('')}
+                </select>
+              </div>`;
+          });
+
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-purple-400 text-sm">✨ Animasi, GIF & Stiker (20 Koleksi per Section)</h4>
+            <p class="text-slate-400">Pilih dari 20 koleksi animasi/stiker bergerak untuk dipasang di setiap section secara real-time.</p>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlSections}</div>
+            <button onclick="saveAllStickers()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Stiker & Animasi</button>
+          </div>`;
+      }
       else if (id === 'sectionReorder') {
           let listHtml = '';
           const names = { hero: '1. Cover / Hero Section', quotes: '2. Quotes & Ayat', mempelai: '3. Profil Tuan Rumah / Mempelai', video: '4. Video Dokumentasi MP4', lokasi: '5. Lokasi & Google Maps', amplop: '6. Amplop Digital & QRIS', rsvp: '7. Ucapan & Kehadiran (RSVP)' };
@@ -554,6 +634,29 @@
             <h4 class="font-bold text-cyan-400 text-sm">📐 Susun Urutan Section (Atas ke Bawah)</h4>
             <p class="text-slate-400">Klik tombol panah untuk memindahkan posisi section secara real-time.</p>
             <div class="space-y-2">${listHtml}</div>
+          </div>`;
+      }
+      else if (id === 'dynamicPhotos') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-rose-400 text-sm">🖼️ Upload Foto Dinamis di Semua Section</h4>
+            <p class="text-slate-400">Unggah foto kustom untuk menghiasi section tertentu.</p>
+            
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+              <label class="block text-slate-300 font-bold">1. Foto Section Quotes</label>
+              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'quotes')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+
+              <label class="block text-slate-300 font-bold pt-2">2. Foto Section Lokasi</label>
+              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'lokasi')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+
+              <label class="block text-slate-300 font-bold pt-2">3. Foto Section Amplop Digital</label>
+              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'amplop')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+
+              <label class="block text-slate-300 font-bold pt-2">4. Foto Section RSVP & Ucapan</label>
+              <input type="file" accept="image/*" onchange="handleSectionPhotoUpload(event, 'rsvp')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+            </div>
+            
+            <button onclick="clearAllSectionPhotos()" class="w-full bg-rose-900 text-white py-2 rounded-xl font-bold">Hapus Semua Foto Section</button>
           </div>`;
       }
       else if (id === 'databaseWarga') {
@@ -632,7 +735,7 @@
         let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & Upload Foto Pribadi (Real)</h4>
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & Upload Foto Profil (Real)</h4>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">1. Pilih 20 Real Font</label>
@@ -732,6 +835,32 @@
       }
     }
 
+    function saveAllStickers() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`stickerSelect-${k}`);
+            if(el) sectionStickers[k] = el.value;
+        });
+        saveAllDataToDevice();
+        applySectionStickers();
+        alert('Stiker & Animasi Berhasil Disimpan!');
+        backToDashboard();
+    }
+
+    function applySectionStickers() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const container = document.getElementById(`dynamicSticker-${k}`);
+            if(!container) return;
+            const url = sectionStickers[k];
+            if(url) {
+                container.innerHTML = `<img src="${url}" class="w-16 h-16 object-contain rounded-xl shadow-md">`;
+            } else {
+                container.innerHTML = '';
+            }
+        });
+    }
+
     function moveSection(index, direction) {
         const newIndex = index + direction;
         if(newIndex < 0 || newIndex >= sectionOrder.length) return;
@@ -794,6 +923,42 @@
         backToDashboard();
     }
 
+    function handleSectionPhotoUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            sectionPhotos[sectionKey] = e.target.result;
+            saveAllDataToDevice();
+            applySectionPhotos();
+            alert(`Foto untuk section ${sectionKey} berhasil diunggah!`);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function clearAllSectionPhotos() {
+        if(confirm('Hapus semua foto kustom di semua section?')) {
+            sectionPhotos = { quotes: '', lokasi: '', amplop: '', rsvp: '' };
+            saveAllDataToDevice();
+            applySectionPhotos();
+            alert('Semua foto section dihapus.');
+        }
+    }
+
+    function applySectionPhotos() {
+        for(let key in sectionPhotos) {
+            const container = document.getElementById(`dynamicPhoto-${key}`);
+            if(!container) continue;
+            if(sectionPhotos[key]) {
+                container.classList.remove('hidden');
+                container.querySelector('img').src = sectionPhotos[key];
+            } else {
+                container.classList.add('hidden');
+                container.querySelector('img').src = '';
+            }
+        }
+    }
+
     function addWargaToDb() {
         const name = document.getElementById('newWargaName').value.trim();
         const whatsapp = document.getElementById('newWargaPhone').value.trim();
@@ -847,7 +1012,7 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('Daftar tautan wa.me & sharelok seluruh tamu berhasil disalin! Silakan paste ke chat atau catatan.');
+        alert('Daftar tautan wa.me & sharelok seluruh tamu berhasil disalin!');
     }
 
     function saveAdminWaTemplate() {
@@ -1190,6 +1355,8 @@
         try { applySectionOrder(); } catch(e) {}
         try { applyCategoryParticles(); } catch(e) {}
         try { applyTextElementsToDOM(); } catch(e) {}
+        try { applySectionPhotos(); } catch(e) {}
+        try { applySectionStickers(); } catch(e) {}
 
         try {
             const urlParams = new URLSearchParams(window.location.search);
