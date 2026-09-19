@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.24</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.25</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.24)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.25)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -137,16 +137,18 @@
         </div>
       </section>
 
-      <!-- RSVP -->
+      <!-- RSVP & SHARELOK TAMU -->
       <section class="py-10 px-6 section-overlay space-y-6">
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+          <input type="text" id="guestInputWa" placeholder="Nomor WhatsApp (Contoh: 08123456789)" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+          <input type="text" id="guestInputSharelok" placeholder="Link Sharelok / Google Maps (Opsional)" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
           <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
             <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
           <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
-          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan</button>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan & Sharelok</button>
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
@@ -157,7 +159,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.24 (Direct Map Fixed)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.25 (Sharelok & WA Restored)</p>
       </div>
     </footer>
   </main>
@@ -168,7 +170,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.24</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.25</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -213,7 +215,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.24 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.25 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -378,7 +380,9 @@
     
     let textElements = { ...defaultText };
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
-    let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
+    let attendanceList = [
+        { name: "Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx", status: "Hadir", message: "Selamat menempuh hidup baru!" }
+    ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     let ultimateConfig = { 
         font: "Plus Jakarta Sans", 
@@ -437,7 +441,7 @@
       { id: 'music', title: 'Kontrol Musik', desc: 'Volume & Upload Lagu', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Auto-Teks Lengkap', desc: 'Ubah Semua Tulisan Web', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'guests', title: 'Buku Tamu & WA', desc: 'Rekap Kehadiran', icon: 'fa-address-book', gradient: 'from-amber-500 to-orange-500' },
+      { id: 'guests', title: 'Buku Tamu & WA', desc: 'Rekap Kehadiran & Sharelok', icon: 'fa-address-book', gradient: 'from-amber-500 to-orange-500' },
       { id: 'typewriter', title: 'Kecepatan Ketik', desc: 'Atur Kecepatan Typewriter', icon: 'fa-keyboard', gradient: 'from-violet-500 to-purple-500' }
     ];
 
@@ -565,7 +569,7 @@
       else if (id === 'guests') {
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & Kehadiran</h4>
+            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu, WA & Sharelok</h4>
             <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
           </div>`;
         setTimeout(renderAdminWishes, 50);
@@ -741,7 +745,18 @@
         if(!container) return;
         container.innerHTML = '';
         attendanceList.forEach(w => {
-            container.innerHTML += `<div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-1 shadow-sm"><div class="flex justify-between font-bold text-slate-800"><span>${w.name}</span><span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span></div><p class="text-slate-600">${w.message}</p></div>`;
+            let waBtn = w.whatsapp ? `<a href="https://wa.me/${w.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-600 hover:underline font-mono text-[10px]"><i class="fa-brands fa-whatsapp"></i> ${w.whatsapp}</a>` : '';
+            let mapBtn = w.sharelok ? `<a href="${w.sharelok}" target="_blank" class="text-blue-600 hover:underline text-[10px]"><i class="fa-solid fa-map-location-dot"></i> Lihat Sharelok</a>` : '';
+            
+            container.innerHTML += `
+              <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
+                <div class="flex justify-between items-center font-bold text-slate-800">
+                  <span>${w.name}</span>
+                  <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
+                </div>
+                ${waBtn || mapBtn ? `<div class="flex space-x-3 text-[11px]">${waBtn}${mapBtn}</div>` : ''}
+                <p class="text-slate-600">${w.message}</p>
+              </div>`;
         });
     }
 
@@ -750,12 +765,21 @@
       if (!container) return;
       container.innerHTML = '';
       attendanceList.forEach(w => {
-        container.innerHTML += `<div class="bg-slate-800 p-2 rounded text-[10px] text-slate-300 border border-slate-700"><b>${w.name} (${w.status})</b><br>${w.message}</div>`;
+        let waLink = w.whatsapp ? `<a href="https://wa.me/${w.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-400 underline">WA: ${w.whatsapp}</a>` : '';
+        let mapLink = w.sharelok ? `<a href="${w.sharelok}" target="_blank" class="text-cyan-400 underline">Cek Sharelok</a>` : '';
+        container.innerHTML += `
+          <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>${w.name} (${w.status})</span>
+            </div>
+            <div>${waLink} ${w.whatsapp && w.sharelok ? '|' : ''} ${mapLink}</div>
+            <p class="text-slate-400 italic">"${w.message}"</p>
+          </div>`;
       });
     }
 
     // =========================================================================
-    // FUNGSI UTAMA BUKA UNDANGAN (v10.1.24)
+    // FUNGSI UTAMA BUKA UNDANGAN (v10.1.25)
     // =========================================================================
     function bukaUndanganSekarang() {
         const cover = document.getElementById('coverSection');
@@ -817,13 +841,20 @@
 
     function submitWish() {
       const name = document.getElementById('guestInputName').value.trim();
+      const whatsapp = document.getElementById('guestInputWa').value.trim();
+      const sharelok = document.getElementById('guestInputSharelok').value.trim();
       const status = document.getElementById('attendanceStatus').value;
       const message = document.getElementById('guestMessage').value.trim();
-      if (!name || !message) return alert('Isi nama & pesan!');
-      attendanceList.unshift({ name, status, message });
+      
+      if (!name || !message) return alert('Mohon isi Nama dan Pesan/Ucapan terlebih dahulu!');
+      
+      attendanceList.unshift({ name, whatsapp, sharelok, status, message });
       saveAllDataToDevice();
       renderWishesToDOM();
-      alert('Ucapan dikirim!');
+      alert('Ucapan & Sharelok berhasil dicatat ke database!');
+      
+      document.getElementById('guestInputWa').value = '';
+      document.getElementById('guestInputSharelok').value = '';
       document.getElementById('guestMessage').value = '';
     }
 
