@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.27</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.28</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,14 @@
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+
+    /* GEN-Z PHOTO FRAME STYLES */
+    .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
+    .frame-polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transform: rotate(-1deg); border-radius: 4px; }
+    .frame-neon { border: 4px solid #ec4899; box-shadow: 0 0 20px #ec4899, inset 0 0 15px #06b6d4; border-radius: 2rem; }
+    .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
+    .frame-cyber { border: 3px solid #06b6d4; box-shadow: 5px 5px 0px #ec4899; border-radius: 0.5rem; }
+    .frame-hologram { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); padding: 4px; border-radius: 2rem; box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -34,7 +42,7 @@
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- KOTAK & TOMBOL BUKA UNDANGAN (BULLETPROOF v10.1.27) -->
+    <!-- KOTAK & TOMBOL BUKA UNDANGAN -->
     <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
@@ -45,7 +53,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.27)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.28)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -85,23 +93,23 @@
         <p id="quoteTextDisplay" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
-      <!-- MEMPELAI / PROFIL -->
+      <!-- MEMPELAI / PROFIL DENGAN BINGKAI GEN-Z -->
       <section class="py-10 px-6 text-center section-overlay space-y-6">
         <h2 id="text-titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
-            <img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500" id="profile1FrameContainer">
+            <img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
-          <h3 id="text-groomName" class="text-2xl font-bold text-slate-900">Rian Pratama</h3>
+          <h3 id="text-groomName" class="text-2xl font-bold text-slate-900 pt-2">Rian Pratama</h3>
         </div>
         
         <div class="text-2xl text-pink-500 font-bold">&</div>
         
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
-            <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500" id="profile2FrameContainer">
+            <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
-          <h3 id="text-brideName" class="text-2xl font-bold text-slate-900">Siska Amalia</h3>
+          <h3 id="text-brideName" class="text-2xl font-bold text-slate-900 pt-2">Siska Amalia</h3>
         </div>
       </section>
 
@@ -159,7 +167,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.27 (Bulletproof Button)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.28 (Gen-Z Frames & Speed Control)</p>
       </div>
     </footer>
   </main>
@@ -170,7 +178,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.27</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.28</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -215,7 +223,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.27 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.28 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -395,6 +403,8 @@
         musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
         musicVolume: 0.5, 
         typewriterSpeed: 40, 
+        slideSpeed: 500,
+        photoFrame: "frame-polaroid",
         profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
     };
@@ -444,6 +454,7 @@
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset Acara Realistis', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'databaseWarga', title: 'Database Warga & WA', desc: 'Kirim Undangan Pribadi & Massal', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto Gen-Z & Animasi', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Kontrol Musik', desc: 'Volume & Upload Lagu', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Auto-Teks Lengkap', desc: 'Ubah Semua Tulisan Web', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
@@ -512,6 +523,36 @@
             <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
           </div>`;
           setTimeout(renderAdminWargaList, 50);
+      }
+      else if (id === 'bingkaiGenZ') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Kecepatan Animasi Gen-Z</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Pilih Model Bingkai Foto</label>
+              <select id="selectPhotoFrame" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">
+                <option value="frame-polaroid" ${ultimateConfig.photoFrame === 'frame-polaroid' ? 'selected' : ''}>Polaroid Real Classic</option>
+                <option value="frame-neon" ${ultimateConfig.photoFrame === 'frame-neon' ? 'selected' : ''}>Neon Cyberpunk Glow</option>
+                <option value="frame-glass" ${ultimateConfig.photoFrame === 'frame-glass' ? 'selected' : ''}>Glassmorphic Blur</option>
+                <option value="frame-cyber" ${ultimateConfig.photoFrame === 'frame-cyber' ? 'selected' : ''}>Cyberpunk Shadow</option>
+                <option value="frame-hologram" ${ultimateConfig.photoFrame === 'frame-hologram' ? 'selected' : ''}>Holographic Gradient</option>
+                <option value="frame-none" ${ultimateConfig.photoFrame === 'frame-none' ? 'selected' : ''}>Tanpa Bingkai (Normal)</option>
+              </select>
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Kecepatan Typewriter (ms per huruf)</label>
+              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 40}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+            </div>
+
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Kecepatan Geser/Animasi (ms)</label>
+              <input type="number" id="inputSlideSpeed" value="${ultimateConfig.slideSpeed || 500}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+            </div>
+
+            <button onclick="saveGenZFrameAndSpeed()" class="w-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Pengaturan Gen-Z</button>
+          </div>`;
       }
       else if (id === 'backup') {
           area.innerHTML = `
@@ -609,6 +650,17 @@
       }
     }
 
+    function saveGenZFrameAndSpeed() {
+        ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
+        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 40;
+        ultimateConfig.slideSpeed = parseInt(document.getElementById('inputSlideSpeed').value) || 500;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        runTypewriter();
+        alert('Bingkai & Kecepatan Berhasil Disimpan!');
+        backToDashboard();
+    }
+
     function addWargaToDb() {
         const name = document.getElementById('newWargaName').value.trim();
         const whatsapp = document.getElementById('newWargaPhone').value.trim();
@@ -695,13 +747,6 @@
         backToDashboard();
     }
 
-    function saveTypewriterConfig() {
-        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 40;
-        saveAllDataToDevice();
-        runTypewriter();
-        alert('Disimpan!');
-    }
-
     function backToDashboard() {
       document.getElementById('adminModuleView').classList.add('hidden');
       document.getElementById('adminDashboardView').classList.remove('hidden');
@@ -744,6 +789,13 @@
             const prof2 = document.getElementById('img-bride');
             if(prof1 && ultimateConfig.profile1Img) prof1.src = ultimateConfig.profile1Img;
             if(prof2 && ultimateConfig.profile2Img) prof2.src = ultimateConfig.profile2Img;
+
+            // Apply Frame Classes dynamically
+            const f1 = document.getElementById('profile1FrameContainer');
+            const f2 = document.getElementById('profile2FrameContainer');
+            const frameClass = ultimateConfig.photoFrame || 'frame-polaroid';
+            if(f1) { f1.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`; }
+            if(f2) { f2.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`; }
         } catch(e) {}
     }
 
@@ -879,7 +931,7 @@
     }
 
     // =========================================================================
-    // FUNGSI UTAMA BUKA UNDANGAN (BULLETPROOF v10.1.27)
+    // FUNGSI UTAMA BUKA UNDANGAN (BULLETPROOF v10.1.28)
     // =========================================================================
     function bukaUndanganSekarang() {
         const cover = document.getElementById('coverSection');
