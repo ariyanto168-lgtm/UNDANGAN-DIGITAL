@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z Dashboard v8.1.0</title>
+  <title>Undangan Digital - Master Gen-Z Dashboard v8.2.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
       justify-content: space-around;
       padding: 12px 10px;
       pointer-events: none;
-      z-index: 30;
+      z-index: 10;
     }
     .fairy-light {
       width: 9px; height: 9px;
@@ -82,7 +82,7 @@
     
     <div></div>
 
-    <div class="space-y-3 py-4 relative z-10">
+    <div class="space-y-3 py-4 relative z-20">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">
         The Wedding Of
       </span>
@@ -90,19 +90,20 @@
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <div class="w-full max-w-xs space-y-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-10">
+    <div class="w-full max-w-xs space-y-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-20">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">
         Tamu Undangan
       </div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
       
-      <button type="button" onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer text-sm">
+      <!-- TOMBOL BUKA UNDANGAN (DIJAMIN TIDAK MACET) -->
+      <button type="button" onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-500/30 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer text-sm relative z-30">
         <span>Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 relative z-10">
-      <p>Powered by Ari GPM (v8.1.0 Gen-Z Dashboard)</p>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-20">
+      <p>Powered by Ari GPM (v8.2.0)</p>
     </div>
   </div>
 
@@ -111,21 +112,21 @@
     
     <!-- BILAH NAVIGASI BAWAH -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
-      <button onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
+      <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm">
           <i id="musicIcon" class="fa-solid fa-music animate-spin text-sm"></i>
         </div>
         <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600">Playing</span>
       </button>
       
-      <button onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer">
+      <button type="button" onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm">
           <i class="fa-solid fa-gear text-sm"></i>
         </div>
         <span class="text-[10px] font-semibold mt-1">Admin</span>
       </button>
       
-      <button onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer">
+      <button type="button" onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm">
           <i class="fa-solid fa-share-nodes text-sm"></i>
         </div>
@@ -246,13 +247,13 @@
     <footer class="p-6 text-center space-y-4 border-t bg-white">
       <p class="text-xs font-medium text-slate-600">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila kawan-kawan berkenan hadir.</p>
       <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
-      <button onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2 cursor-pointer">
+      <button type="button" onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2 cursor-pointer">
         <i class="fa-solid fa-share"></i>
         <span>Bagikan Undangan Ini</span>
       </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v8.1.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v8.2.0</p>
       </div>
     </footer>
   </main>
@@ -267,10 +268,10 @@
           <i class="fa-solid fa-gauge-high text-lg"></i>
           <div>
             <h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2>
-            <p class="text-[10px] text-pink-100">Master Control Center v8.1.0</p>
+            <p class="text-[10px] text-pink-100">Master Control Center v8.2.0</p>
           </div>
         </div>
-        <button onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
 
       <!-- PIN SECTION -->
@@ -294,14 +295,12 @@
             <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded-full border border-cyan-500/30">Auto-Scalable</span>
           </div>
 
-          <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3">
-            <!-- Cards generated dynamically -->
-          </div>
+          <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
 
         <!-- MODULE CONTENT CONTAINER -->
         <div id="adminModuleView" class="hidden space-y-4">
-          <button onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer border border-slate-700">
+          <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer border border-slate-700">
             <i class="fa-solid fa-arrow-left"></i>
             <span>Kembali ke Dashboard</span>
           </button>
@@ -319,11 +318,11 @@
       <h3 class="font-bold text-lg">Bagikan Undangan</h3>
       <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
       <div class="space-y-2 pt-1">
-        <button onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 cursor-pointer shadow">
+        <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 cursor-pointer shadow">
           <i class="fa-brands fa-whatsapp text-sm"></i>
           <span>Kirim via WhatsApp (wa.me)</span>
         </button>
-        <button onclick="closeShareModal()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
+        <button type="button" onclick="closeShareModal()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
       </div>
     </div>
   </div>
@@ -348,5 +347,4 @@
       coupleName: "Rian & Siska",
       badgeText: "The Wedding Of",
       subText: "Kepada Yth. Bestie & Tamu Undangan",
-      eventDate: "2026-10-25",
-      quoteText: "\"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan u
+      eventDate: "2026-1
