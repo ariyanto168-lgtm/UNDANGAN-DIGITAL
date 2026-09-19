@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,61 +13,266 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
+<body class="bg-slate-900 text-slate-800 antialiased selection:bg-pink-500 selection:text-white">
 
-    <!-- Container Kartu Undangan -->
-    <div class="w-full max-w-md bg-white text-slate-800 rounded-3xl shadow-2xl overflow-hidden p-6 text-center space-y-6">
+    <!-- OVERLAY SAMPUL / COVER UTAMA -->
+    <div id="coverSection" class="fixed inset-0 z-50 bg-slate-950 text-white flex flex-col items-center justify-between p-6 text-center transition-all duration-700">
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
         
-        <!-- Header / Ornamen -->
-        <div class="space-y-2">
-            <span class="text-xs tracking-widest uppercase text-pink-600 font-semibold bg-pink-50 px-3 py-1 rounded-full">The Wedding Of</span>
-            <h1 class="font-serif text-4xl font-bold text-slate-900 mt-2">Rian & Siska</h1>
-            <p class="text-sm text-slate-500">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <div class="bg-slate-100 py-2 px-4 rounded-xl font-medium text-slate-700 text-sm inline-block">
+        <div class="relative z-10 space-y-4 pt-8">
+            <span class="text-xs tracking-widest uppercase text-pink-400 font-semibold bg-pink-950/60 px-4 py-1.5 rounded-full border border-pink-500/30">The Wedding Of</span>
+            <h1 class="font-serif text-5xl font-bold tracking-wide mt-2 text-pink-100">Rian & Siska</h1>
+            <p class="text-slate-300 text-sm italic">Minggu, 25 Oktober 2026</p>
+        </div>
+
+        <div class="relative z-10 w-full max-w-xs space-y-4 bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+            <p class="text-xs text-slate-400">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <div id="guestName" class="font-bold text-lg text-pink-300 bg-slate-950 py-2 px-4 rounded-xl border border-slate-800 truncate">
                 Tamu Undangan
             </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.</p>
+            <button type="button" onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-pink-500/35 transition transform active:scale-95 flex items-center justify-center space-x-2 cursor-pointer">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Buka Undangan</span>
+            </button>
         </div>
 
-        <!-- Pesan Undangan -->
-        <div class="text-sm text-slate-600 leading-relaxed space-y-3">
-            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
-        </div>
-
-        <!-- Detail Acara -->
-        <div class="bg-pink-50 p-4 rounded-2xl border border-pink-100 text-left space-y-3">
-            <div class="flex items-start space-x-3">
-                <div class="bg-pink-600 text-white p-2 rounded-xl text-xs"><i class="fa-solid fa-calendar-days"></i></div>
-                <div>
-                    <p class="text-xs text-pink-600 font-semibold">Hari & Tanggal</p>
-                    <p class="text-sm font-bold text-slate-800">Minggu, 25 Oktober 2026</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-3">
-                <div class="bg-pink-600 text-white p-2 rounded-xl text-xs"><i class="fa-solid fa-location-dot"></i></div>
-                <div>
-                    <p class="text-xs text-pink-600 font-semibold">Lokasi Acara</p>
-                    <p class="text-sm font-bold text-slate-800">Gedung Serbaguna, Semarang</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tombol Aksi -->
-        <div class="space-y-3 pt-2">
-            <a href="https://wa.me/?text=Halo,%20saya%20konfirmasi%20hadir%20di%20pernikahan%20Rian%20dan%20Siska." target="_blank" class="block w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-semibold shadow-lg shadow-pink-500/30 hover:opacity-95 transition text-center">
-                <i class="fa-brands fa-whatsapp mr-2"></i> Konfirmasi Kehadiran
-            </a>
-            <a href="https://maps.google.com" target="_blank" class="block w-full bg-slate-900 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-slate-800 transition text-center text-xs">
-                <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Google Maps
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <div class="text-xs text-slate-400 pt-4 border-t border-slate-100">
-            Merupakan sebuah kebahagiaan bagi kami.<br>Terima kasih atas doa restu Anda.
+        <div class="relative z-10 text-[10px] text-slate-500">
+            Digital Wedding Invitation
         </div>
     </div>
 
+    <!-- KONTEN UTAMA UNDANGAN -->
+    <main id="mainContent" class="max-w-md mx-auto bg-slate-50 min-h-screen shadow-2xl relative overflow-hidden hidden">
+        
+        <!-- Hero Section -->
+        <section class="relative h-[85vh] flex flex-col justify-end p-6 text-center text-white bg-slate-950">
+            <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+            
+            <div class="relative z-10 space-y-3 pb-8">
+                <span class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
+                <h1 class="font-serif text-5xl font-bold">Rian & Siska</h1>
+                <p class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
+            </div>
+        </section>
+
+        <!-- Quotes / Mukaddimah -->
+        <section class="py-12 px-6 text-center bg-white space-y-4">
+            <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto">
+                "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepada-Nya..."
+            </p>
+            <p class="text-xs font-bold text-slate-700">(QS. Ar-Rum: 21)</p>
+        </section>
+
+        <!-- Mempelai -->
+        <section class="py-12 px-6 bg-slate-100 text-center space-y-8">
+            <div class="space-y-2">
+                <h2 class="font-serif text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
+                <p class="text-xs text-slate-500">Menuju hari bahagia ikatan suci pernikahan</p>
+            </div>
+
+            <!-- Mempelai Pria -->
+            <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
+                <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" alt="Rian" class="w-full h-full object-cover">
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-slate-900">Rian Pratama, S.Kom.</h3>
+                <p class="text-xs text-pink-600 font-medium">Putra dari Bpk. Budi & Ibu Siti</p>
+            </div>
+
+            <div class="text-2xl font-serif text-pink-500 font-bold">&</div>
+
+            <!-- Mempelai Wanita -->
+            <div class="glass-card p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
+                <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Siska" class="w-full h-full object-cover">
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-slate-900">Siska Amalia, S.Pd.</h3>
+                <p class="text-xs text-pink-600 font-medium">Putri dari Bpk. Joko & Ibu Ani</p>
+            </div>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="py-12 px-6 bg-slate-900 text-white text-center space-y-6">
+            <h2 class="font-serif text-2xl font-bold">Menuju Hari Bahagia</h2>
+            <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                    <span id="days" class="block text-xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Hari</span>
+                </div>
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                    <span id="hours" class="block text-xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Jam</span>
+                </div>
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                    <span id="minutes" class="block text-xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Menit</span>
+                </div>
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                    <span id="seconds" class="block text-xl font-bold text-pink-400">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Detik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail Acara -->
+        <section class="py-12 px-6 bg-white space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-xs uppercase tracking-widest text-pink-600 font-semibold">Save The Date</span>
+                <h2 class="font-serif text-3xl font-bold text-slate-900">Rangkaian Acara</h2>
+            </div>
+
+            <!-- Akad -->
+            <div class="bg-pink-50 p-6 rounded-3xl border border-pink-100 space-y-4">
+                <div class="flex items-center space-x-3 text-pink-600">
+                    <i class="fa-solid fa-ring text-xl"></i>
+                    <h3 class="font-bold text-lg text-slate-900">Akad Nikah</h3>
+                </div>
+                <div class="space-y-2 text-xs text-slate-600">
+                    <p><i class="fa-solid fa-calendar-days mr-2 text-pink-500"></i> Minggu, 25 Oktober 2026</p>
+                    <p><i class="fa-solid fa-clock mr-2 text-pink-500"></i> Pukul 08.00 WIB</p>
+                    <p><i class="fa-solid fa-location-dot mr-2 text-pink-500"></i> Gedung Serbaguna, Semarang</p>
+                </div>
+            </div>
+
+            <!-- Resepsi -->
+            <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-4">
+                <div class="flex items-center space-x-3 text-pink-600">
+                    <i class="fa-solid fa-champagne-glasses text-xl"></i>
+                    <h3 class="font-bold text-lg text-slate-900">Resepsi Pernikahan</h3>
+                </div>
+                <div class="space-y-2 text-xs text-slate-600">
+                    <p><i class="fa-solid fa-calendar-days mr-2 text-pink-500"></i> Minggu, 25 Oktober 2026</p>
+                    <p><i class="fa-solid fa-clock mr-2 text-pink-500"></i> Pukul 11.00 - 14.00 WIB</p>
+                    <p><i class="fa-solid fa-location-dot mr-2 text-pink-500"></i> Gedung Serbaguna, Semarang</p>
+                </div>
+                <a href="https://maps.google.com/?q=Gedung+Serbaguna+Semarang" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl text-xs font-semibold shadow transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- RSVP & Ucapan -->
+        <section class="py-12 px-6 bg-slate-100 space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-2xl font-bold text-slate-900">Ucapan & Doa</h2>
+                <p class="text-xs text-slate-500">Berikan ucapan dan konfirmasi kehadiran Anda.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
+                <select id="attendanceStatus" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
+                    <option value="Hadir">Hadir</option>
+                    <option value="Berhalangan Hadir">Berhalangan Hadir</option>
+                </select>
+                <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500"></textarea>
+                <button type="button" onclick="submitWish()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-xl text-xs shadow-md transition cursor-pointer">
+                    Kirim Ucapan
+                </button>
+            </div>
+
+            <!-- Daftar Ucapan -->
+            <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1">
+                    <div class="flex justify-between font-bold text-slate-800">
+                        <span>Budi Santoso</span>
+                        <span class="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full">Hadir</span>
+                    </div>
+                    <p class="text-slate-500">Selamat menempuh hidup baru Rian & Siska! Semoga sakinah mawaddah warahmah.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 bg-slate-950 text-white text-center text-xs space-y-2">
+            <p class="font-serif text-lg text-pink-300">Rian & Siska</p>
+            <p class="text-slate-500 text-[11px]">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+            <div class="pt-4 border-t border-slate-800 text-[10px] text-slate-600">
+                &copy; 2026 Digital Wedding Invitation. All rights reserved.
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        // Ambil nama tamu dari URL (contoh: ?to=Bapak+Budi)
+        const urlParams = new URLSearchParams(window.location.search);
+        const toParam = urlParams.get('to');
+        if (toParam) {
+            document.getElementById('guestName').innerText = decodeURIComponent(toParam);
+            document.getElementById('guestInputName').value = decodeURIComponent(toParam);
+        }
+
+        // Fungsi Buka Undangan
+        function openInvitation() {
+            const cover = document.getElementById('coverSection');
+            const main = document.getElementById('mainContent');
+            
+            cover.style.transform = 'translateY(-100%)';
+            main.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            setTimeout(() => {
+                cover.style.display = 'none';
+            }, 700);
+        }
+
+        // Hitung Mundur (Countdown Timer)
+        const weddingDate = new Date("October 25, 2026 08:00:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) return;
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Fitur Kirim Ucapan
+        function submitWish() {
+            const name = document.getElementById('guestInputName').value.trim();
+            const status = document.getElementById('attendanceStatus').value;
+            const message = document.getElementById('guestMessage').value.trim();
+
+            if (!name || !message) {
+                alert('Mohon isi nama dan pesan ucapan terlebih dahulu!');
+                return;
+            }
+
+            const list = document.getElementById('wishesList');
+            const statusBadgeColor = status === 'Hadir' ? 'text-emerald-600 bg-emerald-50' : 'text-rose-600 bg-rose-50';
+
+            const newCard = document.createElement('div');
+            newCard.className = 'bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1 animate-pulse';
+            newCard.innerHTML = `
+                <div class="flex justify-between font-bold text-slate-800">
+                    <span>${escapeHtml(name)}</span>
+                    <span class="${statusBadgeColor} text-[10px] px-2 py-0.5 rounded-full">${status}</span>
+                </div>
+                <p class="text-slate-500">${escapeHtml(message)}</p>
+            `;
+
+            list.prepend(newCard);
+            document.getElementById('guestMessage').value = '';
+            alert('Terima kasih, ucapan dan konfirmasi berhasil dikirim!');
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
 </body>
 </html>
