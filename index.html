@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.36</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.37</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -36,6 +36,14 @@
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
+  <!-- ELEGANT TOAST NOTIFICATION CONTAINER -->
+  <div id="toastNotification" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-[999999999] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
+    <div id="toastContent" class="bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs">
+      <i id="toastIcon" class="fa-solid fa-circle-check text-pink-400 text-base"></i>
+      <span id="toastMessage">Pesan Berhasil</span>
+    </div>
+  </div>
+
   <!-- COVER UTAMA -->
   <div id="coverSection" class="cover-base text-white text-center">
     <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
@@ -57,7 +65,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.36)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.37)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -202,7 +210,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.36 (Amplop Toggle & Unlimited Multi-Photos)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.37 (Elegant Toast Notifications)</p>
       </div>
     </footer>
   </main>
@@ -213,7 +221,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.36</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.37</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -258,8 +266,37 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.36 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.37 -->
   <script>
+    // ELEGANT TOAST NOTIFICATION FUNCTION
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toastNotification');
+        const msgEl = document.getElementById('toastMessage');
+        const iconEl = document.getElementById('toastIcon');
+        const contentEl = toast.querySelector('div');
+        if(!toast) return;
+
+        msgEl.innerText = message;
+        if(type === 'error') {
+            iconEl.className = "fa-solid fa-circle-exclamation text-rose-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-rose-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        } else {
+            iconEl.className = "fa-solid fa-circle-check text-pink-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        }
+
+        toast.style.opacity = '1';
+        toast.style.pointerEvents = 'auto';
+        toast.style.transform = 'translate(-50%, 0)';
+
+        if(window.toastTimeout) clearTimeout(window.toastTimeout);
+        window.toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.pointerEvents = 'none';
+            toast.style.transform = 'translate(-50%, -20px)';
+        }, 3000);
+    }
+
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
         "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
@@ -474,18 +511,17 @@
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
     };
 
-    // Unlimited multi-photos per section & visibility switches
     let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
     let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
     let sectionStickers = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
 
     try {
-        if(localStorage.getItem('ari_textElements_v36')) {
+        if(localStorage.getItem('ari_textElements_v37')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v37'));
+        } else if(localStorage.getItem('ari_textElements_v36')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v36'));
-        } else if(localStorage.getItem('ari_textElements_v35')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v35'));
         }
-        if(localStorage.getItem('ari_sectionPhotos_v36')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v36'));
+        if(localStorage.getItem('ari_sectionPhotos_v37')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v37'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionStickers')) sectionStickers = JSON.parse(localStorage.getItem('ari_sectionStickers'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
@@ -501,8 +537,8 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v36', JSON.stringify(textElements));
-            localStorage.setItem('ari_sectionPhotos_v36', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_textElements_v37', JSON.stringify(textElements));
+            localStorage.setItem('ari_sectionPhotos_v37', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionStickers', JSON.stringify(sectionStickers));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
@@ -519,11 +555,15 @@
         const data = { textElements, sectionPhotos, sectionPhotoVisibility, sectionStickers, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
-    function copyBackup() { document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Disalin!"); }
+    function copyBackup() { 
+        document.getElementById("backupOutput").select(); 
+        document.execCommand("copy"); 
+        showToast("Kode backup berhasil disalin!"); 
+    }
     function restoreBackup() {
         try {
             const str = document.getElementById('restoreInput').value.trim();
-            if(!str) return alert('Masukkan kode!');
+            if(!str) return showToast('Masukkan kode backup terlebih dahulu!', 'error');
             const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
             if(decoded.textElements) textElements = decoded.textElements;
             if(decoded.sectionPhotos) sectionPhotos = decoded.sectionPhotos;
@@ -536,8 +576,9 @@
             if(decoded.sectionOrder) sectionOrder = decoded.sectionOrder;
             if(decoded.currentCategoryKey) currentCategoryKey = decoded.currentCategoryKey;
             saveAllDataToDevice();
-            alert('Restore Berhasil!'); location.reload();
-        } catch(e) { alert('Kode tidak valid!'); }
+            showToast('Restore data berhasil!'); 
+            setTimeout(() => location.reload(), 1000);
+        } catch(e) { showToast('Kode backup tidak valid!', 'error'); }
     }
 
     const adminModules = [
@@ -892,7 +933,7 @@
             sectionStickers[sectionKey] = e.target.result;
             saveAllDataToDevice();
             applySectionStickers();
-            alert(`GIF kustom untuk ${sectionKey} berhasil diunggah dan langsung aktif!`);
+            showToast(`GIF kustom untuk ${sectionKey} berhasil diunggah!`);
         };
         reader.readAsDataURL(file);
     }
@@ -911,6 +952,7 @@
                 if(loadedCount === files.length) {
                     saveAllDataToDevice();
                     openAdminModule('dynamicPhotos');
+                    showToast('Foto dinamis berhasil diunggah!');
                 }
             };
             reader.readAsDataURL(file);
@@ -922,6 +964,7 @@
             sectionPhotos[sectionKey].splice(index, 1);
             saveAllDataToDevice();
             openAdminModule('dynamicPhotos');
+            showToast('Foto berhasil dihapus.');
         }
     }
 
@@ -935,7 +978,7 @@
         });
         saveAllDataToDevice();
         applySectionPhotos();
-        alert('Foto dinamis & saklar berhasil disimpan!');
+        showToast('Foto dinamis & saklar berhasil disimpan!');
         backToDashboard();
     }
 
@@ -949,7 +992,7 @@
         });
         saveAllDataToDevice();
         applySectionStickers();
-        alert('Stiker & Animasi Berhasil Disimpan!');
+        showToast('Stiker & animasi berhasil disimpan!');
         backToDashboard();
     }
 
@@ -990,7 +1033,7 @@
     function applyEventPreset() {
         const selKey = document.getElementById('selectEventPreset').value;
         const preset = eventPresetsList[selKey];
-        if (!preset) return alert('Preset tidak ditemukan!');
+        if (!preset) return showToast('Preset tidak ditemukan!', 'error');
         currentCategoryKey = selKey;
         
         for(let k in defaultText) {
@@ -1001,7 +1044,7 @@
         saveAllDataToDevice();
         applyTextElementsToDOM();
         applyCategoryParticles();
-        alert(`Preset & Tema Animasi (${preset.badgeText}) diterapkan!`);
+        showToast(`Preset & tema (${preset.badgeText}) diterapkan!`);
         backToDashboard();
     }
 
@@ -1025,7 +1068,7 @@
         saveAllDataToDevice();
         applyUltimateConfig();
         applyTextElementsToDOM();
-        alert('Bingkai & Global Typewriter Berhasil Disimpan!');
+        showToast('Bingkai & kecepatan berhasil disimpan!');
         backToDashboard();
     }
 
@@ -1057,14 +1100,14 @@
         const name = document.getElementById('newWargaName').value.trim();
         const whatsapp = document.getElementById('newWargaPhone').value.trim();
         const sharelok = document.getElementById('newWargaSharelok').value.trim();
-        if(!name || !whatsapp) return alert('Isi Nama dan Nomor WhatsApp!');
+        if(!name || !whatsapp) return showToast('Isi nama dan nomor WhatsApp!', 'error');
         guestDatabase.push({ name, whatsapp, sharelok });
         saveAllDataToDevice();
         renderAdminWargaList();
         document.getElementById('newWargaName').value = '';
         document.getElementById('newWargaPhone').value = '';
         document.getElementById('newWargaSharelok').value = '';
-        alert('Warga/Tamu berhasil ditambahkan ke database!');
+        showToast('Warga/tamu berhasil ditambahkan!');
     }
 
     function deleteWarga(index) {
@@ -1072,6 +1115,7 @@
             guestDatabase.splice(index, 1);
             saveAllDataToDevice();
             renderAdminWargaList();
+            showToast('Warga berhasil dihapus.');
         }
     }
 
@@ -1087,7 +1131,7 @@
     }
 
     function sendMassWhatsApp() {
-        if(guestDatabase.length === 0) return alert('Database warga masih kosong!');
+        if(guestDatabase.length === 0) return showToast('Database warga masih kosong!', 'error');
         let textResult = "*DAFTAR TAUTAN WA.ME & SHARELOK SEMUA TAMU*\n\n";
         const baseUrl = window.location.origin + window.location.pathname;
         guestDatabase.forEach((w, idx) => {
@@ -1106,13 +1150,13 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('Daftar tautan wa.me & sharelok seluruh tamu berhasil disalin!');
+        showToast('Semua tautan wa.me disalin ke clipboard!');
     }
 
     function saveAdminWaTemplate() {
         waTemplate = document.getElementById('adminWaTemplate').value;
         saveAllDataToDevice();
-        alert('Template WA disimpan!');
+        showToast('Template WA berhasil disimpan!');
     }
 
     function renderAdminWargaList() {
@@ -1151,10 +1195,10 @@
         const reader = new FileReader();
         reader.onload = (e) => {
             const base64 = e.target.result;
-            if(type === 'prewed') { ultimateConfig.coverBg = base64; alert("Foto Prewed dimuat! Klik Simpan Desain."); }
-            if(type === 'profile1') { ultimateConfig.profile1Img = base64; alert("Foto Profil 1 dimuat! Klik Simpan Desain."); }
-            if(type === 'profile2') { ultimateConfig.profile2Img = base64; alert("Foto Profil 2 dimuat! Klik Simpan Desain."); }
-            if(type === 'qris') { giftConfig.qrisImage = base64; alert("QRIS dimuat."); }
+            if(type === 'prewed') { ultimateConfig.coverBg = base64; showToast("Foto prewed dimuat! Klik Simpan Desain."); }
+            if(type === 'profile1') { ultimateConfig.profile1Img = base64; showToast("Foto profil 1 dimuat! Klik Simpan Desain."); }
+            if(type === 'profile2') { ultimateConfig.profile2Img = base64; showToast("Foto profil 2 dimuat! Klik Simpan Desain."); }
+            if(type === 'qris') { giftConfig.qrisImage = base64; showToast("QRIS berhasil dimuat."); }
         };
         reader.readAsDataURL(file);
     }
@@ -1167,7 +1211,7 @@
             ultimateConfig.musicUrl = e.target.result;
             const urlInput = document.getElementById('inputMusicUrl');
             if(urlInput) urlInput.value = ultimateConfig.musicUrl;
-            alert("File MP3 berhasil dimuat! Klik Simpan Musik & Video.");
+            showToast("File MP3 dimuat! Klik Simpan Musik & Video.");
         };
         reader.readAsDataURL(file);
     }
@@ -1210,7 +1254,7 @@
         ultimateConfig.font = document.getElementById('editFont').value;
         saveAllDataToDevice();
         applyUltimateConfig();
-        alert("Desain Berhasil Disimpan!");
+        showToast("Desain berhasil disimpan!");
     }
 
     function saveMusicAndVideoConfig() {
@@ -1221,7 +1265,7 @@
         
         saveAllDataToDevice();
         applyUltimateConfig();
-        alert("Musik & Video Berhasil Disimpan!");
+        showToast("Musik & video berhasil disimpan!");
         backToDashboard();
     }
 
@@ -1238,7 +1282,7 @@
       }
       saveAllDataToDevice();
       applyTextElementsToDOM();
-      alert('Tabel Teks & Status Typewriter Berhasil Disimpan!');
+      showToast('Teks & typewriter berhasil disimpan!');
       backToDashboard();
     }
 
@@ -1249,7 +1293,7 @@
         giftConfig.owner = document.getElementById('inputRekOwner').value;
         saveAllDataToDevice();
         applyGiftToDOM();
-        alert('Amplop & Saklar Disimpan!');
+        showToast('Amplop & saklar berhasil disimpan!');
         backToDashboard();
     }
 
@@ -1419,13 +1463,25 @@
       isPlaying = !isPlaying;
     }
 
-    function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { alert(`Rekening disalin!`); }); }
+    function copyToClipboard(text, bank) { 
+        navigator.clipboard.writeText(text).then(() => { 
+            showToast(`Nomor rekening ${bank} berhasil disalin!`); 
+        }); 
+    }
+    
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
+    
     function verifyPin() {
       const pin = document.getElementById('adminPinInput');
-      if (pin && pin.value.trim() === '1234') { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); } 
-      else { alert('PIN Salah! (1234)'); }
+      if (pin && pin.value.trim() === '1234') { 
+          document.getElementById('pinSection').classList.add('hidden'); 
+          document.getElementById('editorBody').classList.remove('hidden'); 
+          backToDashboard(); 
+          showToast('Login Admin Berhasil!');
+      } else { 
+          showToast('PIN Salah! (Default: 1234)', 'error'); 
+      }
     }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
 
@@ -1436,12 +1492,12 @@
       const status = document.getElementById('attendanceStatus').value;
       const message = document.getElementById('guestMessage').value.trim();
       
-      if (!name || !message) return alert('Mohon isi Nama dan Pesan/Ucapan terlebih dahulu!');
+      if (!name || !message) return showToast('Mohon isi Nama dan Pesan/Ucapan terlebih dahulu!', 'error');
       
       attendanceList.unshift({ name, whatsapp, sharelok, status, message });
       saveAllDataToDevice();
       renderWishesToDOM();
-      alert('Ucapan & Sharelok berhasil dicatat ke database!');
+      showToast('Ucapan & sharelok berhasil dikirim!');
       
       document.getElementById('guestInputWa').value = '';
       document.getElementById('guestInputSharelok').value = '';
