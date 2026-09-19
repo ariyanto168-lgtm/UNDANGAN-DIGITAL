@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.41</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.42</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.41)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.42)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -181,20 +181,18 @@
         </div>
       </section>
 
-      <!-- SECTION 7: RSVP & SHARELOK -->
+      <!-- SECTION 7: UCAPAN & KEHADIRAN (TANPA NO WA & SHARELOK) -->
       <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
         <div id="microVideo-rsvp" class="flex justify-center mb-2"></div>
         <div id="dynamicPhotosGrid-rsvp" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
-          <input type="text" id="guestInputWa" placeholder="Nomor WhatsApp (Contoh: 08123456789)" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
-          <input type="text" id="guestInputSharelok" placeholder="Link Sharelok / Google Maps (Opsional)" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
           <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
             <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
           <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
-          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan & Sharelok</button>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan</button>
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
@@ -207,7 +205,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.41 (Micro-Video Section Fix)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.42 (RSVP Cleaned)</p>
       </div>
     </footer>
   </main>
@@ -218,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.41</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.42</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -264,7 +262,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.41 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.42 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -472,7 +470,7 @@
     let activeOtpData = { code: "", purpose: "", tempEmail: "", tempPin: "" };
 
     let attendanceList = [
-        { name: "Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx", status: "Hadir", message: "Selamat menempuh hidup baru!" }
+        { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }
     ];
     let guestDatabase = [
         { name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx" },
@@ -500,13 +498,13 @@
     let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
 
     try {
-        if(localStorage.getItem('ari_textElements_v41')) {
+        if(localStorage.getItem('ari_textElements_v42')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v42'));
+        } else if(localStorage.getItem('ari_textElements_v41')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v41'));
-        } else if(localStorage.getItem('ari_textElements_v40')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v40'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v41')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v41'));
+        if(localStorage.getItem('ari_sectionPhotos_v42')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v42'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
@@ -522,9 +520,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v41', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v42', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v41', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v42', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
@@ -1504,16 +1502,12 @@
         if(!container) return;
         container.innerHTML = '';
         attendanceList.forEach(w => {
-            let waBtn = w.whatsapp ? `<a href="https://wa.me/${w.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-600 hover:underline font-mono text-[10px]"><i class="fa-brands fa-whatsapp"></i> ${w.whatsapp}</a>` : '';
-            let mapBtn = w.sharelok ? `<a href="${w.sharelok}" target="_blank" class="text-blue-600 hover:underline text-[10px]"><i class="fa-solid fa-map-location-dot"></i> Lihat Sharelok</a>` : '';
-            
             container.innerHTML += `
               <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
                 <div class="flex justify-between items-center font-bold text-slate-800">
                   <span>${w.name}</span>
                   <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
                 </div>
-                ${waBtn || mapBtn ? `<div class="flex space-x-3 text-[11px]">${waBtn}${mapBtn}</div>` : ''}
                 <p class="text-slate-600">${w.message}</p>
               </div>`;
         });
@@ -1524,14 +1518,11 @@
       if (!container) return;
       container.innerHTML = '';
       attendanceList.forEach(w => {
-        let waLink = w.whatsapp ? `<a href="https://wa.me/${w.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-400 underline">WA: ${w.whatsapp}</a>` : '';
-        let mapLink = w.sharelok ? `<a href="${w.sharelok}" target="_blank" class="text-cyan-400 underline">Cek Sharelok</a>` : '';
         container.innerHTML += `
           <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1">
             <div class="flex justify-between font-bold text-white">
               <span>${w.name} (${w.status})</span>
             </div>
-            <div>${waLink} ${w.whatsapp && w.sharelok ? '|' : ''} ${mapLink}</div>
             <p class="text-slate-400 italic">"${w.message}"</p>
           </div>`;
       });
@@ -1611,20 +1602,17 @@
 
     function submitWish() {
       const name = document.getElementById('guestInputName').value.trim();
-      const whatsapp = document.getElementById('guestInputWa').value.trim();
-      const sharelok = document.getElementById('guestInputSharelok').value.trim();
       const status = document.getElementById('attendanceStatus').value;
       const message = document.getElementById('guestMessage').value.trim();
       
       if (!name || !message) return showToast('Mohon isi Nama dan Pesan/Ucapan terlebih dahulu!', 'error');
       
-      attendanceList.unshift({ name, whatsapp, sharelok, status, message });
+      attendanceList.unshift({ name, status, message });
       saveAllDataToDevice();
       renderWishesToDOM();
-      showToast('Ucapan & sharelok berhasil dikirim!');
+      showToast('Ucapan berhasil dikirim!');
       
-      document.getElementById('guestInputWa').value = '';
-      document.getElementById('guestInputSharelok').value = '';
+      document.getElementById('guestInputName').value = '';
       document.getElementById('guestMessage').value = '';
     }
 
