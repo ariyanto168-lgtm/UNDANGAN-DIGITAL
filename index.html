@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.39</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.40</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -30,10 +30,6 @@
     .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
     .frame-cyber { border: 3px solid #06b6d4; box-shadow: 5px 5px 0px #ec4899; border-radius: 0.5rem; }
     .frame-hologram { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); padding: 4px; border-radius: 2rem; box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
-
-    /* FLOATING PARTICLES ANIMATION */
-    @keyframes floatParticle { 0% { transform: translateY(0) rotate(0deg); opacity: 0.8; } 50% { transform: translateY(-20px) rotate(180deg); opacity: 1; } 100% { transform: translateY(0) rotate(360deg); opacity: 0.8; } }
-    .floating-particle { animation: floatParticle 4s infinite ease-in-out; position: absolute; pointer-events: none; z-index: 5; }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -67,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.39)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.40)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -96,7 +92,6 @@
       <section data-section-key="hero" class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
         <div id="mainHeroBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-        <div id="categoryParticlesContainer"></div>
         <div class="relative z-10 space-y-3 pb-8">
           <div id="dynamicSticker-hero" class="flex justify-center mb-2"></div>
           <div id="dynamicPhotosGrid-hero" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -212,7 +207,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.39 (Real Email OTP via EmailJS)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.40 (Real Email OTP & Clean Category)</p>
       </div>
     </footer>
   </main>
@@ -223,7 +218,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.39</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.40</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -269,7 +264,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.39 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.40 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -313,140 +308,140 @@
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska", iconParticle: "💖"
+        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
       },
       khitanan: {
         badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
         titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
-        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah", iconParticle: "👦"
+        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
       },
       ultah: {
         badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
         titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
-        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila", iconParticle: "🎈"
+        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
       },
       rapatrt: {
         badgeText: "Undangan Resmi", coupleName: "Rapat Pleno RT 05", subText: "Warga Wajib Hadir", dateDisplay: "Jumat, 30 Oktober 2026",
         heroTitle: "Rapat Warga RT 05 / RW 02", heroSub: "Agenda Evaluasi Kas Keuangan & Keamanan Lingkungan.",
         quoteText: "Kerjasama dan kerukunan warga adalah kunci kenyamanan lingkungan kita bersama.",
         titleMempelai: "Pimpinan Rapat", groomName: "Bpk Budi Santoso (Ketua RT)", brideName: "Ibu Siti Rahma (Sekretaris)",
-        titleLokasi: "Balai Warga RT 05", titleGift: "Kas & Iuran Warga", subGift: "Pembayaran iuran dapat dilakukan via QRIS/Transfer.", titleRsvp: "Absensi Kehadiran", footerCouple: "Pengurus RT 05 / RW 02", iconParticle: "📋"
+        titleLokasi: "Balai Warga RT 05", titleGift: "Kas & Iuran Warga", subGift: "Pembayaran iuran dapat dilakukan via QRIS/Transfer.", titleRsvp: "Absensi Kehadiran", footerCouple: "Pengurus RT 05 / RW 02"
       },
       grandopening: {
         badgeText: "Grand Opening", coupleName: "Kopi Senja Cafe", subText: "Undangan Spesial Soft & Grand Opening", dateDisplay: "Sabtu, 07 November 2026",
         heroTitle: "Kopi Senja & Resto", heroSub: "Nikmati sajian kopi nusantara terbaik dengan suasana syahdu.",
         quoteText: "Good friends, great coffee, and unforgettable moments.",
         titleMempelai: "Manajemen", groomName: "Reza Pahlevi (Founder)", brideName: "Tim Kopi Senja",
-        titleLokasi: "Outlet Utama", titleGift: "Voucher & Promo", subGift: "Dukung kami dengan investasi atau pembelian voucher.", titleRsvp: "RSVP Kehadiran", footerCouple: "Manajemen Kopi Senja", iconParticle: "☕"
+        titleLokasi: "Outlet Utama", titleGift: "Voucher & Promo", subGift: "Dukung kami dengan investasi atau pembelian voucher.", titleRsvp: "RSVP Kehadiran", footerCouple: "Manajemen Kopi Senja"
       },
       rumahbaru: {
         badgeText: "Syukuran Rumah", coupleName: "Keluarga Bpk. Hendra", subText: "Doa Bersama & Syukuran", dateDisplay: "Minggu, 15 November 2026",
         heroTitle: "Syukuran Rumah Baru", heroSub: "Mohon doa restu agar tempat tinggal kami membawa berkah.",
         quoteText: "Ya Allah, tempatkanlah kami pada tempat yang diberkati, dan Engkau adalah sebaik-baik pemberi tempat.",
         titleMempelai: "Tuan Rumah", groomName: "Bpk. Hendra Wijaya", brideName: "Ibu Lanny Kusuma",
-        titleLokasi: "Kediaman Baru", titleGift: "Tanda Kasih", subGift: "Doa restu Anda sangat kami harapkan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. Hendra", iconParticle: "🏡"
+        titleLokasi: "Kediaman Baru", titleGift: "Tanda Kasih", subGift: "Doa restu Anda sangat kami harapkan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. Hendra"
       },
       pertunangan: {
         badgeText: "The Engagement", coupleName: "Dimas & Nabila", subText: "Menuju Langkah Suci", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Dimas & Nabila", heroSub: "Mengikat janji suci menuju lembaran hidup baru.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya... Dia memasang rasa cinta dan kasih sayang di antara kamu.",
         titleMempelai: "Pasangan Tunangan", groomName: "Dimas Anggara, S.T.", brideName: "Nabila Putri, S.Farm.",
-        titleLokasi: "Kediaman Wanita", titleGift: "Kado Tunangan", subGift: "Terima kasih atas doa dan dukungan Anda.", titleRsvp: "RSVP Kehadiran", footerCouple: "Dimas & Nabila", iconParticle: "💍"
+        titleLokasi: "Kediaman Wanita", titleGift: "Kado Tunangan", subGift: "Terima kasih atas doa dan dukungan Anda.", titleRsvp: "RSVP Kehadiran", footerCouple: "Dimas & Nabila"
       },
       reuni: {
         badgeText: "Reuni Akbar", coupleName: "Alumni SMA N 1 2010", subText: "Merajut Silaturahmi Kembali", dateDisplay: "Sabtu, 26 Desember 2026",
         heroTitle: "Reuni 16 Tahun SMAN 1", heroSub: "Mari bernostalgia bersama kawan lama masa putih abu-abu.",
         quoteText: "Waktu boleh berlalu, namun persahabatan sejati akan abadi selamanya.",
         titleMempelai: "Panitia Pelaksana", groomName: "Andi Saputra (Ketua)", brideName: "Dewi Lestari (Bendahara)",
-        titleLokasi: "Lokasi Reuni", titleGift: "Kontribusi Dana", subGift: "Dana partisipasi dapat ditransfer melalui rekening di bawah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia Reuni Angkatan 2010", iconParticle: "🎓"
+        titleLokasi: "Lokasi Reuni", titleGift: "Kontribusi Dana", subGift: "Dana partisipasi dapat ditransfer melalui rekening di bawah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia Reuni Angkatan 2010"
       },
       aqiqah: {
         badgeText: "Tasyakuran Aqiqah", coupleName: "Muhammad Keenan", subText: "Syukuran Kelahiran & Aqiqah", dateDisplay: "Minggu, 22 November 2026",
         heroTitle: "Aqiqah Muhammad Keenan", heroSub: "Ungkapan rasa syukur atas karunia buah hati tercinta.",
         quoteText: "Setiap anak tergadaikan dengan aqiqahnya... semoga menjadi syafaat bagi keluarga.",
         titleMempelai: "Buah Hati & Orang Tua", groomName: "Muhammad Keenan", brideName: "Keluarga Bapak Rizky",
-        titleLokasi: "Kediaman Keluarga", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah anugerah terbesar bagi anak kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Rizky & Fitri", iconParticle: "👶"
+        titleLokasi: "Kediaman Keluarga", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah anugerah terbesar bagi anak kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Rizky & Fitri"
       },
       wisuda: {
         badgeText: "Graduation Celebration", coupleName: "Dr. Clarissa, S.Ked.", subText: "Syukuran Kelulusan Kedokteran", dateDisplay: "Kamis, 10 Desember 2026",
         heroTitle: "Clarissa Graduation", heroSub: "Hasil kerja keras, doa, dan air mata akhirnya berbuah manis.",
         quoteText: "Pendidikan adalah senjata paling ampuh yang bisa kamu gunakan untuk mengubah dunia.",
         titleMempelai: "Wisudawati", groomName: "Dr. Clarissa Melati, S.Ked.", brideName: "Keluarga Besar",
-        titleLokasi: "Lokasi Syukuran", titleGift: "Kado Wisuda", subGift: "Terima kasih atas segala dukungan teman-teman.", titleRsvp: "RSVP Kehadiran", footerCouple: "Clarissa & Keluarga", iconParticle: "📜"
+        titleLokasi: "Lokasi Syukuran", titleGift: "Kado Wisuda", subGift: "Terima kasih atas segala dukungan teman-teman.", titleRsvp: "RSVP Kehadiran", footerCouple: "Clarissa & Keluarga"
       },
       doabersama: {
         badgeText: "Doa Bersama", coupleName: "Yayasan Berkah Mandiri", subText: "Santunan Anak Yatim & Dhuafa", dateDisplay: "Jumat, 11 Desember 2026",
         heroTitle: "Doa Bersama & Santunan", heroSub: "Mari berbagi kebahagiaan dan doa untuk sesama.",
         quoteText: "Orang yang memelihara anak yatim... kedudukannya di surga sangatlah mulia.",
         titleMempelai: "Penyelenggara", groomName: "Ust. H. Lukman Hakim", brideName: "Pengurus Yayasan",
-        titleLokasi: "Aula Utama Yayasan", titleGift: "Donasi & Infaq", subGift: "Salurkan donasi terbaik Anda melalui rekening resmi yayasan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Yayasan Berkah Mandiri", iconParticle: "🤲"
+        titleLokasi: "Aula Utama Yayasan", titleGift: "Donasi & Infaq", subGift: "Salurkan donasi terbaik Anda melalui rekening resmi yayasan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Yayasan Berkah Mandiri"
       },
       arisan: {
         badgeText: "Arisan Keluarga", coupleName: "Trah Joyo Sudarso", subText: "Pertemuan Rutin Bulanan", dateDisplay: "Minggu, 29 November 2026",
         heroTitle: "Arisan Trah Joyo Sudarso", heroSub: "Menjaga tali silaturahmi antar keturunan leluhur.",
         quoteText: "Silaturahmi memperpanjang umur dan melapangkan pintu rezeki.",
         titleMempelai: "Tuan Rumah Bulan Ini", groomName: "Bpk. Bambang Sutrisno", brideName: "Ibu Sri Wahyuni",
-        titleLokasi: "Pendopo Among Roso", titleGift: "Iuaran Arisan", subGift: "Pembayaran arisan dapat ditransfer ke bendahara.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Besar Joyo", iconParticle: "🍃"
+        titleLokasi: "Pendopo Among Roso", titleGift: "Iuaran Arisan", subGift: "Pembayaran arisan dapat ditransfer ke bendahara.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Besar Joyo"
       },
       seminar: {
         badgeText: "Seminar Nasional", coupleName: "Teknologi & AI 2026", subText: "Transformasi Digital Masa Depan", dateDisplay: "Senin, 14 Desember 2026",
         heroTitle: "Seminar Nasional AI", heroSub: "Mengkaji kesiapan SDM menghadapi era kecerdasan buatan.",
         quoteText: "Inovasi membedakan antara pemimpin dan pengikut di dunia modern.",
         titleMempelai: "Keynote Speaker", groomName: "Prof. Dr. Ir. Aris Hartono", brideName: "Dr. Maya Sofiana, M.T.",
-        titleLokasi: "Auditorium Kampus Utama", titleGift: "Pembelian Tiket", subGift: "Selesaikan pembayaran tiket melalui QRIS/Rekening resmi.", titleRsvp: "Registrasi Peserta", footerCouple: "Panitia Seminar Nasional", iconParticle: "💡"
+        titleLokasi: "Auditorium Kampus Utama", titleGift: "Pembelian Tiket", subGift: "Selesaikan pembayaran tiket melalui QRIS/Rekening resmi.", titleRsvp: "Registrasi Peserta", footerCouple: "Panitia Seminar Nasional"
       },
       pameranseni: {
         badgeText: "Art Exhibition", coupleName: "Jejak Visual Nusantara", subText: "Pameran Lukisan & Fotografi Eksklusif", dateDisplay: "Sabtu - Minggu, 12-13 Des 2026",
         heroTitle: "Pameran Seni Jejak Visual", heroSub: "Menyaksikan karya seni rupa maestro tanah air.",
         quoteText: "Seni mencuci debu kehidupan dari jiwa kita sehari-hari.",
         titleMempelai: "Kurator Pameran", groomName: "Galang Seniman", brideName: "Komunitas Seni Rupa",
-        titleLokasi: "Taman Budaya Senen", titleGift: "Pembelian Karya", subGift: "Dukung seniman lokal dengan mengapresiasi karyanya.", titleRsvp: "RSVP Pengunjung", footerCouple: "Kurator Galeri Nusantara", iconParticle: "🎨"
+        titleLokasi: "Taman Budaya Senen", titleGift: "Pembelian Karya", subGift: "Dukung seniman lokal dengan mengapresiasi karyanya.", titleRsvp: "RSVP Pengunjung", footerCouple: "Kurator Galeri Nusantara"
       },
       maulid: {
         badgeText: "Peringatan Hari Besar", coupleName: "Maulid Nabi SAW", subText: "Tabligh Akbar & Dzikir Bersama", dateDisplay: "Senin, 28 November 2026",
         heroTitle: "Tabligh Akbar Maulid Nabi", heroSub: "Meneladani akhlak mulia Rasulullah SAW dalam kehidupan modern.",
         quoteText: "Sesungguhnya telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu.",
         titleMempelai: "Penceramah", groomName: "KH. Abdullah Gymnastiar", brideName: "DKM Masjid Al-Ikhlas",
-        titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas", iconParticle: "🌙"
+        titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas"
       },
       lomba: {
         badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antar Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Badminton Warga Cup 2026", heroSub: "Sportivitas dan kebersamaan di atas segalanya.",
         quoteText: "Olahraga menyatukan kita dalam semangat juang yang sehat dan sportif.",
         titleMempelai: "Ketua Panitia", groomName: "Sdr. Rian Hidayat", brideName: "Karang Taruna Bhakti",
-        titleLokasi: "GOR Serbaguna Bhakti", titleGift: "Pendaftaran Lomba", subGift: "Biaya pendaftaran tim dapat ditransfer ke bendahara.", titleRsvp: "Daftar Peserta", footerCouple: "Karang Taruna Bhakti", iconParticle: "🏆"
+        titleLokasi: "GOR Serbaguna Bhakti", titleGift: "Pendaftaran Lomba", subGift: "Biaya pendaftaran tim dapat ditransfer ke bendahara.", titleRsvp: "Daftar Peserta", footerCouple: "Karang Taruna Bhakti"
       },
       farewell: {
         badgeText: "Farewell Party", coupleName: "Perpisahan Kantor", subText: "Malam Keakraban & Apresiasi", dateDisplay: "Jumat, 18 Desember 2026",
         heroTitle: "Farewell Pak Direktur", heroSub: "Terima kasih atas dedikasi dan kepemimpinan luar biasa Anda.",
         quoteText: "Perpisahan bukanlah akhir, melainkan awal dari babak baru yang gemilang.",
         titleMempelai: "Pihak Yang Dilepas", groomName: "Bpk. Ir. Hartono (Ex-CEO)", brideName: "Seluruh Karyawan PT",
-        titleLokasi: "Sky Lounge Hotel Aston", titleGift: "Dana Kenang-kenangan", subGift: "Patungan kado perpisahan dapat ditransfer ke HRD.", titleRsvp: "RSVP Karyawan", footerCouple: "Tim HRD & Panitia", iconParticle: "✨"
+        titleLokasi: "Sky Lounge Hotel Aston", titleGift: "Dana Kenang-kenangan", subGift: "Patungan kado perpisahan dapat ditransfer ke HRD.", titleRsvp: "RSVP Karyawan", footerCouple: "Tim HRD & Panitia"
       },
       bazar: {
         badgeText: "Bazar Amal", coupleName: "Pasar Murah Ramadhan", subText: "Bazar Sembako Murah & Pakaian", dateDisplay: "Minggu, 13 Desember 2026",
         heroTitle: "Bazar Amal Peduli Sesama", heroSub: "Membantu sesama warga melalui pasar murah berkualitas.",
         quoteText: "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.",
         titleMempelai: "Panitia Sosial", groomName: "Ibu Hj. Aminah", brideName: "Ibu-Ibu PKK RW 04",
-        titleLokasi: "Halaman Kelurahan", titleGift: "Donasi / Kupon", subGift: "Pembelian kupon atau donasi amal dapat melalui QRIS.", titleRsvp: "Konfirmasi Hadir", footerCouple: "Panitia Sosial RW 04", iconParticle: "🛍️"
+        titleLokasi: "Halaman Kelurahan", titleGift: "Donasi / Kupon", subGift: "Pembelian kupon atau donasi amal dapat melalui QRIS.", titleRsvp: "Konfirmasi Hadir", footerCouple: "Panitia Sosial RW 04"
       },
       softopening: {
         badgeText: "Soft Opening", coupleName: "Zahra Elegance Boutique", subText: "Koleksi Terbaru Busana Muslimah", dateDisplay: "Sabtu, 21 November 2026",
         heroTitle: "Zahra Elegance Boutique", heroSub: "Tampil anggun, syar'i, dan fashionable setiap hari.",
         quoteText: "Style is a way to say who you are without having to speak.",
         titleMempelai: "Owner & Designer", groomName: "Zahra Salsabila, S.Ds.", brideName: "Tim Manajemen Zahra",
-        titleLokasi: "Ruko Grand Galaxy City", titleGift: "Pembayaran & Pre-Order", subGift: "Nikmati diskon eksklusif selama masa opening.", titleRsvp: "RSVP VIP", footerCouple: "Zahra Elegance", iconParticle: "👗"
+        titleLokasi: "Ruko Grand Galaxy City", titleGift: "Pembayaran & Pre-Order", subGift: "Nikmati diskon eksklusif selama masa opening.", titleRsvp: "RSVP VIP", footerCouple: "Zahra Elegance"
       },
       gathering: {
         badgeText: "Annual Gathering", coupleName: "PT Solusi Teknologi", subText: "Perayaan HUT ke-10 Perusahaan", dateDisplay: "Sabtu, 19 Desember 2026",
         heroTitle: "1 Dekade Solusi Teknologi", heroSub: "10 Tahun berinovasi melayani negeri dengan teknologi terbaik.",
         quoteText: "Together we achieve more, grow stronger, and inspire the future.",
         titleMempelai: "Dewan Direksi", groomName: "Jajaran Direktur", brideName: "Seluruh Karyawan",
-        titleLokasi: "Ballroom Hotel Mulia", titleGift: "Sponsorship", subGift: "Dukungan sponsor dapat disalurkan melalui rekening panitia.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia 1 Dekade", iconParticle: "🚀"
+        titleLokasi: "Ballroom Hotel Mulia", titleGift: "Sponsorship", subGift: "Dukungan sponsor dapat disalurkan melalui rekening panitia.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia 1 Dekade"
       }
     };
 
@@ -528,13 +523,13 @@
     let sectionStickers = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
 
     try {
-        if(localStorage.getItem('ari_textElements_v39')) {
+        if(localStorage.getItem('ari_textElements_v40')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v40'));
+        } else if(localStorage.getItem('ari_textElements_v39')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v39'));
-        } else if(localStorage.getItem('ari_textElements_v38')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v38'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v39')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v39'));
+        if(localStorage.getItem('ari_sectionPhotos_v40')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v40'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionStickers')) sectionStickers = JSON.parse(localStorage.getItem('ari_sectionStickers'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
@@ -550,9 +545,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v39', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v40', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v39', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v40', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionStickers', JSON.stringify(sectionStickers));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
@@ -597,7 +592,7 @@
     }
 
     const adminModules = [
-      { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset & Animasi', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'animasiStiker', title: 'Animasi, GIF & Stiker', desc: '20 Koleksi Stiker + Upload GIF', icon: 'fa-face-grin-stars', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: 'Upload Multi-Foto Dinamis', desc: 'Tanpa Batas + Saklar Tampil', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
@@ -640,10 +635,10 @@
           }
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara (20 Preset & Animasi Terhubung)</h4>
+            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara (20 Preset Teks)</h4>
             <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
-                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset & Animasi</button>
+                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset</button>
             </div>
           </div>`;
       }
@@ -985,13 +980,11 @@
 
     function sendRealEmailOtp(targetEmail, otpCode, callback) {
         if (!adminAuth.emailjsServiceId || !adminAuth.emailjsTemplateId || !adminAuth.emailjsPublicKey) {
-            // Jika belum dikonfigurasi, gunakan fallback toast / alert agar tetap bisa diuji
             showToast(`[Mode Simulation/Alert] Kode OTP Anda: ${otpCode}`, 'error');
             if(callback) callback(true);
             return;
         }
 
-        // Inisialisasi EmailJS
         emailjs.init(adminAuth.emailjsPublicKey);
         const templateParams = {
             to_email: targetEmail,
@@ -1218,22 +1211,8 @@
         }
         saveAllDataToDevice();
         applyTextElementsToDOM();
-        applyCategoryParticles();
         showToast(`Preset & tema (${preset.badgeText}) diterapkan!`);
         backToDashboard();
-    }
-
-    function applyCategoryParticles() {
-        const container = document.getElementById('categoryParticlesContainer');
-        if(!container) return;
-        const preset = eventPresetsList[currentCategoryKey] || eventPresetsList['pernikahan'];
-        const icon = preset.iconParticle || '✨';
-        container.innerHTML = `
-          <div class="floating-particle text-xl top-10 left-10" style="animation-delay: 0s;">${icon}</div>
-          <div class="floating-particle text-2xl top-20 right-12" style="animation-delay: 1s;">${icon}</div>
-          <div class="floating-particle text-lg bottom-20 left-16" style="animation-delay: 2s;">${icon}</div>
-          <div class="floating-particle text-xl bottom-12 right-20" style="animation-delay: 1.5s;">${icon}</div>
-        `;
     }
 
     function saveGenZFrameAndSpeed() {
@@ -1689,7 +1668,6 @@
         try { applyGiftToDOM(); } catch(e) {}
         try { renderWishesToDOM(); } catch(e) {}
         try { applySectionOrder(); } catch(e) {}
-        try { applyCategoryParticles(); } catch(e) {}
         try { applyTextElementsToDOM(); } catch(e) {}
         try { applySectionPhotos(); } catch(e) {}
         try { applySectionStickers(); } catch(e) {}
