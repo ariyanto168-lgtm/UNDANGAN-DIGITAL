@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.30</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.32</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.30)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.32)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -122,7 +122,7 @@
 
       <!-- SECTION 4: VIDEO MP4 (URL MODE) -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
-        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600runded-full flex items-center justify-center text-sm rounded-full"><i class="fa-solid fa-video"></i></div>
+        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
         <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center">
           <video id="mainMp4Video" controls class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
@@ -140,7 +140,7 @@
           <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
-          <button type="button" onclick="window.open(textElements.mapUrl || 'https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
+          <button type="button" onclick="window.open(textElements.mapUrl ? textElements.mapUrl.text : 'https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
         </div>
       </section>
 
@@ -164,7 +164,7 @@
         </div>
       </section>
 
-      <!-- SECTION 7: RSVP -->
+      <!-- SECTION 7: RSVP & SHARELOK -->
       <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
@@ -187,7 +187,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.30 (Typewriter Per Kolom & Media URL)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.32 (Unified Wa.me & Sharelok Database)</p>
       </div>
     </footer>
   </main>
@@ -198,7 +198,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.30</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.32</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -243,7 +243,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.30 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.32 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -406,7 +406,6 @@
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
 
-    // Struktur teks dengan pengaturan typewriter on/off per kolom
     let textElements = {};
     for(let k in defaultText) {
         textElements[k] = { text: defaultText[k], typewriter: true };
@@ -417,8 +416,8 @@
         { name: "Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx", status: "Hadir", message: "Selamat menempuh hidup baru!" }
     ];
     let guestDatabase = [
-        { name: "Bpk. Budi Santoso", whatsapp: "08123456789" },
-        { name: "Ibu Siti Rahma", whatsapp: "08987654321" }
+        { name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx" },
+        { name: "Ibu Siti Rahma", whatsapp: "08987654321", sharelok: "" }
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
@@ -438,14 +437,10 @@
     };
 
     try {
-        if(localStorage.getItem('ari_textElements_v30')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v30'));
-        } else if(localStorage.getItem('ari_textElements')) {
-            // Migrasi dari versi lama
-            let old = JSON.parse(localStorage.getItem('ari_textElements'));
-            for(let k in old) {
-                textElements[k] = { text: old[k], typewriter: true };
-            }
+        if(localStorage.getItem('ari_textElements_v32')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v32'));
+        } else if(localStorage.getItem('ari_textElements_v31')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v31'));
         }
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
@@ -460,7 +455,7 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v30', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v32', JSON.stringify(textElements));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
@@ -496,7 +491,7 @@
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset & Animasi', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'databaseWarga', title: 'Database Warga & WA', desc: 'Kirim Undangan Pribadi & Massal', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Pribadi & Massal + Sharelok', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
@@ -564,12 +559,13 @@
       else if (id === 'databaseWarga') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">👥 Database Warga & Pengirim WA (Pribadi & Massal)</h4>
+            <h4 class="font-bold text-emerald-400 text-sm">👥 Database Warga, Tamu & Sharelok (Mode Wa.me)</h4>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">Tambah Warga / Tamu Baru</label>
               <input type="text" id="newWargaName" placeholder="Nama Warga / Tamu" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
               <input type="text" id="newWargaPhone" placeholder="No WhatsApp (contoh: 08123456789)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
+              <input type="text" id="newWargaSharelok" placeholder="Link Sharelok / Maps Tamu (Opsional)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
               <button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold mt-2">Simpan ke Database</button>
             </div>
 
@@ -580,7 +576,7 @@
             </div>
 
             <div class="flex space-x-2">
-              <button onclick="sendMassWhatsApp()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2.5 rounded-xl font-bold">🚀 Kirim WA Massal (Broadcast)</button>
+              <button onclick="sendMassWhatsApp()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2.5 rounded-xl font-bold">🚀 Kirim WA Massal & Salin Link Wa.me</button>
             </div>
 
             <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
@@ -801,13 +797,15 @@
     function addWargaToDb() {
         const name = document.getElementById('newWargaName').value.trim();
         const whatsapp = document.getElementById('newWargaPhone').value.trim();
+        const sharelok = document.getElementById('newWargaSharelok').value.trim();
         if(!name || !whatsapp) return alert('Isi Nama dan Nomor WhatsApp!');
-        guestDatabase.push({ name, whatsapp });
+        guestDatabase.push({ name, whatsapp, sharelok });
         saveAllDataToDevice();
         renderAdminWargaList();
         document.getElementById('newWargaName').value = '';
         document.getElementById('newWargaPhone').value = '';
-        alert('Warga berhasil ditambahkan ke database!');
+        document.getElementById('newWargaSharelok').value = '';
+        alert('Warga/Tamu berhasil ditambahkan ke database!');
     }
 
     function deleteWarga(index) {
@@ -818,21 +816,29 @@
         }
     }
 
-    function sendPersonalWhatsApp(name, phone) {
+    function sendPersonalWhatsApp(name, phone, sharelok) {
         const cleanPhone = phone.replace(/[^0-9]/g, '');
         const baseUrl = window.location.origin + window.location.pathname;
         const personalLink = `${baseUrl}?to=${encodeURIComponent(name)}`;
         let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
+        if(sharelok) {
+            msg += `\n\nSharelok Lokasi Tamu: ${sharelok}`;
+        }
         window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function sendMassWhatsApp() {
         if(guestDatabase.length === 0) return alert('Database warga masih kosong!');
-        let textResult = "*DAFTAR UNDANGAN BROADCAST*\n\n";
+        let textResult = "*DAFTAR TAUTAN WA.ME & SHARELOK SEMUA TAMU*\n\n";
         const baseUrl = window.location.origin + window.location.pathname;
         guestDatabase.forEach((w, idx) => {
             const pLink = `${baseUrl}?to=${encodeURIComponent(w.name)}`;
-            textResult += `${idx+1}. *${w.name}* (${w.whatsapp})\nLink: ${pLink}\n\n`;
+            const cleanPhone = w.whatsapp.replace(/[^0-9]/g, '');
+            let msg = waTemplate.replace('{nama}', w.name).replace('{link}', pLink);
+            if(w.sharelok) msg += `\n\nSharelok: ${w.sharelok}`;
+            const waMeLink = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
+            
+            textResult += `${idx+1}. *${w.name}* (${w.whatsapp})\nWa.me Link: ${waMeLink}\n${w.sharelok ? 'Sharelok: ' + w.sharelok + '\n' : ''}\n`;
         });
         
         const textarea = document.createElement('textarea');
@@ -841,7 +847,7 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('Daftar tautan & pesan massal berhasil disalin! Silakan paste ke grup WhatsApp atau kirim broadcast.');
+        alert('Daftar tautan wa.me & sharelok seluruh tamu berhasil disalin! Silakan paste ke chat atau catatan.');
     }
 
     function saveAdminWaTemplate() {
@@ -859,14 +865,16 @@
             return;
         }
         guestDatabase.forEach((w, idx) => {
+            let sharelokInfo = w.sharelok ? `<a href="${w.sharelok}" target="_blank" class="text-cyan-400 underline block text-[9px]"><i class="fa-solid fa-map-location-dot"></i> Sharelok: ${w.sharelok}</a>` : '';
             container.innerHTML += `
               <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
                 <div>
                   <p class="font-bold text-white">${w.name}</p>
                   <p class="text-emerald-400 text-[10px]"><i class="fa-brands fa-whatsapp"></i> ${w.whatsapp}</p>
+                  ${sharelokInfo}
                 </div>
-                <div class="flex space-x-1.5">
-                  <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1.5 rounded text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i> Kirim</button>
+                <div class="flex space-x-1.5 items-center">
+                  <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}', '${w.sharelok || ''}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1.5 rounded text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i> Wa.me</button>
                   <button onclick="deleteWarga(${idx})" class="bg-rose-600 hover:bg-rose-500 text-white px-2 py-1.5 rounded text-[10px]"><i class="fa-solid fa-trash"></i></button>
                 </div>
               </div>`;
@@ -924,7 +932,6 @@
             if(f1) { f1.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`; }
             if(f2) { f2.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`; }
 
-            // Video MP4 URL update
             const vidSource = document.getElementById('mp4VideoSource');
             const vidElem = document.getElementById('mainMp4Video');
             if(vidSource && ultimateConfig.videoUrl) {
@@ -999,11 +1006,8 @@
         }
     }
 
-    // TYPEWRITER ENGINE DENGAN CEK PER KOLOM (ON/OFF)
     function runGlobalTypewriter() {
         const speed = ultimateConfig.typewriterSpeed || 30;
-        
-        // Update elemen berdasar atribut data-key
         const mappedElements = document.querySelectorAll('[data-key]');
         mappedElements.forEach((el, index) => {
             const key = el.getAttribute('data-key');
@@ -1014,16 +1018,13 @@
             const useTypewriter = item.typewriter !== false;
 
             if(!useTypewriter) {
-                // Jika Typewriter OFF, tampilkan teks secara instan
                 el.innerText = fullText;
                 el.classList.remove('typewriter-cursor');
                 return;
             }
 
-            // Jika Typewriter ON, jalankan animasi ketik
             el.innerText = "";
             let charIndex = 0;
-            
             setTimeout(() => {
                 function typeNext() {
                     if(charIndex < fullText.length) {
@@ -1098,9 +1099,6 @@
       });
     }
 
-    // =========================================================================
-    // FUNGSI UTAMA BUKA UNDANGAN (BULLETPROOF v10.1.30)
-    // =========================================================================
     function bukaUndanganSekarang() {
         const cover = document.getElementById('coverSection');
         const main = document.getElementById('mainContent');
@@ -1208,17 +1206,3 @@
   </script>
 </body>
 </html>
-```Baik, untuk memperbarui panel **GEN-Z ADMIN** sesuai dengan permintaan Anda, berikut adalah rancangan penyesuaian antarmuka dan logika untuk masing-masing fitur:
-
-### 1. Tombol On/Off Typewriter per Kolom Tabel Teks
-* **Implementasi UI:** Pada setiap baris input di **Tabel Auto-Teks** (seperti `brideName`, `alamat`, dll.), tambahkan elemen *toggle switch* atau checkbox kecil di sebelah kanan atau di bawah kolom input.
-* **Fungsi:** Mengatur apakah teks pada kolom tersebut akan ditampilkan menggunakan efek ketik (*typewriter*) atau muncul secara langsung secara seketika (*instant*).
-
-### 2. Fitur URL untuk File MP3 & MP4 (Mempertahankan Mode Asli)
-* **Implementasi UI:** Pada menu pengaturan media (MP3 dan MP4), tambahkan opsi pilihan mode (menggunakan tombol *radio* atau *tab*) yang berdampingan:
-  * **Mode Asli (Upload File):** Mempertahankan tombol pilih/unggah file lokal seperti sedia kala.
-  * **Mode URL:** Menyediakan kolom input teks baru khusus untuk memasukkan tautan langsung (*direct link*) file MP3 atau MP4 dari internet/server eksternal.
-
----
-
-Apakah Anda ingin dibuatkan contoh kode (HTML/CSS/JavaScript) untuk menerapkan perubahan antarmuka tersebut?
