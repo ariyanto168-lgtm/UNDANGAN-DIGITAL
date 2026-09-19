@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.9</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.10</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -48,17 +48,17 @@
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
-    <!-- TOMBOL BUKA UNDANGAN (INSTANT TOUCH PASS-THROUGH) -->
+    <!-- TOMBOL BUKA UNDANGAN (BULLETPROOF SINGLE-TOUCH) -->
     <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl mb-8" style="z-index: 100000; position: relative;">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
       
-      <button type="button" onclick="openInvitation(event)" ontouchend="openInvitation(event)" style="cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; position: relative; z-index: 2147483647; pointer-events: auto;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
-        <span style="pointer-events: none;">Buka Undangan ✨</span>
+      <button type="button" onclick="openInvitation()" style="cursor: pointer; -webkit-tap-highlight-color: transparent; position: relative; z-index: 2147483647; pointer-events: auto;" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_25px_rgba(236,72,153,0.8)] active:scale-95 transition-transform duration-100 flex items-center justify-center space-x-2 text-sm">
+        <span>Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 absolute bottom-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.1.9)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2 absolute bottom-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.1.10)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -164,7 +164,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.9 (Typewriter Speed & Expanded Dashboard)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.10 (Bulletproof Single-Touch)</p>
       </div>
     </footer>
   </main>
@@ -175,7 +175,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.9</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.10</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -220,7 +220,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.9 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.10 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -240,4 +240,5 @@
     };
     
     let textElements = { ...defaultText, ...(JSON.parse(localStorage.getItem('ari_textElements')) || {}) };
-    const defaultGift = { bank: "Bank BCA", numbe
+    const defaultGift = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
+    let giftConfig = { ...defaultGift, ...(JSON
