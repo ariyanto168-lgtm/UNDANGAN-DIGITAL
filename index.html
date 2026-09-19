@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Editor Suite v5.6.0 Dynamic Hub</title>
+  <title>Undangan Digital - Master Editor Suite v5.9.0 Bottom Nav</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -66,10 +66,10 @@
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   </style>
 </head>
-<body id="bodyThemeContainer" class="relative antialiased">
+<body id="bodyThemeContainer" class="relative antialiased pb-20">
 
   <!-- COVER UTAMA -->
-  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 cover-motif-1 text-white overflow-y-auto">
+  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center transition-transform duration-700 cover-motif-1 text-white overflow-y-auto">
     <div class="fairy-lights-container">
       <div class="fairy-light"></div>
       <div class="fairy-light"></div>
@@ -83,20 +83,13 @@
 
     <div class="absolute inset-0 opacity-30 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
     
-    <div class="w-full flex items-center justify-between text-[11px] pt-4 relative z-10">
-      <span class="bg-pink-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
-        <i class="fa-solid fa-gear text-[10px]"></i> Admin v5.6.0
-      </span>
-      <span class="bg-slate-800/80 text-pink-200 px-3 py-1 rounded-full border border-pink-500/30 text-[10px] tracking-wider uppercase">
-        The Wedding Of
-      </span>
-      <span class="bg-emerald-600/90 text-white px-3 py-1 rounded-full font-medium shadow flex items-center gap-1">
-        <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> v5.6.0 Active
-      </span>
-    </div>
+    <div></div>
 
     <div class="space-y-3 py-4 relative z-10">
-      <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active">Rian & Siska</h1>
+      <span class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">
+        The Wedding Of
+      </span>
+      <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
@@ -111,27 +104,37 @@
       </button>
     </div>
 
-    <div class="text-[11px] text-slate-400 space-y-1 pb-2 relative z-10">
-      <button onclick="alert('Database v5.6.0 tersinkronisasi dengan aman!')" class="text-slate-300 hover:text-white underline text-[10px] bg-slate-800/60 px-2 py-0.5 rounded cursor-pointer">
-        <i class="fa-solid fa-database mr-1 text-pink-400"></i> Cek Koneksi DB
-      </button>
-      <p class="text-[10px] text-slate-500 pt-1">Powered by Ari GPM</p>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-10">
+      <p>Powered by Ari GPM (v5.9.0)</p>
     </div>
   </div>
 
   <!-- KONTEN UTAMA -->
-  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-slate-50 text-slate-800">
-    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
-      <button onclick="toggleMusic()" id="musicBtn" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-pink-700 transition active:scale-95 border-2 border-white cursor-pointer" title="Musik">
-        <i id="musicIcon" class="fa-solid fa-music animate-spin"></i>
+  <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-slate-50 text-slate-800 pb-16">
+    
+    <!-- BILAH NAVIGASI BAWAH (BOTTOM NAVIGATION BAR) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
+      <button onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm">
+          <i id="musicIcon" class="fa-solid fa-music animate-spin text-sm"></i>
+        </div>
+        <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600">Playing</span>
       </button>
-      <button onclick="openAdminModal()" class="w-12 h-12 bg-amber-500 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-amber-600 transition active:scale-95 border-2 border-white cursor-pointer" title="Buka Editor Master">
-        <i class="fa-solid fa-gear"></i>
+      
+      <button onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm">
+          <i class="fa-solid fa-gear text-sm"></i>
+        </div>
+        <span class="text-[10px] font-semibold mt-1">Admin</span>
       </button>
-      <button onclick="openShareModal()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-purple-700 transition active:scale-95 border-2 border-white cursor-pointer" title="Bagikan Undangan">
-        <i class="fa-solid fa-share-nodes"></i>
+      
+      <button onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm">
+          <i class="fa-solid fa-share-nodes text-sm"></i>
+        </div>
+        <span class="text-[10px] font-semibold mt-1">Bagikan</span>
       </button>
-    </div>
+    </nav>
 
     <div id="sectionsContainer" class="space-y-0">
       <!-- HERO SECTION -->
@@ -252,7 +255,7 @@
       </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.6.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v5.9.0</p>
       </div>
     </footer>
   </main>
@@ -264,8 +267,8 @@
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-shield-halved"></i>
           <div>
-            <h2 class="text-lg font-bold">Master Editor Suite v5.6.0</h2>
-            <p class="text-[10px] text-pink-200">Typewriter Section Manager • Secured</p>
+            <h2 class="text-lg font-bold">Master Editor Suite v5.9.0</h2>
+            <p class="text-[10px] text-pink-200">Dynamic Section Manager • Secured</p>
           </div>
         </div>
         <button onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -280,7 +283,7 @@
         <p class="text-xs text-gray-500">PIN Default Editor: <span class="font-mono font-bold text-pink-600">1234</span></p>
         <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
         <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2.5 rounded-xl font-bold transition shadow-md cursor-pointer">Buka Kunci Editor</button>
-        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.6.0)</p>
+        <p class="text-[10px] text-gray-400 pt-2">Powered by Ari GPM (v5.9.0)</p>
       </div>
 
       <!-- EDITOR BODY -->
@@ -351,7 +354,7 @@
           </div>
         </div>
 
-        <!-- TAB KELOLA SECTIONS (DENGAN KONTROL TYPEWRITER & KECEPATAN) -->
+        <!-- TAB KELOLA SECTIONS -->
         <div id="tab-sections" class="editor-tab hidden space-y-4">
           <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-3">
             <h4 id="secFormTitle" class="font-bold text-amber-900 text-xs"><i class="fa-solid fa-layer-group mr-1"></i> Tambah / Edit Section</h4>
@@ -364,7 +367,6 @@
               <textarea id="newSecContent" rows="3" placeholder="Tulis isi atau informasi lengkap di sini..." class="w-full p-2 border rounded-xl text-xs bg-white"></textarea>
             </div>
             
-            <!-- Pengaturan Typewriter ON/OFF & Kecepatan -->
             <div class="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
               <label class="flex items-center space-x-2 text-xs font-bold text-amber-950 cursor-pointer">
                 <input type="checkbox" id="newSecTwToggle" class="w-4 h-4 accent-amber-600" checked>
@@ -415,11 +417,17 @@
   <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white text-gray-900 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-4 text-center">
       <h3 class="font-bold text-lg">Bagikan Undangan</h3>
-      <p class="text-xs text-slate-500">Salin link website resmi undanganmu:</p>
+      <p class="text-xs text-slate-500">Pilih cara membagikan undangan ini:</p>
       <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
-      <div class="grid grid-cols-2 gap-2 pt-2">
-        <button onclick="copyShareLink()" class="bg-pink-600 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer">Salin Link</button>
-        <button onclick="closeShareModal()" class="bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
+      <div class="space-y-2 pt-1">
+        <button onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 cursor-pointer shadow">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Kirim via WhatsApp (wa.me)</span>
+        </button>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="copyShareLink()" class="bg-pink-600 hover:bg-pink-700 text-white py-2.5 rounded-xl font-bold text-xs cursor-pointer">Salin Link</button>
+          <button onclick="closeShareModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer">Tutup</button>
+        </div>
       </div>
     </div>
   </div>
@@ -435,8 +443,8 @@
       { id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500", typewriter: true, speed: 50 }
     ];
     let editingSectionId = null;
+    let isPlaying = false;
 
-    // Fungsi menjalankan efek ketik (typewriter) bertahap
     function runTypewriterEffect(elementId, text, speed) {
       const el = document.getElementById(elementId);
       if (!el) return;
@@ -467,7 +475,6 @@
       dynamicSections.forEach((sec, index) => {
         const textElemId = `dyn-text-${sec.id}`;
         
-        // Render ke Tampilan Utama Undangan
         const secEl = document.createElement('section');
         secEl.className = "py-12 px-6 bg-white border-t border-slate-100 text-center space-y-4";
         secEl.innerHTML = `
@@ -477,14 +484,12 @@
         `;
         wrapper.appendChild(secEl);
 
-        // Jika typewriter aktif, jalankan efek ketik saat section dirender
         if (sec.typewriter) {
           setTimeout(() => {
             runTypewriterEffect(textElemId, sec.content, Number(sec.speed));
           }, 300);
         }
 
-        // Render ke Panel Pengelola (Manager List)
         const itemEl = document.createElement('div');
         itemEl.className = "flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-200 text-xs shadow-sm";
         itemEl.innerHTML = `
@@ -545,7 +550,6 @@
           alert('Section baru berhasil ditambahkan!');
         }
 
-        // Reset Form Input
         document.getElementById('newSecTitle').value = '';
         document.getElementById('newSecContent').value = '';
         document.getElementById('newSecFile').value = '';
@@ -629,22 +633,36 @@
       setTimeout(() => main.classList.remove('opacity-0'), 50);
       window.scrollTo(0, 0);
       
+      // Musik otomatis bunyi saat undangan dibuka
       const music = document.getElementById('bgMusic');
-      music.play().catch(() => {});
+      const icon = document.getElementById('musicIcon');
+      const label = document.getElementById('musicLabel');
+      
+      music.play().then(() => {
+        isPlaying = true;
+        icon.className = "fa-solid fa-music animate-spin text-sm";
+        label.innerText = "Playing";
+        label.className = "text-[10px] font-semibold mt-1 text-pink-600";
+      }).catch(() => {});
 
       setTimeout(() => { cover.style.display = 'none'; }, 700);
     }
 
-    let isPlaying = false;
     function toggleMusic() {
       const music = document.getElementById('bgMusic');
       const icon = document.getElementById('musicIcon');
+      const label = document.getElementById('musicLabel');
+      
       if (isPlaying) {
         music.pause();
-        icon.className = "fa-solid fa-music";
+        icon.className = "fa-solid fa-music text-sm";
+        label.innerText = "Paused";
+        label.className = "text-[10px] font-semibold mt-1 text-slate-400";
       } else {
         music.play();
-        icon.className = "fa-solid fa-music animate-spin";
+        icon.className = "fa-solid fa-music animate-spin text-sm";
+        label.innerText = "Playing";
+        label.className = "text-[10px] font-semibold mt-1 text-pink-600";
       }
       isPlaying = !isPlaying;
     }
@@ -690,7 +708,7 @@
       }
 
       const cover = document.getElementById('coverSection');
-      cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-4 md:p-6 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto ${frame}`;
+      cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-50 flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center transition-transform duration-700 text-white overflow-y-auto ${frame}`;
       document.getElementById('coverBgImage').style.backgroundImage = `url('${photoUrl}')`;
 
       const titleEl = document.getElementById('coverCoupleName');
@@ -724,7 +742,7 @@
     }
 
     function shareGeneralWhatsApp() {
-      const generalMessage = `✨ UNDANGAN PERNIKAHAN (v5.6.0) ✨\n\nRian & Siska\nMinggu, 25 Oktober 2026\n\nTanpa mengurangi rasa hormat, kami mengundang bapak/ibu/teman sekalian untuk memberikan doa restu pada acara pernikahan kami. Berikut tautan undangannya:\n\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/\n\nTerima kasih banyak atas perhatian & doa restunya. 🙏`;
+      const generalMessage = `✨ UNDANGAN PERNIKAHAN (v5.9.0) ✨\n\nRian & Siska\nMinggu, 25 Oktober 2026\n\nTanpa mengurangi rasa hormat, kami mengundang bapak/ibu/teman sekalian untuk memberikan doa restu pada acara pernikahan kami. Berikut tautan undangannya:\n\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/\n\nTerima kasih banyak atas perhatian & doa restunya. 🙏`;
       const waUrl = `https://wa.me/?text=${encodeURIComponent(generalMessage)}`;
       window.open(waUrl, '_blank');
     }
