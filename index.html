@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.28</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.29</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,10 @@
     .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
     .frame-cyber { border: 3px solid #06b6d4; box-shadow: 5px 5px 0px #ec4899; border-radius: 0.5rem; }
     .frame-hologram { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); padding: 4px; border-radius: 2rem; box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
+
+    /* FLOATING PARTICLES ANIMATION */
+    @keyframes floatParticle { 0% { transform: translateY(0) rotate(0deg); opacity: 0.8; } 50% { transform: translateY(-20px) rotate(180deg); opacity: 1; } 100% { transform: translateY(0) rotate(360deg); opacity: 0.8; } }
+    .floating-particle { animation: floatParticle 4s infinite ease-in-out; position: absolute; pointer-events: none; z-index: 5; }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -53,7 +57,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.28)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.29)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -75,49 +79,52 @@
       </button>
     </nav>
 
+    <!-- KONTAINER SECTION YANG DAPAT DIURUTKAN (REORDER) -->
     <div id="sectionsContainer" class="space-y-4 pt-4 px-2">
-      <!-- HERO -->
-      <section class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
+      
+      <!-- SECTION 1: HERO -->
+      <section data-section-key="hero" class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
         <div id="mainHeroBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+        <div id="categoryParticlesContainer"></div>
         <div class="relative z-10 space-y-3 pb-8">
-          <span id="text-badge" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
-          <h1 id="text-heroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
-          <p id="text-heroSub" class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
+          <span id="text-badge" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30 dynamic-typewriter">The Wedding Of</span>
+          <h1 id="text-heroTitle" class="text-5xl font-bold pulse-glow-active dynamic-typewriter">Rian & Siska</h1>
+          <p id="text-heroSub" class="text-sm text-slate-300 dynamic-typewriter">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
         </div>
       </section>
 
-      <!-- QUOTES (TYPEWRITER) -->
-      <section class="py-10 px-6 text-center section-overlay space-y-4">
+      <!-- SECTION 2: QUOTES -->
+      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4">
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
-        <p id="quoteTextDisplay" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
+        <p id="quoteTextDisplay" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto typewriter-cursor dynamic-typewriter">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
-      <!-- MEMPELAI / PROFIL DENGAN BINGKAI GEN-Z -->
-      <section class="py-10 px-6 text-center section-overlay space-y-6">
-        <h2 id="text-titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
+      <!-- SECTION 3: MEMPELAI -->
+      <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
+        <h2 id="text-titleMempelai" class="text-3xl font-bold text-slate-900 dynamic-typewriter">Profil Tuan Rumah</h2>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
-          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500" id="profile1FrameContainer">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile1FrameContainer">
             <img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
-          <h3 id="text-groomName" class="text-2xl font-bold text-slate-900 pt-2">Rian Pratama</h3>
+          <h3 id="text-groomName" class="text-2xl font-bold text-slate-900 pt-2 dynamic-typewriter">Rian Pratama</h3>
         </div>
         
         <div class="text-2xl text-pink-500 font-bold">&</div>
         
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
-          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500" id="profile2FrameContainer">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile2FrameContainer">
             <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
-          <h3 id="text-brideName" class="text-2xl font-bold text-slate-900 pt-2">Siska Amalia</h3>
+          <h3 id="text-brideName" class="text-2xl font-bold text-slate-900 pt-2 dynamic-typewriter">Siska Amalia</h3>
         </div>
       </section>
 
-      <!-- LOKASI -->
-      <section class="py-10 px-6 text-center section-overlay space-y-6">
-        <h2 id="text-titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
+      <!-- SECTION 4: LOKASI -->
+      <section data-section-key="lokasi" class="py-10 px-6 text-center section-overlay space-y-6">
+        <h2 id="text-titleLokasi" class="text-3xl font-bold text-slate-900 dynamic-typewriter">Lokasi Acara</h2>
         <div class="bg-white/80 p-4 rounded-3xl shadow-sm border border-slate-100 space-y-4">
-          <p id="text-alamat" class="text-xs text-slate-600">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
+          <p id="text-alamat" class="text-xs text-slate-600 dynamic-typewriter">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
           <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
@@ -125,11 +132,11 @@
         </div>
       </section>
 
-      <!-- AMPLOP DIGITAL -->
-      <section class="py-10 px-6 text-center section-overlay space-y-6">
+      <!-- SECTION 5: AMPLOP -->
+      <section data-section-key="amplop" class="py-10 px-6 text-center section-overlay space-y-6">
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
-        <h2 id="text-titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
-        <p id="text-subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
+        <h2 id="text-titleGift" class="text-3xl font-bold text-slate-900 dynamic-typewriter">Amplop Digital</h2>
+        <p id="text-subGift" class="text-xs text-slate-600 max-w-xs mx-auto dynamic-typewriter">Doa restu Anda sangat berarti bagi kami.</p>
         
         <div class="space-y-4 max-w-xs mx-auto">
           <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
@@ -145,9 +152,9 @@
         </div>
       </section>
 
-      <!-- RSVP & SHARELOK TAMU -->
-      <section class="py-10 px-6 section-overlay space-y-6">
-        <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
+      <!-- SECTION 6: RSVP -->
+      <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
+        <div class="text-center space-y-2"><h2 id="text-titleRsvp" class="text-2xl font-bold text-slate-900 dynamic-typewriter">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
           <input type="text" id="guestInputWa" placeholder="Nomor WhatsApp (Contoh: 08123456789)" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
@@ -160,14 +167,15 @@
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
+
     </div>
 
     <!-- FOOTER -->
     <footer class="p-6 text-center space-y-4 mt-8 section-overlay">
-      <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
+      <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900 dynamic-typewriter">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.28 (Gen-Z Frames & Speed Control)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.29 (Global Typewriter & Reorder)</p>
       </div>
     </footer>
   </main>
@@ -178,7 +186,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.28</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.29</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -223,7 +231,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.28 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.29 -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -238,140 +246,140 @@
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
+        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska", iconParticle: "💖"
       },
       khitanan: {
         badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
         titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
-        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
+        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah", iconParticle: "👦"
       },
       ultah: {
         badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
         titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
-        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
+        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila", iconParticle: "🎈"
       },
       rapatrt: {
         badgeText: "Undangan Resmi", coupleName: "Rapat Pleno RT 05", subText: "Warga Wajib Hadir", dateDisplay: "Jumat, 30 Oktober 2026",
         heroTitle: "Rapat Warga RT 05 / RW 02", heroSub: "Agenda Evaluasi Kas Keuangan & Keamanan Lingkungan.",
         quoteText: "Kerjasama dan kerukunan warga adalah kunci kenyamanan lingkungan kita bersama.",
         titleMempelai: "Pimpinan Rapat", groomName: "Bpk Budi Santoso (Ketua RT)", brideName: "Ibu Siti Rahma (Sekretaris)",
-        titleLokasi: "Balai Warga RT 05", titleGift: "Kas & Iuran Warga", subGift: "Pembayaran iuran dapat dilakukan via QRIS/Transfer.", titleRsvp: "Absensi Kehadiran", footerCouple: "Pengurus RT 05 / RW 02"
+        titleLokasi: "Balai Warga RT 05", titleGift: "Kas & Iuran Warga", subGift: "Pembayaran iuran dapat dilakukan via QRIS/Transfer.", titleRsvp: "Absensi Kehadiran", footerCouple: "Pengurus RT 05 / RW 02", iconParticle: "📋"
       },
       grandopening: {
         badgeText: "Grand Opening", coupleName: "Kopi Senja Cafe", subText: "Undangan Spesial Soft & Grand Opening", dateDisplay: "Sabtu, 07 November 2026",
         heroTitle: "Kopi Senja & Resto", heroSub: "Nikmati sajian kopi nusantara terbaik dengan suasana syahdu.",
         quoteText: "Good friends, great coffee, and unforgettable moments.",
         titleMempelai: "Manajemen", groomName: "Reza Pahlevi (Founder)", brideName: "Tim Kopi Senja",
-        titleLokasi: "Outlet Utama", titleGift: "Voucher & Promo", subGift: "Dukung kami dengan investasi atau pembelian voucher.", titleRsvp: "RSVP Kehadiran", footerCouple: "Manajemen Kopi Senja"
+        titleLokasi: "Outlet Utama", titleGift: "Voucher & Promo", subGift: "Dukung kami dengan investasi atau pembelian voucher.", titleRsvp: "RSVP Kehadiran", footerCouple: "Manajemen Kopi Senja", iconParticle: "☕"
       },
       rumahbaru: {
         badgeText: "Syukuran Rumah", coupleName: "Keluarga Bpk. Hendra", subText: "Doa Bersama & Syukuran", dateDisplay: "Minggu, 15 November 2026",
         heroTitle: "Syukuran Rumah Baru", heroSub: "Mohon doa restu agar tempat tinggal kami membawa berkah.",
         quoteText: "Ya Allah, tempatkanlah kami pada tempat yang diberkati, dan Engkau adalah sebaik-baik pemberi tempat.",
         titleMempelai: "Tuan Rumah", groomName: "Bpk. Hendra Wijaya", brideName: "Ibu Lanny Kusuma",
-        titleLokasi: "Kediaman Baru", titleGift: "Tanda Kasih", subGift: "Doa restu Anda sangat kami harapkan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. Hendra"
+        titleLokasi: "Kediaman Baru", titleGift: "Tanda Kasih", subGift: "Doa restu Anda sangat kami harapkan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. Hendra", iconParticle: "🏡"
       },
       pertunangan: {
         badgeText: "The Engagement", coupleName: "Dimas & Nabila", subText: "Menuju Langkah Suci", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Dimas & Nabila", heroSub: "Mengikat janji suci menuju lembaran hidup baru.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya... Dia memasang rasa cinta dan kasih sayang di antara kamu.",
         titleMempelai: "Pasangan Tunangan", groomName: "Dimas Anggara, S.T.", brideName: "Nabila Putri, S.Farm.",
-        titleLokasi: "Kediaman Wanita", titleGift: "Kado Tunangan", subGift: "Terima kasih atas doa dan dukungan Anda.", titleRsvp: "RSVP Kehadiran", footerCouple: "Dimas & Nabila"
+        titleLokasi: "Kediaman Wanita", titleGift: "Kado Tunangan", subGift: "Terima kasih atas doa dan dukungan Anda.", titleRsvp: "RSVP Kehadiran", footerCouple: "Dimas & Nabila", iconParticle: "💍"
       },
       reuni: {
         badgeText: "Reuni Akbar", coupleName: "Alumni SMA N 1 2010", subText: "Merajut Silaturahmi Kembali", dateDisplay: "Sabtu, 26 Desember 2026",
         heroTitle: "Reuni 16 Tahun SMAN 1", heroSub: "Mari bernostalgia bersama kawan lama masa putih abu-abu.",
         quoteText: "Waktu boleh berlalu, namun persahabatan sejati akan abadi selamanya.",
         titleMempelai: "Panitia Pelaksana", groomName: "Andi Saputra (Ketua)", brideName: "Dewi Lestari (Bendahara)",
-        titleLokasi: "Lokasi Reuni", titleGift: "Kontribusi Dana", subGift: "Dana partisipasi dapat ditransfer melalui rekening di bawah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia Reuni Angkatan 2010"
+        titleLokasi: "Lokasi Reuni", titleGift: "Kontribusi Dana", subGift: "Dana partisipasi dapat ditransfer melalui rekening di bawah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia Reuni Angkatan 2010", iconParticle: "🎓"
       },
       aqiqah: {
         badgeText: "Tasyakuran Aqiqah", coupleName: "Muhammad Keenan", subText: "Syukuran Kelahiran & Aqiqah", dateDisplay: "Minggu, 22 November 2026",
         heroTitle: "Aqiqah Muhammad Keenan", heroSub: "Ungkapan rasa syukur atas karunia buah hati tercinta.",
         quoteText: "Setiap anak tergadaikan dengan aqiqahnya... semoga menjadi syafaat bagi keluarga.",
         titleMempelai: "Buah Hati & Orang Tua", groomName: "Muhammad Keenan", brideName: "Keluarga Bapak Rizky",
-        titleLokasi: "Kediaman Keluarga", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah anugerah terbesar bagi anak kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Rizky & Fitri"
+        titleLokasi: "Kediaman Keluarga", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah anugerah terbesar bagi anak kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Rizky & Fitri", iconParticle: "👶"
       },
       wisuda: {
         badgeText: "Graduation Celebration", coupleName: "Dr. Clarissa, S.Ked.", subText: "Syukuran Kelulusan Kedokteran", dateDisplay: "Kamis, 10 Desember 2026",
         heroTitle: "Clarissa Graduation", heroSub: "Hasil kerja keras, doa, dan air mata akhirnya berbuah manis.",
         quoteText: "Pendidikan adalah senjata paling ampuh yang bisa kamu gunakan untuk mengubah dunia.",
         titleMempelai: "Wisudawati", groomName: "Dr. Clarissa Melati, S.Ked.", brideName: "Keluarga Besar",
-        titleLokasi: "Lokasi Syukuran", titleGift: "Kado Wisuda", subGift: "Terima kasih atas segala dukungan teman-teman.", titleRsvp: "RSVP Kehadiran", footerCouple: "Clarissa & Keluarga"
+        titleLokasi: "Lokasi Syukuran", titleGift: "Kado Wisuda", subGift: "Terima kasih atas segala dukungan teman-teman.", titleRsvp: "RSVP Kehadiran", footerCouple: "Clarissa & Keluarga", iconParticle: "📜"
       },
       doabersama: {
         badgeText: "Doa Bersama", coupleName: "Yayasan Berkah Mandiri", subText: "Santunan Anak Yatim & Dhuafa", dateDisplay: "Jumat, 11 Desember 2026",
         heroTitle: "Doa Bersama & Santunan", heroSub: "Mari berbagi kebahagiaan dan doa untuk sesama.",
         quoteText: "Orang yang memelihara anak yatim... kedudukannya di surga sangatlah mulia.",
         titleMempelai: "Penyelenggara", groomName: "Ust. H. Lukman Hakim", brideName: "Pengurus Yayasan",
-        titleLokasi: "Aula Utama Yayasan", titleGift: "Donasi & Infaq", subGift: "Salurkan donasi terbaik Anda melalui rekening resmi yayasan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Yayasan Berkah Mandiri"
+        titleLokasi: "Aula Utama Yayasan", titleGift: "Donasi & Infaq", subGift: "Salurkan donasi terbaik Anda melalui rekening resmi yayasan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Yayasan Berkah Mandiri", iconParticle: "🤲"
       },
       arisan: {
         badgeText: "Arisan Keluarga", coupleName: "Trah Joyo Sudarso", subText: "Pertemuan Rutin Bulanan", dateDisplay: "Minggu, 29 November 2026",
         heroTitle: "Arisan Trah Joyo Sudarso", heroSub: "Menjaga tali silaturahmi antar keturunan leluhur.",
         quoteText: "Silaturahmi memperpanjang umur dan melapangkan pintu rezeki.",
         titleMempelai: "Tuan Rumah Bulan Ini", groomName: "Bpk. Bambang Sutrisno", brideName: "Ibu Sri Wahyuni",
-        titleLokasi: "Pendopo Among Roso", titleGift: "Iuaran Arisan", subGift: "Pembayaran arisan dapat ditransfer ke bendahara.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Besar Joyo"
+        titleLokasi: "Pendopo Among Roso", titleGift: "Iuaran Arisan", subGift: "Pembayaran arisan dapat ditransfer ke bendahara.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Besar Joyo", iconParticle: "🍃"
       },
       seminar: {
         badgeText: "Seminar Nasional", coupleName: "Teknologi & AI 2026", subText: "Transformasi Digital Masa Depan", dateDisplay: "Senin, 14 Desember 2026",
         heroTitle: "Seminar Nasional AI", heroSub: "Mengkaji kesiapan SDM menghadapi era kecerdasan buatan.",
         quoteText: "Inovasi membedakan antara pemimpin dan pengikut di dunia modern.",
         titleMempelai: "Keynote Speaker", groomName: "Prof. Dr. Ir. Aris Hartono", brideName: "Dr. Maya Sofiana, M.T.",
-        titleLokasi: "Auditorium Kampus Utama", titleGift: "Pembelian Tiket", subGift: "Selesaikan pembayaran tiket melalui QRIS/Rekening resmi.", titleRsvp: "Registrasi Peserta", footerCouple: "Panitia Seminar Nasional"
+        titleLokasi: "Auditorium Kampus Utama", titleGift: "Pembelian Tiket", subGift: "Selesaikan pembayaran tiket melalui QRIS/Rekening resmi.", titleRsvp: "Registrasi Peserta", footerCouple: "Panitia Seminar Nasional", iconParticle: "💡"
       },
       pameranseni: {
         badgeText: "Art Exhibition", coupleName: "Jejak Visual Nusantara", subText: "Pameran Lukisan & Fotografi Eksklusif", dateDisplay: "Sabtu - Minggu, 12-13 Des 2026",
         heroTitle: "Pameran Seni Jejak Visual", heroSub: "Menyaksikan karya seni rupa maestro tanah air.",
         quoteText: "Seni mencuci debu kehidupan dari jiwa kita sehari-hari.",
         titleMempelai: "Kurator Pameran", groomName: "Galang Seniman", brideName: "Komunitas Seni Rupa",
-        titleLokasi: "Taman Budaya Senen", titleGift: "Pembelian Karya", subGift: "Dukung seniman lokal dengan mengapresiasi karyanya.", titleRsvp: "RSVP Pengunjung", footerCouple: "Kurator Galeri Nusantara"
+        titleLokasi: "Taman Budaya Senen", titleGift: "Pembelian Karya", subGift: "Dukung seniman lokal dengan mengapresiasi karyanya.", titleRsvp: "RSVP Pengunjung", footerCouple: "Kurator Galeri Nusantara", iconParticle: "🎨"
       },
       maulid: {
         badgeText: "Peringatan Hari Besar", coupleName: "Maulid Nabi SAW", subText: "Tabligh Akbar & Dzikir Bersama", dateDisplay: "Senin, 28 November 2026",
         heroTitle: "Tabligh Akbar Maulid Nabi", heroSub: "Meneladani akhlak mulia Rasulullah SAW dalam kehidupan modern.",
         quoteText: "Sesungguhnya telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu.",
         titleMempelai: "Penceramah", groomName: "KH. Abdullah Gymnastiar", brideName: "DKM Masjid Al-Ikhlas",
-        titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas"
+        titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas", iconParticle: "🌙"
       },
       lomba: {
         badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antar Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Badminton Warga Cup 2026", heroSub: "Sportivitas dan kebersamaan di atas segalanya.",
         quoteText: "Olahraga menyatukan kita dalam semangat juang yang sehat dan sportif.",
         titleMempelai: "Ketua Panitia", groomName: "Sdr. Rian Hidayat", brideName: "Karang Taruna Bhakti",
-        titleLokasi: "GOR Serbaguna Bhakti", titleGift: "Pendaftaran Lomba", subGift: "Biaya pendaftaran tim dapat ditransfer ke bendahara.", titleRsvp: "Daftar Peserta", footerCouple: "Karang Taruna Bhakti"
+        titleLokasi: "GOR Serbaguna Bhakti", titleGift: "Pendaftaran Lomba", subGift: "Biaya pendaftaran tim dapat ditransfer ke bendahara.", titleRsvp: "Daftar Peserta", footerCouple: "Karang Taruna Bhakti", iconParticle: "🏆"
       },
       farewell: {
         badgeText: "Farewell Party", coupleName: "Perpisahan Kantor", subText: "Malam Keakraban & Apresiasi", dateDisplay: "Jumat, 18 Desember 2026",
         heroTitle: "Farewell Pak Direktur", heroSub: "Terima kasih atas dedikasi dan kepemimpinan luar biasa Anda.",
         quoteText: "Perpisahan bukanlah akhir, melainkan awal dari babak baru yang gemilang.",
         titleMempelai: "Pihak Yang Dilepas", groomName: "Bpk. Ir. Hartono (Ex-CEO)", brideName: "Seluruh Karyawan PT",
-        titleLokasi: "Sky Lounge Hotel Aston", titleGift: "Dana Kenang-kenangan", subGift: "Patungan kado perpisahan dapat ditransfer ke HRD.", titleRsvp: "RSVP Karyawan", footerCouple: "Tim HRD & Panitia"
+        titleLokasi: "Sky Lounge Hotel Aston", titleGift: "Dana Kenang-kenangan", subGift: "Patungan kado perpisahan dapat ditransfer ke HRD.", titleRsvp: "RSVP Karyawan", footerCouple: "Tim HRD & Panitia", iconParticle: "✨"
       },
       bazar: {
         badgeText: "Bazar Amal", coupleName: "Pasar Murah Ramadhan", subText: "Bazar Sembako Murah & Pakaian", dateDisplay: "Minggu, 13 Desember 2026",
         heroTitle: "Bazar Amal Peduli Sesama", heroSub: "Membantu sesama warga melalui pasar murah berkualitas.",
         quoteText: "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.",
         titleMempelai: "Panitia Sosial", groomName: "Ibu Hj. Aminah", brideName: "Ibu-Ibu PKK RW 04",
-        titleLokasi: "Halaman Kelurahan", titleGift: "Donasi / Kupon", subGift: "Pembelian kupon atau donasi amal dapat melalui QRIS.", titleRsvp: "Konfirmasi Hadir", footerCouple: "Panitia Sosial RW 04"
+        titleLokasi: "Halaman Kelurahan", titleGift: "Donasi / Kupon", subGift: "Pembelian kupon atau donasi amal dapat melalui QRIS.", titleRsvp: "Konfirmasi Hadir", footerCouple: "Panitia Sosial RW 04", iconParticle: "🛍️"
       },
       softopening: {
         badgeText: "Soft Opening", coupleName: "Zahra Elegance Boutique", subText: "Koleksi Terbaru Busana Muslimah", dateDisplay: "Sabtu, 21 November 2026",
         heroTitle: "Zahra Elegance Boutique", heroSub: "Tampil anggun, syar'i, dan fashionable setiap hari.",
         quoteText: "Style is a way to say who you are without having to speak.",
         titleMempelai: "Owner & Designer", groomName: "Zahra Salsabila, S.Ds.", brideName: "Tim Manajemen Zahra",
-        titleLokasi: "Ruko Grand Galaxy City", titleGift: "Pembayaran & Pre-Order", subGift: "Nikmati diskon eksklusif selama masa opening.", titleRsvp: "RSVP VIP", footerCouple: "Zahra Elegance"
+        titleLokasi: "Ruko Grand Galaxy City", titleGift: "Pembayaran & Pre-Order", subGift: "Nikmati diskon eksklusif selama masa opening.", titleRsvp: "RSVP VIP", footerCouple: "Zahra Elegance", iconParticle: "👗"
       },
       gathering: {
         badgeText: "Annual Gathering", coupleName: "PT Solusi Teknologi", subText: "Perayaan HUT ke-10 Perusahaan", dateDisplay: "Sabtu, 19 Desember 2026",
         heroTitle: "1 Dekade Solusi Teknologi", heroSub: "10 Tahun berinovasi melayani negeri dengan teknologi terbaik.",
         quoteText: "Together we achieve more, grow stronger, and inspire the future.",
         titleMempelai: "Dewan Direksi", groomName: "Jajaran Direktur", brideName: "Seluruh Karyawan",
-        titleLokasi: "Ballroom Hotel Mulia", titleGift: "Sponsorship", subGift: "Dukungan sponsor dapat disalurkan melalui rekening panitia.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia 1 Dekade"
+        titleLokasi: "Ballroom Hotel Mulia", titleGift: "Sponsorship", subGift: "Dukungan sponsor dapat disalurkan melalui rekening panitia.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia 1 Dekade", iconParticle: "🚀"
       }
     };
 
@@ -396,13 +404,15 @@
         { name: "Ibu Siti Rahma", whatsapp: "08987654321" }
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
+    let sectionOrder = ['hero', 'quotes', 'mempelai', 'lokasi', 'amplop', 'rsvp'];
+    let currentCategoryKey = 'pernikahan';
+
     let ultimateConfig = { 
         font: "Plus Jakarta Sans", 
         coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", 
-        sectionBg: "", 
         musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
         musicVolume: 0.5, 
-        typewriterSpeed: 40, 
+        typewriterSpeed: 30, 
         slideSpeed: 500,
         photoFrame: "frame-polaroid",
         profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
@@ -415,6 +425,8 @@
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
         if(localStorage.getItem('ari_waTemplate')) waTemplate = localStorage.getItem('ari_waTemplate');
+        if(localStorage.getItem('ari_sectionOrder')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder'));
+        if(localStorage.getItem('ari_currentCategory')) currentCategoryKey = localStorage.getItem('ari_currentCategory');
         if(localStorage.getItem('ari_ultimateConfig')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig')) };
     } catch (e) {}
     
@@ -427,12 +439,14 @@
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
             localStorage.setItem('ari_waTemplate', waTemplate);
+            localStorage.setItem('ari_sectionOrder', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory', currentCategoryKey);
             localStorage.setItem('ari_ultimateConfig', JSON.stringify(ultimateConfig));
         } catch (e) {}
     }
 
     function generateBackup() {
-        const data = { textElements, attendanceList, guestDatabase, giftConfig, waTemplate, ultimateConfig };
+        const data = { textElements, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { document.getElementById("backupOutput").select(); document.execCommand("copy"); alert("Disalin!"); }
@@ -446,15 +460,18 @@
             if(decoded.ultimateConfig) ultimateConfig = decoded.ultimateConfig;
             if(decoded.attendanceList) attendanceList = decoded.attendanceList;
             if(decoded.guestDatabase) guestDatabase = decoded.guestDatabase;
+            if(decoded.sectionOrder) sectionOrder = decoded.sectionOrder;
+            if(decoded.currentCategoryKey) currentCategoryKey = decoded.currentCategoryKey;
             saveAllDataToDevice();
             alert('Restore Berhasil!'); location.reload();
         } catch(e) { alert('Kode tidak valid!'); }
     }
 
     const adminModules = [
-      { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset Acara Realistis', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset & Animasi', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'databaseWarga', title: 'Database Warga & WA', desc: 'Kirim Undangan Pribadi & Massal', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
-      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto Gen-Z & Animasi', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
+      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Kontrol Musik', desc: 'Volume & Upload Lagu', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Auto-Teks Lengkap', desc: 'Ubah Semua Tulisan Web', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
@@ -487,15 +504,35 @@
       if (id === 'kategoriAcara') {
           let optionsHtml = '';
           for (let key in eventPresetsList) {
-              optionsHtml += `<option value="${key}">${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
+              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
           }
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara (20 Preset Anti Halu)</h4>
+            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara (20 Preset & Animasi Terhubung)</h4>
             <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
-                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset Acara</button>
+                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset & Animasi</button>
             </div>
+          </div>`;
+      }
+      else if (id === 'sectionReorder') {
+          let listHtml = '';
+          const names = { hero: '1. Cover / Hero Section', quotes: '2. Quotes & Ayat', mempelai: '3. Profil Tuan Rumah / Mempelai', lokasi: '4. Lokasi & Google Maps', amplop: '5. Amplop Digital & QRIS', rsvp: '6. Ucapan & Kehadiran (RSVP)' };
+          sectionOrder.forEach((key, idx) => {
+              listHtml += `
+              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
+                <span class="font-bold text-cyan-300">${names[key] || key}</span>
+                <div class="flex space-x-1">
+                  <button onclick="moveSection(${idx}, -1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-up"></i></button>
+                  <button onclick="moveSection(${idx}, 1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-down"></i></button>
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-cyan-400 text-sm">📐 Susun Urutan Section (Atas ke Bawah)</h4>
+            <p class="text-slate-400">Klik tombol panah untuk memindahkan posisi section secara real-time.</p>
+            <div class="space-y-2">${listHtml}</div>
           </div>`;
       }
       else if (id === 'databaseWarga') {
@@ -527,7 +564,7 @@
       else if (id === 'bingkaiGenZ') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Kecepatan Animasi Gen-Z</h4>
+            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Global Typewriter Engine</h4>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">Pilih Model Bingkai Foto</label>
@@ -542,8 +579,8 @@
             </div>
 
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Kecepatan Typewriter (ms per huruf)</label>
-              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 40}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+              <label class="block text-slate-300 font-bold">Kecepatan Global Typewriter (ms per huruf)</label>
+              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 30}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
             </div>
 
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
@@ -650,14 +687,60 @@
       }
     }
 
+    function moveSection(index, direction) {
+        const newIndex = index + direction;
+        if(newIndex < 0 || newIndex >= sectionOrder.length) return;
+        const temp = sectionOrder[index];
+        sectionOrder[index] = sectionOrder[newIndex];
+        sectionOrder[newIndex] = temp;
+        saveAllDataToDevice();
+        applySectionOrder();
+        openAdminModule('sectionReorder');
+    }
+
+    function applySectionOrder() {
+        const container = document.getElementById('sectionsContainer');
+        if(!container) return;
+        sectionOrder.forEach(key => {
+            const el = container.querySelector(`[data-section-key="${key}"]`);
+            if(el) container.appendChild(el);
+        });
+    }
+
+    function applyEventPreset() {
+        const selKey = document.getElementById('selectEventPreset').value;
+        const preset = eventPresetsList[selKey];
+        if (!preset) return alert('Preset tidak ditemukan!');
+        currentCategoryKey = selKey;
+        textElements = { ...defaultText, ...preset };
+        saveAllDataToDevice();
+        applyTextElementsToDOM();
+        applyCategoryParticles();
+        alert(`Preset & Tema Animasi (${preset.badgeText}) diterapkan!`);
+        backToDashboard();
+    }
+
+    function applyCategoryParticles() {
+        const container = document.getElementById('categoryParticlesContainer');
+        if(!container) return;
+        const preset = eventPresetsList[currentCategoryKey] || eventPresetsList['pernikahan'];
+        const icon = preset.iconParticle || '✨';
+        container.innerHTML = `
+          <div class="floating-particle text-xl top-10 left-10" style="animation-delay: 0s;">${icon}</div>
+          <div class="floating-particle text-2xl top-20 right-12" style="animation-delay: 1s;">${icon}</div>
+          <div class="floating-particle text-lg bottom-20 left-16" style="animation-delay: 2s;">${icon}</div>
+          <div class="floating-particle text-xl bottom-12 right-20" style="animation-delay: 1.5s;">${icon}</div>
+        `;
+    }
+
     function saveGenZFrameAndSpeed() {
         ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
-        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 40;
+        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 30;
         ultimateConfig.slideSpeed = parseInt(document.getElementById('inputSlideSpeed').value) || 500;
         saveAllDataToDevice();
         applyUltimateConfig();
-        runTypewriter();
-        alert('Bingkai & Kecepatan Berhasil Disimpan!');
+        runGlobalTypewriter();
+        alert('Bingkai & Global Typewriter Berhasil Disimpan!');
         backToDashboard();
     }
 
@@ -736,17 +819,6 @@
         });
     }
 
-    function applyEventPreset() {
-        const selKey = document.getElementById('selectEventPreset').value;
-        const preset = eventPresetsList[selKey];
-        if (!preset) return alert('Preset tidak ditemukan!');
-        textElements = { ...defaultText, ...preset };
-        saveAllDataToDevice();
-        applyTextElementsToDOM();
-        alert(`Preset diterapkan!`);
-        backToDashboard();
-    }
-
     function backToDashboard() {
       document.getElementById('adminModuleView').classList.add('hidden');
       document.getElementById('adminDashboardView').classList.remove('hidden');
@@ -790,7 +862,6 @@
             if(prof1 && ultimateConfig.profile1Img) prof1.src = ultimateConfig.profile1Img;
             if(prof2 && ultimateConfig.profile2Img) prof2.src = ultimateConfig.profile2Img;
 
-            // Apply Frame Classes dynamically
             const f1 = document.getElementById('profile1FrameContainer');
             const f2 = document.getElementById('profile2FrameContainer');
             const frameClass = ultimateConfig.photoFrame || 'frame-polaroid';
@@ -851,21 +922,30 @@
         }
     }
 
-    function runTypewriter() {
-        const el = document.getElementById('quoteTextDisplay');
-        if(!el) return;
-        const text = textElements.quoteText || defaultText.quoteText;
-        el.innerText = "";
-        let i = 0;
-        const typingSpeed = ultimateConfig.typewriterSpeed || 40;
-        function type() {
-            if (i < text.length) { 
-                el.innerText += text.charAt(i); 
-                i++; 
-                setTimeout(type, typingSpeed); 
+    // GLOBAL DYNAMIC TYPEWRITER ENGINE (ALL SECTIONS TOP TO BOTTOM)
+    function runGlobalTypewriter() {
+        const elements = document.querySelectorAll('.dynamic-typewriter');
+        const speed = ultimateConfig.typewriterSpeed || 30;
+        
+        elements.forEach((el, index) => {
+            const fullText = el.getAttribute('data-original-text') || el.innerText;
+            if(!el.getAttribute('data-original-text')) {
+                el.setAttribute('data-original-text', fullText);
             }
-        }
-        type();
+            el.innerText = "";
+            let charIndex = 0;
+            
+            setTimeout(() => {
+                function typeNext() {
+                    if(charIndex < fullText.length) {
+                        el.innerText += fullText.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeNext, speed);
+                    }
+                }
+                typeNext();
+            }, index * 400); // Staggered delay from top to bottom
+        });
     }
 
     function applyTextElementsToDOM() {
@@ -875,7 +955,7 @@
             'text-titleMempelai': 'titleMempelai', 'text-groomName': 'groomName', 'text-brideName': 'brideName',
             'text-titleLokasi': 'titleLokasi', 'text-alamat': 'alamat',
             'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
-            'text-titleRsvp': 'titleRsvp', 'text-footerCouple': 'footerCouple'
+            'text-titleRsvp': 'titleRsvp', 'text-footerCouple': 'footerCouple', 'quoteTextDisplay': 'quoteText'
         };
 
         for (let elementId in idMap) {
@@ -883,13 +963,13 @@
             if(el) {
                 let val = textElements[idMap[elementId]] !== undefined ? textElements[idMap[elementId]] : defaultText[idMap[elementId]];
                 if(elementId === 'text-alamat') {
-                    el.innerHTML = String(val).replace(/\n/g, '<br>');
+                    el.setAttribute('data-original-text', val);
                 } else {
-                    el.innerText = val;
+                    el.setAttribute('data-original-text', val);
                 }
             }
         }
-        runTypewriter();
+        runGlobalTypewriter();
     }
 
     function renderWishesToDOM() {
@@ -931,7 +1011,7 @@
     }
 
     // =========================================================================
-    // FUNGSI UTAMA BUKA UNDANGAN (BULLETPROOF v10.1.28)
+    // FUNGSI UTAMA BUKA UNDANGAN (BULLETPROOF v10.1.29)
     // =========================================================================
     function bukaUndanganSekarang() {
         const cover = document.getElementById('coverSection');
@@ -947,6 +1027,7 @@
         }
         
         window.scrollTo(0, 0);
+        runGlobalTypewriter();
 
         try {
             const audio = document.getElementById('bgMusic');
@@ -1020,6 +1101,8 @@
         try { applyUltimateConfig(); } catch(e) {}
         try { applyGiftToDOM(); } catch(e) {}
         try { renderWishesToDOM(); } catch(e) {}
+        try { applySectionOrder(); } catch(e) {}
+        try { applyCategoryParticles(); } catch(e) {}
         try { applyTextElementsToDOM(); } catch(e) {}
 
         try {
