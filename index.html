@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v9.0.0</title>
+  <title>Undangan Digital - Master Gen-Z v9.3.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&family=Sacramento&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Unbounded:wght@300..900&family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -11,150 +11,80 @@
     html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease; }
     
-    @keyframes textPulse {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); }
-    }
-    .pulse-glow-active {
-      animation: textPulse var(--pulse-speed, 2.5s) infinite ease-in-out;
-    }
+    @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
+    .pulse-glow-active { animation: textPulse var(--pulse-speed, 2.5s) infinite ease-in-out; }
 
-    /* Efek Lampu Hias Kelap-Kelip */
-    .fairy-lights-container {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-around;
-      padding: 12px 10px;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .fairy-light {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: #ffeb3b;
-      box-shadow: 0 0 12px #ffeb3b, 0 0 22px #ff9800;
-      animation: twinkle 1.2s infinite alternate;
-    }
-    .fairy-light:nth-child(even) {
-      background: #ff4081;
-      box-shadow: 0 0 12px #ff4081, 0 0 22px #e91e63;
-      animation-delay: 0.6s;
-    }
-    .fairy-light:nth-child(3n) {
-      background: #00e5ff;
-      box-shadow: 0 0 12px #00e5ff, 0 0 22px #00b0ff;
-      animation-delay: 0.3s;
-    }
-    @keyframes twinkle {
-      0% { opacity: 0.3; transform: scale(0.7); }
-      100% { opacity: 1; transform: scale(1.3); }
-    }
+    .fairy-lights-container { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding: 12px 10px; pointer-events: none; z-index: 10; }
+    .fairy-light { width: 9px; height: 9px; border-radius: 50%; background: #ffeb3b; box-shadow: 0 0 12px #ffeb3b, 0 0 22px #ff9800; animation: twinkle 1.2s infinite alternate; }
+    .fairy-light:nth-child(even) { background: #ff4081; box-shadow: 0 0 12px #ff4081, 0 0 22px #e91e63; animation-delay: 0.6s; }
+    .fairy-light:nth-child(3n) { background: #00e5ff; box-shadow: 0 0 12px #00e5ff, 0 0 22px #00b0ff; animation-delay: 0.3s; }
+    @keyframes twinkle { 0% { opacity: 0.3; transform: scale(0.7); } 100% { opacity: 1; transform: scale(1.3); } }
 
-    .cover-style-1 { border: 4px solid #d4af37; border-radius: 2rem; box-shadow: 0 0 30px rgba(212,175,55,0.4); background: linear-gradient(135deg, rgba(20,20,20,0.85), rgba(40,40,40,0.95)); }
+    /* Dasar Cover Gen-Z yang akan ditimpa warna border-nya secara nyata via JS */
+    .cover-base { border-radius: 2rem; background: linear-gradient(135deg, rgba(20,20,20,0.85), rgba(40,40,40,0.95)); transition: all 0.5s ease; }
 
-    .typewriter-cursor::after {
-      content: '|';
-      animation: blink 0.8s infinite;
-      color: #ff007f;
-      font-weight: bold;
-      margin-left: 2px;
-    }
+    .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* FIX RESPONSIF TOMBOL */
-    .btn-super-responsive {
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-        user-select: none;
-    }
+    .btn-super-responsive { touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
   <!-- COVER UTAMA -->
-  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-[100] flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center cover-style-1 text-white overflow-y-auto">
-    
+  <div id="coverSection" class="fixed top-0 left-0 w-full h-full min-h-screen z-[100] flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center cover-base text-white overflow-y-auto">
     <div class="fairy-lights-container pointer-events-none">
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
-      <div class="fairy-light"></div>
+      <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
+      <div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div><div class="fairy-light"></div>
     </div>
-
-    <div class="absolute inset-0 opacity-30 bg-cover bg-center -z-10 pointer-events-none" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+    
+    <!-- Background Cover Nyata -->
+    <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10 pointer-events-none transition-all duration-700" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
     
     <div></div>
 
     <div class="space-y-3 py-4 relative z-10 pointer-events-none">
-      <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">
-        The Wedding Of
-      </span>
+      <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
       <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
 
     <div class="w-full max-w-xs space-y-4 bg-slate-900/90 p-5 rounded-2xl border border-slate-800 shadow-2xl relative z-20">
-      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">
-        Tamu Undangan
-      </div>
-      <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
+      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
+      <p id="coverDateDisplay" class="text-slate-300 text-xs pointer-events-none">Minggu, 25 Oktober 2026</p>
       
-      <!-- TOMBOL BUKA UNDANGAN (THE ULTIMATE FIX) -->
       <button type="button" onclick="openInvitation()" class="btn-super-responsive w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_20px_rgba(236,72,153,0.4)] active:scale-95 transition-transform duration-200 flex items-center justify-center space-x-2 cursor-pointer text-sm relative z-50">
-        <!-- Span diberi pointer-events-none agar klik 100% masuk ke tombol -->
         <span class="pointer-events-none">Buka Undangan ✨</span>
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none">
-      <p>Powered by Ari GPM (v9.0.0)</p>
-    </div>
+    <div class="text-[10px] text-slate-500 pb-2 relative z-10 pointer-events-none"><p>Powered by Ari GPM (v9.3.0)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
   <main id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-white text-slate-800 pb-16">
-    
-    <!-- BILAH NAVIGASI BAWAH -->
+    <!-- BILAH NAVIGASI -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer btn-super-responsive">
-        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm">
-          <i id="musicIcon" class="fa-solid fa-music text-sm pointer-events-none"></i>
-        </div>
+        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm pointer-events-none"></i></div>
         <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600 pointer-events-none">Music</span>
       </button>
-      
       <button type="button" onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer btn-super-responsive">
-        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm">
-          <i class="fa-solid fa-gear text-sm pointer-events-none"></i>
-        </div>
+        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-gear text-sm pointer-events-none"></i></div>
         <span class="text-[10px] font-semibold mt-1 pointer-events-none">Admin</span>
       </button>
-      
       <button type="button" onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer btn-super-responsive">
-        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm">
-          <i class="fa-solid fa-share-nodes text-sm pointer-events-none"></i>
-        </div>
+        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-share-nodes text-sm pointer-events-none"></i></div>
         <span class="text-[10px] font-semibold mt-1 pointer-events-none">Bagikan</span>
       </button>
     </nav>
 
     <div id="sectionsContainer" class="space-y-0">
-      <!-- HERO SECTION -->
+      <!-- HERO (BACKGROUND NYA JUGA IKUT BERUBAH) -->
       <section class="relative h-[85vh] flex flex-col justify-end p-6 text-center text-white bg-slate-950">
-        <div class="fairy-lights-container">
-          <div class="fairy-light"></div>
-          <div class="fairy-light"></div>
-          <div class="fairy-light"></div>
-          <div class="fairy-light"></div>
-          <div class="fairy-light"></div>
-          <div class="fairy-light"></div>
-        </div>
-        <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+        <div id="mainHeroBg" class="absolute inset-0 opacity-40 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
         <div class="relative z-10 space-y-3 pb-8">
           <span class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
@@ -165,104 +95,77 @@
 
       <!-- QUOTES -->
       <section class="py-12 px-6 text-center bg-white space-y-4">
-        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm">
-          <i class="fa-solid fa-heart"></i>
-        </div>
-        <p id="quoteText" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">
-          "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."
-        </p>
-        <p class="text-xs font-bold text-slate-700">(QS. Ar-Rum: 21)</p>
+        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-heart"></i></div>
+        <p id="quoteText" class="text-xs text-slate-500 leading-relaxed italic max-w-xs mx-auto typewriter-cursor">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</p>
       </section>
 
       <!-- MEMPELAI -->
       <section class="py-12 px-6 bg-slate-100 text-center space-y-8">
-        <div class="space-y-2">
-          <h2 class="text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
-          <p class="text-xs text-slate-500">Menuju hari bahagia ikatan suci pernikahan</p>
-        </div>
+        <h2 class="text-3xl font-bold text-slate-900">Mempelai Pria & Wanita</h2>
         <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" alt="Rian" class="w-full h-full object-cover">
-          </div>
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
           <h3 class="text-2xl font-bold text-slate-900">Rian Pratama, S.Kom.</h3>
-          <p class="text-xs text-pink-600 font-medium">Putra dari Bpk. Budi & Ibu Siti</p>
         </div>
         <div class="text-2xl text-pink-500 font-bold">&</div>
         <div class="bg-white/90 p-6 rounded-3xl shadow-sm border border-slate-200 space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Siska" class="w-full h-full object-cover">
-          </div>
+          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover"></div>
           <h3 class="text-2xl font-bold text-slate-900">Siska Amalia, S.Pd.</h3>
-          <p class="text-xs text-pink-600 font-medium">Putri dari Bpk. Joko & Ibu Ani</p>
         </div>
       </section>
 
-      <!-- COUNTDOWN -->
-      <section class="py-12 px-6 bg-slate-900 text-white text-center space-y-6">
-        <h2 class="text-2xl font-bold">Menuju Hari Bahagia</h2>
-        <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
-          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
-            <span id="days" class="block text-xl font-bold text-pink-400">00</span>
-            <span class="text-[10px] text-slate-400 uppercase">Hari</span>
+      <!-- GALERI -->
+      <section class="py-12 px-0 bg-white text-center space-y-6">
+        <div class="px-6 space-y-2"><h2 class="text-3xl font-bold text-slate-900">Galeri Cinta</h2></div>
+        <div class="flex overflow-x-auto gap-4 snap-x snap-mandatory px-6 pb-6 hide-scrollbar">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=500" class="snap-center w-64 h-80 object-cover rounded-2xl flex-shrink-0 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=500" class="snap-center w-64 h-80 object-cover rounded-2xl flex-shrink-0 shadow-lg">
+        </div>
+      </section>
+
+      <!-- LOKASI -->
+      <section class="py-12 px-6 bg-slate-100 text-center space-y-6">
+        <h2 class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+          <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%20Selatan%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
-          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
-            <span id="hours" class="block text-xl font-bold text-pink-400">00</span>
-            <span class="text-[10px] text-slate-400 uppercase">Jam</span>
-          </div>
-          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
-            <span id="minutes" class="block text-xl font-bold text-pink-400">00</span>
-            <span class="text-[10px] text-slate-400 uppercase">Menit</span>
-          </div>
-          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
-            <span id="seconds" class="block text-xl font-bold text-pink-400">00</span>
-            <span class="text-[10px] text-slate-400 uppercase">Detik</span>
+          <button onclick="window.open('https://maps.app.goo.gl/xxx', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md btn-super-responsive">Buka di Google Maps</button>
+        </div>
+      </section>
+
+      <!-- AMPLOP DIGITAL -->
+      <section class="py-12 px-6 bg-white text-center space-y-6">
+        <h2 class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
+        <div class="space-y-4 max-w-xs mx-auto">
+          <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-4 border border-blue-600 relative overflow-hidden">
+            <h3 class="font-bold text-sm text-blue-200">Bank BCA</h3>
+            <p class="font-mono text-2xl font-bold tracking-widest mt-1">1234567890</p>
+            <button onclick="copyToClipboard('1234567890', 'BCA')" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold btn-super-responsive relative z-10">Salin Nomor Rekening</button>
           </div>
         </div>
       </section>
 
-      <!-- DYNAMIC SECTIONS CONTAINER -->
-      <div id="dynamicSectionsWrapper" class="space-y-0"></div>
-
-      <!-- RSVP & ABSEN -->
+      <!-- RSVP -->
       <section class="py-12 px-6 bg-slate-100 space-y-6">
-        <div class="text-center space-y-2">
-          <h2 class="text-2xl font-bold text-slate-900">Ucapan & Absen Kehadiran</h2>
-          <p class="text-xs text-slate-500">Berikan ucapan dan konfirmasi kehadiran Anda.</p>
-        </div>
+        <div class="text-center space-y-2"><h2 class="text-2xl font-bold text-slate-900">Ucapan & Absen</h2></div>
         <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-4">
           <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
           <select id="attendanceStatus" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500">
-            <option value="Hadir">Hadir</option>
-            <option value="Berhalangan Hadir">Berhalangan Hadir</option>
+            <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
           <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-pink-500"></textarea>
-          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-xl text-xs shadow-md transition cursor-pointer btn-super-responsive">
-            <span class="pointer-events-none">Kirim Ucapan & Absen</span>
-          </button>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md btn-super-responsive">Kirim Ucapan & Absen</button>
         </div>
-        <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1">
-            <div class="flex justify-between font-bold text-slate-800">
-              <span>Budi Santoso</span>
-              <span class="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full">Hadir</span>
-            </div>
-            <p class="text-slate-500">Selamat menempuh hidup baru Rian & Siska! Semoga sakinah mawaddah warahmah.</p>
-          </div>
-        </div>
+        <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
     </div>
 
     <!-- FOOTER -->
     <footer class="p-6 text-center space-y-4 border-t bg-white">
-      <p class="text-xs font-medium text-slate-600">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila kawan-kawan berkenan hadir.</p>
       <h3 class="text-xl font-bold text-slate-900" id="footerCouple">Rian & Siska</h3>
-      <button type="button" onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2 cursor-pointer btn-super-responsive">
-        <i class="fa-solid fa-share pointer-events-none"></i>
-        <span class="pointer-events-none">Bagikan Undangan Ini</span>
-      </button>
       <div class="pt-4 border-t text-slate-400">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.0.0</p>
+        <p class="text-[10px] mt-0.5 font-mono">Master Gen-Z Dashboard v9.3.0</p>
       </div>
     </footer>
   </main>
@@ -270,43 +173,35 @@
   <!-- ADMIN MODAL -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
-      
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white px-6 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div>
-            <h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2>
-            <p class="text-[10px] text-pink-100">Master Control Center v9.0.0</p>
-          </div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin Dashboard</h2><p class="text-[10px] text-pink-100">Master Control Center v9.3.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer btn-super-responsive"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
       </div>
 
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
-        <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30">
-          <i class="fa-solid fa-lock"></i>
-        </div>
+        <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
         <p class="text-xs text-slate-400">PIN Default Editor: <span class="font-mono font-bold text-pink-400">1234</span></p>
         <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="Masukkan PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 focus:outline-none">
-        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold transition shadow-lg cursor-pointer btn-super-responsive">Buka Dashboard Admin</button>
+        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg btn-super-responsive">Buka Dashboard Admin</button>
       </div>
 
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
         <div id="adminDashboardView" class="space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-slate-300">⚡ Pilih Menu Dashboard</h3>
-            <span class="text-[10px] bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded-full border border-cyan-500/30">Auto-Scalable</span>
           </div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
 
         <div id="adminModuleView" class="hidden space-y-4">
-          <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer border border-slate-700 btn-super-responsive">
-            <i class="fa-solid fa-arrow-left pointer-events-none"></i>
-            <span class="pointer-events-none">Kembali ke Dashboard</span>
+          <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 btn-super-responsive">
+            <i class="fa-solid fa-arrow-left pointer-events-none"></i><span class="pointer-events-none">Kembali ke Dashboard</span>
           </button>
-          <div id="moduleContentArea" class="space-y-4"></div>
+          <div id="moduleContentArea" class="space-y-4 pb-4"></div>
         </div>
       </div>
     </div>
@@ -318,38 +213,86 @@
       <h3 class="font-bold text-lg">Bagikan Undangan</h3>
       <input type="text" readonly value="https://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/" class="w-full p-2.5 border rounded-xl text-xs bg-slate-50 text-center font-mono">
       <div class="space-y-2 pt-1">
-        <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 cursor-pointer shadow btn-super-responsive">
-          <i class="fa-brands fa-whatsapp text-sm pointer-events-none"></i>
-          <span class="pointer-events-none">Kirim via WhatsApp (wa.me)</span>
-        </button>
-        <button type="button" onclick="closeShareModal()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 py-2.5 rounded-xl font-bold text-xs cursor-pointer btn-super-responsive">Tutup</button>
+        <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs btn-super-responsive">Kirim via WhatsApp (wa.me)</button>
+        <button type="button" onclick="closeShareModal()" class="w-full bg-slate-200 text-slate-800 py-2.5 rounded-xl font-bold text-xs btn-super-responsive">Tutup</button>
       </div>
     </div>
   </div>
 
-  <!-- AUDIO BACKSOUND -->
-  <audio id="bgMusic" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-  </audio>
+  <!-- AUDIO -->
+  <audio id="bgMusic" loop><source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT UTAMA -->
+  <!-- JAVASCRIPT CORE SYSTEM v9.3.0 -->
   <script>
-    let dynamicSections = [{ id: 1, title: "Kisah Cinta Kami", content: "Berawal dari pertemuan sederhana, hingga akhirnya kami memutuskan untuk melangkah ke jenjang pernikahan.", typewriter: true, speed: 50 }];
-    let invitedGuests = [{ id: 1, name: "Bpk. Budi Santoso", phone: "6281234567890" }];
-    let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
-    let textElements = {
+    // 1. DATA DEFINISI TEMA NYATA (Bukan Halu)
+    const realThemes = [
+        { id: 1, name: "Luxury Gold", bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", border: "#d4af37", shadow: "rgba(212,175,55,0.4)" },
+        { id: 2, name: "Romantic Floral", bg: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=1000", border: "#ffb6c1", shadow: "rgba(255,182,193,0.4)" },
+        { id: 3, name: "Dark Elegance", bg: "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=1000", border: "#ffffff", shadow: "rgba(255,255,255,0.4)" },
+        { id: 4, name: "Neon Cyberpunk", bg: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=1000", border: "#00f0ff", shadow: "rgba(0,240,255,0.6)" },
+        { id: 5, name: "Rustic Nature", bg: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=1000", border: "#8ace00", shadow: "rgba(138,206,0,0.5)" }
+    ];
+
+    // 2. STATE MANAGEMENT & LOCAL STORAGE
+    const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", eventDate: "2026-10-25",
       quoteText: "\"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...\"", footerCouple: "Rian & Siska"
     };
+    
+    let textElements = JSON.parse(localStorage.getItem('ari_textElements')) || defaultText;
+    let invitedGuests = JSON.parse(localStorage.getItem('ari_invitedGuests')) || [];
+    let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [
+        { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }
+    ];
+    let genZConfig = JSON.parse(localStorage.getItem('ari_genZConfig')) || { cover: 1 };
+    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.\n\n{link}\n\nTerima kasih. 🙏";
     let isPlaying = false;
 
+    function saveAllDataToDevice() {
+        localStorage.setItem('ari_textElements', JSON.stringify(textElements));
+        localStorage.setItem('ari_invitedGuests', JSON.stringify(invitedGuests));
+        localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
+        localStorage.setItem('ari_genZConfig', JSON.stringify(genZConfig));
+        localStorage.setItem('ari_waTemplate', waTemplate);
+    }
+
+    // 3. BACKUP & RESTORE SYSTEM
+    function generateBackup() {
+        const data = { textElements, invitedGuests, attendanceList, genZConfig, waTemplate };
+        const backupString = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+        document.getElementById('backupOutput').value = backupString;
+    }
+
+    function copyBackup() {
+        const copyText = document.getElementById("backupOutput");
+        copyText.select(); document.execCommand("copy");
+        alert("Kode Backup Berhasil Disalin! Simpan kode ini di Notes/WA Anda.");
+    }
+
+    function restoreBackup() {
+        try {
+            const str = document.getElementById('restoreInput').value.trim();
+            if(!str) return alert('Masukkan kode backup terlebih dahulu!');
+            const decoded = JSON.parse(decodeURIComponent(escape(atob(str))));
+            
+            if(decoded.textElements) localStorage.setItem('ari_textElements', JSON.stringify(decoded.textElements));
+            if(decoded.invitedGuests) localStorage.setItem('ari_invitedGuests', JSON.stringify(decoded.invitedGuests));
+            if(decoded.attendanceList) localStorage.setItem('ari_attendanceList', JSON.stringify(decoded.attendanceList));
+            if(decoded.genZConfig) localStorage.setItem('ari_genZConfig', JSON.stringify(decoded.genZConfig));
+            if(decoded.waTemplate) localStorage.setItem('ari_waTemplate', decoded.waTemplate);
+            
+            alert('Restore Berhasil! Halaman akan dimuat ulang untuk menerapkan data lama Anda.');
+            location.reload();
+        } catch(e) { alert('Gagal! Kode backup tidak valid atau rusak.'); }
+    }
+
+    // 4. ADMIN DASHBOARD MENU & TOMBOL SIMPAN DI SETIAP KOLOM
     const adminModules = [
-      { id: 'genz', title: 'Gen-Z Presets', desc: '20 Model, Tema & Cover', icon: 'fa-wand-magic-sparkles', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'textTable', title: 'Tabel Text', desc: 'Kelola seluruh teks utama', icon: 'fa-table', gradient: 'from-purple-500 to-indigo-500' },
-      { id: 'wa', title: 'Pesan WhatsApp', desc: 'Kustomisasi template chat', icon: 'fa-brands fa-whatsapp', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'guests', title: 'Buku Tamu & Absen', desc: 'Rekap kehadiran & broadcast', icon: 'fa-address-book', gradient: 'from-cyan-500 to-blue-500' },
-      { id: 'sections', title: 'Kelola Section', desc: 'Tambah/edit laman undangan', icon: 'fa-layer-group', gradient: 'from-amber-500 to-orange-500' },
-      { id: 'futureUpdate', title: 'Fitur Baru / Update', desc: 'Slot siap ekspansi masa depan', icon: 'fa-plus-circle', gradient: 'from-slate-700 to-slate-800' }
+      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data Update', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' },
+      { id: 'genz', title: 'Tema & Cover (Real)', desc: 'Ganti Background Asli', icon: 'fa-wand-magic-sparkles', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'textTable', title: 'Tabel Text', desc: 'Kelola Teks Utama', icon: 'fa-table', gradient: 'from-purple-500 to-indigo-500' },
+      { id: 'wa', title: 'Pesan WhatsApp', desc: 'Kustomisasi Chat', icon: 'fa-brands fa-whatsapp', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran', icon: 'fa-address-book', gradient: 'from-cyan-500 to-blue-500' }
     ];
 
     function renderDashboardCards() {
@@ -360,48 +303,88 @@
         grid.innerHTML += `
           <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10 btn-super-responsive">
             <div class="flex justify-between items-start pointer-events-none">
-              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base backdrop-blur-sm"><i class="fa-solid ${mod.icon}"></i></div>
+              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
               <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
             </div>
-            <div class="pointer-events-none">
-              <h4 class="font-bold text-xs">${mod.title}</h4>
-              <p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p>
-            </div>
+            <div class="pointer-events-none"><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
           </div>
         `;
       });
     }
 
     function openAdminModule(id) {
-      if(id === 'futureUpdate') { alert('Slot ini siap digunakan otomatis untuk update fitur berikutnya!'); return; }
       document.getElementById('adminDashboardView').classList.add('hidden');
       document.getElementById('adminModuleView').classList.remove('hidden');
       const area = document.getElementById('moduleContentArea');
       
-      if (id === 'genz') {
+      if (id === 'backup') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
+            <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 space-y-3">
+                <p class="text-gray-400">1. Klik Backup untuk membuat kode rahasia berisi data Anda saat ini. Simpan kode tersebut.</p>
+                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-bold btn-super-responsive">Generate Kode Backup</button>
+                <textarea id="backupOutput" readonly rows="3" class="w-full bg-gray-900 border border-gray-600 rounded p-2 text-[10px] font-mono text-pink-400" placeholder="Kode backup akan muncul di sini..."></textarea>
+                <button onclick="copyBackup()" class="w-full bg-gray-700 text-white py-2 rounded-lg font-bold btn-super-responsive">Salin Kode</button>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 space-y-3">
+                <p class="text-gray-400">2. Tempel kode backup dari versi lama ke sini setelah Anda mengupdate kode GitHub.</p>
+                <textarea id="restoreInput" rows="3" class="w-full bg-gray-900 border border-gray-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup di sini..."></textarea>
+                <button onclick="restoreBackup()" class="w-full bg-green-600 text-white py-2.5 rounded-lg font-bold btn-super-responsive">Restore Data Sekarang</button>
+            </div>
+          </div>`;
+      } else if (id === 'genz') {
+        let themeOptions = realThemes.map(t => `<option value="${t.id}" ${genZConfig.cover == t.id ? 'selected' : ''}>Tema ${t.id} - ${t.name}</option>`).join('');
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 20+ Preset & Tema Gen-Z</h4>
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Pengaturan Tema & Background Asli</h4>
             <div>
-              <label class="block text-slate-400 mb-1">Pilih Model Gen-Z (#1 - #20)</label>
-              <select id="editModelPreset" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl font-bold text-pink-300">${generateOptions(20, '🔥 Model Gen-Z #')}</select>
+              <label class="block text-slate-400 mb-2">Pilih Tema Background (Langsung Berubah!)</label>
+              <select id="editCoverPreset" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl font-bold text-cyan-300 shadow-inner">${themeOptions}</select>
             </div>
-            <div>
-              <label class="block text-slate-400 mb-1">Pilih Cover Depan Gen-Z (#1 - #20)</label>
-              <select id="editCoverPreset" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl font-bold text-cyan-300" onchange="applyGenZPresets()">${generateOptions(20, '✨ Cover Depan #')}</select>
-            </div>
+            <!-- TOMBOL SIMPAN KHUSUS TEMA -->
+            <button onclick="saveGenZConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold btn-super-responsive shadow-lg flex items-center justify-center space-x-2 mt-4">
+                <i class="fa-solid fa-floppy-disk pointer-events-none"></i><span class="pointer-events-none">Simpan Pengaturan Tema</span>
+            </button>
           </div>`;
       } else if (id === 'textTable') {
         let rows = '';
-        for(let key in textElements) { rows += `<tr><td class="p-2 border-b border-slate-700 text-slate-300">${key}</td><td class="p-2 border-b border-slate-700"><input type="text" id="table-text-${key}" value="${textElements[key]}" class="w-full p-1.5 bg-slate-800 border border-slate-700 rounded text-xs text-white"></td></tr>`; }
-        area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-indigo-400 text-sm">📋 Tabel Tempat Text Undangan</h4><div class="overflow-x-auto"><table class="w-full text-left bg-slate-800/50 rounded-xl overflow-hidden">${rows}</table></div><button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-xl font-bold cursor-pointer btn-super-responsive">💾 Simpan Tabel Text</button></div>`;
+        for(let key in textElements) { rows += `<tr><td class="p-2 border-b border-slate-700 text-slate-300">${key}</td><td class="p-2 border-b border-slate-700"><input type="text" id="table-text-${key}" value="${textElements[key]}" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-xs text-white"></td></tr>`; }
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">📋 Tabel Tempat Text Undangan</h4>
+            <div class="overflow-x-auto"><table class="w-full text-left bg-slate-800/50 rounded-xl overflow-hidden">${rows}</table></div>
+            <!-- TOMBOL SIMPAN KHUSUS TEKS -->
+            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold btn-super-responsive shadow-lg flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-floppy-disk pointer-events-none"></i><span class="pointer-events-none">Simpan Pengaturan Teks</span>
+            </button>
+          </div>`;
       } else if (id === 'wa') {
-        area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">💬 Template Pesan WhatsApp</h4><textarea id="editWaTemplate" rows="6" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl font-mono text-white">Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara pernikahan kami.\n\n{link}\n\nTerima kasih. 🙏</textarea><p class="text-[10px] text-slate-400">Gunakan tag <code class="text-pink-400">{nama}</code> & <code class="text-pink-400">{link}</code>.</p></div>`;
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">💬 Template Pesan WhatsApp</h4>
+            <textarea id="editWaTemplate" rows="6" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl font-mono text-white leading-relaxed">${waTemplate}</textarea>
+            <p class="text-[10px] text-slate-400">Tag wajib: <code class="text-pink-400">{nama}</code> & <code class="text-pink-400">{link}</code>.</p>
+            <!-- TOMBOL SIMPAN KHUSUS WA -->
+            <button type="button" onclick="saveWaTemplate()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold btn-super-responsive shadow-lg flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-floppy-disk pointer-events-none"></i><span class="pointer-events-none">Simpan Template WA</span>
+            </button>
+          </div>`;
       } else if (id === 'guests') {
-        area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-cyan-400 text-sm">👥 Buku Tamu & Broadcast</h4><input type="text" id="newGuestNameInput" placeholder="Nama Tamu" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white"><input type="text" id="newGuestPhoneInput" placeholder="No WA (62...)" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white"><button type="button" onclick="addInvitedGuest()" class="w-full bg-cyan-600 text-white py-2.5 rounded-xl font-bold cursor-pointer btn-super-responsive">➕ Tambah Tamu</button><div id="adminGuestList" class="space-y-1 max-h-32 overflow-y-auto"></div></div>`;
-        setTimeout(renderAdminGuests, 50);
-      } else if (id === 'sections') {
-        area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-amber-400 text-sm">🚀 Kelola Section Laman</h4><input type="text" id="newSecTitle" placeholder="Judul Section" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white"><textarea id="newSecContent" rows="3" placeholder="Konten Section" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white"></textarea><button type="button" onclick="saveDynamicSection()" class="w-full bg-amber-600 text-white py-2.5 rounded-xl font-bold cursor-pointer btn-super-responsive">➕ Tambah Section</button></div>`;
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-cyan-400 text-sm">👥 Data Kehadiran / Buku Tamu</h4>
+            <div class="flex space-x-2">
+                <input type="text" id="newGuestNameInput" placeholder="Nama Tamu" class="flex-1 p-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white">
+                <button type="button" onclick="addInvitedGuest()" class="bg-cyan-600 text-white px-4 rounded-xl font-bold btn-super-responsive">➕</button>
+            </div>
+            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto mt-2"></div>
+            <!-- TOMBOL SIMPAN KHUSUS TAMU -->
+            <button type="button" onclick="alert('Buku Tamu telah diamankan ke Local Storage secara otomatis!');" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold btn-super-responsive shadow-lg flex items-center justify-center space-x-2 mt-4">
+                <i class="fa-solid fa-floppy-disk pointer-events-none"></i><span class="pointer-events-none">Simpan Data Tamu</span>
+            </button>
+          </div>`;
+        setTimeout(renderAdminWishes, 50);
       }
     }
 
@@ -410,14 +393,81 @@
       document.getElementById('adminDashboardView').classList.remove('hidden');
     }
 
-    function generateOptions(count, prefix) {
-      let html = '';
-      for(let i=1; i<=count; i++) html += `<option value="${i}">${prefix}${i}</option>`;
-      return html;
+    // 5. PENERAPAN TEMA NYATA (Bukan Halu)
+    function applyTextElementsToDOM() {
+      document.getElementById('coverCoupleName').innerText = textElements.coupleName;
+      document.getElementById('mainHeroTitle').innerText = textElements.coupleName;
+      document.getElementById('footerCouple').innerText = textElements.footerCouple;
+      document.getElementById('coverBadgeText').innerText = textElements.badgeText;
+      document.getElementById('coverSubText').innerText = textElements.subText;
+      document.getElementById('quoteText').innerText = textElements.quoteText;
+    }
+
+    function applyCoverToDOM() {
+      // Cari data tema asli berdasarkan ID yg disimpan (atau default ke 1)
+      const theme = realThemes.find(t => t.id == genZConfig.cover) || realThemes[0];
+      
+      const cover = document.getElementById('coverSection');
+      const coverBg = document.getElementById('coverBgImage');
+      const heroBg = document.getElementById('mainHeroBg');
+
+      if(coverBg) coverBg.style.backgroundImage = `url('${theme.bg}')`;
+      if(heroBg) heroBg.style.backgroundImage = `url('${theme.bg}')`;
+      
+      if(cover) {
+          cover.style.border = `4px solid ${theme.border}`;
+          cover.style.boxShadow = `0 0 30px ${theme.shadow}`;
+      }
+    }
+
+    function saveGenZConfig() {
+      genZConfig.cover = document.getElementById('editCoverPreset').value;
+      saveAllDataToDevice();
+      applyCoverToDOM(); // Langsung Terapkan Visualnya!
+      alert('Tema dan Background NYATA berhasil disimpan & diterapkan!');
+    }
+
+    function saveTextTable() {
+      for (let key in textElements) { const input = document.getElementById(`table-text-${key}`); if (input) textElements[key] = input.value; }
+      saveAllDataToDevice();
+      applyTextElementsToDOM();
+      alert('Tabel Teks Utama berhasil disimpan secara permanen!');
+    }
+
+    function saveWaTemplate() {
+      const waInput = document.getElementById('editWaTemplate');
+      if (waInput) {
+          waTemplate = waInput.value;
+          saveAllDataToDevice();
+          alert('Template WhatsApp berhasil disimpan!');
+      }
+    }
+
+    // 6. INIT LAINNYA
+    function renderWishesToDOM() {
+        const container = document.getElementById('wishesList');
+        if(!container) return;
+        container.innerHTML = '';
+        attendanceList.forEach(w => {
+            container.innerHTML += `<div class="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-1"><div class="flex justify-between font-bold text-slate-800"><span>${w.name}</span><span class="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full">${w.status}</span></div><p class="text-slate-500">${w.message}</p></div>`;
+        });
+    }
+
+    function renderAdminWishes() {
+      const container = document.getElementById('adminGuestList');
+      if (!container) return;
+      container.innerHTML = '';
+      attendanceList.forEach(w => {
+        container.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-xs text-slate-300"><b>${w.name} (${w.status})</b><br>${w.message}</div>`;
+      });
     }
 
     window.onload = function() {
+        applyTextElementsToDOM();
+        applyCoverToDOM();
+        renderWishesToDOM();
         renderDashboardCards();
+        
         const urlParams = new URLSearchParams(window.location.search);
         const toParam = urlParams.get('to');
         if (toParam) {
@@ -426,42 +476,13 @@
         }
     };
 
-    // FUNGSI JAVASCRIPT BUKA UNDANGAN (THE ULTIMATE FIX)
     function openInvitation() {
       const cover = document.getElementById('coverSection');
       const main = document.getElementById('mainContent');
-      
-      // 1. Paksa Tampil Main Content (Force Display)
-      if (main) {
-          main.classList.remove('hidden');
-          main.style.display = 'block'; // Jaminan tampil meskipun class hidden gagal dihapus
-          setTimeout(() => {
-              main.classList.remove('opacity-0');
-              main.style.opacity = '1';
-          }, 10);
-      }
-      
-      // 2. Efek Transisi Cover Naik 
-      if (cover) {
-          cover.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease';
-          cover.style.transform = 'translateY(-100%)';
-          cover.style.opacity = '0';
-          setTimeout(() => {
-              cover.style.display = 'none'; // Buang dari memori layar agar tidak ganggu tombol lain
-          }, 800);
-      }
-      
-      // 3. Play Music Backsound
+      if (main) { main.classList.remove('hidden'); main.style.display = 'block'; setTimeout(() => { main.classList.remove('opacity-0'); main.style.opacity = '1'; }, 10); }
+      if (cover) { cover.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease'; cover.style.transform = 'translateY(-100%)'; cover.style.opacity = '0'; setTimeout(() => { cover.style.display = 'none'; }, 800); }
       const music = document.getElementById('bgMusic');
-      if (music) {
-        music.play().then(() => { 
-          isPlaying = true; 
-          const icon = document.getElementById('musicIcon');
-          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
-        }).catch((e) => console.log('Autoplay audio ditahan browser: ', e));
-      }
-      
-      // 4. Pastikan view kembali ke posisi teratas
+      if (music) { music.play().then(() => { isPlaying = true; const icon = document.getElementById('musicIcon'); if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; }).catch((e) => console.log('Audio autoplay ditahan: ', e)); }
       window.scrollTo(0, 0);
     }
 
@@ -470,110 +491,49 @@
       const icon = document.getElementById('musicIcon');
       const label = document.getElementById('musicLabel');
       if (!music) return;
-      if (isPlaying) { 
-          music.pause(); 
-          if(icon) icon.className = "fa-solid fa-music text-sm pointer-events-none"; 
-          if(label) label.innerText = "Paused";
-      } else { 
-          music.play(); 
-          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm pointer-events-none"; 
-          if(label) label.innerText = "Playing";
-      }
+      if (isPlaying) { music.pause(); if(icon) icon.className = "fa-solid fa-music text-sm pointer-events-none"; if(label) label.innerText = "Paused"; } 
+      else { music.play(); if(icon) icon.className = "fa-solid fa-music animate-spin text-sm pointer-events-none"; if(label) label.innerText = "Playing"; }
       isPlaying = !isPlaying;
+    }
+
+    function copyToClipboard(text, bankName) {
+      navigator.clipboard.writeText(text).then(() => { alert(`Nomor rekening ${bankName} (${text}) disalin!`); }).catch(err => { alert('Gagal menyalin nomor rekening.'); });
     }
 
     function openAdminModal() { const modal = document.getElementById('adminModal'); if(modal) modal.classList.remove('hidden'); }
     function closeAdminModal() { const modal = document.getElementById('adminModal'); if(modal) modal.classList.add('hidden'); }
-
     function verifyPin() {
       const pinInput = document.getElementById('adminPinInput');
-      if (!pinInput) return;
-      if (pinInput.value.trim() === '1234') {
-        document.getElementById('pinSection').classList.add('hidden');
-        document.getElementById('editorBody').classList.remove('hidden');
-        backToDashboard();
-      } else { alert('PIN Salah! Gunakan PIN default: 1234'); }
+      if (pinInput && pinInput.value.trim() === '1234') { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); } 
+      else { alert('PIN Salah! (Default: 1234)'); }
     }
-
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-
-    function saveTextTable() {
-      for (let key in textElements) {
-        const input = document.getElementById(`table-text-${key}`);
-        if (input) textElements[key] = input.value;
-      }
-      document.getElementById('coverCoupleName').innerText = textElements.coupleName;
-      document.getElementById('mainHeroTitle').innerText = textElements.coupleName;
-      document.getElementById('footerCouple').innerText = textElements.footerCouple;
-      document.getElementById('coverBadgeText').innerText = textElements.badgeText;
-      document.getElementById('coverSubText').innerText = textElements.subText;
-      document.getElementById('quoteText').innerText = textElements.quoteText;
-      alert('Tabel Text berhasil disimpan!');
-    }
-
-    function applyGenZPresets() {
-      const coverNum = document.getElementById('editCoverPreset').value;
-      const cover = document.getElementById('coverSection');
-      if(cover) cover.className = `fixed top-0 left-0 w-full h-full min-h-screen z-[100] flex flex-col items-center justify-between p-6 md:p-8 text-center bg-cover bg-center cover-style-${coverNum} text-white overflow-y-auto`;
-    }
 
     function addInvitedGuest() {
       const name = document.getElementById('newGuestNameInput').value.trim();
-      const phone = document.getElementById('newGuestPhoneInput').value.trim();
       if (!name) return alert('Nama wajib diisi!');
-      invitedGuests.push({ id: Date.now(), name, phone });
+      invitedGuests.push({ id: Date.now(), name: name, phone: "" });
       document.getElementById('newGuestNameInput').value = '';
-      document.getElementById('newGuestPhoneInput').value = '';
-      renderAdminGuests();
-      alert('Tamu tersimpan!');
+      saveAllDataToDevice();
+      renderAdminWishes();
+      alert('Tamu tersimpan ke Local Storage!');
     }
-
-    function renderAdminGuests() {
-      const container = document.getElementById('adminGuestList');
-      if (!container) return;
-      container.innerHTML = '';
-      invitedGuests.forEach(g => {
-        container.innerHTML += `<div class="bg-slate-800 p-2 rounded-lg flex justify-between items-center text-[11px] text-slate-300"><span>${g.name}</span><span class="text-emerald-400 font-mono">${g.phone}</span></div>`;
-      });
-    }
-
-    function saveDynamicSection() {
-      const title = document.getElementById('newSecTitle').value.trim();
-      const content = document.getElementById('newSecContent').value.trim();
-      if (!title || !content) return alert('Isi judul & konten!');
-      dynamicSections.push({ id: Date.now(), title, content, typewriter: true, speed: 50 });
-      alert('Section berhasil ditambahkan ke undangan!');
-    }
-
-    function openShareModal() { const modal = document.getElementById('shareModal'); if(modal) modal.classList.remove('hidden'); }
-    function closeShareModal() { const modal = document.getElementById('shareModal'); if(modal) modal.classList.add('hidden'); }
-    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨\nRian & Siska\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
-
-    const weddingDate = new Date("October 25, 2026 08:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      if (distance < 0) return;
-      const d = document.getElementById("days");
-      const h = document.getElementById("hours");
-      const m = document.getElementById("minutes");
-      const s = document.getElementById("seconds");
-      if(d) d.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      if(h) h.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      if(m) m.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      if(s) s.innerText = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
 
     function submitWish() {
       const name = document.getElementById('guestInputName').value.trim();
       const status = document.getElementById('attendanceStatus').value;
       const message = document.getElementById('guestMessage').value.trim();
-      if (!name || !message) { alert('Isi nama & pesan!'); return; }
+      if (!name || !message) return alert('Isi nama & pesan!');
       attendanceList.unshift({ name, status, message });
-      const wishesList = document.getElementById('wishesList');
-      if(wishesList) wishesList.innerHTML += `<div class="bg-white p-4 rounded-2xl border text-xs"><b>${name} (${status})</b>: ${message}</div>`;
-      alert('Berhasil dikirim!');
+      saveAllDataToDevice();
+      renderWishesToDOM();
+      alert('Ucapan berhasil dikirim dan disimpan!');
+      document.getElementById('guestMessage').value = '';
     }
+
+    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
+    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    function shareGeneralWhatsApp() { window.open(`https://wa.me/?text=${encodeURIComponent(`✨ UNDANGAN PERNIKAHAN ✨\n${textElements.coupleName}\nhttps://ariyanto168-lgtm.github.io/UNDANGAN-DIGITAL/`)}`, '_blank'); }
   </script>
 </body>
 </html>
