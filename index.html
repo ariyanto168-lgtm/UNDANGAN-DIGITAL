@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Digital - Master Gen-Z v10.1.2</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Undangan Digital - Master Gen-Z v10.1.3</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -57,7 +60,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-500 pb-2 absolute bottom-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.1.2)</p></div>
+    <div class="text-[10px] text-slate-500 pb-2 absolute bottom-2" style="z-index: 5;"><p>Powered by Ari GPM (v10.1.3)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -163,7 +166,7 @@
       <h3 id="text-footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.2 (Safe Merge Data)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.3 (Absolute Failsafe)</p>
       </div>
     </footer>
   </main>
@@ -174,7 +177,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.2</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.3</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl pointer-events-none"></i></button>
       </div>
@@ -205,7 +208,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.2 (SAFE DATA RECOVERY) -->
+  <!-- JAVASCRIPT SYSTEM v10.1.3 (ABSOLUTE FAILSAFE) -->
   <script>
     const realFonts = [
         "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
@@ -214,7 +217,6 @@
         "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
 
-    // INI ADALAH MASTER DATA (Jika di HP ada yang kosong, akan otomatis terisi dari sini)
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
@@ -225,20 +227,13 @@
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
     
-    // SAFE MERGE: Menggabungkan memori HP lama dengan Master Data baru agar tidak crash
+    // SAFE MERGE
     let textElements = { ...defaultText, ...(JSON.parse(localStorage.getItem('ari_textElements')) || {}) };
-    
     const defaultGift = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "" };
     let giftConfig = { ...defaultGift, ...(JSON.parse(localStorage.getItem('ari_giftConfig')) || {}) };
     
-    const defaultUltimate = {
-        font: "Plus Jakarta Sans",
-        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
-        sectionBg: "", 
-        musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3",
-        musicVolume: 0.5
-    };
+    const defaultUltimate = { font: "Plus Jakarta Sans", coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", sectionBg: "", musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", musicVolume: 0.5 };
     let ultimateConfig = { ...defaultUltimate, ...(JSON.parse(localStorage.getItem('ari_ultimateConfig')) || {}) };
     
     let attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList')) || [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
-    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa
+    let waTemplate = localStorage.getItem('ari_waTemplate') || "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Anda ke acara 
