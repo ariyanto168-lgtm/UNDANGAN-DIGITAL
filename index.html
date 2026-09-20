@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.67</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.68</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.67)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.68)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -205,7 +205,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.67 (Smart Delta State)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.68 (Ultra-Short Preset Link)</p>
       </div>
     </footer>
   </main>
@@ -216,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.67</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.68</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -253,33 +253,17 @@
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Tautan WhatsApp kini menggunakan Smart Delta State. Undangan kosong/default tidak akan membuat tautan panjang (anti-nyepam)!</p>
+      <p class="text-xs text-slate-300">Tautan WhatsApp kini menggunakan Ultra-Short Link. Dijamin sangat pendek, bersih, dan bebas dari masalah nyepam!</p>
       <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
-        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (100% Bersih & Ringkas)</span>
+        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (100% Bersih & Singkat)</span>
       </button>
     </div>
   </div>
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.67 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.68 -->
   <script>
-    function safeBtoa(str) {
-        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-            return String.fromCharCode('0x' + p1);
-        }));
-    }
-
-    function safeAtob(base64) {
-        try {
-            return decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-        } catch(e) {
-            return atob(base64);
-        }
-    }
-
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
@@ -398,34 +382,23 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
-    // Load state safely with Delta / Fallback Support
+    // Load state from URL Category Parameter (Ultra Short) or LocalStorage
     try {
         const urlParams = new URLSearchParams(window.location.search);
-        const stateParam = urlParams.get('state');
-        if (stateParam) {
-            const dec = JSON.parse(safeAtob(stateParam));
-            if (dec.t) {
-                // Merge only changed texts over defaults
-                for(let k in dec.t) {
-                    if(textElements[k]) textElements[k] = dec.t[k];
+        const catParam = urlParams.get('cat');
+        if (catParam && eventPresetsList[catParam]) {
+            currentCategoryKey = catParam;
+            const preset = eventPresetsList[catParam];
+            for(let k in defaultText) {
+                if(preset[k] !== undefined) {
+                    let isTl = (k !== 'alamat' && k !== 'quoteText');
+                    textElements[k] = { text: preset[k], typewriter: isTl };
                 }
-                if(dec.u) ultimateConfig = { ...ultimateConfig, ...dec.u };
-                if(dec.b) sectionBackgrounds = { ...sectionBackgrounds, ...dec.b };
-                if(dec.d) sectionBackgroundDimmer = { ...sectionBackgroundDimmer, ...dec.d };
-                if(dec.g) giftConfig = { ...giftConfig, ...dec.g };
-                if(dec.p) sectionPhotos = { ...sectionPhotos, ...dec.p };
-            } else if (dec.textElements) {
-                // Legacy format fallback
-                textElements = dec.textElements;
-                if (dec.ultimateConfig) ultimateConfig = { ...ultimateConfig, ...dec.ultimateConfig };
-                if (dec.sectionBackgrounds) sectionBackgrounds = { ...sectionBackgrounds, ...dec.sectionBackgrounds };
-                if (dec.sectionBackgroundDimmer) sectionBackgroundDimmer = { ...sectionBackgroundDimmer, ...dec.sectionBackgroundDimmer };
-                if (dec.giftConfig) giftConfig = { ...giftConfig, ...dec.giftConfig };
             }
         } else {
-            if(localStorage.getItem('ari_textElements_v67')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v67'));
+            if(localStorage.getItem('ari_textElements_v68')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v68'));
             if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-            if(localStorage.getItem('ari_sectionPhotos_v67')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v67'));
+            if(localStorage.getItem('ari_sectionPhotos_v68')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v68'));
             if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
             if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
             if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -446,9 +419,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v67', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v68', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v67', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v68', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -467,54 +440,14 @@
         }
     }
 
-    // Smart Delta State Generator (Jika kosong/default, tautan 100% bersih tanpa state!)
+    // Ultra-Short Link Generator (Tanpa State Panjang, Dijamin 100% Bebas Nyepam!)
     function generateShareableLink(guestName = '') {
-        const diffText = {};
-        for(let k in textElements) {
-            if(defaultText[k] === undefined || textElements[k].text !== defaultText[k] || textElements[k].typewriter === false) {
-                diffText[k] = textElements[k];
-            }
-        }
-
-        const cleanBackgrounds = {};
-        for(let k in sectionBackgrounds) {
-            let val = sectionBackgrounds[k];
-            if(val && !val.startsWith('data:image')) cleanBackgrounds[k] = val;
-        }
-
-        const cleanPhotos = {};
-        for(let k in sectionPhotos) {
-            let arr = sectionPhotos[k];
-            if(arr && arr.length > 0) {
-                cleanPhotos[k] = arr.filter(img => !img.startsWith('data:image'));
-            }
-        }
-
-        const compactState = {};
-        if(Object.keys(diffText).length > 0) compactState.t = diffText;
-        if(ultimateConfig.font !== "Plus Jakarta Sans") compactState.u = { f: ultimateConfig.font };
-        if(ultimateConfig.photoFrame !== "frame-polaroid") compactState.u = { ...(compactState.u || {}), pf: ultimateConfig.photoFrame };
-        if(Object.keys(cleanBackgrounds).length > 0) compactState.b = cleanBackgrounds;
-        if(Object.keys(cleanPhotos).length > 0) compactState.p = cleanPhotos;
-        if(giftConfig.bank !== "Bank BCA" || giftConfig.number !== "1234567890" || giftConfig.visible === false) {
-            compactState.g = { bk: giftConfig.bank, nr: giftConfig.number, ow: giftConfig.owner, vb: giftConfig.visible };
-        }
-
         const baseUrl = window.location.origin + window.location.pathname;
-        let finalLink = baseUrl;
-        let queryParams = [];
-
-        if(Object.keys(compactState).length > 0) {
-            queryParams.push(`state=${safeBtoa(JSON.stringify(compactState))}`);
-        }
+        let queryParams = [`cat=${currentCategoryKey}`];
         if(guestName) {
             queryParams.push(`to=${encodeURIComponent(guestName)}`);
         }
-
-        if(queryParams.length > 0) {
-            finalLink += `?${queryParams.join('&')}`;
-        }
-        return finalLink;
+        return `${baseUrl}?${queryParams.join('&')}`;
     }
 
     // Kompresi Gambar Otomatis
