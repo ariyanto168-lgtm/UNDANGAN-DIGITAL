@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.69</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.72</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -14,16 +13,10 @@
   <style>
     html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word; }
     body { transition: background 0.4s ease, color 0.4s ease; font-family: 'Plus Jakarta Sans', sans-serif; }
-    
     @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
     .pulse-glow-active { animation: textPulse 2.5s infinite ease-in-out; }
-
     .cover-base { position: fixed; inset: 0; z-index: 99999999; background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(40,40,40,0.98)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
-    .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .section-overlay { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; overflow: hidden; }
-
-    /* GEN-Z PHOTO FRAME STYLES */
     .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
     .frame-polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transform: rotate(-1deg); border-radius: 4px; }
     .frame-neon { border: 4px solid #ec4899; box-shadow: 0 0 20px #ec4899, inset 0 0 15px #06b6d4; border-radius: 2rem; }
@@ -34,7 +27,6 @@
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
-  <!-- ELEGANT TOAST NOTIFICATION CONTAINER -->
   <div id="toastNotification" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-[999999999] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
     <div id="toastContent" class="bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs">
       <i id="toastIcon" class="fa-solid fa-circle-check text-pink-400 text-base"></i>
@@ -42,34 +34,25 @@
     </div>
   </div>
 
-  <!-- COVER UTAMA -->
   <div id="coverSection" class="cover-base text-white text-center">
     <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
-    
     <div class="space-y-2 mb-6" style="pointer-events: none;">
       <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
       <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
       <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
-
-    <!-- KOTAK & TOMBOL BUKA UNDANGAN -->
     <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl">
       <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
       <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
-      
-      <!-- Tombol Eksekusi Langsung Anti Macet -->
-      <button type="button" onclick="bukaUndanganSekarang()" style="width: 100%; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); color: white; font-weight: bold; padding: 16px 24px; border-radius: 12px; box-shadow: 0 0 25px rgba(236,72,153,0.8); border: none; font-size: 14px;">
+      <button type="button" onclick="bukaUndanganSekarang()" style="width: 100%; cursor: pointer; touch-action: manipulation; background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); color: white; font-weight: bold; padding: 16px 24px; border-radius: 12px; box-shadow: 0 0 25px rgba(236,72,153,0.8); border: none; font-size: 14px;">
         Buka Undangan ✨
       </button>
     </div>
-
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.69)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.72)</p></div>
   </div>
 
-  <!-- KONTEN UTAMA -->
   <main id="mainContent" style="display: none; opacity: 0;" class="transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16 bg-slate-50">
     
-    <!-- NAVIGATION -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
@@ -85,10 +68,7 @@
       </button>
     </nav>
 
-    <!-- KONTAINER SECTION -->
     <div id="sectionsContainer" class="space-y-4 pt-4 px-2">
-      
-      <!-- SECTION: HERO -->
       <section data-section-key="hero" class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
         <div id="mainHeroBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
@@ -101,7 +81,6 @@
         </div>
       </section>
 
-      <!-- SECTION: QUOTES -->
       <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
         <div id="microVideo-quotes" class="w-full"></div>
         <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -109,7 +88,6 @@
         <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
-      <!-- SECTION: MEMPELAI -->
       <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="microVideo-mempelai" class="w-full"></div>
         <div id="dynamicPhotosGrid-mempelai" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -120,9 +98,7 @@
           </div>
           <h3 id="text-groomName" data-key="groomName" class="text-2xl font-bold text-slate-900 pt-2">Rian Pratama</h3>
         </div>
-        
         <div class="text-2xl text-pink-500 font-bold">&</div>
-        
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
           <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile2FrameContainer">
             <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
@@ -131,7 +107,6 @@
         </div>
       </section>
 
-      <!-- SECTION: VIDEO MP4 REAL-TIME -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-video" class="w-full"></div>
         <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -145,7 +120,6 @@
         </div>
       </section>
 
-      <!-- SECTION: LOKASI -->
       <section data-section-key="lokasi" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="microVideo-lokasi" class="w-full"></div>
         <div id="dynamicPhotosGrid-lokasi" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -159,14 +133,12 @@
         </div>
       </section>
 
-      <!-- SECTION: AMPLOP -->
       <section data-section-key="amplop" id="amplopSectionContainer" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="microVideo-amplop" class="w-full"></div>
         <div id="dynamicPhotosGrid-amplop" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
         <h2 id="text-titleGift" data-key="titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
         <p id="text-subGift" data-key="subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
-        
         <div class="space-y-4 max-w-xs mx-auto">
           <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
             <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
@@ -181,7 +153,6 @@
         </div>
       </section>
 
-      <!-- SECTION: UCAPAN & KEHADIRAN -->
       <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
         <div id="microVideo-rsvp" class="w-full"></div>
         <div id="dynamicPhotosGrid-rsvp" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -196,46 +167,39 @@
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
       </section>
-
     </div>
 
-    <!-- FOOTER -->
     <footer data-section-key="footer" class="p-6 text-center space-y-4 mt-8 section-overlay">
       <div id="microVideo-footer" class="w-full"></div>
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.69 (Smart Media State Encoding)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.72 (Pure Clean Link Architecture)</p>
       </div>
     </footer>
   </main>
 
-  <!-- ADMIN MODAL -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.69</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.72</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
         <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
-        <p class="text-xs text-slate-400">PIN Default: <span class="font-mono font-bold text-pink-400">1234</span> | Email: <span class="font-mono font-bold text-cyan-400" id="displayAdminEmailHint">admin@ariyanto.com</span></p>
+        <p class="text-xs text-slate-400">PIN Default: <span class="font-mono font-bold text-pink-400">1234</span></p>
         <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none">
         <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard</button>
-        <button type="button" onclick="openForgotPinView()" class="text-xs text-pink-400 underline pt-2 block mx-auto cursor-pointer">Lupa PIN?</button>
       </div>
-
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
           <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Ultimate</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
-
         <div id="adminModuleView" class="hidden space-y-4">
           <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer">
             <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
@@ -246,60 +210,33 @@
     </div>
   </div>
 
-  <!-- SHARE MODAL -->
   <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 text-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden p-6 space-y-4 border border-slate-800">
       <div class="flex items-center justify-between">
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Tautan WhatsApp kini dilengkapi Smart Media State. Foto background dan dokumentasi video Anda akan ikut tersinkron sempurna!</p>
+      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Tanpa parameter state yang panjang).</p>
       <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
-        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (Lengkap & Sinkron)</span>
+        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (100% Anti-Nyepam)</span>
       </button>
     </div>
   </div>
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.69 -->
   <script>
-    function safeBtoa(str) {
-        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-            return String.fromCharCode('0x' + p1);
-        }));
-    }
-
-    function safeAtob(base64) {
-        try {
-            return decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-        } catch(e) {
-            return atob(base64);
-        }
-    }
-
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
         const iconEl = document.getElementById('toastIcon');
         const contentEl = toast.querySelector('div');
         if(!toast) return;
-
         msgEl.innerText = message;
-        if(type === 'error') {
-            iconEl.className = "fa-solid fa-circle-exclamation text-rose-400 text-base";
-            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-rose-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
-        } else {
-            iconEl.className = "fa-solid fa-circle-check text-pink-400 text-base";
-            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
-        }
-
+        iconEl.className = type === 'error' ? "fa-solid fa-circle-exclamation text-rose-400 text-base" : "fa-solid fa-circle-check text-pink-400 text-base";
         toast.style.opacity = '1';
         toast.style.pointerEvents = 'auto';
         toast.style.transform = 'translate(-50%, 0)';
-
         if(window.toastTimeout) clearTimeout(window.toastTimeout);
         window.toastTimeout = setTimeout(() => {
             toast.style.opacity = '0';
@@ -308,34 +245,30 @@
         }, 3000);
     }
 
-    const realFonts = [
-        "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
-        "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
-        "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
-        "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
-    ];
-
     const eventPresetsList = {
       pernikahan: {
         badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
-        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
+        titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000"
       },
       khitanan: {
         badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
         titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
-        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
+        titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah",
+        coverBg: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=1000"
       },
       ultah: {
         badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
         titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
-        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
+        titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila",
+        coverBg: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1000"
       }
     };
 
@@ -352,44 +285,17 @@
 
     let textElements = {};
     for(let k in defaultText) {
-        let isTl = (k !== 'alamat' && k !== 'quoteText');
-        textElements[k] = { text: defaultText[k], typewriter: isTl };
+        textElements[k] = { text: defaultText[k], typewriter: true };
     }
 
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
-    let adminAuth = { 
-        pin: "1234", 
-        email: "admin@ariyanto.com",
-        emailjsServiceId: "",
-        emailjsTemplateId: "",
-        emailjsPublicKey: ""
-    };
-    let activeOtpData = { code: "", purpose: "", tempEmail: "", tempPin: "" };
-
-    let attendanceList = [
-        { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }
-    ];
-    let guestDatabase = [
-        { name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "https://maps.app.goo.gl/xxx" }
-    ];
+    let adminAuth = { pin: "1234", email: "admin@ariyanto.com" };
+    let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
+    let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
-    
     let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
-
-    let ultimateConfig = { 
-        font: "Plus Jakarta Sans", 
-        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", 
-        musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
-        musicVolume: 0.5, 
-        videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        typewriterSpeed: 30, 
-        slideSpeed: 500,
-        photoFrame: "frame-polaroid",
-        profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
-        profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
-    };
-
+    let ultimateConfig = { font: "Plus Jakarta Sans", coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", musicVolume: 0.5, videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", typewriterSpeed: 30, photoFrame: "frame-polaroid", profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" };
     let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
     let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
     let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
@@ -398,37 +304,21 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
-    // Load state safely with Smart Media State & Fallback Support
+    // STRICT URL CLEAN PARSING (Hanya baca cat dan to)
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('cat');
-        const stateParam = urlParams.get('state');
-
         if (catParam && eventPresetsList[catParam]) {
             currentCategoryKey = catParam;
             const preset = eventPresetsList[catParam];
             for(let k in defaultText) {
-                if(preset[k] !== undefined) {
-                    let isTl = (k !== 'alamat' && k !== 'quoteText');
-                    textElements[k] = { text: preset[k], typewriter: isTl };
-                }
+                if(preset[k] !== undefined) textElements[k] = { text: preset[k], typewriter: true };
             }
-        }
-
-        if (stateParam) {
-            const dec = JSON.parse(safeAtob(stateParam));
-            if(dec.b) sectionBackgrounds = { ...sectionBackgrounds, ...dec.b };
-            if(dec.p) sectionPhotos = { ...sectionPhotos, ...dec.p };
-            if(dec.d) sectionBackgroundDimmer = { ...sectionBackgroundDimmer, ...dec.d };
-            if(dec.t) {
-                for(let k in dec.t) textElements[k] = dec.t[k];
-            }
-            if(dec.u) ultimateConfig = { ...ultimateConfig, ...dec.u };
-            if(dec.g) giftConfig = { ...giftConfig, ...dec.g };
+            if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         } else {
-            if(localStorage.getItem('ari_textElements_v69')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v69'));
+            if(localStorage.getItem('ari_textElements_v72')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v72'));
             if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-            if(localStorage.getItem('ari_sectionPhotos_v69')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v69'));
+            if(localStorage.getItem('ari_sectionPhotos_v72')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v72'));
             if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
             if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
             if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -444,14 +334,14 @@
             if(localStorage.getItem('ari_ultimateConfig')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig')) };
         }
     } catch (e) {}
-    
+
     let isPlaying = false;
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v69', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v72', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v69', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v72', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -466,87 +356,23 @@
             localStorage.setItem('ari_currentCategory', currentCategoryKey);
             localStorage.setItem('ari_ultimateConfig', JSON.stringify(ultimateConfig));
         } catch (e) {
-            showToast('Penyimpanan penuh! Perkecil ukuran foto.', 'error');
+            showToast('Penyimpanan penuh!', 'error');
         }
     }
 
-    // Smart Media State Link Generator (Menyertakan foto background & dokumentasi secara efisien)
+    // STRICT CLEAN LINK GENERATOR (Tanpa state sama sekali)
     function generateShareableLink(guestName = '') {
-        const compactState = {};
-        
-        // Masukkan background kustom jika ada
-        const hasBg = Object.values(sectionBackgrounds).some(val => val && val.trim() !== '');
-        if(hasBg) compactState.b = sectionBackgrounds;
-
-        // Masukkan foto dokumentasi section jika ada
-        const hasPhotos = Object.values(sectionPhotos).some(arr => arr && arr.length > 0);
-        if(hasPhotos) compactState.p = sectionPhotos;
-
-        // Masukkan dimmer jika ada
-        compactState.d = sectionBackgroundDimmer;
-
-        // Masukkan teks jika ada editan kustom
-        const diffText = {};
-        for(let k in textElements) {
-            if(defaultText[k] === undefined || textElements[k].text !== defaultText[k] || textElements[k].typewriter === false) {
-                diffText[k] = textElements[k];
-            }
-        }
-        if(Object.keys(diffText).length > 0) compactState.t = diffText;
-
         const baseUrl = window.location.origin + window.location.pathname;
         let queryParams = [`cat=${currentCategoryKey}`];
-
-        if(Object.keys(compactState).length > 0) {
-            queryParams.push(`state=${safeBtoa(JSON.stringify(compactState))}`);
-        }
-        if(guestName) {
-            queryParams.push(`to=${encodeURIComponent(guestName)}`);
-        }
-
+        if(guestName) queryParams.push(`to=${encodeURIComponent(guestName)}`);
         return `${baseUrl}?${queryParams.join('&')}`;
-    }
-
-    // Kompresi Gambar Otomatis
-    function compressImageFile(file, callback, maxWidth = 800, quality = 0.7) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                let width = img.width;
-                let height = img.height;
-                if(width > maxWidth) {
-                    height = Math.round((height * maxWidth) / width);
-                    width = maxWidth;
-                }
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                const dataUrl = canvas.toDataURL('image/jpeg', quality);
-                callback(dataUrl);
-            };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
     }
 
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
-      { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Atur Video Dinamis Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Atur Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
-      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun Bebas', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Susun 2 Kolom ke Bawah', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
-      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Sharelok', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
-      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
-      { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Foto Anda', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'music', title: 'Musik & Video', desc: 'Atur MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Bersih', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Teks Undangan', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'keamananAkun', title: 'Keamanan & Email Asli', desc: 'PIN & OTP EmailJS', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
-      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
-      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' }
     ];
 
     function renderDashboardCards() {
@@ -555,11 +381,9 @@
       grid.innerHTML = '';
       adminModules.forEach(mod => {
         grid.innerHTML += `
-          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
-            <div class="flex justify-between items-start">
-              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
-            </div>
-            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
+          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition flex flex-col justify-between space-y-2 text-white">
+            <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
+            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80">${mod.desc}</p></div>
           </div>
         `;
       });
@@ -569,820 +393,51 @@
       document.getElementById('adminDashboardView').classList.add('hidden');
       document.getElementById('adminModuleView').classList.remove('hidden');
       const area = document.getElementById('moduleContentArea');
-      
       if (id === 'kategoriAcara') {
           let optionsHtml = '';
           for (let key in eventPresetsList) {
-              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
+              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText}</option>`;
           }
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara</h4>
-            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
-                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset</button>
-            </div>
+            <h4 class="font-bold text-amber-400 text-sm">📅 Kategori Acara</h4>
+            <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
+            <button onclick="applyEventPreset()" class="w-full bg-pink-600 text-white py-3 rounded-xl font-bold">Terapkan Preset</button>
           </div>`;
-      }
-      else if (id === 'animasiStiker') {
-          const sections = [
-              { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'video', name: '4. Video Dokumentasi' },
-              { key: 'lokasi', name: '5. Lokasi & Maps' },
-              { key: 'amplop', name: '6. Amplop Digital' },
-              { key: 'rsvp', name: '7. Ucapan & RSVP' },
-              { key: 'footer', name: '8. Footer' }
-          ];
-          
-          let htmlSections = '';
-          sections.forEach(sec => {
-              let currentUrl = sectionMicroVideos[sec.key] || '';
-              let isChecked = sectionMicroVideoVisibility[sec.key] !== false ? 'checked' : '';
-              htmlSections += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-slate-200">${sec.name}</span>
-                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
-                    <input type="checkbox" id="visMicro-${sec.key}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
-                    <span>Tampilkan Video</span>
-                  </label>
-                </div>
-                <input type="text" id="microVideoInput-${sec.key}" value="${currentUrl}" placeholder="https://... (Link URL Video MP4)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
-                <div class="pt-1">
-                  <label class="text-[10px] text-slate-400 block">Atau Upload File MP4 dari Perangkat:</label>
-                  <input type="file" accept="video/mp4" onchange="handleCustomMicroVideoUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-purple-600 file:text-white mt-1">
-                </div>
-              </div>`;
-          });
-
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil Dinamis & Saklar On/Off</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlSections}</div>
-            <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Pengaturan Video</button>
-          </div>`;
-      }
-      else if (id === 'sectionBackgrounds') {
-          const sections = [
-              { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'video', name: '4. Video Dokumentasi' },
-              { key: 'lokasi', name: '5. Lokasi & Maps' },
-              { key: 'amplop', name: '6. Amplop Digital' },
-              { key: 'rsvp', name: '7. Ucapan & RSVP' },
-              { key: 'footer', name: '8. Footer' }
-          ];
-
-          let htmlBg = '';
-          sections.forEach(sec => {
-              let currentUrl = sectionBackgrounds[sec.key] || '';
-              let isChecked = sectionBackgroundVisibility[sec.key] !== false ? 'checked' : '';
-              let currentDimmer = sectionBackgroundDimmer[sec.key] !== undefined ? sectionBackgroundDimmer[sec.key] : 0.9;
-              htmlBg += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-teal-300">${sec.name}</span>
-                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-teal-300 font-bold">
-                    <input type="checkbox" id="visBg-${sec.key}" ${isChecked} class="w-4 h-4 accent-teal-600 rounded cursor-pointer">
-                    <span>Aktifkan Background</span>
-                  </label>
-                </div>
-                <input type="text" id="bgUrlInput-${sec.key}" value="${currentUrl}" placeholder="https://... (Link URL Foto Background)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
-                <div class="pt-1">
-                  <label class="text-[10px] text-slate-400 block">Atau Upload Foto Background dari Perangkat:</label>
-                  <input type="file" accept="image/*" onchange="handleSectionBackgroundUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white mt-1">
-                </div>
-                <div class="pt-2 border-t border-slate-700">
-                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
-                    <span>💡 Dimer Kontras / Redup Background</span>
-                    <span id="dimmerValText-${sec.key}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
-                  </div>
-                  <input type="range" id="dimmerInput-${sec.key}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${sec.key}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
-                </div>
-              </div>`;
-          });
-
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer Pengatur Terang/Redup</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlBg}</div>
-            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background & Dimer</button>
-          </div>`;
-      }
-      else if (id === 'sectionReorder') {
-          let listHtml = '';
-          const names = { 
-              hero: '1. Cover / Hero Section',
-              quotes: '2. Quotes & Ayat', 
-              mempelai: '3. Profil Tuan Rumah', 
-              video: '4. Video Dokumentasi MP4', 
-              lokasi: '5. Lokasi & Google Maps', 
-              amplop: '6. Amplop Digital & QRIS', 
-              rsvp: '7. Ucapan & Kehadiran (RSVP)' 
-          };
-          sectionOrder.forEach((key, idx) => {
-              listHtml += `
-              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
-                <span class="font-bold text-cyan-300">${names[key] || key}</span>
-                <div class="flex space-x-1">
-                  <button onclick="moveSection(${idx}, -1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-up"></i></button>
-                  <button onclick="moveSection(${idx}, 1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-down"></i></button>
-                </div>
-              </div>`;
-          });
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-cyan-400 text-sm">📐 Tata Letak Section</h4>
-            <p class="text-slate-400">Atur posisi section dengan menekan tombol panah naik/turun di bawah ini!</p>
-            <div class="space-y-2">${listHtml}</div>
-          </div>`;
-      }
-      else if (id === 'dynamicPhotos') {
-          const sectionList = [
-              { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'video', name: '4. Foto Dokumentasi' },
-              { key: 'lokasi', name: '5. Lokasi & Maps' },
-              { key: 'amplop', name: '6. Amplop Digital' },
-              { key: 'rsvp', name: '7. Ucapan & RSVP' }
-          ];
-
-          let photoAdminHtml = '';
-          sectionList.forEach(sec => {
-              let currentArr = sectionPhotos[sec.key] || [];
-              let isVisible = sectionPhotoVisibility[sec.key] !== false ? 'checked' : '';
-              
-              let thumbsHtml = '';
-              currentArr.forEach((imgUrl, imgIdx) => {
-                  thumbsHtml += `
-                    <div class="relative w-16 h-16 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
-                      <img src="${imgUrl}" class="w-full h-full object-cover">
-                      <button onclick="removeSectionPhoto('${sec.key}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-5 h-5 text-[10px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
-                    </div>`;
-              });
-
-              photoAdminHtml += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-rose-300">${sec.name}</span>
-                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
-                    <input type="checkbox" id="visPhoto-${sec.key}" ${isVisible} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
-                    <span>Tampilkan Foto</span>
-                  </label>
-                </div>
-                <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-                <div class="grid grid-cols-2 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-2">Belum ada foto</span>'}</div>
-              </div>`;
-          });
-
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">📸 Upload Multi-Foto Dokumentasi</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${photoAdminHtml}</div>
-            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Foto & Saklar</button>
-          </div>`;
-      }
-      else if (id === 'databaseWarga') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">👥 Database Warga, Tamu & Sharelok</h4>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Tambah Warga / Tamu Baru</label>
-              <input type="text" id="newWargaName" placeholder="Nama Warga / Tamu" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <input type="text" id="newWargaPhone" placeholder="No WhatsApp (contoh: 08123456789)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
-              <input type="text" id="newWargaSharelok" placeholder="Link Sharelok / Maps Tamu (Opsional)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
-              <button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold mt-2">Simpan ke Database</button>
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Template Pesan WA</label>
-              <textarea id="adminWaTemplate" rows="3" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">${waTemplate}</textarea>
-              <button onclick="saveAdminWaTemplate()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Simpan Template</button>
-            </div>
-
-            <div class="flex space-x-2">
-              <button onclick="sendMassWhatsApp()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2.5 rounded-xl font-bold">🚀 Kirim WA Massal & Salin Link Wa.me</button>
-            </div>
-
-            <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
-          </div>`;
-          setTimeout(renderAdminWargaList, 50);
-      }
-      else if (id === 'bingkaiGenZ') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Global Typewriter</h4>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Pilih Model Bingkai Foto</label>
-              <select id="selectPhotoFrame" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">
-                <option value="frame-polaroid" ${ultimateConfig.photoFrame === 'frame-polaroid' ? 'selected' : ''}>Polaroid Real Classic</option>
-                <option value="frame-neon" ${ultimateConfig.photoFrame === 'frame-neon' ? 'selected' : ''}>Neon Cyberpunk Glow</option>
-                <option value="frame-glass" ${ultimateConfig.photoFrame === 'frame-glass' ? 'selected' : ''}>Glassmorphic Blur</option>
-                <option value="frame-cyber" ${ultimateConfig.photoFrame === 'frame-cyber' ? 'selected' : ''}>Cyberpunk Shadow</option>
-                <option value="frame-hologram" ${ultimateConfig.photoFrame === 'frame-hologram' ? 'selected' : ''}>Holographic Gradient</option>
-                <option value="frame-none" ${ultimateConfig.photoFrame === 'frame-none' ? 'selected' : ''}>Tanpa Bingkai (Normal)</option>
-              </select>
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Kecepatan Global Typewriter (ms)</label>
-              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 30}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-            </div>
-
-            <button onclick="saveGenZFrameAndSpeed()" class="w-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Pengaturan Gen-Z</button>
-          </div>`;
-      }
-      else if (id === 'keamananAkun') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-indigo-400 text-sm">🔒 Keamanan Akun & Email Asli</h4>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-              <h5 class="font-bold text-cyan-300 text-[11px]">Konfigurasi EmailJS</h5>
-              <input type="text" id="ejsServiceId" value="${adminAuth.emailjsServiceId || ''}" placeholder="EmailJS Service ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <input type="text" id="ejsTemplateId" value="${adminAuth.emailjsTemplateId || ''}" placeholder="EmailJS Template ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <input type="text" id="ejsPublicKey" value="${adminAuth.emailjsPublicKey || ''}" placeholder="EmailJS Public Key" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <button onclick="saveEmailJsConfig()" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Simpan EmailJS</button>
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-              <h5 class="font-bold text-pink-400">Ubah PIN Admin</h5>
-              <input type="password" id="oldPinInput" placeholder="PIN Lama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <input type="password" id="newPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <button onclick="processChangePin()" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Simpan PIN Baru</button>
-            </div>
-          </div>`;
-      }
-      else if (id === 'backup') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
-                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">1. Generate Kode Backup</button>
-                <textarea id="backupOutput" readonly rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
-                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">2. Salin Kode</button>
-            </div>
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
-                <textarea id="restoreInput" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup..."></textarea>
-                <button onclick="restoreBackup()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Restore Data</button>
-            </div>
-          </div>`;
-      } 
-      else if (id === 'design') {
-        let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & Upload Foto</h4>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">1. Pilih Font</label>
-              <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-pink-300">2. Upload Foto Prewedding</label>
-              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
-            </div>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-blue-300">3. Upload Foto Profil 1</label>
-              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
-            </div>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-amber-300">4. Upload Foto Profil 2</label>
-              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
-            </div>
-
-            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
-          </div>`;
-      }
-      else if (id === 'music') {
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Dokumentasi</h4>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-                <label class="block text-slate-300 font-bold">Volume Musik</label>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="${ultimateConfig.musicVolume}" onchange="changeVolume(this.value)" class="w-full accent-pink-500">
-                <label class="block text-slate-300 font-bold pt-2">Link URL Audio MP3</label>
-                <input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-                <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white">
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-                <label class="block text-slate-300 font-bold text-cyan-300">Link URL Video Dokumentasi (MP4)</label>
-                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-                <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
-            </div>
-
-            <button onclick="saveMusicAndVideoConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Musik & Video</button>
-          </div>`;
-      }
-      else if (id === 'textTable') {
+      } else if (id === 'textTable') {
         let rows = '';
         for(let key in defaultText) { 
-            let item = textElements[key] !== undefined ? textElements[key] : { text: defaultText[key], typewriter: true };
-            let isChecked = item.typewriter !== false ? 'checked' : '';
-            rows += `
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-cyan-400 font-mono text-[11px] font-bold">${key}</span>
-                <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
-                  <input type="checkbox" id="tw-${key}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
-                  <span>Typewriter ON/OFF</span>
-                </label>
-              </div>
-              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
-            </div>`; 
+            let item = textElements[key] || { text: defaultText[key] };
+            rows += `<div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-1"><span class="text-cyan-400 font-mono text-[11px]">${key}</span><textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white">${item.text}</textarea></div>`; 
         }
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${rows}</div>
-            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
-          </div>`;
-      } 
-      else if (id === 'gift') {
-        let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & Saklar</h4>
-            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
-                  <span class="font-bold text-white">Tampilkan Amplop Digital</span>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="sr-only peer">
-                    <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
-                  </label>
-                </div>
-                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
-                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
-                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="No Rek" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
-                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
-            </div>
-            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Amplop</button>
-          </div>`;
-      } 
-      else if (id === 'guests') {
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu</h4>
-            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
-          </div>`;
-        setTimeout(renderAdminWishes, 50);
+        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-blue-400 text-sm">Tabel Teks</h4><div class="space-y-3 max-h-72 overflow-y-auto">${rows}</div><button onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan</button></div>`;
+      } else if (id === 'databaseWarga') {
+        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-emerald-400 text-sm">Database Warga</h4><input type="text" id="newWargaName" placeholder="Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white"><input type="text" id="newWargaPhone" placeholder="No WA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2"><button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold mt-2">Tambah</button><div id="adminWargaListContainer" class="space-y-2 mt-2"></div></div>`;
+        setTimeout(renderAdminWargaList, 50);
+      } else if (id === 'gift') {
+        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-emerald-400 text-sm">Amplop</h4><input type="text" id="inputBankName" value="${giftConfig.bank}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white"><input type="text" id="inputRekNumber" value="${giftConfig.number}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white mt-2"><button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold mt-2">Simpan</button></div>`;
       }
-    }
-
-    function saveEmailJsConfig() {
-        adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
-        adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
-        adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
-        saveAllDataToDevice();
-        showToast('Konfigurasi EmailJS berhasil disimpan!');
-    }
-
-    function processChangePin() {
-        const oldPin = document.getElementById('oldPinInput').value.trim();
-        const newPin = document.getElementById('newPinInput').value.trim();
-        if(oldPin !== adminAuth.pin) return showToast('PIN lama salah!', 'error');
-        if(!newPin || newPin.length < 3) return showToast('PIN baru minimal 3 karakter!', 'error');
-        adminAuth.pin = newPin;
-        saveAllDataToDevice();
-        showToast('PIN berhasil diubah!');
-    }
-
-    function openForgotPinView() {
-        const pinSec = document.getElementById('pinSection');
-        pinSec.innerHTML = `
-          <div class="space-y-3 text-left">
-            <div class="flex justify-between items-center">
-              <h3 class="font-bold text-base text-pink-400">🔑 Reset PIN Admin</h3>
-              <button onclick="location.reload()" class="text-slate-400 hover:text-white text-xs">Kembali</button>
-            </div>
-            <p class="text-[11px] text-slate-300">Masukkan email admin (<span class="font-mono text-cyan-300">${adminAuth.email}</span>):</p>
-            <input type="email" id="forgotEmailInput" placeholder="Email" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded text-white text-xs">
-            <button onclick="sendForgotPinOtp()" class="w-full bg-pink-600 text-white py-2.5 rounded-lg font-bold text-xs">Kirim OTP</button>
-            <div id="forgotOtpBox" class="hidden space-y-2 pt-2">
-              <input type="text" id="forgotOtpInput" placeholder="Kode OTP" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-white text-xs text-center font-mono">
-              <input type="password" id="forgotNewPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-800 border border-slate-700 rounded text-white text-xs">
-              <button onclick="verifyAndResetPin()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs">Reset PIN</button>
-            </div>
-          </div>`;
-    }
-
-    function sendForgotPinOtp() {
-        const email = document.getElementById('forgotEmailInput').value.trim();
-        if(email !== adminAuth.email) return showToast('Email tidak terdaftar!', 'error');
-        const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
-        activeOtpData = { code: generatedOtp };
-        showToast(`[Simulasi OTP] Kode Anda: ${generatedOtp}`);
-        document.getElementById('forgotOtpBox').classList.remove('hidden');
-    }
-
-    function verifyAndResetPin() {
-        const otp = document.getElementById('forgotOtpInput').value.trim();
-        const newPin = document.getElementById('forgotNewPinInput').value.trim();
-        if(otp !== activeOtpData.code) return showToast('Kode OTP salah!', 'error');
-        if(!newPin) return showToast('Masukkan PIN baru!', 'error');
-        adminAuth.pin = newPin;
-        saveAllDataToDevice();
-        showToast('PIN berhasil direset!');
-        setTimeout(() => location.reload(), 1500);
-    }
-
-    function handleCustomMicroVideoUpload(event, sectionKey) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const blobUrl = URL.createObjectURL(file);
-        sectionMicroVideos[sectionKey] = blobUrl;
-        const urlInput = document.getElementById(`microVideoInput-${sectionKey}`);
-        if(urlInput) urlInput.value = blobUrl;
-        saveAllDataToDevice();
-        applySectionMicroVideos();
-        showToast('Video kecil diunggah!');
-    }
-
-    function saveAllMicroVideos() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const el = document.getElementById(`microVideoInput-${k}`);
-            const cb = document.getElementById(`visMicro-${k}`);
-            if(el) sectionMicroVideos[k] = el.value.trim();
-            if(cb) sectionMicroVideoVisibility[k] = cb.checked;
-        });
-        saveAllDataToDevice();
-        applySectionMicroVideos();
-        showToast('Video kecil & saklar disimpan!');
-        backToDashboard();
-    }
-
-    function applySectionMicroVideos() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const container = document.getElementById(`microVideo-${k}`);
-            if(!container) return;
-            const isVisible = sectionMicroVideoVisibility[k] !== false;
-            const url = sectionMicroVideos[k];
-            if(!isVisible || !url) {
-                container.innerHTML = '';
-                container.classList.add('hidden');
-                return;
-            }
-            container.classList.remove('hidden');
-            container.innerHTML = `<video autoplay muted loop playsinline class="w-full h-auto object-cover rounded-2xl shadow-md border border-white/20 mb-3"><source src="${url}" type="video/mp4"></video>`;
-        });
-    }
-
-    function handleSectionBackgroundUpload(event, sectionKey) {
-        const file = event.target.files[0];
-        if(!file) return;
-        compressImageFile(file, (compressedBase64) => {
-            sectionBackgrounds[sectionKey] = compressedBase64;
-            const urlInput = document.getElementById(`bgUrlInput-${sectionKey}`);
-            if(urlInput) urlInput.value = compressedBase64;
-            saveAllDataToDevice();
-            applySectionBackgrounds();
-            showToast('Background dikompresi & diunggah!');
-        });
-    }
-
-    function saveAllSectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const el = document.getElementById(`bgUrlInput-${k}`);
-            const cb = document.getElementById(`visBg-${k}`);
-            const dimInput = document.getElementById(`dimmerInput-${k}`);
-            if(el) sectionBackgrounds[k] = el.value.trim();
-            if(cb) sectionBackgroundVisibility[k] = cb.checked;
-            if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
-        });
-        saveAllDataToDevice();
-        applySectionBackgrounds();
-        showToast('Background & Dimer disimpan!');
-        backToDashboard();
-    }
-
-    function applySectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
-            if(!secEl) return;
-            const isVisible = sectionBackgroundVisibility[k] !== false;
-            const bgUrl = sectionBackgrounds[k];
-            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
-            if(!isVisible || !bgUrl) {
-                if(k !== 'hero') secEl.style.backgroundImage = '';
-            } else {
-                if(k === 'hero') {
-                    const heroBg = document.getElementById('mainHeroBg');
-                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
-                } else {
-                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
-                    secEl.style.backgroundSize = 'cover';
-                    secEl.style.backgroundPosition = 'center';
-                }
-            }
-        });
-    }
-
-    function handleMultiPhotoUpload(event, sectionKey) {
-        const files = event.target.files;
-        if(!files || files.length === 0) return;
-        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
-        let loadedCount = 0;
-        Array.from(files).forEach(file => {
-            compressImageFile(file, (compressedBase64) => {
-                sectionPhotos[sectionKey].push(compressedBase64);
-                loadedCount++;
-                if(loadedCount === files.length) {
-                    saveAllDataToDevice();
-                    openAdminModule('dynamicPhotos');
-                    showToast('Foto berhasil dikompresi & disimpan!');
-                }
-            }, 800, 0.7);
-        });
-    }
-
-    function removeSectionPhoto(sectionKey, index) {
-        if(sectionPhotos[sectionKey]) {
-            sectionPhotos[sectionKey].splice(index, 1);
-            saveAllDataToDevice();
-            openAdminModule('dynamicPhotos');
-            showToast('Foto dihapus.');
-        }
-    }
-
-    function saveMultiPhotoConfig() {
-        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-        sections.forEach(sec => {
-            const cb = document.getElementById(`visPhoto-${sec}`);
-            if(cb) sectionPhotoVisibility[sec] = cb.checked;
-        });
-        saveAllDataToDevice();
-        applySectionPhotos();
-        showToast('Foto & saklar disimpan!');
-        backToDashboard();
-    }
-
-    function moveSection(index, direction) {
-        const newIndex = index + direction;
-        if(newIndex < 0 || newIndex >= sectionOrder.length) return;
-        const temp = sectionOrder[index];
-        sectionOrder[index] = sectionOrder[newIndex];
-        sectionOrder[newIndex] = temp;
-        saveAllDataToDevice();
-        applySectionOrder();
-        openAdminModule('sectionReorder');
-    }
-
-    function applySectionOrder() {
-        const container = document.getElementById('sectionsContainer');
-        if(!container) return;
-        sectionOrder.forEach(key => {
-            const el = container.querySelector(`[data-section-key="${key}"]`);
-            if(el) container.appendChild(el);
-        });
     }
 
     function applyEventPreset() {
         const selKey = document.getElementById('selectEventPreset').value;
         const preset = eventPresetsList[selKey];
-        if (!preset) return showToast('Preset tidak ditemukan!', 'error');
+        if(!preset) return;
         currentCategoryKey = selKey;
         for(let k in defaultText) {
-            if(preset[k] !== undefined) {
-                let isTl = (k !== 'alamat' && k !== 'quoteText');
-                textElements[k] = { text: preset[k], typewriter: isTl };
-            }
+            if(preset[k] !== undefined) textElements[k] = { text: preset[k], typewriter: true };
         }
+        if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         saveAllDataToDevice();
         applyTextElementsToDOM();
         showToast('Preset diterapkan!');
         backToDashboard();
     }
 
-    function saveGenZFrameAndSpeed() {
-        ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
-        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 30;
-        saveAllDataToDevice();
-        applyUltimateConfig();
-        runGlobalTypewriter();
-        showToast('Pengaturan disimpan!');
-        backToDashboard();
-    }
-
-    function applySectionPhotos() {
-        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-        sections.forEach(key => {
-            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
-            if(!container) return;
-            const isVisible = sectionPhotoVisibility[key] !== false;
-            const photosArr = sectionPhotos[key] || [];
-            if(!isVisible || photosArr.length === 0) {
-                container.innerHTML = '';
-                container.classList.add('hidden');
-                return;
-            }
-            container.classList.remove('hidden');
-            container.className = "grid grid-cols-2 gap-2 mb-3";
-            let gridHtml = '';
-            photosArr.forEach(url => {
-                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
-            });
-            container.innerHTML = gridHtml;
-        });
-    }
-
-    function addWargaToDb() {
-        const name = document.getElementById('newWargaName').value.trim();
-        const whatsapp = document.getElementById('newWargaPhone').value.trim();
-        const sharelok = document.getElementById('newWargaSharelok').value.trim();
-        if(!name || !whatsapp) return showToast('Isi nama dan nomor WhatsApp!', 'error');
-        guestDatabase.push({ name, whatsapp, sharelok });
-        saveAllDataToDevice();
-        renderAdminWargaList();
-        document.getElementById('newWargaName').value = '';
-        document.getElementById('newWargaPhone').value = '';
-        document.getElementById('newWargaSharelok').value = '';
-        showToast('Tamu ditambahkan!');
-    }
-
-    function deleteWarga(index) {
-        guestDatabase.splice(index, 1);
-        saveAllDataToDevice();
-        renderAdminWargaList();
-        showToast('Dihapus.');
-    }
-
-    function sendPersonalWhatsApp(name, phone, sharelok) {
-        const cleanPhone = phone.replace(/[^0-9]/g, '');
-        const personalLink = generateShareableLink(name);
-        let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
-        if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
-        window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function sendMassWhatsApp() {
-        if(guestDatabase.length === 0) return showToast('Database kosong!', 'error');
-        let textResult = "*DAFTAR WA.ME*\n\n";
-        guestDatabase.forEach((w, idx) => {
-            const pLink = generateShareableLink(w.name);
-            const cleanPhone = w.whatsapp.replace(/[^0-9]/g, '');
-            let msg = waTemplate.replace('{nama}', w.name).replace('{link}', pLink);
-            if(w.sharelok) msg += `\n\nSharelok: ${w.sharelok}`;
-            const waMeLink = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
-            textResult += `${idx+1}. *${w.name}*\n${waMeLink}\n\n`;
-        });
-        const textarea = document.createElement('textarea');
-        textarea.value = textResult;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        showToast('Link massal disalin!');
-    }
-
-    function saveAdminWaTemplate() {
-        waTemplate = document.getElementById('adminWaTemplate').value;
-        saveAllDataToDevice();
-        showToast('Template disimpan!');
-    }
-
-    function renderAdminWargaList() {
-        const container = document.getElementById('adminWargaListContainer');
-        if(!container) return;
-        container.innerHTML = '';
-        if(guestDatabase.length === 0) {
-            container.innerHTML = '<p class="text-slate-400 text-center py-2">Kosong</p>';
-            return;
-        }
-        guestDatabase.forEach((w, idx) => {
-            container.innerHTML += `
-              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
-                <div>
-                  <p class="font-bold text-white">${w.name}</p>
-                  <p class="text-emerald-400 text-[10px]">${w.whatsapp}</p>
-                </div>
-                <div class="flex space-x-1.5 items-center">
-                  <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}', '${w.sharelok || ''}')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i></button>
-                  <button onclick="deleteWarga(${idx})" class="bg-rose-600 text-white px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-trash"></i></button>
-                </div>
-              </div>`;
-        });
-    }
-
-    function backToDashboard() {
-      document.getElementById('adminModuleView').classList.add('hidden');
-      document.getElementById('adminDashboardView').classList.remove('hidden');
-    }
-
-    function handleImageUpload(event, type) {
-        const file = event.target.files[0];
-        if(!file) return;
-        compressImageFile(file, (base64) => {
-            if(type === 'prewed') ultimateConfig.coverBg = base64;
-            if(type === 'profile1') ultimateConfig.profile1Img = base64;
-            if(type === 'profile2') ultimateConfig.profile2Img = base64;
-            if(type === 'qris') giftConfig.qrisImage = base64;
-            saveAllDataToDevice();
-            applyUltimateConfig();
-            applyGiftToDOM();
-            showToast('Foto berhasil dimuat & disimpan!');
-        }, 800, 0.7);
-    }
-
-    function handleAudioUpload(event) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            ultimateConfig.musicUrl = e.target.result;
-            const urlInput = document.getElementById('inputMusicUrl');
-            if(urlInput) urlInput.value = ultimateConfig.musicUrl;
-            saveAllDataToDevice();
-            showToast('Audio dimuat!');
-        };
-        reader.readAsDataURL(file);
-    }
-
-    function handleVideoUpload(event) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const blobUrl = URL.createObjectURL(file);
-        ultimateConfig.videoUrl = blobUrl;
-        const urlInput = document.getElementById('inputVideoUrl');
-        if(urlInput) urlInput.value = blobUrl;
-        applyUltimateConfig();
-        saveAllDataToDevice();
-        showToast('Video dimuat!');
-    }
-
-    function applyUltimateConfig() {
-        try {
-            document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
-            const coverBg = document.getElementById('coverBgImage');
-            const heroBg = document.getElementById('mainHeroBg');
-            if(coverBg && ultimateConfig.coverBg) coverBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
-            if(heroBg && ultimateConfig.coverBg) heroBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
-
-            const prof1 = document.getElementById('img-groom');
-            const prof2 = document.getElementById('img-bride');
-            if(prof1 && ultimateConfig.profile1Img) prof1.src = ultimateConfig.profile1Img;
-            if(prof2 && ultimateConfig.profile2Img) prof2.src = ultimateConfig.profile2Img;
-
-            const f1 = document.getElementById('profile1FrameContainer');
-            const f2 = document.getElementById('profile2FrameContainer');
-            const frameClass = ultimateConfig.photoFrame || 'frame-polaroid';
-            if(f1) f1.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
-            if(f2) f2.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
-
-            const vidSource = document.getElementById('mp4VideoSource');
-            const vidElem = document.getElementById('mainMp4Video');
-            if(vidSource && ultimateConfig.videoUrl) {
-                vidSource.src = ultimateConfig.videoUrl;
-                if(vidElem) vidElem.load();
-            }
-        } catch(e) {}
-    }
-
-    function changeVolume(val) {
-        ultimateConfig.musicVolume = parseFloat(val);
-        const audio = document.getElementById('bgMusic');
-        if(audio) audio.volume = ultimateConfig.musicVolume;
-    }
-
-    function saveDesignConfig() {
-        ultimateConfig.font = document.getElementById('editFont').value;
-        saveAllDataToDevice();
-        applyUltimateConfig();
-        showToast('Desain disimpan!');
-    }
-
-    function saveMusicAndVideoConfig() {
-        const musicUrlInput = document.getElementById('inputMusicUrl').value.trim();
-        const videoUrlInput = document.getElementById('inputVideoUrl').value.trim();
-        if(musicUrlInput) ultimateConfig.musicUrl = musicUrlInput;
-        if(videoUrlInput) ultimateConfig.videoUrl = videoUrlInput;
-        saveAllDataToDevice();
-        applyUltimateConfig();
-        showToast('Disimpan!');
-        backToDashboard();
-    }
-
     function saveTextTable() {
       for (let key in defaultText) { 
           const input = document.getElementById(`txt-${key}`); 
-          const checkbox = document.getElementById(`tw-${key}`);
-          if (input) {
-              textElements[key] = { text: input.value, typewriter: checkbox ? checkbox.checked : true };
-          }
+          if (input) textElements[key] = { text: input.value, typewriter: true };
       }
       saveAllDataToDevice();
       applyTextElementsToDOM();
@@ -1391,57 +446,44 @@
     }
 
     function saveGiftConfig() {
-        giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
         giftConfig.bank = document.getElementById('inputBankName').value;
         giftConfig.number = document.getElementById('inputRekNumber').value;
-        giftConfig.owner = document.getElementById('inputRekOwner').value;
         saveAllDataToDevice();
-        applyGiftToDOM();
         showToast('Amplop disimpan!');
         backToDashboard();
     }
 
-    function applyGiftToDOM() {
-        const amplopSection = document.getElementById('amplopSectionContainer');
-        if(amplopSection) amplopSection.style.display = giftConfig.visible === false ? 'none' : 'block';
-        const dbn = document.getElementById('displayBankName');
-        const drn = document.getElementById('displayRekNumber');
-        const dro = document.getElementById('displayRekOwner');
-        if(dbn) dbn.innerText = giftConfig.bank || "Bank BCA";
-        if(drn) drn.innerText = giftConfig.number || "1234567890";
-        if(dro) dro.innerText = giftConfig.owner || "A.N Rian Pratama";
-        const qrisBox = document.getElementById('qrisImageRender');
-        if(qrisBox && giftConfig.qrisImage) qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain">`;
+    function addWargaToDb() {
+        const name = document.getElementById('newWargaName').value.trim();
+        const whatsapp = document.getElementById('newWargaPhone').value.trim();
+        if(!name || !whatsapp) return;
+        guestDatabase.push({ name, whatsapp, sharelok: '' });
+        saveAllDataToDevice();
+        renderAdminWargaList();
+        showToast('Ditambahkan!');
     }
 
-    function runGlobalTypewriter() {
-        const speed = ultimateConfig.typewriterSpeed || 30;
-        const mappedElements = document.querySelectorAll('[data-key]');
-        mappedElements.forEach((el, index) => {
-            const key = el.getAttribute('data-key');
-            const item = textElements[key];
-            if(!item) return;
-            const fullText = item.text;
-            const useTypewriter = item.typewriter !== false;
-            
-            if(!useTypewriter || key === 'alamat' || key === 'quoteText') {
-                el.innerText = fullText;
-                return;
-            }
+    function renderAdminWargaList() {
+        const container = document.getElementById('adminWargaListContainer');
+        if(!container) return;
+        container.innerHTML = guestDatabase.map((w, idx) => `
+            <div class="bg-slate-800 p-2 rounded flex justify-between items-center">
+                <span>${w.name} (${w.whatsapp})</span>
+                <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px]">WA</button>
+            </div>
+        `).join('');
+    }
 
-            el.innerText = "";
-            let charIndex = 0;
-            setTimeout(() => {
-                function typeNext() {
-                    if(charIndex < fullText.length) {
-                        el.innerText += fullText.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeNext, speed);
-                    }
-                }
-                typeNext();
-            }, index * 200);
-        });
+    function sendPersonalWhatsApp(name, phone) {
+        const cleanPhone = phone.replace(/[^0-9]/g, '');
+        const personalLink = generateShareableLink(name);
+        const msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
+        window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function backToDashboard() {
+      document.getElementById('adminModuleView').classList.add('hidden');
+      document.getElementById('adminDashboardView').classList.remove('hidden');
     }
 
     function applyTextElementsToDOM() {
@@ -1455,93 +497,30 @@
         };
         for (let elementId in idMap) {
             const el = document.getElementById(elementId);
-            if(el) {
-                el.setAttribute('data-key', idMap[elementId]);
-                const item = textElements[idMap[elementId]];
-                if (item) el.innerText = item.text;
+            if(el && textElements[idMap[elementId]]) {
+                el.innerText = textElements[idMap[elementId]].text;
             }
         }
-        runGlobalTypewriter();
-    }
-
-    function renderWishesToDOM() {
-        const container = document.getElementById('wishesList');
-        if(!container) return;
-        container.innerHTML = '';
-        attendanceList.forEach(w => {
-            container.innerHTML += `
-              <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
-                <div class="flex justify-between items-center font-bold text-slate-800">
-                  <span>${w.name}</span>
-                  <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
-                </div>
-                <p class="text-slate-600">${w.message}</p>
-              </div>`;
-        });
-    }
-
-    function renderAdminWishes() {
-      const container = document.getElementById('adminGuestList');
-      if (!container) return;
-      container.innerHTML = '';
-      attendanceList.forEach(w => {
-        container.innerHTML += `
-          <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1">
-            <div class="flex justify-between font-bold text-white"><span>${w.name} (${w.status})</span></div>
-            <p class="text-slate-400 italic">"${w.message}"</p>
-          </div>`;
-      });
     }
 
     function bukaUndanganSekarang() {
-        const cover = document.getElementById('coverSection');
-        const main = document.getElementById('mainContent');
-        if (cover) { cover.style.display = 'none'; cover.remove(); }
-        if (main) { main.style.display = 'block'; main.style.opacity = '1'; }
+        document.getElementById('coverSection').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+        document.getElementById('mainContent').style.opacity = '1';
         window.scrollTo(0, 0);
-        runGlobalTypewriter();
-        try {
-            const audio = document.getElementById('bgMusic');
-            if (audio) {
-                audio.volume = ultimateConfig.musicVolume || 0.5;
-                if (ultimateConfig.musicUrl && audio.src !== ultimateConfig.musicUrl) audio.src = ultimateConfig.musicUrl;
-                audio.play().catch(e => {});
-                isPlaying = true;
-                const icon = document.getElementById('musicIcon');
-                const label = document.getElementById('musicLabel');
-                if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
-                if(label) label.innerText = "Playing";
-            }
-        } catch(e) {}
+        try { document.getElementById('bgMusic').play().catch(e => {}); } catch(e) {}
     }
 
     function toggleMusic() {
-      const music = document.getElementById('bgMusic');
-      const icon = document.getElementById('musicIcon');
-      const label = document.getElementById('musicLabel');
-      if (!music) return;
-      if (isPlaying) { 
-          music.pause(); 
-          if(icon) icon.className = "fa-solid fa-music text-sm"; 
-          if(label) label.innerText = "Paused"; 
-      } else { 
-          music.play().catch(e => {}); 
-          if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
-          if(label) label.innerText = "Playing"; 
-      }
-      isPlaying = !isPlaying;
+        const music = document.getElementById('bgMusic');
+        isPlaying ? music.pause() : music.play().catch(e => {});
+        isPlaying = !isPlaying;
     }
 
-    function copyToClipboard(text, bank) { 
-        navigator.clipboard.writeText(text).then(() => { showToast(`Rekening ${bank} disalin!`); }); 
-    }
-    
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
-    
     function verifyPin() {
-      const pin = document.getElementById('adminPinInput');
-      if (pin && pin.value.trim() === adminAuth.pin) { 
+      if (document.getElementById('adminPinInput').value.trim() === adminAuth.pin) { 
           document.getElementById('pinSection').classList.add('hidden'); 
           document.getElementById('editorBody').classList.remove('hidden'); 
           backToDashboard(); 
@@ -1550,48 +529,24 @@
     }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
 
-    function submitWish() {
-      const name = document.getElementById('guestInputName').value.trim();
-      const status = document.getElementById('attendanceStatus').value;
-      const message = document.getElementById('guestMessage').value.trim();
-      if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
-      attendanceList.unshift({ name, status, message });
-      saveAllDataToDevice();
-      renderWishesToDOM();
-      showToast('Ucapan dikirim!');
-      document.getElementById('guestInputName').value = '';
-      document.getElementById('guestMessage').value = '';
-    }
-
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
     function shareGeneralWhatsApp() {
         const shareUrl = generateShareableLink();
-        const coupleTitle = textElements.coupleName ? textElements.coupleName.text : 'Undangan';
-        const text = `✨ UNDANGAN DIGITAL ✨\n${coupleTitle}\n\nSilakan buka tautan undangan berikut:\n${shareUrl}`;
+        const text = `✨ UNDANGAN DIGITAL ✨\n\nSilakan buka tautan undangan berikut:\n${shareUrl}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     window.onload = function() {
-        try { renderDashboardCards(); } catch(e) {}
-        try { applyUltimateConfig(); } catch(e) {}
-        try { applyGiftToDOM(); } catch(e) {}
-        try { renderWishesToDOM(); } catch(e) {}
-        try { applySectionOrder(); } catch(e) {}
-        try { applyTextElementsToDOM(); } catch(e) {}
-        try { applySectionPhotos(); } catch(e) {}
-        try { applySectionMicroVideos(); } catch(e) {}
-        try { applySectionBackgrounds(); } catch(e) {}
-
+        renderDashboardCards();
+        applyTextElementsToDOM();
         try {
             const urlParams = new URLSearchParams(window.location.search);
             const toParam = urlParams.get('to');
             if (toParam) {
                 const dec = decodeURIComponent(toParam);
-                const gName = document.getElementById('guestName');
-                const gInput = document.getElementById('guestInputName');
-                if(gName) gName.innerText = dec;
-                if(gInput) gInput.value = dec;
+                document.getElementById('guestName').innerText = dec;
+                document.getElementById('guestInputName').value = dec;
             }
         } catch(e) {}
     };
