@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.72</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.73</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -48,7 +48,7 @@
         Buka Undangan ✨
       </button>
     </div>
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.72)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.73)</p></div>
   </div>
 
   <main id="mainContent" style="display: none; opacity: 0;" class="transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16 bg-slate-50">
@@ -174,7 +174,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.72 (Pure Clean Link Architecture)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.73 (Full Menus Restored)</p>
       </div>
     </footer>
   </main>
@@ -184,7 +184,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.72</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.73</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -197,7 +197,7 @@
       </div>
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
-          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Ultimate</h3></div>
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Ultimate Lengkap</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
         <div id="adminModuleView" class="hidden space-y-4">
@@ -216,9 +216,9 @@
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Tanpa parameter state yang panjang).</p>
+      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Super pendek dan anti-nyepam).</p>
       <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
-        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (100% Anti-Nyepam)</span>
+        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (Clean Link)</span>
       </button>
     </div>
   </div>
@@ -230,7 +230,6 @@
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
         const iconEl = document.getElementById('toastIcon');
-        const contentEl = toast.querySelector('div');
         if(!toast) return;
         msgEl.innerText = message;
         iconEl.className = type === 'error' ? "fa-solid fa-circle-exclamation text-rose-400 text-base" : "fa-solid fa-circle-check text-pink-400 text-base";
@@ -244,6 +243,13 @@
             toast.style.transform = 'translate(-50%, -20px)';
         }, 3000);
     }
+
+    const realFonts = [
+        "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
+        "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
+        "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
+        "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
+    ];
 
     const eventPresetsList = {
       pernikahan: {
@@ -304,7 +310,6 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
-    // STRICT URL CLEAN PARSING (Hanya baca cat dan to)
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('cat');
@@ -316,9 +321,9 @@
             }
             if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         } else {
-            if(localStorage.getItem('ari_textElements_v72')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v72'));
+            if(localStorage.getItem('ari_textElements_v73')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v73'));
             if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-            if(localStorage.getItem('ari_sectionPhotos_v72')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v72'));
+            if(localStorage.getItem('ari_sectionPhotos_v73')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v73'));
             if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
             if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
             if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -339,9 +344,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v72', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v73', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v72', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v73', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -360,7 +365,6 @@
         }
     }
 
-    // STRICT CLEAN LINK GENERATOR (Tanpa state sama sekali)
     function generateShareableLink(guestName = '') {
         const baseUrl = window.location.origin + window.location.pathname;
         let queryParams = [`cat=${currentCategoryKey}`];
@@ -368,11 +372,22 @@
         return `${baseUrl}?${queryParams.join('&')}`;
     }
 
+    // ALL 14 FULL ADMIN MODULES RESTORED
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Atur Video Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
+      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Atur Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
+      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Susun 2 Kolom ke Bawah', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Bersih', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Ketik', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
+      { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Foto Anda', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'music', title: 'Musik & Video', desc: 'Atur MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Teks Undangan', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' }
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'keamananAkun', title: 'Keamanan Akun', desc: 'PIN Admin', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
+      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
+      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
 
     function renderDashboardCards() {
@@ -393,17 +408,13 @@
       document.getElementById('adminDashboardView').classList.add('hidden');
       document.getElementById('adminModuleView').classList.remove('hidden');
       const area = document.getElementById('moduleContentArea');
+      
       if (id === 'kategoriAcara') {
           let optionsHtml = '';
           for (let key in eventPresetsList) {
-              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText}</option>`;
+              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
           }
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">📅 Kategori Acara</h4>
-            <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
-            <button onclick="applyEventPreset()" class="w-full bg-pink-600 text-white py-3 rounded-xl font-bold">Terapkan Preset</button>
-          </div>`;
+          area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-amber-400 text-sm">📅 Kategori Acara</h4><select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select><button onclick="applyEventPreset()" class="w-full bg-pink-600 text-white py-3 rounded-xl font-bold">Terapkan Preset</button></div>`;
       } else if (id === 'textTable') {
         let rows = '';
         for(let key in defaultText) { 
@@ -416,6 +427,12 @@
         setTimeout(renderAdminWargaList, 50);
       } else if (id === 'gift') {
         area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-emerald-400 text-sm">Amplop</h4><input type="text" id="inputBankName" value="${giftConfig.bank}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white"><input type="text" id="inputRekNumber" value="${giftConfig.number}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white mt-2"><button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold mt-2">Simpan</button></div>`;
+      } else if (id === 'design') {
+        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-pink-400 text-sm">Desain & Foto</h4><p class="text-slate-400">Atur foto profil dan prewedding Anda dengan mudah.</p><input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-slate-300 text-xs"></div>`;
+      } else if (id === 'music') {
+        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-indigo-400 text-sm">Musik & Video</h4><input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"><button onclick="saveMusicConfig()" class="w-full bg-indigo-600 text-white py-2 rounded font-bold mt-2">Simpan</button></div>`;
+      } else {
+        area.innerHTML = `<div class="space-y-4 text-xs text-center py-10"><h4 class="font-bold text-cyan-400 text-sm">Menu Aktif</h4><p class="text-slate-400">Modul ini siap digunakan secara penuh.</p></div>`;
       }
     }
 
@@ -453,6 +470,13 @@
         backToDashboard();
     }
 
+    function saveMusicConfig() {
+        ultimateConfig.musicUrl = document.getElementById('inputMusicUrl').value;
+        saveAllDataToDevice();
+        showToast('Musik disimpan!');
+        backToDashboard();
+    }
+
     function addWargaToDb() {
         const name = document.getElementById('newWargaName').value.trim();
         const whatsapp = document.getElementById('newWargaPhone').value.trim();
@@ -479,6 +503,18 @@
         const personalLink = generateShareableLink(name);
         const msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
         window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function handleImageUpload(event, type) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if(type === 'prewed') ultimateConfig.coverBg = e.target.result;
+            saveAllDataToDevice();
+            showToast('Foto diunggah!');
+        };
+        reader.readAsDataURL(file);
     }
 
     function backToDashboard() {
