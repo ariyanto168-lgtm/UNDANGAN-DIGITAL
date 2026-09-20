@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.60</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.61</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.60)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.61)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -205,7 +205,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.60 (No Rundown & Full Reorder)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.61 (Background Dimmer)</p>
       </div>
     </footer>
   </main>
@@ -216,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.60</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.61</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -262,7 +262,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.60 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.61 -->
   <script>
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -380,18 +380,20 @@
     let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
     try {
-        if(localStorage.getItem('ari_textElements_v60')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v60'));
+        if(localStorage.getItem('ari_textElements_v61')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v61'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v60')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v60'));
+        if(localStorage.getItem('ari_sectionPhotos_v61')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v61'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
         if(localStorage.getItem('ari_sectionBackgrounds')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds'));
         if(localStorage.getItem('ari_sectionBackgroundVisibility')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility'));
+        if(localStorage.getItem('ari_sectionBackgroundDimmer')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer'));
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
@@ -405,14 +407,15 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v60', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v61', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v60', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v61', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
             localStorage.setItem('ari_sectionBackgrounds', JSON.stringify(sectionBackgrounds));
             localStorage.setItem('ari_sectionBackgroundVisibility', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer', JSON.stringify(sectionBackgroundDimmer));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
@@ -426,7 +429,7 @@
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Atur Video Dinamis Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: 'Background Section', desc: 'Upload Background Foto', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Atur Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun Bebas', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Susun 2 Kolom ke Bawah', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Sharelok', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
@@ -531,6 +534,7 @@
           sections.forEach(sec => {
               let currentUrl = sectionBackgrounds[sec.key] || '';
               let isChecked = sectionBackgroundVisibility[sec.key] !== false ? 'checked' : '';
+              let currentDimmer = sectionBackgroundDimmer[sec.key] !== undefined ? sectionBackgroundDimmer[sec.key] : 0.9;
               htmlBg += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -545,14 +549,21 @@
                   <label class="text-[10px] text-slate-400 block">Atau Upload Foto Background dari Perangkat:</label>
                   <input type="file" accept="image/*" onchange="handleSectionBackgroundUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white mt-1">
                 </div>
+                <div class="pt-2 border-t border-slate-700">
+                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
+                    <span>💡 Dimer Kontras / Redup Background</span>
+                    <span id="dimmerValText-${sec.key}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
+                  </div>
+                  <input type="range" id="dimmerInput-${sec.key}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${sec.key}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
+                </div>
               </div>`;
           });
 
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Upload Background Foto Per Section</h4>
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer Pengatur Terang/Redup</h4>
             <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlBg}</div>
-            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background Section</button>
+            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background & Dimer</button>
           </div>`;
       }
       else if (id === 'sectionReorder') {
@@ -943,12 +954,14 @@
         keys.forEach(k => {
             const el = document.getElementById(`bgUrlInput-${k}`);
             const cb = document.getElementById(`visBg-${k}`);
+            const dimInput = document.getElementById(`dimmerInput-${k}`);
             if(el) sectionBackgrounds[k] = el.value.trim();
             if(cb) sectionBackgroundVisibility[k] = cb.checked;
+            if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
         });
         saveAllDataToDevice();
         applySectionBackgrounds();
-        showToast('Background section disimpan!');
+        showToast('Background & Dimer disimpan!');
         backToDashboard();
     }
 
@@ -959,6 +972,7 @@
             if(!secEl) return;
             const isVisible = sectionBackgroundVisibility[k] !== false;
             const bgUrl = sectionBackgrounds[k];
+            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
             if(!isVisible || !bgUrl) {
                 if(k !== 'hero') secEl.style.backgroundImage = '';
             } else {
@@ -966,7 +980,7 @@
                     const heroBg = document.getElementById('mainHeroBg');
                     if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
                 } else {
-                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('${bgUrl}')`;
+                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
                     secEl.style.backgroundSize = 'cover';
                     secEl.style.backgroundPosition = 'center';
                 }
