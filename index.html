@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.50</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.51</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.50)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.51)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -101,7 +101,43 @@
         </div>
       </section>
 
-      <!-- SECTION 2: QUOTES -->
+      <!-- SECTION 2: RUNDOWN UNIVERSAL DENGAN DROPDOWN HARI H (POSISI DIBAWAH COVER) -->
+      <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="microVideo-rundown" class="w-full"></div>
+        <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <h2 class="text-3xl font-bold text-slate-900">Susunan Acara (Rundown)</h2>
+        
+        <!-- DROPDOWN FILTER HARI H -->
+        <div class="max-w-xs mx-auto">
+          <label class="block text-[11px] font-semibold text-slate-500 mb-1 text-left">Pilih Sesi / Hari H:</label>
+          <select id="publicRundownDaySelect" onchange="renderPublicRundown()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-pink-600 outline-none shadow-sm cursor-pointer">
+            <option value="ALL">Semua Sesi / Hari</option>
+          </select>
+        </div>
+
+        <div id="publicRundownContainer" class="space-y-3 max-w-xs mx-auto text-left pt-2"></div>
+      </section>
+
+      <!-- SECTION 3: JADWAL ACARA -->
+      <section data-section-key="jadwal" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="microVideo-jadwal" class="w-full"></div>
+        <div id="dynamicPhotosGrid-jadwal" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <h2 id="text-titleJadwal" data-key="titleJadwal" class="text-3xl font-bold text-slate-900">Jadwal Acara</h2>
+        <div class="grid grid-cols-1 gap-4 max-w-xs mx-auto text-left">
+          <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 space-y-2">
+            <div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-ring"></i></div>
+            <h3 class="font-bold text-sm text-slate-900">Akad / Pemberkatan</h3>
+            <p id="text-akadTime" data-key="akadTime" class="text-xs text-slate-600 whitespace-pre-line">Pukul 08.00 WIB - Selesai<br>Gedung Serbaguna Jakarta</p>
+          </div>
+          <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 space-y-2">
+            <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-glass-cheers"></i></div>
+            <h3 class="font-bold text-sm text-slate-900">Resepsi</h3>
+            <p id="text-resepsiTime" data-key="resepsiTime" class="text-xs text-slate-600 whitespace-pre-line">Pukul 11.00 WIB - 14.00 WIB<br>Gedung Serbaguna Jakarta</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: QUOTES -->
       <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
         <div id="microVideo-quotes" class="w-full"></div>
         <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -109,7 +145,7 @@
         <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
-      <!-- SECTION 3: MEMPELAI -->
+      <!-- SECTION 5: MEMPELAI -->
       <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
         <div id="microVideo-mempelai" class="w-full"></div>
         <div id="dynamicPhotosGrid-mempelai" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -129,42 +165,6 @@
           </div>
           <h3 id="text-brideName" data-key="brideName" class="text-2xl font-bold text-slate-900 pt-2">Siska Amalia</h3>
         </div>
-      </section>
-
-      <!-- SECTION 4: JADWAL ACARA (1 LAMAN INFO) -->
-      <section data-section-key="jadwal" class="py-10 px-6 text-center section-overlay space-y-6">
-        <div id="microVideo-jadwal" class="w-full"></div>
-        <div id="dynamicPhotosGrid-jadwal" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <h2 id="text-titleJadwal" data-key="titleJadwal" class="text-3xl font-bold text-slate-900">Jadwal Acara</h2>
-        <div class="grid grid-cols-1 gap-4 max-w-xs mx-auto text-left">
-          <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 space-y-2">
-            <div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-ring"></i></div>
-            <h3 class="font-bold text-sm text-slate-900">Akad / Pemberkatan</h3>
-            <p id="text-akadTime" data-key="akadTime" class="text-xs text-slate-600 whitespace-pre-line">Pukul 08.00 WIB - Selesai<br>Gedung Serbaguna Jakarta</p>
-          </div>
-          <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 space-y-2">
-            <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-glass-cheers"></i></div>
-            <h3 class="font-bold text-sm text-slate-900">Resepsi</h3>
-            <p id="text-resepsiTime" data-key="resepsiTime" class="text-xs text-slate-600 whitespace-pre-line">Pukul 11.00 WIB - 14.00 WIB<br>Gedung Serbaguna Jakarta</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 5: RUNDOWN UNIVERSAL DENGAN DROPDOWN HARI H -->
-      <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-6">
-        <div id="microVideo-rundown" class="w-full"></div>
-        <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <h2 class="text-3xl font-bold text-slate-900">Susunan Acara (Rundown)</h2>
-        
-        <!-- DROPDOWN FILTER HARI H -->
-        <div class="max-w-xs mx-auto">
-          <label class="block text-[11px] font-semibold text-slate-500 mb-1 text-left">Pilih Sesi / Hari H:</label>
-          <select id="publicRundownDaySelect" onchange="renderPublicRundown()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-pink-600 outline-none shadow-sm cursor-pointer">
-            <option value="ALL">Semua Sesi / Hari</option>
-          </select>
-        </div>
-
-        <div id="publicRundownContainer" class="space-y-3 max-w-xs mx-auto text-left pt-2"></div>
       </section>
 
       <!-- SECTION 6: VIDEO MP4 REAL-TIME -->
@@ -241,7 +241,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.50 (Universal Rundown & Day-of Dropdown)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.51 (Rundown Under Cover)</p>
       </div>
     </footer>
   </main>
@@ -252,7 +252,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.50</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.51</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -298,7 +298,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.50 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.51 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -541,7 +541,8 @@
       { day: "Hari H (Resepsi)", time: "11:00 - 14:00 WIB", title: "Resepsi Pernikahan", desc: "Jamuan tamu & sesi foto bersama." }
     ];
 
-    let sectionOrder = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp'];
+    // POSISI SECTION: RUNDOWN DIPINDAH TEPAT DIBAWAH COVER (HERO)
+    let sectionOrder = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
 
     let ultimateConfig = { 
@@ -565,13 +566,13 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, jadwal: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v50')) {
+        if(localStorage.getItem('ari_textElements_v51')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v51'));
+        } else if(localStorage.getItem('ari_textElements_v50')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v50'));
-        } else if(localStorage.getItem('ari_textElements_v49')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v49'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v50')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v50'));
+        if(localStorage.getItem('ari_sectionPhotos_v51')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v51'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -591,9 +592,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v50', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v51', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v50', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v51', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -732,10 +733,10 @@
       else if (id === 'animasiStiker') {
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'jadwal', name: '4. Jadwal Acara' },
-              { key: 'rundown', name: '5. Susunan Acara (Rundown)' },
+              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
+              { key: 'jadwal', name: '3. Jadwal Acara' },
+              { key: 'quotes', name: '4. Quotes & Ayat' },
+              { key: 'mempelai', name: '5. Profil Tuan Rumah' },
               { key: 'video', name: '6. Video Dokumentasi' },
               { key: 'lokasi', name: '7. Lokasi & Maps' },
               { key: 'amplop', name: '8. Amplop Digital' },
@@ -775,10 +776,10 @@
       else if (id === 'sectionBackgrounds') {
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'jadwal', name: '4. Jadwal Acara' },
-              { key: 'rundown', name: '5. Susunan Acara (Rundown)' },
+              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
+              { key: 'jadwal', name: '3. Jadwal Acara' },
+              { key: 'quotes', name: '4. Quotes & Ayat' },
+              { key: 'mempelai', name: '5. Profil Tuan Rumah' },
               { key: 'video', name: '6. Video Dokumentasi' },
               { key: 'lokasi', name: '7. Lokasi & Maps' },
               { key: 'amplop', name: '8. Amplop Digital' },
@@ -817,7 +818,7 @@
       }
       else if (id === 'sectionReorder') {
           let listHtml = '';
-          const names = { hero: '1. Cover / Hero Section', quotes: '2. Quotes & Ayat', mempelai: '3. Profil Tuan Rumah', jadwal: '4. Jadwal Acara (1 Laman)', rundown: '5. Susunan Acara (Rundown Universal)', video: '6. Video Dokumentasi MP4', lokasi: '7. Lokasi & Google Maps', amplop: '8. Amplop Digital & QRIS', rsvp: '9. Ucapan & Kehadiran (RSVP)' };
+          const names = { hero: '1. Cover / Hero Section', rundown: '2. Susunan Acara (Rundown Universal)', jadwal: '3. Jadwal Acara', quotes: '4. Quotes & Ayat', mempelai: '5. Profil Tuan Rumah', video: '6. Video Dokumentasi MP4', lokasi: '7. Lokasi & Google Maps', amplop: '8. Amplop Digital & QRIS', rsvp: '9. Ucapan & Kehadiran (RSVP)' };
           sectionOrder.forEach((key, idx) => {
               listHtml += `
               <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
@@ -838,10 +839,10 @@
       else if (id === 'dynamicPhotos') {
           const sectionList = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
-              { key: 'jadwal', name: '4. Jadwal Acara' },
-              { key: 'rundown', name: '5. Susunan Acara (Rundown)' },
+              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
+              { key: 'jadwal', name: '3. Jadwal Acara' },
+              { key: 'quotes', name: '4. Quotes & Ayat' },
+              { key: 'mempelai', name: '5. Profil Tuan Rumah' },
               { key: 'video', name: '6. Foto Dokumentasi' },
               { key: 'lokasi', name: '7. Lokasi & Maps' },
               { key: 'amplop', name: '8. Amplop Digital' },
@@ -1133,7 +1134,6 @@
         const select = document.getElementById('publicRundownDaySelect');
         if(!container || !select) return;
 
-        // Populate dropdown options uniquely
         let daysSet = new Set();
         universalRundownItems.forEach(item => daysSet.add(item.day));
         
@@ -1303,7 +1303,7 @@
     }
 
     function saveAllMicroVideos() {
-        const keys = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`microVideoInput-${k}`);
             const cb = document.getElementById(`visMicro-${k}`);
@@ -1321,7 +1321,7 @@
     }
 
     function applySectionMicroVideos() {
-        const keys = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const container = document.getElementById(`microVideo-${k}`);
             if(!container) return;
@@ -1355,7 +1355,7 @@
     }
 
     function saveAllSectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`bgUrlInput-${k}`);
             const cb = document.getElementById(`visBg-${k}`);
@@ -1373,7 +1373,7 @@
     }
 
     function applySectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
             if(!secEl) return;
@@ -1430,7 +1430,7 @@
     }
 
     function saveMultiPhotoConfig() {
-        const sections = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(sec => {
             const cb = document.getElementById(`visPhoto-${sec}`);
             if(cb) {
@@ -1492,7 +1492,7 @@
     }
 
     function applySectionPhotos() {
-        const sections = ['hero', 'quotes', 'mempelai', 'jadwal', 'rundown', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'rundown', 'jadwal', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(key => {
             const container = document.getElementById(`dynamicPhotosGrid-${key}`);
             if(!container) return;
