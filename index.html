@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.54</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.55</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.54)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.55)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -101,7 +101,15 @@
         </div>
       </section>
 
-      <!-- SECTION 2: SUSUNAN ACARA POLOS / DESKRIPSI BEBAS (DI ATAS QUOTES & AYAT) -->
+      <!-- SECTION 2: QUOTES (DI ATAS SUSUNAN ACARA) -->
+      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
+        <div id="microVideo-quotes" class="w-full"></div>
+        <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
+      </section>
+
+      <!-- SECTION 3: SUSUNAN ACARA POLOS / DESKRIPSI BEBAS (DI BAWAH QUOTES) -->
       <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-rundown" class="w-full"></div>
         <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -109,14 +117,6 @@
         <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 text-left max-w-xs mx-auto">
           <p id="text-susunanAcara" data-key="susunanAcaraText" class="text-xs text-slate-700 whitespace-pre-line leading-relaxed">Pukul 08.00 WIB - Selesai<br>Prosesi Akad / Pemberkatan<br><br>Pukul 11.00 WIB - Selesai<br>Resepsi & Ramah Tamah</p>
         </div>
-      </section>
-
-      <!-- SECTION 3: QUOTES -->
-      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
-        <div id="microVideo-quotes" class="w-full"></div>
-        <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
-        <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
       </section>
 
       <!-- SECTION 4: MEMPELAI -->
@@ -215,7 +215,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.54 (Rundown Above Quotes)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.55 (Rundown Below Quotes)</p>
       </div>
     </footer>
   </main>
@@ -226,7 +226,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.54</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.55</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -272,7 +272,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.54 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.55 -->
   <script>
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -508,8 +508,8 @@
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     
-    // POSISI URUTAN DEFAULT: HERO -> RUNDOWN -> QUOTES -> DST
-    let sectionOrder = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+    // POSISI URUTAN DEFAULT: HERO -> QUOTES -> RUNDOWN -> DST
+    let sectionOrder = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
 
     let ultimateConfig = { 
@@ -533,13 +533,13 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v54')) {
+        if(localStorage.getItem('ari_textElements_v55')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v55'));
+        } else if(localStorage.getItem('ari_textElements_v54')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v54'));
-        } else if(localStorage.getItem('ari_textElements_v53')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v53'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v54')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v54'));
+        if(localStorage.getItem('ari_sectionPhotos_v55')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v55'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -558,9 +558,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v54', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v55', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v54', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v55', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -665,8 +665,8 @@
       else if (id === 'animasiStiker') {
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
-              { key: 'quotes', name: '3. Quotes & Ayat' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
               { key: 'mempelai', name: '4. Profil Tuan Rumah' },
               { key: 'video', name: '5. Video Dokumentasi' },
               { key: 'lokasi', name: '6. Lokasi & Maps' },
@@ -707,8 +707,8 @@
       else if (id === 'sectionBackgrounds') {
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
-              { key: 'quotes', name: '3. Quotes & Ayat' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
               { key: 'mempelai', name: '4. Profil Tuan Rumah' },
               { key: 'video', name: '5. Video Dokumentasi' },
               { key: 'lokasi', name: '6. Lokasi & Maps' },
@@ -748,7 +748,7 @@
       }
       else if (id === 'sectionReorder') {
           let listHtml = '';
-          const names = { hero: '1. Cover / Hero Section', rundown: '2. Susunan Acara (Rundown Bebas)', quotes: '3. Quotes & Ayat', mempelai: '4. Profil Tuan Rumah', video: '5. Video Dokumentasi MP4', lokasi: '6. Lokasi & Google Maps', amplop: '7. Amplop Digital & QRIS', rsvp: '8. Ucapan & Kehadiran (RSVP)' };
+          const names = { hero: '1. Cover / Hero Section', quotes: '2. Quotes & Ayat', rundown: '3. Susunan Acara (Rundown Bebas)', mempelai: '4. Profil Tuan Rumah', video: '5. Video Dokumentasi MP4', lokasi: '6. Lokasi & Google Maps', amplop: '7. Amplop Digital & QRIS', rsvp: '8. Ucapan & Kehadiran (RSVP)' };
           sectionOrder.forEach((key, idx) => {
               listHtml += `
               <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
@@ -769,8 +769,8 @@
       else if (id === 'dynamicPhotos') {
           const sectionList = [
               { key: 'hero', name: '1. Cover / Hero Section' },
-              { key: 'rundown', name: '2. Susunan Acara (Rundown)' },
-              { key: 'quotes', name: '3. Quotes & Ayat' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
               { key: 'mempelai', name: '4. Profil Tuan Rumah' },
               { key: 'video', name: '5. Foto Dokumentasi' },
               { key: 'lokasi', name: '6. Lokasi & Maps' },
@@ -1171,7 +1171,7 @@
     }
 
     function saveAllMicroVideos() {
-        const keys = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`microVideoInput-${k}`);
             const cb = document.getElementById(`visMicro-${k}`);
@@ -1189,7 +1189,7 @@
     }
 
     function applySectionMicroVideos() {
-        const keys = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const container = document.getElementById(`microVideo-${k}`);
             if(!container) return;
@@ -1223,7 +1223,7 @@
     }
 
     function saveAllSectionBackgrounds() {
-        const keys = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`bgUrlInput-${k}`);
             const cb = document.getElementById(`visBg-${k}`);
@@ -1241,7 +1241,7 @@
     }
 
     function applySectionBackgrounds() {
-        const keys = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
             if(!secEl) return;
@@ -1298,7 +1298,7 @@
     }
 
     function saveMultiPhotoConfig() {
-        const sections = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(sec => {
             const cb = document.getElementById(`visPhoto-${sec}`);
             if(cb) {
@@ -1360,7 +1360,7 @@
     }
 
     function applySectionPhotos() {
-        const sections = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(key => {
             const container = document.getElementById(`dynamicPhotosGrid-${key}`);
             if(!container) return;
