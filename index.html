@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.53</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.54</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.53)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.54)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -101,7 +101,7 @@
         </div>
       </section>
 
-      <!-- SECTION 2: SUSUNAN ACARA POLOS / DESKRIPSI BEBAS (POSISI DIBAWAH COVER) -->
+      <!-- SECTION 2: SUSUNAN ACARA POLOS / DESKRIPSI BEBAS (DI ATAS QUOTES & AYAT) -->
       <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-rundown" class="w-full"></div>
         <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
@@ -215,7 +215,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.53 (Free Text Rundown)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.54 (Rundown Above Quotes)</p>
       </div>
     </footer>
   </main>
@@ -226,7 +226,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.53</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.54</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -272,7 +272,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.53 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.54 -->
   <script>
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -508,6 +508,7 @@
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     
+    // POSISI URUTAN DEFAULT: HERO -> RUNDOWN -> QUOTES -> DST
     let sectionOrder = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
 
@@ -532,13 +533,13 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v53')) {
+        if(localStorage.getItem('ari_textElements_v54')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v54'));
+        } else if(localStorage.getItem('ari_textElements_v53')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v53'));
-        } else if(localStorage.getItem('ari_textElements_v52')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v52'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v53')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v53'));
+        if(localStorage.getItem('ari_sectionPhotos_v54')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v54'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -557,9 +558,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v53', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v54', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v53', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v54', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -619,7 +620,7 @@
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & Video Dokumentasi Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks, Deskripsi Susunan Acara & Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks, Susunan Acara & Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop, QRIS & Saklar', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'keamananAkun', title: 'Keamanan Akun & Email Asli', desc: 'Ubah PIN, Lupa PIN, & Ganti Email OTP Real', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
       { id: 'guests', title: 'Buku Tamu & Sharelok', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
