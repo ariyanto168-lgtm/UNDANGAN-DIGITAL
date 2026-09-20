@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.75</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.76</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -48,11 +48,9 @@
         Buka Undangan ✨
       </button>
     </div>
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.75)</p></div>
   </div>
 
   <main id="mainContent" style="display: none; opacity: 0;" class="transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16 bg-slate-50">
-    
     <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
       <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
         <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
@@ -174,7 +172,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.75 (All 14 Menus Fully Packed)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.76 (Full 100% Functionality Restored)</p>
       </div>
     </footer>
   </main>
@@ -184,7 +182,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.75</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.76</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -197,7 +195,7 @@
       </div>
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
-          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ 14 Menu Admin Full Aktif</h3></div>
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ 14 Menu Admin Full Details</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
         <div id="adminModuleView" class="hidden space-y-4">
@@ -216,7 +214,7 @@
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Super pendek dan anti-nyepam).</p>
+      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Super pendek, ringan, 100% anti-nyepam).</p>
       <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
         <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (Clean Link)</span>
       </button>
@@ -230,12 +228,22 @@
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
         const iconEl = document.getElementById('toastIcon');
+        const contentEl = toast.querySelector('div');
         if(!toast) return;
+
         msgEl.innerText = message;
-        iconEl.className = type === 'error' ? "fa-solid fa-circle-exclamation text-rose-400 text-base" : "fa-solid fa-circle-check text-pink-400 text-base";
+        if(type === 'error') {
+            iconEl.className = "fa-solid fa-circle-exclamation text-rose-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-rose-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        } else {
+            iconEl.className = "fa-solid fa-circle-check text-pink-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        }
+
         toast.style.opacity = '1';
         toast.style.pointerEvents = 'auto';
         toast.style.transform = 'translate(-50%, 0)';
+
         if(window.toastTimeout) clearTimeout(window.toastTimeout);
         window.toastTimeout = setTimeout(() => {
             toast.style.opacity = '0';
@@ -291,17 +299,30 @@
 
     let textElements = {};
     for(let k in defaultText) {
-        textElements[k] = { text: defaultText[k], typewriter: true };
+        let isTl = (k !== 'alamat' && k !== 'quoteText');
+        textElements[k] = { text: defaultText[k], typewriter: isTl };
     }
 
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
-    let adminAuth = { pin: "1234", email: "admin@ariyanto.com" };
+    let adminAuth = { pin: "1234", email: "admin@ariyanto.com", emailjsServiceId: "", emailjsTemplateId: "", emailjsPublicKey: "" };
     let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
-    let ultimateConfig = { font: "Plus Jakarta Sans", coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", musicVolume: 0.5, videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", typewriterSpeed: 30, photoFrame: "frame-polaroid", profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" };
+    
+    let ultimateConfig = { 
+        font: "Plus Jakarta Sans", 
+        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", 
+        musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
+        musicVolume: 0.5, 
+        videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        typewriterSpeed: 30, 
+        photoFrame: "frame-polaroid",
+        profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
+        profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+    };
+
     let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
     let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
     let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
@@ -310,6 +331,25 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
+    function compressImageFile(file, callback, maxWidth = 800, quality = 0.7) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+                if(width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; }
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                callback(canvas.toDataURL('image/jpeg', quality));
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('cat');
@@ -317,26 +357,29 @@
             currentCategoryKey = catParam;
             const preset = eventPresetsList[catParam];
             for(let k in defaultText) {
-                if(preset[k] !== undefined) textElements[k] = { text: preset[k], typewriter: true };
+                if(preset[k] !== undefined) {
+                    let isTl = (k !== 'alamat' && k !== 'quoteText');
+                    textElements[k] = { text: preset[k], typewriter: isTl };
+                }
             }
             if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         } else {
-            if(localStorage.getItem('ari_textElements_v75')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v75'));
-            if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-            if(localStorage.getItem('ari_sectionPhotos_v75')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v75'));
-            if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
-            if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
-            if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
-            if(localStorage.getItem('ari_sectionBackgrounds')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds'));
-            if(localStorage.getItem('ari_sectionBackgroundVisibility')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility'));
-            if(localStorage.getItem('ari_sectionBackgroundDimmer')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer'));
-            if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
-            if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
-            if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
-            if(localStorage.getItem('ari_waTemplate')) waTemplate = localStorage.getItem('ari_waTemplate');
-            if(localStorage.getItem('ari_sectionOrder')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder'));
-            if(localStorage.getItem('ari_currentCategory')) currentCategoryKey = localStorage.getItem('ari_currentCategory');
-            if(localStorage.getItem('ari_ultimateConfig')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig')) };
+            if(localStorage.getItem('ari_textElements_v76')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v76'));
+            if(localStorage.getItem('ari_adminAuth_v76')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v76'));
+            if(localStorage.getItem('ari_sectionPhotos_v76')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v76'));
+            if(localStorage.getItem('ari_sectionPhotoVisibility_v76')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v76'));
+            if(localStorage.getItem('ari_sectionMicroVideos_v76')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v76'));
+            if(localStorage.getItem('ari_sectionMicroVideoVisibility_v76')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v76'));
+            if(localStorage.getItem('ari_sectionBackgrounds_v76')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v76'));
+            if(localStorage.getItem('ari_sectionBackgroundVisibility_v76')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v76'));
+            if(localStorage.getItem('ari_sectionBackgroundDimmer_v76')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v76'));
+            if(localStorage.getItem('ari_attendanceList_v76')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v76'));
+            if(localStorage.getItem('ari_guestDatabase_v76')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v76'));
+            if(localStorage.getItem('ari_giftConfig_v76')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v76')) };
+            if(localStorage.getItem('ari_waTemplate_v76')) waTemplate = localStorage.getItem('ari_waTemplate_v76');
+            if(localStorage.getItem('ari_sectionOrder_v76')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v76'));
+            if(localStorage.getItem('ari_currentCategory_v76')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v76');
+            if(localStorage.getItem('ari_ultimateConfig_v76')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v76')) };
         }
     } catch (e) {}
 
@@ -344,24 +387,24 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v75', JSON.stringify(textElements));
-            localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v75', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate', waTemplate);
-            localStorage.setItem('ari_sectionOrder', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v76', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth_v76', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v76', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v76', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v76', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionMicroVideoVisibility_v76', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v76', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v76', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v76', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v76', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v76', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v76', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v76', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v76', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v76', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v76', JSON.stringify(ultimateConfig));
         } catch (e) {
-            showToast('Penyimpanan penuh!', 'error');
+            showToast('Penyimpanan penuh! Perkecil ukuran media.', 'error');
         }
     }
 
@@ -374,19 +417,19 @@
 
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
-      { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Atur Video Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Atur Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Upload Video MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
+      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Susun 2 Kolom ke Bawah', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
-      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Bersih', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
-      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Ketik', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
-      { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Foto Anda', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'music', title: 'Musik & Video', desc: 'Atur MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Teks Undangan', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'keamananAkun', title: 'Keamanan Akun', desc: 'PIN Admin', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
-      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
-      { id: 'backup', title: 'Backup & Restore', desc: 'Amankan Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Upload Galeri & Hapus', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
+      { id: 'design', title: 'Desain & Foto Profil', desc: 'Font, Prewed, Profil', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'music', title: 'Musik & Video', desc: 'Upload MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Semua Teks', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Upload QRIS & Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'keamananAkun', title: 'Keamanan & Email', desc: 'PIN & EmailJS Config', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
+      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran (RSVP)', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
+      { id: 'backup', title: 'Backup & Restore', desc: 'Export & Import Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
 
     function renderDashboardCards() {
@@ -395,9 +438,11 @@
       grid.innerHTML = '';
       adminModules.forEach(mod => {
         grid.innerHTML += `
-          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition flex flex-col justify-between space-y-2 text-white">
-            <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
-            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80">${mod.desc}</p></div>
+          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
+            <div class="flex justify-between items-start">
+              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
+            </div>
+            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
           </div>
         `;
       });
@@ -413,149 +458,588 @@
           for (let key in eventPresetsList) {
               optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
           }
-          area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-amber-400 text-sm">📅 Kategori Acara</h4><select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select><button onclick="applyEventPreset()" class="w-full bg-pink-600 text-white py-3 rounded-xl font-bold">Terapkan Preset</button></div>`;
-      } 
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">📅 Pilih Kategori Acara</h4>
+            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
+                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset</button>
+            </div>
+          </div>`;
+      }
       else if (id === 'animasiStiker') {
-          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-          let html = secs.map(s => `<div class="bg-slate-800 p-2.5 rounded border border-slate-700 space-y-1"><span class="font-bold text-purple-300">Section: ${s}</span><input type="text" id="micro-${s}" value="${sectionMicroVideos[s] || ''}" placeholder="URL MP4" class="w-full p-1.5 bg-slate-900 border border-slate-600 rounded text-white text-xs"></div>`).join('');
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-purple-400 text-sm">🎥 Micro-Video Per Section</h4>${html}<button onclick="saveMicroVideosAdmin()" class="w-full bg-purple-600 text-white py-2 rounded font-bold">Simpan Video</button></div>`;
+          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+          let htmlSections = '';
+          sections.forEach(s => {
+              let currentUrl = sectionMicroVideos[s] || '';
+              let isChecked = sectionMicroVideoVisibility[s] !== false ? 'checked' : '';
+              htmlSections += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-200">Section: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                    <input type="checkbox" id="visMicro-${s}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                    <span>Tampilkan Video</span>
+                  </label>
+                </div>
+                <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="URL MP4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
+                <div class="pt-1">
+                  <label class="text-[10px] text-slate-400 block">Atau Upload File MP4:</label>
+                  <input type="file" accept="video/mp4" onchange="handleCustomMicroVideoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-purple-600 file:text-white mt-1">
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil Dinamis</h4>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlSections}</div>
+            <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
+          </div>`;
       }
       else if (id === 'sectionBackgrounds') {
-          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-          let html = secs.map(s => `<div class="bg-slate-800 p-2.5 rounded border border-slate-700 space-y-1"><span class="font-bold text-teal-300">Background: ${s}</span><input type="text" id="bg-${s}" value="${sectionBackgrounds[s] || ''}" placeholder="URL Background" class="w-full p-1.5 bg-slate-900 border border-slate-600 rounded text-white text-xs"></div>`).join('');
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer</h4>${html}<button onclick="saveBackgroundsAdmin()" class="w-full bg-teal-600 text-white py-2 rounded font-bold">Simpan Background</button></div>`;
+          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+          let htmlBg = '';
+          sections.forEach(s => {
+              let currentUrl = sectionBackgrounds[s] || '';
+              let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
+              let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
+              htmlBg += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-teal-300">Background: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-teal-300 font-bold">
+                    <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600 rounded cursor-pointer">
+                    <span>Aktifkan</span>
+                  </label>
+                </div>
+                <input type="text" id="bgUrlInput-${s}" value="${currentUrl}" placeholder="URL Background" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
+                <div class="pt-1">
+                  <label class="text-[10px] text-slate-400 block">Atau Upload Foto:</label>
+                  <input type="file" accept="image/*" onchange="handleSectionBackgroundUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white mt-1">
+                </div>
+                <div class="pt-2 border-t border-slate-700">
+                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
+                    <span>💡 Dimer Kontras / Redup</span>
+                    <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
+                  </div>
+                  <input type="range" id="dimmerInput-${s}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${s}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer</h4>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlBg}</div>
+            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background</button>
+          </div>`;
       }
       else if (id === 'sectionReorder') {
-          let html = sectionOrder.map((s, i) => `<div class="bg-slate-800 p-2 rounded flex justify-between items-center text-xs"><span class="text-cyan-300 font-bold">${i+1}. ${s}</span><div class="space-x-1"><button onclick="moveSec(${i}, -1)" class="bg-slate-700 px-2 py-1 rounded text-white">⬆️</button><button onclick="moveSec(${i}, 1)" class="bg-slate-700 px-2 py-1 rounded text-white">⬇️</button></div></div>`).join('');
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-cyan-400 text-sm">📐 Tata Letak Section</h4>${html}</div>`;
+          let listHtml = '';
+          sectionOrder.forEach((key, idx) => {
+              listHtml += `
+              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
+                <span class="font-bold text-cyan-300">${idx+1}. ${key}</span>
+                <div class="flex space-x-1">
+                  <button onclick="moveSection(${idx}, -1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-up"></i></button>
+                  <button onclick="moveSection(${idx}, 1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-down"></i></button>
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-cyan-400 text-sm">📐 Tata Letak Section</h4>
+            <div class="space-y-2">${listHtml}</div>
+          </div>`;
       }
       else if (id === 'dynamicPhotos') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-rose-400 text-sm">📸 Multi-Foto Dokumentasi</h4><p class="text-slate-400">Pilih foto galeri dokumentasi acara Anda.</p><input type="file" accept="image/*" multiple onchange="handleMultiPhotoUploadAdmin(event)" class="w-full text-slate-300 text-xs"></div>`;
+          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+          let photoAdminHtml = '';
+          secs.forEach(s => {
+              let currentArr = sectionPhotos[s] || [];
+              let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
+              let thumbsHtml = '';
+              currentArr.forEach((imgUrl, imgIdx) => {
+                  thumbsHtml += `
+                    <div class="relative w-16 h-16 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
+                      <img src="${imgUrl}" class="w-full h-full object-cover">
+                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-5 h-5 text-[10px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>`;
+              });
+              photoAdminHtml += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-rose-300">Galeri: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                    <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                    <span>Tampilkan</span>
+                  </label>
+                </div>
+                <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto</span>'}</div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-rose-400 text-sm">📸 Upload Multi-Foto Dokumentasi</h4>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${photoAdminHtml}</div>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Foto</button>
+          </div>`;
       }
       else if (id === 'databaseWarga') {
-        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-emerald-400 text-sm">Database Warga</h4><input type="text" id="newWargaName" placeholder="Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white"><input type="text" id="newWargaPhone" placeholder="No WA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2"><button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold mt-2">Tambah</button><div id="adminWargaListContainer" class="space-y-2 mt-2"></div></div>`;
-        setTimeout(renderAdminWargaList, 50);
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">👥 Database Warga & Sharelok</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <input type="text" id="newWargaName" placeholder="Nama Tamu" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="newWargaPhone" placeholder="No WA (0812...)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
+              <input type="text" id="newWargaSharelok" placeholder="Link Sharelok (Opsional)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
+              <button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold mt-2">Simpan ke Database</button>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Template Pesan WA</label>
+              <textarea id="adminWaTemplate" rows="3" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">${waTemplate}</textarea>
+              <button onclick="saveAdminWaTemplate()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Simpan Template</button>
+            </div>
+            <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
+          </div>`;
+          setTimeout(renderAdminWargaList, 50);
       }
       else if (id === 'bingkaiGenZ') {
-          area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai & Ketik</h4><select id="selFrameAdmin" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"><option value="frame-polaroid">Polaroid</option><option value="frame-neon">Neon</option><option value="frame-none">Tanpa Bingkai</option></select><button onclick="saveFrameAdmin()" class="w-full bg-fuchsia-600 text-white py-2 rounded font-bold">Simpan</button></div>`;
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Kecepatan Typewriter</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Pilih Model Bingkai</label>
+              <select id="selectPhotoFrame" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">
+                <option value="frame-polaroid" ${ultimateConfig.photoFrame === 'frame-polaroid' ? 'selected' : ''}>Polaroid Real Classic</option>
+                <option value="frame-neon" ${ultimateConfig.photoFrame === 'frame-neon' ? 'selected' : ''}>Neon Cyberpunk Glow</option>
+                <option value="frame-glass" ${ultimateConfig.photoFrame === 'frame-glass' ? 'selected' : ''}>Glassmorphic Blur</option>
+                <option value="frame-cyber" ${ultimateConfig.photoFrame === 'frame-cyber' ? 'selected' : ''}>Cyberpunk Shadow</option>
+                <option value="frame-hologram" ${ultimateConfig.photoFrame === 'frame-hologram' ? 'selected' : ''}>Holographic Gradient</option>
+                <option value="frame-none" ${ultimateConfig.photoFrame === 'frame-none' ? 'selected' : ''}>Tanpa Bingkai (Normal)</option>
+              </select>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Kecepatan Typewriter (ms)</label>
+              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 30}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+            </div>
+            <button onclick="saveGenZFrameAndSpeed()" class="w-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Gen-Z Options</button>
+          </div>`;
       }
       else if (id === 'design') {
-        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-pink-400 text-sm">Desain & Foto</h4><p class="text-slate-400">Upload foto prewedding utama.</p><input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-slate-300 text-xs"></div>`;
-      } 
+        let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain, Font & Foto Utama</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">1. Pilih Font Global</label>
+              <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-pink-300">2. Upload Foto Prewedding (Hero/Cover)</label>
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-blue-300">3. Upload Foto Profil Tuan Rumah 1</label>
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-amber-300">4. Upload Foto Profil Tuan Rumah 2</label>
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
+            </div>
+            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
+          </div>`;
+      }
       else if (id === 'music') {
-        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-indigo-400 text-sm">Musik & Video</h4><input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"><button onclick="saveMusicConfig()" class="w-full bg-indigo-600 text-white py-2 rounded font-bold mt-2">Simpan</button></div>`;
-      } 
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Dokumentasi (Real-Time)</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+                <label class="block text-slate-300 font-bold">Volume Musik</label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="${ultimateConfig.musicVolume}" onchange="changeVolume(this.value)" class="w-full accent-pink-500">
+                <label class="block text-slate-300 font-bold pt-2">Link Audio MP3</label>
+                <input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white">
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+                <label class="block text-slate-300 font-bold text-cyan-300">Link Video Utama (MP4)</label>
+                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
+            </div>
+            <button onclick="saveMusicAndVideoConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Musik & Video</button>
+          </div>`;
+      }
       else if (id === 'textTable') {
         let rows = '';
         for(let key in defaultText) { 
-            let item = textElements[key] || { text: defaultText[key] };
-            rows += `<div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-1"><span class="text-cyan-400 font-mono text-[11px]">${key}</span><textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white">${item.text}</textarea></div>`; 
+            let item = textElements[key] !== undefined ? textElements[key] : { text: defaultText[key], typewriter: true };
+            let isChecked = item.typewriter !== false ? 'checked' : '';
+            rows += `
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-cyan-400 font-mono text-[11px] font-bold">${key}</span>
+                <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                  <input type="checkbox" id="tw-${key}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                  <span>Typewriter</span>
+                </label>
+              </div>
+              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
+            </div>`; 
         }
-        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-blue-400 text-sm">Tabel Teks</h4><div class="space-y-3 max-h-72 overflow-y-auto">${rows}</div><button onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan</button></div>`;
-      } 
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks</h4>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${rows}</div>
+            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
+          </div>`;
+      }
       else if (id === 'gift') {
-        area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-emerald-400 text-sm">Amplop</h4><input type="text" id="inputBankName" value="${giftConfig.bank}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white"><input type="text" id="inputRekNumber" value="${giftConfig.number}" class="w-full p-2 bg-slate-950 border border-slate-700 rounded text-white mt-2"><button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold mt-2">Simpan</button></div>`;
+        let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & QRIS</h4>
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
+                  <span class="font-bold text-white">Tampilkan Amplop</span>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                  </label>
+                </div>
+                <div class="pt-2">
+                  <label class="block text-slate-300 font-bold mb-1">Upload QRIS</label>
+                  <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
+                </div>
+                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Nama Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
+                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor Rekening" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
+                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
+            </div>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Amplop</button>
+          </div>`;
       }
       else if (id === 'keamananAkun') {
-          area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-slate-300 text-sm">🔒 Keamanan Akun</h4><input type="password" id="adminNewPin" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"><button onclick="savePinAdmin()" class="w-full bg-slate-700 text-white py-2 rounded font-bold">Ubah PIN</button></div>`;
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🔒 Keamanan & Email Asli</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-cyan-300 text-[11px]">Konfigurasi EmailJS</h5>
+              <input type="text" id="ejsServiceId" value="${adminAuth.emailjsServiceId || ''}" placeholder="Service ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsTemplateId" value="${adminAuth.emailjsTemplateId || ''}" placeholder="Template ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsPublicKey" value="${adminAuth.emailjsPublicKey || ''}" placeholder="Public Key" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="saveEmailJsConfig()" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Simpan EmailJS</button>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-pink-400">Ubah PIN Admin</h5>
+              <input type="password" id="oldPinInput" placeholder="PIN Lama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="password" id="newPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="processChangePin()" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Simpan PIN Baru</button>
+            </div>
+          </div>`;
       }
       else if (id === 'guests') {
-          let list = attendanceList.map(a => `<div class="bg-slate-800 p-2 rounded text-xs"><span class="font-bold text-amber-300">${a.name} (${a.status})</span><p class="text-slate-300">"${a.message}"</p></div>`).join('');
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu</h4>${list || '<p class="text-slate-400">Belum ada ucapan</p>'}</div>`;
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & RSVP</h4>
+            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
+          </div>`;
+          setTimeout(() => {
+              const container = document.getElementById('adminGuestList');
+              if (!container) return;
+              container.innerHTML = '';
+              attendanceList.forEach((w, idx) => {
+                container.innerHTML += `
+                  <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1 relative">
+                    <div class="flex justify-between font-bold text-white"><span>${w.name} (${w.status})</span></div>
+                    <p class="text-slate-400 italic">"${w.message}"</p>
+                    <button onclick="deleteGuestWish(${idx})" class="absolute top-2 right-2 text-rose-500 hover:text-rose-400"><i class="fa-solid fa-trash"></i></button>
+                  </div>`;
+              });
+          }, 50);
       }
       else if (id === 'backup') {
-          area.innerHTML = `<div class="space-y-4 text-xs"><h4 class="font-bold text-gray-300 text-sm">☁️ Backup & Restore</h4><button onclick="generateBackupCode()" class="w-full bg-blue-600 text-white py-2 rounded font-bold">Generate Kode Backup</button><textarea id="backupTextOut" readonly rows="3" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono text-[10px]"></textarea></div>`;
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">1. Generate Kode Backup</button>
+                <textarea id="backupOutput" readonly rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
+                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">2. Salin Kode</button>
+            </div>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <textarea id="restoreInput" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup..."></textarea>
+                <button onclick="restoreBackup()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Restore Data</button>
+            </div>
+          </div>`;
       }
     }
 
+    // SEMUA FUNGSI ADMIN SUPER LENGKAP KEMBALI
     function applyEventPreset() {
         const selKey = document.getElementById('selectEventPreset').value;
         const preset = eventPresetsList[selKey];
         if(!preset) return;
         currentCategoryKey = selKey;
         for(let k in defaultText) {
-            if(preset[k] !== undefined) textElements[k] = { text: preset[k], typewriter: true };
+            if(preset[k] !== undefined) {
+                let isTl = (k !== 'alamat' && k !== 'quoteText');
+                textElements[k] = { text: preset[k], typewriter: isTl };
+            }
         }
         if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         saveAllDataToDevice();
         applyTextElementsToDOM();
-        showToast('Preset diterapkan!');
+        applyUltimateConfig();
+        showToast('Preset & Tema diterapkan!');
         backToDashboard();
     }
 
-    function saveMicroVideosAdmin() {
-        const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        secs.forEach(s => {
-            const val = document.getElementById(`micro-${s}`).value;
-            sectionMicroVideos[s] = val;
+    function handleCustomMicroVideoUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const blobUrl = URL.createObjectURL(file);
+        sectionMicroVideos[sectionKey] = blobUrl;
+        const urlInput = document.getElementById(`microVideoInput-${sectionKey}`);
+        if(urlInput) urlInput.value = blobUrl;
+        saveAllDataToDevice();
+        applySectionMicroVideos();
+        showToast('Video diunggah!');
+    }
+
+    function saveAllMicroVideos() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`microVideoInput-${k}`);
+            const cb = document.getElementById(`visMicro-${k}`);
+            if(el) sectionMicroVideos[k] = el.value.trim();
+            if(cb) sectionMicroVideoVisibility[k] = cb.checked;
         });
         saveAllDataToDevice();
-        showToast('Video kecil disimpan!');
+        applySectionMicroVideos();
+        showToast('Video & Saklar disimpan!');
         backToDashboard();
     }
 
-    function saveBackgroundsAdmin() {
-        const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        secs.forEach(s => {
-            const val = document.getElementById(`bg-${s}`).value;
-            sectionBackgrounds[s] = val;
+    function handleSectionBackgroundUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        compressImageFile(file, (compressedBase64) => {
+            sectionBackgrounds[sectionKey] = compressedBase64;
+            const urlInput = document.getElementById(`bgUrlInput-${sectionKey}`);
+            if(urlInput) urlInput.value = compressedBase64;
+            saveAllDataToDevice();
+            applySectionBackgrounds();
+            showToast('Background diunggah!');
+        });
+    }
+
+    function saveAllSectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`bgUrlInput-${k}`);
+            const cb = document.getElementById(`visBg-${k}`);
+            const dimInput = document.getElementById(`dimmerInput-${k}`);
+            if(el) sectionBackgrounds[k] = el.value.trim();
+            if(cb) sectionBackgroundVisibility[k] = cb.checked;
+            if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
         });
         saveAllDataToDevice();
-        showToast('Background disimpan!');
+        applySectionBackgrounds();
+        showToast('Background & Dimer disimpan!');
         backToDashboard();
     }
 
-    function moveSec(idx, dir) {
-        const newIdx = idx + dir;
-        if(newIdx < 0 || newIdx >= sectionOrder.length) return;
-        const temp = sectionOrder[idx];
-        sectionOrder[idx] = sectionOrder[newIdx];
-        sectionOrder[newIdx] = temp;
+    function moveSection(index, direction) {
+        const newIndex = index + direction;
+        if(newIndex < 0 || newIndex >= sectionOrder.length) return;
+        const temp = sectionOrder[index];
+        sectionOrder[index] = sectionOrder[newIndex];
+        sectionOrder[newIndex] = temp;
         saveAllDataToDevice();
+        applySectionOrder();
         openAdminModule('sectionReorder');
     }
 
-    function handleMultiPhotoUploadAdmin(e) {
-        const files = e.target.files;
-        if(!files) return;
+    function handleMultiPhotoUpload(event, sectionKey) {
+        const files = event.target.files;
+        if(!files || files.length === 0) return;
+        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
+        let loadedCount = 0;
         Array.from(files).forEach(file => {
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                sectionPhotos['video'].push(ev.target.result);
-                saveAllDataToDevice();
-                showToast('Foto dokumentasi ditambahkan!');
-            };
-            reader.readAsDataURL(file);
+            compressImageFile(file, (compressedBase64) => {
+                sectionPhotos[sectionKey].push(compressedBase64);
+                loadedCount++;
+                if(loadedCount === files.length) {
+                    saveAllDataToDevice();
+                    applySectionPhotos();
+                    openAdminModule('dynamicPhotos');
+                    showToast('Foto berhasil diunggah!');
+                }
+            }, 800, 0.7);
         });
     }
 
-    function saveFrameAdmin() {
-        ultimateConfig.photoFrame = document.getElementById('selFrameAdmin').value;
+    function removeSectionPhoto(sectionKey, index) {
+        if(sectionPhotos[sectionKey]) {
+            sectionPhotos[sectionKey].splice(index, 1);
+            saveAllDataToDevice();
+            applySectionPhotos();
+            openAdminModule('dynamicPhotos');
+            showToast('Foto dihapus.');
+        }
+    }
+
+    function saveMultiPhotoConfig() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(sec => {
+            const cb = document.getElementById(`visPhoto-${sec}`);
+            if(cb) sectionPhotoVisibility[sec] = cb.checked;
+        });
         saveAllDataToDevice();
-        showToast('Bingkai disimpan!');
+        applySectionPhotos();
+        showToast('Galeri foto disimpan!');
         backToDashboard();
     }
 
-    function savePinAdmin() {
-        const newPin = document.getElementById('adminNewPin').value.trim();
-        if(!newPin) return;
-        adminAuth.pin = newPin;
+    function addWargaToDb() {
+        const name = document.getElementById('newWargaName').value.trim();
+        const whatsapp = document.getElementById('newWargaPhone').value.trim();
+        const sharelok = document.getElementById('newWargaSharelok').value.trim();
+        if(!name || !whatsapp) return showToast('Isi nama dan nomor WA!', 'error');
+        guestDatabase.push({ name, whatsapp, sharelok });
         saveAllDataToDevice();
-        showToast('PIN berhasil diubah!');
+        renderAdminWargaList();
+        document.getElementById('newWargaName').value = '';
+        document.getElementById('newWargaPhone').value = '';
+        document.getElementById('newWargaSharelok').value = '';
+        showToast('Warga/Tamu ditambahkan!');
+    }
+
+    function deleteWarga(index) {
+        guestDatabase.splice(index, 1);
+        saveAllDataToDevice();
+        renderAdminWargaList();
+        showToast('Tamu dihapus.');
+    }
+
+    function renderAdminWargaList() {
+        const container = document.getElementById('adminWargaListContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        if(guestDatabase.length === 0) {
+            container.innerHTML = '<p class="text-slate-400 text-center py-2">Kosong</p>';
+            return;
+        }
+        guestDatabase.forEach((w, idx) => {
+            container.innerHTML += `
+              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-white">${w.name}</p>
+                  <p class="text-emerald-400 text-[10px]">${w.whatsapp}</p>
+                </div>
+                <div class="flex space-x-1.5 items-center">
+                  <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}', '${w.sharelok || ''}')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i></button>
+                  <button onclick="deleteWarga(${idx})" class="bg-rose-600 text-white px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </div>`;
+        });
+    }
+
+    function sendPersonalWhatsApp(name, phone, sharelok = '') {
+        const cleanPhone = phone.replace(/[^0-9]/g, '');
+        const personalLink = generateShareableLink(name);
+        let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
+        if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
+        window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function saveAdminWaTemplate() {
+        waTemplate = document.getElementById('adminWaTemplate').value;
+        saveAllDataToDevice();
+        showToast('Template disimpan!');
+    }
+
+    function saveGenZFrameAndSpeed() {
+        ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
+        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 30;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        runGlobalTypewriter();
+        showToast('Pengaturan Frame Gen-Z disimpan!');
         backToDashboard();
     }
 
-    function generateBackupCode() {
-        const data = { textElements, giftConfig, guestDatabase, attendanceList, sectionOrder };
-        const code = btoa(JSON.stringify(data));
-        document.getElementById('backupTextOut').value = code;
-        showToast('Kode backup dibuat!');
+    function saveDesignConfig() {
+        ultimateConfig.font = document.getElementById('editFont').value;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Desain & Font disimpan!');
+    }
+
+    function handleImageUpload(event, type) {
+        const file = event.target.files[0];
+        if(!file) return;
+        compressImageFile(file, (base64) => {
+            if(type === 'prewed') ultimateConfig.coverBg = base64;
+            if(type === 'profile1') ultimateConfig.profile1Img = base64;
+            if(type === 'profile2') ultimateConfig.profile2Img = base64;
+            if(type === 'qris') giftConfig.qrisImage = base64;
+            saveAllDataToDevice();
+            applyUltimateConfig();
+            applyGiftToDOM();
+            showToast('Foto berhasil dimuat!');
+        }, 800, 0.7);
+    }
+
+    function saveMusicAndVideoConfig() {
+        const musicUrlInput = document.getElementById('inputMusicUrl').value.trim();
+        const videoUrlInput = document.getElementById('inputVideoUrl').value.trim();
+        if(musicUrlInput) ultimateConfig.musicUrl = musicUrlInput;
+        if(videoUrlInput) ultimateConfig.videoUrl = videoUrlInput;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Musik & Video Utama Disimpan!');
+        backToDashboard();
+    }
+
+    function handleAudioUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            ultimateConfig.musicUrl = e.target.result;
+            const urlInput = document.getElementById('inputMusicUrl');
+            if(urlInput) urlInput.value = ultimateConfig.musicUrl;
+            saveAllDataToDevice();
+            showToast('Audio dimuat!');
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function handleVideoUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const blobUrl = URL.createObjectURL(file);
+        ultimateConfig.videoUrl = blobUrl;
+        const urlInput = document.getElementById('inputVideoUrl');
+        if(urlInput) urlInput.value = blobUrl;
+        applyUltimateConfig();
+        saveAllDataToDevice();
+        showToast('Video MP4 dimuat!');
+    }
+
+    function changeVolume(val) {
+        ultimateConfig.musicVolume = parseFloat(val);
+        const audio = document.getElementById('bgMusic');
+        if(audio) audio.volume = ultimateConfig.musicVolume;
     }
 
     function saveTextTable() {
       for (let key in defaultText) { 
           const input = document.getElementById(`txt-${key}`); 
-          if (input) textElements[key] = { text: input.value, typewriter: true };
+          const checkbox = document.getElementById(`tw-${key}`);
+          if (input) {
+              textElements[key] = { text: input.value, typewriter: checkbox ? checkbox.checked : true };
+          }
       }
       saveAllDataToDevice();
       applyTextElementsToDOM();
@@ -564,63 +1048,110 @@
     }
 
     function saveGiftConfig() {
+        giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
         giftConfig.bank = document.getElementById('inputBankName').value;
         giftConfig.number = document.getElementById('inputRekNumber').value;
+        giftConfig.owner = document.getElementById('inputRekOwner').value;
         saveAllDataToDevice();
+        applyGiftToDOM();
         showToast('Amplop disimpan!');
         backToDashboard();
     }
 
-    function saveMusicConfig() {
-        ultimateConfig.musicUrl = document.getElementById('inputMusicUrl').value;
+    function saveEmailJsConfig() {
+        adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
+        adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
+        adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
         saveAllDataToDevice();
-        showToast('Musik disimpan!');
-        backToDashboard();
+        showToast('Konfigurasi EmailJS disimpan!');
     }
 
-    function addWargaToDb() {
-        const name = document.getElementById('newWargaName').value.trim();
-        const whatsapp = document.getElementById('newWargaPhone').value.trim();
-        if(!name || !whatsapp) return;
-        guestDatabase.push({ name, whatsapp, sharelok: '' });
+    function processChangePin() {
+        const oldPin = document.getElementById('oldPinInput').value.trim();
+        const newPin = document.getElementById('newPinInput').value.trim();
+        if(oldPin !== adminAuth.pin) return showToast('PIN lama salah!', 'error');
+        if(!newPin || newPin.length < 3) return showToast('PIN baru min. 3 karakter!', 'error');
+        adminAuth.pin = newPin;
         saveAllDataToDevice();
-        renderAdminWargaList();
-        showToast('Ditambahkan!');
+        showToast('PIN berhasil diubah!');
     }
 
-    function renderAdminWargaList() {
-        const container = document.getElementById('adminWargaListContainer');
-        if(!container) return;
-        container.innerHTML = guestDatabase.map((w, idx) => `
-            <div class="bg-slate-800 p-2 rounded flex justify-between items-center">
-                <span>${w.name} (${w.whatsapp})</span>
-                <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px]">WA</button>
-            </div>
-        `).join('');
+    function deleteGuestWish(index) {
+        attendanceList.splice(index, 1);
+        saveAllDataToDevice();
+        openAdminModule('guests');
+        renderWishesToDOM();
+        showToast('Ucapan dihapus');
     }
 
-    function sendPersonalWhatsApp(name, phone) {
-        const cleanPhone = phone.replace(/[^0-9]/g, '');
-        const personalLink = generateShareableLink(name);
-        const msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
-        window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function handleImageUpload(event, type) {
-        const file = event.target.files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            if(type === 'prewed') ultimateConfig.coverBg = e.target.result;
-            saveAllDataToDevice();
-            showToast('Foto diunggah!');
+    function generateBackup() {
+        const data = {
+            textElements, adminAuth, sectionPhotos, sectionPhotoVisibility,
+            sectionMicroVideos, sectionMicroVideoVisibility, sectionBackgrounds,
+            sectionBackgroundVisibility, sectionBackgroundDimmer, attendanceList,
+            guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig
         };
-        reader.readAsDataURL(file);
+        const code = btoa(encodeURIComponent(JSON.stringify(data)));
+        document.getElementById('backupOutput').value = code;
+        showToast('Kode Backup Dibuat!');
+    }
+
+    function copyBackup() {
+        const out = document.getElementById('backupOutput');
+        out.select();
+        document.execCommand('copy');
+        showToast('Kode Backup Disalin!');
+    }
+
+    function restoreBackup() {
+        const input = document.getElementById('restoreInput').value.trim();
+        if(!input) return showToast('Paste kode backup dulu!', 'error');
+        try {
+            const data = JSON.parse(decodeURIComponent(atob(input)));
+            if(data.textElements) textElements = data.textElements;
+            if(data.adminAuth) adminAuth = data.adminAuth;
+            if(data.ultimateConfig) ultimateConfig = data.ultimateConfig;
+            saveAllDataToDevice();
+            showToast('Restore Berhasil! Memuat ulang...');
+            setTimeout(() => location.reload(), 1500);
+        } catch(e) {
+            showToast('Kode Backup Tidak Valid!', 'error');
+        }
     }
 
     function backToDashboard() {
       document.getElementById('adminModuleView').classList.add('hidden');
       document.getElementById('adminDashboardView').classList.remove('hidden');
+    }
+
+    // DOM APPLIERS
+    function runGlobalTypewriter() {
+        const speed = ultimateConfig.typewriterSpeed || 30;
+        const mappedElements = document.querySelectorAll('[data-key]');
+        mappedElements.forEach((el, index) => {
+            const key = el.getAttribute('data-key');
+            const item = textElements[key];
+            if(!item) return;
+            const fullText = item.text;
+            const useTypewriter = item.typewriter !== false;
+            
+            if(!useTypewriter || key === 'alamat' || key === 'quoteText') {
+                el.innerText = fullText;
+                return;
+            }
+            el.innerText = "";
+            let charIndex = 0;
+            setTimeout(() => {
+                function typeNext() {
+                    if(charIndex < fullText.length) {
+                        el.innerText += fullText.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeNext, speed);
+                    }
+                }
+                typeNext();
+            }, index * 200);
+        });
     }
 
     function applyTextElementsToDOM() {
@@ -634,10 +1165,154 @@
         };
         for (let elementId in idMap) {
             const el = document.getElementById(elementId);
-            if(el && textElements[idMap[elementId]]) {
-                el.innerText = textElements[idMap[elementId]].text;
+            if(el) {
+                el.setAttribute('data-key', idMap[elementId]);
+                const item = textElements[idMap[elementId]];
+                if (item) el.innerText = item.text;
             }
         }
+        runGlobalTypewriter();
+    }
+
+    function applyUltimateConfig() {
+        try {
+            document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
+            const coverBg = document.getElementById('coverBgImage');
+            const heroBg = document.getElementById('mainHeroBg');
+            if(coverBg && ultimateConfig.coverBg) coverBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+            if(heroBg && ultimateConfig.coverBg) heroBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+
+            const prof1 = document.getElementById('img-groom');
+            const prof2 = document.getElementById('img-bride');
+            if(prof1 && ultimateConfig.profile1Img) prof1.src = ultimateConfig.profile1Img;
+            if(prof2 && ultimateConfig.profile2Img) prof2.src = ultimateConfig.profile2Img;
+
+            const f1 = document.getElementById('profile1FrameContainer');
+            const f2 = document.getElementById('profile2FrameContainer');
+            const frameClass = ultimateConfig.photoFrame || 'frame-polaroid';
+            if(f1) f1.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
+            if(f2) f2.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
+
+            const vidSource = document.getElementById('mp4VideoSource');
+            const vidElem = document.getElementById('mainMp4Video');
+            if(vidSource && ultimateConfig.videoUrl) {
+                vidSource.src = ultimateConfig.videoUrl;
+                if(vidElem) vidElem.load();
+            }
+        } catch(e) {}
+    }
+
+    function applyGiftToDOM() {
+        const amplopSection = document.getElementById('amplopSectionContainer');
+        if(amplopSection) amplopSection.style.display = giftConfig.visible === false ? 'none' : 'block';
+        const dbn = document.getElementById('displayBankName');
+        const drn = document.getElementById('displayRekNumber');
+        const dro = document.getElementById('displayRekOwner');
+        if(dbn) dbn.innerText = giftConfig.bank || "Bank BCA";
+        if(drn) drn.innerText = giftConfig.number || "1234567890";
+        if(dro) dro.innerText = giftConfig.owner || "A.N Rian Pratama";
+        const qrisBox = document.getElementById('qrisImageRender');
+        if(qrisBox && giftConfig.qrisImage) qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain">`;
+    }
+
+    function applySectionOrder() {
+        const container = document.getElementById('sectionsContainer');
+        if(!container) return;
+        sectionOrder.forEach(key => {
+            const el = container.querySelector(`[data-section-key="${key}"]`);
+            if(el) container.appendChild(el);
+        });
+    }
+
+    function applySectionPhotos() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(key => {
+            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
+            if(!container) return;
+            const isVisible = sectionPhotoVisibility[key] !== false;
+            const photosArr = sectionPhotos[key] || [];
+            if(!isVisible || photosArr.length === 0) {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+            container.className = "grid grid-cols-2 gap-2 mb-3";
+            let gridHtml = '';
+            photosArr.forEach(url => {
+                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
+            });
+            container.innerHTML = gridHtml;
+        });
+    }
+
+    function applySectionMicroVideos() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const container = document.getElementById(`microVideo-${k}`);
+            if(!container) return;
+            const isVisible = sectionMicroVideoVisibility[k] !== false;
+            const url = sectionMicroVideos[k];
+            if(!isVisible || !url) {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+            container.innerHTML = `<video autoplay muted loop playsinline class="w-full h-auto object-cover rounded-2xl shadow-md border border-white/20 mb-3"><source src="${url}" type="video/mp4"></video>`;
+        });
+    }
+
+    function applySectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
+            if(!secEl) return;
+            const isVisible = sectionBackgroundVisibility[k] !== false;
+            const bgUrl = sectionBackgrounds[k];
+            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
+            if(!isVisible || !bgUrl) {
+                if(k !== 'hero') secEl.style.backgroundImage = '';
+            } else {
+                if(k === 'hero') {
+                    const heroBg = document.getElementById('mainHeroBg');
+                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
+                } else {
+                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
+                    secEl.style.backgroundSize = 'cover';
+                    secEl.style.backgroundPosition = 'center';
+                }
+            }
+        });
+    }
+
+    function renderWishesToDOM() {
+        const container = document.getElementById('wishesList');
+        if(!container) return;
+        container.innerHTML = '';
+        attendanceList.forEach(w => {
+            container.innerHTML += `
+              <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
+                <div class="flex justify-between items-center font-bold text-slate-800">
+                  <span>${w.name}</span>
+                  <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
+                </div>
+                <p class="text-slate-600">${w.message}</p>
+              </div>`;
+        });
+    }
+
+    function submitWish() {
+      const name = document.getElementById('guestInputName').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const message = document.getElementById('guestMessage').value.trim();
+      if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
+      attendanceList.unshift({ name, status, message });
+      saveAllDataToDevice();
+      renderWishesToDOM();
+      showToast('Ucapan dikirim!');
+      document.getElementById('guestInputName').value = '';
+      document.getElementById('guestMessage').value = '';
     }
 
     function bukaUndanganSekarang() {
@@ -645,15 +1320,35 @@
         document.getElementById('mainContent').style.display = 'block';
         document.getElementById('mainContent').style.opacity = '1';
         window.scrollTo(0, 0);
-        try { document.getElementById('bgMusic').play().catch(e => {}); } catch(e) {}
+        try { 
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = ultimateConfig.musicVolume || 0.5;
+                audio.play().catch(e => {});
+                isPlaying = true;
+                document.getElementById('musicIcon').className = "fa-solid fa-music animate-spin text-sm"; 
+                document.getElementById('musicLabel').innerText = "Playing";
+            }
+        } catch(e) {}
     }
 
     function toggleMusic() {
         const music = document.getElementById('bgMusic');
-        isPlaying ? music.pause() : music.play().catch(e => {});
+        const icon = document.getElementById('musicIcon');
+        const label = document.getElementById('musicLabel');
+        if (isPlaying) { 
+            music.pause(); 
+            if(icon) icon.className = "fa-solid fa-music text-sm"; 
+            if(label) label.innerText = "Paused"; 
+        } else { 
+            music.play().catch(e => {}); 
+            if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+            if(label) label.innerText = "Playing"; 
+        }
         isPlaying = !isPlaying;
     }
 
+    function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { showToast(`Rekening ${bank} disalin!`); }); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
     function verifyPin() {
@@ -665,7 +1360,6 @@
       } else { showToast('PIN Salah!', 'error'); }
     }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
     function shareGeneralWhatsApp() {
@@ -676,14 +1370,24 @@
 
     window.onload = function() {
         renderDashboardCards();
+        applyUltimateConfig();
+        applyGiftToDOM();
+        applySectionOrder();
         applyTextElementsToDOM();
+        applySectionPhotos();
+        applySectionMicroVideos();
+        applySectionBackgrounds();
+        renderWishesToDOM();
+        
         try {
             const urlParams = new URLSearchParams(window.location.search);
             const toParam = urlParams.get('to');
             if (toParam) {
                 const dec = decodeURIComponent(toParam);
-                document.getElementById('guestName').innerText = dec;
-                document.getElementById('guestInputName').value = dec;
+                const gName = document.getElementById('guestName');
+                const gInput = document.getElementById('guestInputName');
+                if(gName) gName.innerText = dec;
+                if(gInput) gInput.value = dec;
             }
         } catch(e) {}
     };
