@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.44</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.46</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -21,7 +21,7 @@
     .cover-base { position: fixed; inset: 0; z-index: 99999999; background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(40,40,40,0.98)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+    .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; }
 
     /* GEN-Z PHOTO FRAME STYLES */
     .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.44)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.46)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -200,12 +200,12 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="p-6 text-center space-y-4 mt-8 section-overlay">
+    <footer data-section-key="footer" class="p-6 text-center space-y-4 mt-8 section-overlay">
       <div id="microVideo-footer" class="w-full"></div>
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.44 (Dynamic Textareas)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.46 (Stacked Photo Grid)</p>
       </div>
     </footer>
   </main>
@@ -216,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.44</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.46</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -262,7 +262,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.44 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.46 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -407,7 +407,7 @@
         titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas"
       },
       lomba: {
-        badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antar Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
+        badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antار Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Badminton Warga Cup 2026", heroSub: "Sportivitas dan kebersamaan di atas segalanya.",
         quoteText: "Olahraga menyatukan kita dalam semangat juang yang sehat dan sportif.",
         titleMempelai: "Ketua Panitia", groomName: "Sdr. Rian Hidayat", brideName: "Karang Taruna Bhakti",
@@ -497,18 +497,22 @@
     let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
     let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
     let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+    let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v44')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v44'));
-        } else if(localStorage.getItem('ari_textElements_v43')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v43'));
+        if(localStorage.getItem('ari_textElements_v46')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v46'));
+        } else if(localStorage.getItem('ari_textElements_v45')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v45'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v44')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v44'));
+        if(localStorage.getItem('ari_sectionPhotos_v46')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v46'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
+        if(localStorage.getItem('ari_sectionBackgrounds')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds'));
+        if(localStorage.getItem('ari_sectionBackgroundVisibility')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility'));
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
@@ -522,12 +526,14 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v44', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v46', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v44', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v46', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility', JSON.stringify(sectionBackgroundVisibility));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
@@ -539,7 +545,7 @@
     }
 
     function generateBackup() {
-        const data = { textElements, adminAuth, sectionPhotos, sectionPhotoVisibility, sectionMicroVideos, sectionMicroVideoVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
+        const data = { textElements, adminAuth, sectionPhotos, sectionPhotoVisibility, sectionMicroVideos, sectionMicroVideoVisibility, sectionBackgrounds, sectionBackgroundVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { 
@@ -558,6 +564,8 @@
             if(decoded.sectionPhotoVisibility) sectionPhotoVisibility = decoded.sectionPhotoVisibility;
             if(decoded.sectionMicroVideos) sectionMicroVideos = decoded.sectionMicroVideos;
             if(decoded.sectionMicroVideoVisibility) sectionMicroVideoVisibility = decoded.sectionMicroVideoVisibility;
+            if(decoded.sectionBackgrounds) sectionBackgrounds = decoded.sectionBackgrounds;
+            if(decoded.sectionBackgroundVisibility) sectionBackgroundVisibility = decoded.sectionBackgroundVisibility;
             if(decoded.giftConfig) giftConfig = decoded.giftConfig;
             if(decoded.ultimateConfig) ultimateConfig = decoded.ultimateConfig;
             if(decoded.attendanceList) attendanceList = decoded.attendanceList;
@@ -573,8 +581,9 @@
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'animasiStiker', title: 'Video Kecil & Saklar (Micro-Video)', desc: 'Atur Video Dinamis & On/Off Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
+      { id: 'sectionBackgrounds', title: 'Background Section Dinamis', desc: 'Upload Background Foto & Saklar On/Off', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Upload Multi-Foto Dinamis', desc: 'Tanpa Batas + Saklar Tampil', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'dynamicPhotos', title: 'Upload Multi-Foto Dinamis', desc: 'Susun 2 Atas 2 Bawah Kebawah + Saklar', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Data Sharelok Tamu', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
@@ -662,6 +671,47 @@
             <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Pengaturan Video</button>
           </div>`;
       }
+      else if (id === 'sectionBackgrounds') {
+          const sections = [
+              { key: 'hero', name: '1. Cover / Hero Section' },
+              { key: 'quotes', name: '2. Quotes & Ayat' },
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Video Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' },
+              { key: 'footer', name: '8. Footer' }
+          ];
+
+          let htmlBg = '';
+          sections.forEach(sec => {
+              let currentUrl = sectionBackgrounds[sec.key] || '';
+              let isChecked = sectionBackgroundVisibility[sec.key] !== false ? 'checked' : '';
+              htmlBg += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-teal-300">${sec.name}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-teal-300 font-bold">
+                    <input type="checkbox" id="visBg-${sec.key}" ${isChecked} class="w-4 h-4 accent-teal-600 rounded cursor-pointer">
+                    <span>Aktifkan Background</span>
+                  </label>
+                </div>
+                <input type="text" id="bgUrlInput-${sec.key}" value="${currentUrl}" placeholder="https://... (Link URL Foto Background)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
+                <div class="pt-1">
+                  <label class="text-[10px] text-slate-400 block">Atau Upload Foto Background dari Perangkat:</label>
+                  <input type="file" accept="image/*" onchange="handleSectionBackgroundUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white mt-1">
+                </div>
+              </div>`;
+          });
+
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Upload Background Foto Per Section (Dinamis & Responsif)</h4>
+            <p class="text-slate-400">Atur background foto untuk setiap section agar menyesuaikan ukuran laman secara otomatis, lengkap dengan saklar on/off.</p>
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlBg}</div>
+            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background Section</button>
+          </div>`;
+      }
       else if (id === 'sectionReorder') {
           let listHtml = '';
           const names = { hero: '1. Cover / Hero Section', quotes: '2. Quotes & Ayat', mempelai: '3. Profil Tuan Rumah / Mempelai', video: '4. Video Dokumentasi MP4', lokasi: '5. Lokasi & Google Maps', amplop: '6. Amplop Digital & QRIS', rsvp: '7. Ucapan & Kehadiran (RSVP)' };
@@ -716,16 +766,16 @@
                     <span>Tampilkan Foto</span>
                   </label>
                 </div>
-                <p class="text-[10px] text-slate-400">Upload banyak foto sekaligus (tanpa batas):</p>
+                <p class="text-[10px] text-slate-400">Upload banyak foto sekaligus (Susun 2 atas, 2 bawah ke bawah secara dinamis):</p>
                 <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${sec.key}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-                <div class="flex flex-wrap gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic">Belum ada foto</span>'}</div>
+                <div class="grid grid-cols-2 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-2">Belum ada foto</span>'}</div>
               </div>`;
           });
 
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">🖼️ Upload Multi-Foto Dinamis Tanpa Batas & Saklar</h4>
-            <p class="text-slate-400">Anda dapat mengunggah banyak foto per section sekaligus dan menyalakan/mematikan tombol saklar tampilnya.</p>
+            <h4 class="font-bold text-rose-400 text-sm">🖼️ Upload Multi-Foto (Susun 2 ke Bawah & Saklar)</h4>
+            <p class="text-slate-400">Foto disusun dalam 2 kolom ke bawah (2 foto di atas, 2 foto langsung di bawahnya, dan seterusnya).</p>
             <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${photoAdminHtml}</div>
             <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Foto & Saklar</button>
           </div>`;
@@ -1124,6 +1174,66 @@
         });
     }
 
+    function handleSectionBackgroundUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            sectionBackgrounds[sectionKey] = e.target.result;
+            const urlInput = document.getElementById(`bgUrlInput-${sectionKey}`);
+            if(urlInput) urlInput.value = e.target.result;
+            saveAllDataToDevice();
+            applySectionBackgrounds();
+            showToast(`Background untuk ${sectionKey} berhasil diunggah!`);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function saveAllSectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`bgUrlInput-${k}`);
+            const cb = document.getElementById(`visBg-${k}`);
+            if(el) {
+                sectionBackgrounds[k] = el.value.trim();
+            }
+            if(cb) {
+                sectionBackgroundVisibility[k] = cb.checked;
+            }
+        });
+        saveAllDataToDevice();
+        applySectionBackgrounds();
+        showToast('Background section & saklar berhasil disimpan!');
+        backToDashboard();
+    }
+
+    function applySectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
+            if(!secEl) return;
+            const isVisible = sectionBackgroundVisibility[k] !== false;
+            const bgUrl = sectionBackgrounds[k];
+
+            if(!isVisible || !bgUrl) {
+                if(k === 'hero') {
+                    // hero maintains ultimateConfig.coverBg
+                } else {
+                    secEl.style.backgroundImage = '';
+                }
+            } else {
+                if(k === 'hero') {
+                    const heroBg = document.getElementById('mainHeroBg');
+                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
+                } else {
+                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('${bgUrl}')`;
+                    secEl.style.backgroundSize = 'cover';
+                    secEl.style.backgroundPosition = 'center';
+                }
+            }
+        });
+    }
+
     function handleMultiPhotoUpload(event, sectionKey) {
         const files = event.target.files;
         if(!files || files.length === 0) return;
@@ -1232,6 +1342,8 @@
             }
 
             container.classList.remove('hidden');
+            // Susun 2 kolom ke bawah (stacked grid 2 columns)
+            container.className = "grid grid-cols-2 gap-2 mb-3";
             let gridHtml = '';
             photosArr.forEach(url => {
                 gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
@@ -1651,6 +1763,7 @@
         try { applyTextElementsToDOM(); } catch(e) {}
         try { applySectionPhotos(); } catch(e) {}
         try { applySectionMicroVideos(); } catch(e) {}
+        try { applySectionBackgrounds(); } catch(e) {}
         try { updateAdminEmailHint(); } catch(e) {}
 
         try {
