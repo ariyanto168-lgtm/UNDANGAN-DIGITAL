@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.52</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.53</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.52)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.53)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -101,20 +101,14 @@
         </div>
       </section>
 
-      <!-- SECTION 2: RUNDOWN UNIVERSAL DENGAN DROPDOWN HARI H (TEKS JUDUL DIHAPUS, POSISI DIBAWAH HERO) -->
-      <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-6">
+      <!-- SECTION 2: SUSUNAN ACARA POLOS / DESKRIPSI BEBAS (POSISI DIBAWAH COVER) -->
+      <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-rundown" class="w-full"></div>
         <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
-        
-        <!-- DROPDOWN FILTER HARI H -->
-        <div class="max-w-xs mx-auto">
-          <label class="block text-[11px] font-semibold text-slate-500 mb-1 text-left">Pilih Sesi / Hari H:</label>
-          <select id="publicRundownDaySelect" onchange="renderPublicRundown()" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-pink-600 outline-none shadow-sm cursor-pointer">
-            <option value="ALL">Semua Sesi / Hari</option>
-          </select>
+        <h2 class="text-3xl font-bold text-slate-900 mb-2">Susunan Acara</h2>
+        <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 text-left max-w-xs mx-auto">
+          <p id="text-susunanAcara" data-key="susunanAcaraText" class="text-xs text-slate-700 whitespace-pre-line leading-relaxed">Pukul 08.00 WIB - Selesai<br>Prosesi Akad / Pemberkatan<br><br>Pukul 11.00 WIB - Selesai<br>Resepsi & Ramah Tamah</p>
         </div>
-
-        <div id="publicRundownContainer" class="space-y-3 max-w-xs mx-auto text-left pt-2"></div>
       </section>
 
       <!-- SECTION 3: QUOTES -->
@@ -221,7 +215,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.52 (No Jadwal, Rundown Under Cover)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.53 (Free Text Rundown)</p>
       </div>
     </footer>
   </main>
@@ -232,7 +226,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.52</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.53</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -278,9 +272,8 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.52 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.53 -->
   <script>
-    // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
@@ -320,6 +313,7 @@
       pernikahan: {
         badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
+        susunanAcaraText: "Pukul 08.00 WIB - Selesai\nProsesi Akad Nikah\n\nPukul 11.00 WIB - 14.00 WIB\nResepsi Pernikahan",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
         titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
@@ -327,6 +321,7 @@
       khitanan: {
         badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
+        susunanAcaraText: "Pukul 09.00 WIB - 11.00 WIB\nProsesi Khitanan\n\nPukul 11.00 WIB - Selesai\nJamuan Tamu & Doa Bersama",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
         titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
         titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
@@ -334,6 +329,7 @@
       ultah: {
         badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
+        susunanAcaraText: "Pukul 15.00 WIB - 17.00 WIB\nOpening & Games\n\nPukul 17.00 WIB - 20.00 WIB\nDinner & Birthday Cake",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
         titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
         titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
@@ -341,6 +337,7 @@
       rapatrt: {
         badgeText: "Undangan Resmi", coupleName: "Rapat Pleno RT 05", subText: "Warga Wajib Hadir", dateDisplay: "Jumat, 30 Oktober 2026",
         heroTitle: "Rapat Warga RT 05 / RW 02", heroSub: "Agenda Evaluasi Kas Keuangan & Keamanan Lingkungan.",
+        susunanAcaraText: "Pukul 19.30 WIB - 20.30 WIB\nSesi 1: Laporan Keuangan\n\nPukul 20.30 WIB - Selesai\nSesi 2: Tanya Jawab & Penutup",
         quoteText: "Kerjasama dan kerukunan warga adalah kunci kenyamanan lingkungan kita bersama.",
         titleMempelai: "Pimpinan Rapat", groomName: "Bpk Budi Santoso (Ketua RT)", brideName: "Ibu Siti Rahma (Sekretaris)",
         titleLokasi: "Balai Warga RT 05", titleGift: "Kas & Iuran Warga", subGift: "Pembayaran iuran dapat dilakukan via QRIS/Transfer.", titleRsvp: "Absensi Kehadiran", footerCouple: "Pengurus RT 05 / RW 02"
@@ -348,6 +345,7 @@
       grandopening: {
         badgeText: "Grand Opening", coupleName: "Kopi Senja Cafe", subText: "Undangan Spesial Soft & Grand Opening", dateDisplay: "Sabtu, 07 November 2026",
         heroTitle: "Kopi Senja & Resto", heroSub: "Nikmati sajian kopi nusantara terbaik dengan suasana syahdu.",
+        susunanAcaraText: "Pukul 10.00 WIB - 12.00 WIB\nPemotongan Pita & Doa\n\nPukul 13.00 WIB - 21.00 WIB\nOpen Cafe & Live Music",
         quoteText: "Good friends, great coffee, and unforgettable moments.",
         titleMempelai: "Manajemen", groomName: "Reza Pahlevi (Founder)", brideName: "Tim Kopi Senja",
         titleLokasi: "Outlet Utama", titleGift: "Voucher & Promo", subGift: "Dukung kami dengan investasi atau pembelian voucher.", titleRsvp: "RSVP Kehadiran", footerCouple: "Manajemen Kopi Senja"
@@ -355,6 +353,7 @@
       rumahbaru: {
         badgeText: "Syukuran Rumah", coupleName: "Keluarga Bpk. Hendra", subText: "Doa Bersama & Syukuran", dateDisplay: "Minggu, 15 November 2026",
         heroTitle: "Syukuran Rumah Baru", heroSub: "Mohon doa restu agar tempat tinggal kami membawa berkah.",
+        susunanAcaraText: "Pukul 10.00 WIB - 12.00 WIB\nTausiyah & Doa Bersama\n\nPukul 12.00 WIB - Selesai\nRamah Tamah & Jamuan",
         quoteText: "Ya Allah, tempatkanlah kami pada tempat yang diberkati, dan Engkau adalah sebaik-baik pemberi tempat.",
         titleMempelai: "Tuan Rumah", groomName: "Bpk. Hendra Wijaya", brideName: "Ibu Lanny Kusuma",
         titleLokasi: "Kediaman Baru", titleGift: "Tanda Kasih", subGift: "Doa restu Anda sangat kami harapkan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. Hendra"
@@ -362,6 +361,7 @@
       pertunangan: {
         badgeText: "The Engagement", coupleName: "Dimas & Nabila", subText: "Menuju Langkah Suci", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Dimas & Nabila", heroSub: "Mengikat janji suci menuju lembaran hidup baru.",
+        susunanAcaraText: "Pukul 09.00 WIB - 10.30 WIB\nProsesi Tukar Cincin\n\nPukul 10.30 WIB - Selesai\nRamah Tamah Keluarga",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya... Dia memasang rasa cinta dan kasih sayang di antara kamu.",
         titleMempelai: "Pasangan Tunangan", groomName: "Dimas Anggara, S.T.", brideName: "Nabila Putri, S.Farm.",
         titleLokasi: "Kediaman Wanita", titleGift: "Kado Tunangan", subGift: "Terima kasih atas doa dan dukungan Anda.", titleRsvp: "RSVP Kehadiran", footerCouple: "Dimas & Nabila"
@@ -369,6 +369,7 @@
       reuni: {
         badgeText: "Reuni Akbar", coupleName: "Alumni SMA N 1 2010", subText: "Merajut Silaturahmi Kembali", dateDisplay: "Sabtu, 26 Desember 2026",
         heroTitle: "Reuni 16 Tahun SMAN 1", heroSub: "Mari bernostalgia bersama kawan lama masa putih abu-abu.",
+        susunanAcaraText: "Pukul 09.00 WIB - 12.00 WIB\nRegistrasi & Nostalgia Kelas\n\nPukul 13.00 WIB - 17.00 WIB\nLunch & Panggung Hiburan",
         quoteText: "Waktu boleh berlalu, namun persahabatan sejati akan abadi selamanya.",
         titleMempelai: "Panitia Pelaksana", groomName: "Andi Saputra (Ketua)", brideName: "Dewi Lestari (Bendahara)",
         titleLokasi: "Lokasi Reuni", titleGift: "Kontribusi Dana", subGift: "Dana partisipasi dapat ditransfer melalui rekening di bawah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia Reuni Angkatan 2010"
@@ -376,6 +377,7 @@
       aqiqah: {
         badgeText: "Tasyakuran Aqiqah", coupleName: "Muhammad Keenan", subText: "Syukuran Kelahiran & Aqiqah", dateDisplay: "Minggu, 22 November 2026",
         heroTitle: "Aqiqah Muhammad Keenan", heroSub: "Ungkapan rasa syukur atas karunia buah hati tercinta.",
+        susunanAcaraText: "Pukul 09.00 WIB - 10.00 WIB\nCukur Rambut & Doa\n\nPukul 10.00 WIB - Selesai\nJamuan Makan Bersama",
         quoteText: "Setiap anak tergadaikan dengan aqiqahnya... semoga menjadi syafaat bagi keluarga.",
         titleMempelai: "Buah Hati & Orang Tua", groomName: "Muhammad Keenan", brideName: "Keluarga Bapak Rizky",
         titleLokasi: "Kediaman Keluarga", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah anugerah terbesar bagi anak kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Rizky & Fitri"
@@ -383,6 +385,7 @@
       wisuda: {
         badgeText: "Graduation Celebration", coupleName: "Dr. Clarissa, S.Ked.", subText: "Syukuran Kelulusan Kedokteran", dateDisplay: "Kamis, 10 Desember 2026",
         heroTitle: "Clarissa Graduation", heroSub: "Hasil kerja keras, doa, dan air mata akhirnya berbuah manis.",
+        susunanAcaraText: "Pukul 08.00 WIB - 11.00 WIB\nProsesi Wisuda Kampus\n\nPukul 13.00 WIB - 17.00 WIB\nSyukuran & Ramah Tamah",
         quoteText: "Pendidikan adalah senjata paling ampuh yang bisa kamu gunakan untuk mengubah dunia.",
         titleMempelai: "Wisudawati", groomName: "Dr. Clarissa Melati, S.Ked.", brideName: "Keluarga Besar",
         titleLokasi: "Lokasi Syukuran", titleGift: "Kado Wisuda", subGift: "Terima kasih atas segala dukungan teman-teman.", titleRsvp: "RSVP Kehadiran", footerCouple: "Clarissa & Keluarga"
@@ -390,6 +393,7 @@
       doabersama: {
         badgeText: "Doa Bersama", coupleName: "Yayasan Berkah Mandiri", subText: "Santunan Anak Yatim & Dhuafa", dateDisplay: "Jumat, 11 Desember 2026",
         heroTitle: "Doa Bersama & Santunan", heroSub: "Mari berbagi kebahagiaan dan doa untuk sesama.",
+        susunanAcaraText: "Pukul 15.30 WIB - 17.00 WIB\nSembahyang & Dzikir\n\nPukul 17.00 WIB - Selesai\nSantunan & Ramah Tamah",
         quoteText: "Orang yang memelihara anak yatim... kedudukannya di surga sangatlah mulia.",
         titleMempelai: "Penyelenggara", groomName: "Ust. H. Lukman Hakim", brideName: "Pengurus Yayasan",
         titleLokasi: "Aula Utama Yayasan", titleGift: "Donasi & Infaq", subGift: "Salurkan donasi terbaik Anda melalui rekening resmi yayasan.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Yayasan Berkah Mandiri"
@@ -397,6 +401,7 @@
       arisan: {
         badgeText: "Arisan Keluarga", coupleName: "Trah Joyo Sudarso", subText: "Pertemuan Rutin Bulanan", dateDisplay: "Minggu, 29 November 2026",
         heroTitle: "Arisan Trah Joyo Sudarso", heroSub: "Menjaga tali silaturahmi antar keturunan leluhur.",
+        susunanAcaraText: "Pukul 10.00 WIB - 11.00 WIB\nPembukaan & Doa\n\nPukul 11.00 WIB - Selesai\nKocok Arisan & Makan Siang",
         quoteText: "Silaturahmi memperpanjang umur dan melapangkan pintu rezeki.",
         titleMempelai: "Tuan Rumah Bulan Ini", groomName: "Bpk. Bambang Sutrisno", brideName: "Ibu Sri Wahyuni",
         titleLokasi: "Pendopo Among Roso", titleGift: "Iuaran Arisan", subGift: "Pembayaran arisan dapat ditransfer ke bendahara.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Besar Joyo"
@@ -404,6 +409,7 @@
       seminar: {
         badgeText: "Seminar Nasional", coupleName: "Teknologi & AI 2026", subText: "Transformasi Digital Masa Depan", dateDisplay: "Senin, 14 Desember 2026",
         heroTitle: "Seminar Nasional AI", heroSub: "Mengkaji kesiapan SDM menghadapi era kecerdasan buatan.",
+        susunanAcaraText: "Pukul 08.30 WIB - 12.00 WIB\nSesi Keynote & Materi 1\n\nPukul 13.00 WIB - 15.30 WIB\nSesi Panel & Tanya Jawab",
         quoteText: "Inovasi membedakan antara pemimpin dan pengikut di dunia modern.",
         titleMempelai: "Keynote Speaker", groomName: "Prof. Dr. Ir. Aris Hartono", brideName: "Dr. Maya Sofiana, M.T.",
         titleLokasi: "Auditorium Kampus Utama", titleGift: "Pembelian Tiket", subGift: "Selesaikan pembayaran tiket melalui QRIS/Rekening resmi.", titleRsvp: "Registrasi Peserta", footerCouple: "Panitia Seminar Nasional"
@@ -411,6 +417,7 @@
       pameranseni: {
         badgeText: "Art Exhibition", coupleName: "Jejak Visual Nusantara", subText: "Pameran Lukisan & Fotografi Eksklusif", dateDisplay: "Sabtu - Minggu, 12-13 Des 2026",
         heroTitle: "Pameran Seni Jejak Visual", heroSub: "Menyaksikan karya seni rupa maestro tanah air.",
+        susunanAcaraText: "Pukul 10.00 WIB\nOpening Ceremony (VIP)\n\nPukul 11.00 WIB - 20.00 WIB\nOpen for Public",
         quoteText: "Seni mencuci debu kehidupan dari jiwa kita sehari-hari.",
         titleMempelai: "Kurator Pameran", groomName: "Galang Seniman", brideName: "Komunitas Seni Rupa",
         titleLokasi: "Taman Budaya Senen", titleGift: "Pembelian Karya", subGift: "Dukung seniman lokal dengan mengapresiasi karyanya.", titleRsvp: "RSVP Pengunjung", footerCouple: "Kurator Galeri Nusantara"
@@ -418,6 +425,7 @@
       maulid: {
         badgeText: "Peringatan Hari Besar", coupleName: "Maulid Nabi SAW", subText: "Tabligh Akbar & Dzikir Bersama", dateDisplay: "Senin, 28 November 2026",
         heroTitle: "Tabligh Akbar Maulid Nabi", heroSub: "Meneladani akhlak mulia Rasulullah SAW dalam kehidupan modern.",
+        susunanAcaraText: "Pukul 19.30 WIB - 20.30 WIB\nSholat Isya & Dzikir\n\nPukul 20.30 WIB - 22.30 WIB\nTabligh Akbar & Penutup",
         quoteText: "Sesungguhnya telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu.",
         titleMempelai: "Penceramah", groomName: "KH. Abdullah Gymnastiar", brideName: "DKM Masjid Al-Ikhlas",
         titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas"
@@ -425,6 +433,7 @@
       lomba: {
         badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antar Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Badminton Warga Cup 2026", heroSub: "Sportivitas dan kebersamaan di atas segalanya.",
+        susunanAcaraText: "Pukul 08.00 WIB - 12.00 WIB\nBabak Penyisihan Grup\n\nPukul 13.00 WIB - 17.00 WIB\nBabak Final & Penyerahan Piala",
         quoteText: "Olahraga menyatukan kita dalam semangat juang yang sehat dan sportif.",
         titleMempelai: "Ketua Panitia", groomName: "Sdr. Rian Hidayat", brideName: "Karang Taruna Bhakti",
         titleLokasi: "GOR Serbaguna Bhakti", titleGift: "Pendaftaran Lomba", subGift: "Biaya pendaftaran tim dapat ditransfer ke bendahara.", titleRsvp: "Daftar Peserta", footerCouple: "Karang Taruna Bhakti"
@@ -432,6 +441,7 @@
       farewell: {
         badgeText: "Farewell Party", coupleName: "Perpisahan Kantor", subText: "Malam Keakraban & Apresiasi", dateDisplay: "Jumat, 18 Desember 2026",
         heroTitle: "Farewell Pak Direktur", heroSub: "Terima kasih atas dedikasi dan kepemimpinan luar biasa Anda.",
+        susunanAcaraText: "Pukul 18.30 WIB - 19.30 WIB\nDinner & Sambutan\n\nPukul 19.30 WIB - 21.30 WIB\nKesan Pesan & Kenang-kenangan",
         quoteText: "Perpisahan bukanlah akhir, melainkan awal dari babak baru yang gemilang.",
         titleMempelai: "Pihak Yang Dilepas", groomName: "Bpk. Ir. Hartono (Ex-CEO)", brideName: "Seluruh Karyawan PT",
         titleLokasi: "Sky Lounge Hotel Aston", titleGift: "Dana Kenang-kenangan", subGift: "Patungan kado perpisahan dapat ditransfer ke HRD.", titleRsvp: "RSVP Karyawan", footerCouple: "Tim HRD & Panitia"
@@ -439,6 +449,7 @@
       bazar: {
         badgeText: "Bazar Amal", coupleName: "Pasar Murah Ramadhan", subText: "Bazar Sembako Murah & Pakaian", dateDisplay: "Minggu, 13 Desember 2026",
         heroTitle: "Bazar Amal Peduli Sesama", heroSub: "Membantu sesama warga melalui pasar murah berkualitas.",
+        susunanAcaraText: "Pukul 08.00 WIB\nSeremonial Pembukaan\n\nPukul 08.30 WIB - 15.00 WIB\nBazar & Pembagian Sembako",
         quoteText: "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.",
         titleMempelai: "Panitia Sosial", groomName: "Ibu Hj. Aminah", brideName: "Ibu-Ibu PKK RW 04",
         titleLokasi: "Halaman Kelurahan", titleGift: "Donasi / Kupon", subGift: "Pembelian kupon atau donasi amal dapat melalui QRIS.", titleRsvp: "Konfirmasi Hadir", footerCouple: "Panitia Sosial RW 04"
@@ -446,6 +457,7 @@
       softopening: {
         badgeText: "Soft Opening", coupleName: "Zahra Elegance Boutique", subText: "Koleksi Terbaru Busana Muslimah", dateDisplay: "Sabtu, 21 November 2026",
         heroTitle: "Zahra Elegance Boutique", heroSub: "Tampil anggun, syar'i, dan fashionable setiap hari.",
+        susunanAcaraText: "Pukul 10.00 WIB - 13.00 WIB\nVIP Invitation & Trunk Show\n\nPukul 13.00 WIB - 21.00 WIB\nOpen to Public",
         quoteText: "Style is a way to say who you are without having to speak.",
         titleMempelai: "Owner & Designer", groomName: "Zahra Salsabila, S.Ds.", brideName: "Tim Manajemen Zahra",
         titleLokasi: "Ruko Grand Galaxy City", titleGift: "Pembayaran & Pre-Order", subGift: "Nikmati diskon eksklusif selama masa opening.", titleRsvp: "RSVP VIP", footerCouple: "Zahra Elegance"
@@ -453,6 +465,7 @@
       gathering: {
         badgeText: "Annual Gathering", coupleName: "PT Solusi Teknologi", subText: "Perayaan HUT ke-10 Perusahaan", dateDisplay: "Sabtu, 19 Desember 2026",
         heroTitle: "1 Dekade Solusi Teknologi", heroSub: "10 Tahun berinovasi melayani negeri dengan teknologi terbaik.",
+        susunanAcaraText: "Pukul 09.00 WIB - 12.00 WIB\nAnnual Meeting & Laporan\n\nPukul 13.00 WIB - 17.00 WIB\nCelebration, Doorprize & Entertainment",
         quoteText: "Together we achieve more, grow stronger, and inspire the future.",
         titleMempelai: "Dewan Direksi", groomName: "Jajaran Direktur", brideName: "Seluruh Karyawan",
         titleLokasi: "Ballroom Hotel Mulia", titleGift: "Sponsorship", subGift: "Dukungan sponsor dapat disalurkan melalui rekening panitia.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Panitia 1 Dekade"
@@ -462,6 +475,7 @@
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
+      susunanAcaraText: "Pukul 08.00 WIB - Selesai\nProsesi Akad / Pemberkatan\n\nPukul 11.00 WIB - Selesai\nResepsi & Ramah Tamah",
       quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
       titleMempelai: "Profil Tuan Rumah", groomName: "Rian Pratama", brideName: "Siska Amalia",
       titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
@@ -494,13 +508,6 @@
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     
-    // RUNDOWN / SUSUNAN ACARA UNIVERSAL DENGAN HARI H
-    let universalRundownItems = [
-      { day: "Hari H (Akad)", time: "08:00 - 10:00 WIB", title: "Prosesi Akad Nikah", desc: "Ijab kabul & penyerahan mahar." },
-      { day: "Hari H (Resepsi)", time: "11:00 - 14:00 WIB", title: "Resepsi Pernikahan", desc: "Jamuan tamu & sesi foto bersama." }
-    ];
-
-    // POSISI SECTION: TANPA JADWAL, RUNDOWN TEPAT DIBAWAH COVER (HERO)
     let sectionOrder = ['hero', 'rundown', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
 
@@ -525,13 +532,13 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v52')) {
+        if(localStorage.getItem('ari_textElements_v53')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v53'));
+        } else if(localStorage.getItem('ari_textElements_v52')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v52'));
-        } else if(localStorage.getItem('ari_textElements_v51')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v51'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v52')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v52'));
+        if(localStorage.getItem('ari_sectionPhotos_v53')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v53'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -540,7 +547,6 @@
         if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
-        if(localStorage.getItem('ari_universalRundownItems')) universalRundownItems = JSON.parse(localStorage.getItem('ari_universalRundownItems'));
         if(localStorage.getItem('ari_waTemplate')) waTemplate = localStorage.getItem('ari_waTemplate');
         if(localStorage.getItem('ari_sectionOrder')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder'));
         if(localStorage.getItem('ari_currentCategory')) currentCategoryKey = localStorage.getItem('ari_currentCategory');
@@ -551,9 +557,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v52', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v53', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v52', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v53', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -561,7 +567,6 @@
             localStorage.setItem('ari_sectionBackgroundVisibility', JSON.stringify(sectionBackgroundVisibility));
             localStorage.setItem('ari_attendanceList', JSON.stringify(attendanceList));
             localStorage.setItem('ari_guestDatabase', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_universalRundownItems', JSON.stringify(universalRundownItems));
             localStorage.setItem('ari_giftConfig', JSON.stringify(giftConfig));
             localStorage.setItem('ari_waTemplate', waTemplate);
             localStorage.setItem('ari_sectionOrder', JSON.stringify(sectionOrder));
@@ -571,7 +576,7 @@
     }
 
     function generateBackup() {
-        const data = { textElements, adminAuth, sectionPhotos, sectionPhotoVisibility, sectionMicroVideos, sectionMicroVideoVisibility, sectionBackgrounds, sectionBackgroundVisibility, attendanceList, guestDatabase, universalRundownItems, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
+        const data = { textElements, adminAuth, sectionPhotos, sectionPhotoVisibility, sectionMicroVideos, sectionMicroVideoVisibility, sectionBackgrounds, sectionBackgroundVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig };
         document.getElementById('backupOutput').value = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
     }
     function copyBackup() { 
@@ -592,7 +597,6 @@
             if(decoded.sectionMicroVideoVisibility) sectionMicroVideoVisibility = decoded.sectionMicroVideoVisibility;
             if(decoded.sectionBackgrounds) sectionBackgrounds = decoded.sectionBackgrounds;
             if(decoded.sectionBackgroundVisibility) sectionBackgroundVisibility = decoded.sectionBackgroundVisibility;
-            if(decoded.universalRundownItems) universalRundownItems = decoded.universalRundownItems;
             if(decoded.giftConfig) giftConfig = decoded.giftConfig;
             if(decoded.ultimateConfig) ultimateConfig = decoded.ultimateConfig;
             if(decoded.attendanceList) attendanceList = decoded.attendanceList;
@@ -607,7 +611,6 @@
 
     const adminModules = [
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih 20 Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
-      { id: 'rundownManager', title: 'Susunan Acara & Hari H', desc: 'Kelola Rundown Universal & Dropdown', icon: 'fa-list-check', gradient: 'from-orange-600 to-pink-600' },
       { id: 'animasiStiker', title: 'Video Kecil & Saklar (Micro-Video)', desc: 'Atur Video Dinamis & On/Off Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionBackgrounds', title: 'Background Section Dinamis', desc: 'Upload Background Foto & Saklar On/Off', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Atur Posisi Naik/Turun Section', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
@@ -616,7 +619,7 @@
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & Video Dokumentasi Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks & On/Off Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks, Deskripsi Susunan Acara & Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop, QRIS & Saklar', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'keamananAkun', title: 'Keamanan Akun & Email Asli', desc: 'Ubah PIN, Lupa PIN, & Ganti Email OTP Real', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
       { id: 'guests', title: 'Buku Tamu & Sharelok', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
@@ -656,37 +659,6 @@
                 <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
                 <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Preset</button>
             </div>
-          </div>`;
-      }
-      else if (id === 'rundownManager') {
-          let rundownListHtml = '';
-          universalRundownItems.forEach((item, idx) => {
-              rundownListHtml += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-orange-300">[${item.day}] ${item.time}</span>
-                  <button onclick="deleteRundownItem(${idx})" class="bg-rose-600 text-white px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-trash"></i> Hapus</button>
-                </div>
-                <p class="font-bold text-white">${item.title}</p>
-                <p class="text-slate-300 text-[11px]">${item.desc}</p>
-              </div>`;
-          });
-
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-orange-400 text-sm">📋 Kelola Susunan Acara (Rundown) & Dropdown Hari H</h4>
-            <p class="text-slate-400">Tambahkan rangkaian acara lengkap dengan kategori Sesi / Hari H (contoh: Hari H Akad, Hari H Resepsi, dll).</p>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="font-bold text-slate-200">Tambah Rundown Baru</label>
-              <input type="text" id="newRundownDay" placeholder="Kategori Hari H / Sesi (cth: Hari H (Akad))" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-              <input type="text" id="newRundownTime" placeholder="Waktu (cth: 08:00 - 10:00 WIB)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-1">
-              <input type="text" id="newRundownTitle" placeholder="Judul Acara (cth: Prosesi Akad Nikah)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-1">
-              <textarea id="newRundownDesc" rows="2" placeholder="Deskripsi Acara..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-1"></textarea>
-              <button onclick="addRundownItem()" class="w-full bg-orange-600 text-white py-2.5 rounded-lg font-bold mt-1">Tambah ke Susunan Acara</button>
-            </div>
-
-            <div class="space-y-2 max-h-60 overflow-y-auto pr-1">${rundownListHtml || '<p class="text-slate-400 italic">Belum ada item rundown.</p>'}</div>
           </div>`;
       }
       else if (id === 'animasiStiker') {
@@ -775,7 +747,7 @@
       }
       else if (id === 'sectionReorder') {
           let listHtml = '';
-          const names = { hero: '1. Cover / Hero Section', rundown: '2. Susunan Acara (Rundown Universal)', quotes: '3. Quotes & Ayat', mempelai: '4. Profil Tuan Rumah', video: '5. Video Dokumentasi MP4', lokasi: '6. Lokasi & Google Maps', amplop: '7. Amplop Digital & QRIS', rsvp: '8. Ucapan & Kehadiran (RSVP)' };
+          const names = { hero: '1. Cover / Hero Section', rundown: '2. Susunan Acara (Rundown Bebas)', quotes: '3. Quotes & Ayat', mempelai: '4. Profil Tuan Rumah', video: '5. Video Dokumentasi MP4', lokasi: '6. Lokasi & Google Maps', amplop: '7. Amplop Digital & QRIS', rsvp: '8. Ucapan & Kehadiran (RSVP)' };
           sectionOrder.forEach((key, idx) => {
               listHtml += `
               <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
@@ -1018,13 +990,13 @@
                   <span>Typewriter ON/OFF</span>
                 </label>
               </div>
-              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
+              <textarea id="txt-${key}" rows="${key === 'susunanAcaraText' ? '5' : '2'}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
             </div>`; 
         }
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks & Typewriter Toggle (Dynamic)</h4>
-            <p class="text-slate-400">Kolom teks otomatis menyesuaikan (bisa melebar dan turun ke bawah secara dinamis).</p>
+            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks & Susunan Acara (Bebas Ketik)</h4>
+            <p class="text-slate-400">Edit teks undangan termasuk susunan acara secara bebas.</p>
             <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${rows}</div>
             <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
           </div>`;
@@ -1062,67 +1034,6 @@
       }
     }
 
-    // RUNDOWN MANAGEMENT FUNCTIONS
-    function addRundownItem() {
-        const day = document.getElementById('newRundownDay').value.trim();
-        const time = document.getElementById('newRundownTime').value.trim();
-        const title = document.getElementById('newRundownTitle').value.trim();
-        const desc = document.getElementById('newRundownDesc').value.trim();
-        if(!day || !time || !title) return showToast('Isi Kategori Hari, Waktu, dan Judul Acara!', 'error');
-
-        universalRundownItems.push({ day, time, title, desc });
-        saveAllDataToDevice();
-        openAdminModule('rundownManager');
-        renderPublicRundown();
-        showToast('Susunan acara berhasil ditambahkan!');
-    }
-
-    function deleteRundownItem(index) {
-        universalRundownItems.splice(index, 1);
-        saveAllDataToDevice();
-        openAdminModule('rundownManager');
-        renderPublicRundown();
-        showToast('Item rundown dihapus.');
-    }
-
-    function renderPublicRundown() {
-        const container = document.getElementById('publicRundownContainer');
-        const select = document.getElementById('publicRundownDaySelect');
-        if(!container || !select) return;
-
-        let daysSet = new Set();
-        universalRundownItems.forEach(item => daysSet.add(item.day));
-        
-        let currentSelected = select.value;
-        select.innerHTML = '<option value="ALL">Semua Sesi / Hari</option>';
-        daysSet.forEach(day => {
-            select.innerHTML += `<option value="${day}" ${currentSelected === day ? 'selected' : ''}>${day}</option>`;
-        });
-
-        const filterVal = select.value;
-        container.innerHTML = '';
-        
-        const filtered = filterVal === 'ALL' ? universalRundownItems : universalRundownItems.filter(i => i.day === filterVal);
-        
-        if(filtered.length === 0) {
-            container.innerHTML = '<p class="text-slate-500 text-xs italic text-center py-4">Belum ada susunan acara untuk sesi ini.</p>';
-            return;
-        }
-
-        filtered.forEach(item => {
-            container.innerHTML += `
-              <div class="bg-white/90 p-4 rounded-2xl shadow-sm border border-slate-100 space-y-1">
-                <div class="flex justify-between items-center text-[10px] font-bold text-pink-600">
-                  <span><i class="fa-solid fa-clock"></i> ${item.time}</span>
-                  <span class="bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${item.day}</span>
-                </div>
-                <h4 class="font-bold text-slate-900 text-sm pt-1">${item.title}</h4>
-                <p class="text-xs text-slate-600">${item.desc}</p>
-              </div>`;
-        });
-    }
-
-    // SECURITY & REAL EMAIL (EMAILJS) FUNCTIONS
     function saveEmailJsConfig() {
         adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
         adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
@@ -1672,7 +1583,7 @@
       }
       saveAllDataToDevice();
       applyTextElementsToDOM();
-      showToast('Teks & typewriter berhasil disimpan!');
+      showToast('Teks & susunan acara berhasil disimpan!');
       backToDashboard();
     }
 
@@ -1746,6 +1657,7 @@
         const idMap = {
             'coverCoupleName': 'coupleName', 'coverBadgeText': 'badgeText', 'coverSubText': 'subText', 'coverDateDisplay': 'dateDisplay',
             'text-badge': 'badgeText', 'text-heroTitle': 'heroTitle', 'text-heroSub': 'heroSub',
+            'text-susunanAcara': 'susunanAcaraText',
             'text-titleMempelai': 'titleMempelai', 'text-groomName': 'groomName', 'text-brideName': 'brideName',
             'text-titleLokasi': 'titleLokasi', 'text-alamat': 'alamat',
             'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
@@ -1898,7 +1810,6 @@
         try { applySectionPhotos(); } catch(e) {}
         try { applySectionMicroVideos(); } catch(e) {}
         try { applySectionBackgrounds(); } catch(e) {}
-        try { renderPublicRundown(); } catch(e) {}
         try { updateAdminEmailHint(); } catch(e) {}
 
         try {
