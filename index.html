@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.59</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.60</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.59)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.60)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -85,7 +85,7 @@
       </button>
     </nav>
 
-    <!-- KONTAINER SECTION (SEMUA SECTION DAPAT DI-REORDER SECARA BEBAS) -->
+    <!-- KONTAINER SECTION -->
     <div id="sectionsContainer" class="space-y-4 pt-4 px-2">
       
       <!-- SECTION: HERO -->
@@ -107,16 +107,6 @@
         <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
         <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
-      </section>
-
-      <!-- SECTION: SUSUNAN ACARA (RUNDOWN) -->
-      <section data-section-key="rundown" class="py-10 px-6 text-center section-overlay space-y-4">
-        <div id="microVideo-rundown" class="w-full"></div>
-        <div id="dynamicPhotosGrid-rundown" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <h2 class="text-3xl font-bold text-slate-900 mb-2">Susunan Acara</h2>
-        <div class="bg-white/90 p-5 rounded-2xl shadow-sm border border-slate-100 text-left max-w-xs mx-auto">
-          <p id="text-susunanAcara" data-key="susunanAcaraText" class="text-xs text-slate-700 whitespace-pre-line leading-relaxed">Pukul 08.00 WIB - Selesai<br>Prosesi Akad / Pemberkatan<br><br>Pukul 11.00 WIB - Selesai<br>Resepsi & Ramah Tamah</p>
-        </div>
       </section>
 
       <!-- SECTION: MEMPELAI -->
@@ -215,7 +205,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.59 (Fixed Rundown & Full Reorder)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.60 (No Rundown & Full Reorder)</p>
       </div>
     </footer>
   </main>
@@ -226,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.59</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.60</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -272,7 +262,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.59 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.60 -->
   <script>
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -313,7 +303,6 @@
       pernikahan: {
         badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
-        susunanAcaraText: "Pukul 08.00 WIB - Selesai\nProsesi Akad Nikah\n\nPukul 11.00 WIB - 14.00 WIB\nResepsi Pernikahan",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
         titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
         titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
@@ -321,7 +310,6 @@
       khitanan: {
         badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
-        susunanAcaraText: "Pukul 09.00 WIB - 11.00 WIB\nProsesi Khitanan\n\nPukul 11.00 WIB - Selesai\nJamuan Tamu & Doa Bersama",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
         titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
         titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah"
@@ -329,7 +317,6 @@
       ultah: {
         badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
-        susunanAcaraText: "Pukul 15.00 WIB - 17.00 WIB\nOpening & Games\n\nPukul 17.00 WIB - 20.00 WIB\nDinner & Birthday Cake",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
         titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
         titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila"
@@ -339,7 +326,6 @@
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
-      susunanAcaraText: "Pukul 08.00 WIB - Selesai\nProsesi Akad / Pemberkatan\n\nPukul 11.00 WIB - Selesai\nResepsi & Ramah Tamah",
       quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
       titleMempelai: "Profil Tuan Rumah", groomName: "Rian Pratama", brideName: "Siska Amalia",
       titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
@@ -350,8 +336,7 @@
 
     let textElements = {};
     for(let k in defaultText) {
-        // Default multiline fields set typewriter to false for stability
-        let isTl = (k !== 'susunanAcaraText' && k !== 'alamat' && k !== 'quoteText');
+        let isTl = (k !== 'alamat' && k !== 'quoteText');
         textElements[k] = { text: defaultText[k], typewriter: isTl };
     }
 
@@ -373,7 +358,7 @@
     ];
     let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
     
-    let sectionOrder = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+    let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'pernikahan';
 
     let ultimateConfig = { 
@@ -389,29 +374,27 @@
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
     };
 
-    let sectionPhotos = { hero: [], quotes: [], mempelai: [], rundown: [], video: [], lokasi: [], amplop: [], rsvp: [] };
-    let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true };
-    let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', rundown: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
-    let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
-    let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', rundown: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
-    let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, rundown: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
+    let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
+    let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+    let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+    let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v59')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v59'));
-        } else if(localStorage.getItem('ari_textElements_v58')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v58'));
+        if(localStorage.getItem('ari_textElements_v60')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v60'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v59')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v59'));
+        if(localStorage.getItem('ari_sectionPhotos_v60')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v60'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
         if(localStorage.getItem('ari_sectionBackgrounds')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds'));
         if(localStorage.getItem('ari_sectionBackgroundVisibility')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility'));
-        if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_attendanceList')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList'));
         if(localStorage.getItem('ari_guestDatabase')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase'));
+        if(localStorage.getItem('ari_giftConfig')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig')) };
         if(localStorage.getItem('ari_waTemplate')) waTemplate = localStorage.getItem('ari_waTemplate');
         if(localStorage.getItem('ari_sectionOrder')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder'));
         if(localStorage.getItem('ari_currentCategory')) currentCategoryKey = localStorage.getItem('ari_currentCategory');
@@ -422,9 +405,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v59', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v60', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v59', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v60', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -444,13 +427,13 @@
       { id: 'kategoriAcara', title: 'Kategori Acara', desc: 'Pilih Preset Teks', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Atur Video Dinamis Per Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionBackgrounds', title: 'Background Section', desc: 'Upload Background Foto', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
-      { id: 'sectionReorder', title: 'Tata Letak Section (Hero & Rundown)', desc: 'Geser Posisi Naik/Turun Bebas', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
+      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun Bebas', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Susun 2 Kolom ke Bawah', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Sharelok', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Foto Anda', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video', desc: 'Atur MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: 'Tabel Auto-Teks & Susunan Acara', desc: 'Ubah Teks & Susunan Acara', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Teks Undangan', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop & QRIS', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'keamananAkun', title: 'Keamanan & Email Asli', desc: 'PIN & OTP EmailJS', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
       { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
@@ -496,13 +479,12 @@
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
               { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
-              { key: 'mempelai', name: '4. Profil Tuan Rumah' },
-              { key: 'video', name: '5. Video Dokumentasi' },
-              { key: 'lokasi', name: '6. Lokasi & Maps' },
-              { key: 'amplop', name: '7. Amplop Digital' },
-              { key: 'rsvp', name: '8. Ucapan & RSVP' },
-              { key: 'footer', name: '9. Footer' }
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Video Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' },
+              { key: 'footer', name: '8. Footer' }
           ];
           
           let htmlSections = '';
@@ -537,13 +519,12 @@
           const sections = [
               { key: 'hero', name: '1. Cover / Hero Section' },
               { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
-              { key: 'mempelai', name: '4. Profil Tuan Rumah' },
-              { key: 'video', name: '5. Video Dokumentasi' },
-              { key: 'lokasi', name: '6. Lokasi & Maps' },
-              { key: 'amplop', name: '7. Amplop Digital' },
-              { key: 'rsvp', name: '8. Ucapan & RSVP' },
-              { key: 'footer', name: '9. Footer' }
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Video Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' },
+              { key: 'footer', name: '8. Footer' }
           ];
 
           let htmlBg = '';
@@ -577,14 +558,13 @@
       else if (id === 'sectionReorder') {
           let listHtml = '';
           const names = { 
-              hero: '1. Cover / Hero Section (Dapat Dipindah)',
+              hero: '1. Cover / Hero Section',
               quotes: '2. Quotes & Ayat', 
-              rundown: '3. Susunan Acara (Rundown Mandiri)', 
-              mempelai: '4. Profil Tuan Rumah', 
-              video: '5. Video Dokumentasi MP4', 
-              lokasi: '6. Lokasi & Google Maps', 
-              amplop: '7. Amplop Digital & QRIS', 
-              rsvp: '8. Ucapan & Kehadiran (RSVP)' 
+              mempelai: '3. Profil Tuan Rumah', 
+              video: '4. Video Dokumentasi MP4', 
+              lokasi: '5. Lokasi & Google Maps', 
+              amplop: '6. Amplop Digital & QRIS', 
+              rsvp: '7. Ucapan & Kehadiran (RSVP)' 
           };
           sectionOrder.forEach((key, idx) => {
               listHtml += `
@@ -598,8 +578,8 @@
           });
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-cyan-400 text-sm">📐 Susun Urutan Section Secara Bebas (Termasuk Hero & Rundown)</h4>
-            <p class="text-slate-400">Atur posisi section Susunan Acara, Hero, dan lainnya dengan menekan tombol panah naik/turun di bawah ini!</p>
+            <h4 class="font-bold text-cyan-400 text-sm">📐 Tata Letak Section</h4>
+            <p class="text-slate-400">Atur posisi section dengan menekan tombol panah naik/turun di bawah ini!</p>
             <div class="space-y-2">${listHtml}</div>
           </div>`;
       }
@@ -607,12 +587,11 @@
           const sectionList = [
               { key: 'hero', name: '1. Cover / Hero Section' },
               { key: 'quotes', name: '2. Quotes & Ayat' },
-              { key: 'rundown', name: '3. Susunan Acara (Rundown)' },
-              { key: 'mempelai', name: '4. Profil Tuan Rumah' },
-              { key: 'video', name: '5. Foto Dokumentasi' },
-              { key: 'lokasi', name: '6. Lokasi & Maps' },
-              { key: 'amplop', name: '7. Amplop Digital' },
-              { key: 'rsvp', name: '8. Ucapan & RSVP' }
+              { key: 'mempelai', name: '3. Profil Tuan Rumah' },
+              { key: 'video', name: '4. Foto Dokumentasi' },
+              { key: 'lokasi', name: '5. Lokasi & Maps' },
+              { key: 'amplop', name: '6. Amplop Digital' },
+              { key: 'rsvp', name: '7. Ucapan & RSVP' }
           ];
 
           let photoAdminHtml = '';
@@ -803,12 +782,12 @@
                   <span>Typewriter ON/OFF</span>
                 </label>
               </div>
-              <textarea id="txt-${key}" rows="${key === 'susunanAcaraText' ? '5' : '2'}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
+              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
             </div>`; 
         }
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks & Susunan Acara</h4>
+            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks</h4>
             <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${rows}</div>
             <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
           </div>`;
@@ -914,7 +893,7 @@
     }
 
     function saveAllMicroVideos() {
-        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`microVideoInput-${k}`);
             const cb = document.getElementById(`visMicro-${k}`);
@@ -928,7 +907,7 @@
     }
 
     function applySectionMicroVideos() {
-        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const container = document.getElementById(`microVideo-${k}`);
             if(!container) return;
@@ -960,7 +939,7 @@
     }
 
     function saveAllSectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const el = document.getElementById(`bgUrlInput-${k}`);
             const cb = document.getElementById(`visBg-${k}`);
@@ -974,7 +953,7 @@
     }
 
     function applySectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
             const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
             if(!secEl) return;
@@ -1025,7 +1004,7 @@
     }
 
     function saveMultiPhotoConfig() {
-        const sections = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(sec => {
             const cb = document.getElementById(`visPhoto-${sec}`);
             if(cb) sectionPhotoVisibility[sec] = cb.checked;
@@ -1063,7 +1042,7 @@
         currentCategoryKey = selKey;
         for(let k in defaultText) {
             if(preset[k] !== undefined) {
-                let isTl = (k !== 'susunanAcaraText' && k !== 'alamat' && k !== 'quoteText');
+                let isTl = (k !== 'alamat' && k !== 'quoteText');
                 textElements[k] = { text: preset[k], typewriter: isTl };
             }
         }
@@ -1084,7 +1063,7 @@
     }
 
     function applySectionPhotos() {
-        const sections = ['hero', 'quotes', 'rundown', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
         sections.forEach(key => {
             const container = document.getElementById(`dynamicPhotosGrid-${key}`);
             if(!container) return;
@@ -1330,8 +1309,7 @@
             const fullText = item.text;
             const useTypewriter = item.typewriter !== false;
             
-            // Render instantly without typewriter effect for multiline/complex text fields to prevent glitching
-            if(!useTypewriter || key === 'susunanAcaraText' || key === 'alamat' || key === 'quoteText') {
+            if(!useTypewriter || key === 'alamat' || key === 'quoteText') {
                 el.innerText = fullText;
                 return;
             }
@@ -1355,7 +1333,6 @@
         const idMap = {
             'coverCoupleName': 'coupleName', 'coverBadgeText': 'badgeText', 'coverSubText': 'subText', 'coverDateDisplay': 'dateDisplay',
             'text-badge': 'badgeText', 'text-heroTitle': 'heroTitle', 'text-heroSub': 'heroSub',
-            'text-susunanAcara': 'susunanAcaraText',
             'text-titleMempelai': 'titleMempelai', 'text-groomName': 'groomName', 'text-brideName': 'brideName',
             'text-titleLokasi': 'titleLokasi', 'text-alamat': 'alamat',
             'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
