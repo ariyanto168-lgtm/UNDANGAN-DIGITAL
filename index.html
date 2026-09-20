@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.82 (20 Gen-Z Motif Templates)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.83 (20 Gen-Z Color Motifs)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.82 (20 Gen-Z Motif Templates)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.83 (20 Gen-Z Color Motifs)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.82</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.83</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -271,6 +271,30 @@
         "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
         "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
+
+    // 20 Pilihan Warna Motif Gen-Z (Gen-Z Color Motifs)
+    const genZColorMotifs = {
+      cyber_neon: { name: "1. Cyberpunk Neon (Pink & Cyan)", bg: "#0f172a", text: "#f8fafc", accent: "#ec4899", secondary: "#06b6d4" },
+      y2k_hotpink: { name: "2. Y2K Hot Pink (Magenta & Silver)", bg: "#18181b", text: "#fafafa", accent: "#ff007f", secondary: "#a1a1aa" },
+      vaporwave: { name: "3. Vaporwave Synth (Purple & Mint)", bg: "#2e1065", text: "#f3e8ff", accent: "#c084fc", secondary: "#2dd4bf" },
+      coquette_bow: { name: "4. Coquette Pastel (Soft Pink & White)", bg: "#fff1f2", text: "#4c0519", accent: "#fb7185", secondary: "#fda4af" },
+      indie_sleaze: { name: "5. Indie Sleaze (Olive & Rust)", bg: "#1c1917", text: "#f5f5f4", accent: "#d97706", secondary: "#65a30d" },
+      hypebeast: { name: "6. Hypebeast Monotone (Black & Orange)", bg: "#09090b", text: "#ffffff", accent: "#f97316", secondary: "#52525b" },
+      holographic: { name: "7. Holographic Iridescent (Lavender & Turquoise)", bg: "#1e1b4b", text: "#e0e7ff", accent: "#818cf8", secondary: "#38bdf8" },
+      pastel_dream: { name: "8. Pastel Dream (Baby Blue & Peach)", bg: "#f0fdf4", text: "#14532d", accent: "#34d399", secondary: "#fb923c" },
+      dark_academia: { name: "9. Dark Academia (Espresso & Gold)", bg: "#1c1917", text: "#e7e5e4", accent: "#d4af37", secondary: "#78716c" },
+      bubblegum_pop: { name: "10. Bubblegum Pop (Electric Pink & Yellow)", bg: "#fdf4ff", text: "#701a75", accent: "#e879f9", secondary: "#facc15" },
+      retro_90s: { name: "11. Retro 90s (Teal & Mustard)", bg: "#042f2e", text: "#ccfbf1", accent: "#14b8a6", secondary: "#eab308" },
+      grunge_sludge: { name: "12. Grunge Sludge (Charcoal & Blood Red)", bg: "#0f0f0f", text: "#e5e5e5", accent: "#dc2626", secondary: "#404040" },
+      matcha_latte: { name: "13. Matcha Latte (Sage Green & Cream)", bg: "#f4f5f0", text: "#2c3e2d", accent: "#658354", secondary: "#b5c99a" },
+      sunset_chaser: { name: "14. Sunset Chaser (Coral & Deep Violet)", bg: "#31103c", text: "#ffe4e6", accent: "#fb7185", secondary: "#a855f7" },
+      electric_lime: { name: "15. Electric Lime (Neon Green & Black)", bg: "#000000", text: "#ffffff", accent: "#84cc16", secondary: "#22c55e" },
+      lavender_haze: { name: "16. Lavender Haze (Soft Purple & Silver)", bg: "#f5f3ff", text: "#3b0764", accent: "#8b5cf6", secondary: "#cbd5e1" },
+      cherry_cola: { name: "17. Cherry Cola (Burgundy & Cream)", bg: "#2d0612", text: "#fdf2f8", accent: "#9f1239", secondary: "#fbcfe8" },
+      matrix_code: { name: "18. Cyber Matrix (Matrix Green & Dark)", bg: "#022c22", text: "#ecfdf5", accent: "#10b981", secondary: "#065f46" },
+      barbiecore: { name: "19. Barbiecore Glow (Hot Pink & White)", bg: "#fdf2f8", text: "#831843", accent: "#db2777", secondary: "#f472b6" },
+      lofi_chill: { name: "20. Lofi Chill (Muted Blue & Warm Gray)", bg: "#1e293b", text: "#e2e8f0", accent: "#38bdf8", secondary: "#64748b" }
+    };
 
     // 20 Pilihan Tema / Template Motif Gen-Z Estetik
     const eventPresetsList = {
@@ -506,6 +530,7 @@
     
     let ultimateConfig = { 
         font: "Plus Jakarta Sans", 
+        colorMotif: "cyber_neon",
         coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", 
         musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
         musicVolume: 0.5, 
@@ -575,23 +600,23 @@
         }
 
         if (!hasData) {
-            if(localStorage.getItem('ari_textElements_v82')) {
-                textElements = JSON.parse(localStorage.getItem('ari_textElements_v82'));
-                if(localStorage.getItem('ari_adminAuth_v82')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v82'));
-                if(localStorage.getItem('ari_sectionPhotos_v82')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v82'));
-                if(localStorage.getItem('ari_sectionPhotoVisibility_v82')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v82'));
-                if(localStorage.getItem('ari_sectionMicroVideos_v82')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v82'));
-                if(localStorage.getItem('ari_sectionMicroVideoVisibility_v82')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v82'));
-                if(localStorage.getItem('ari_sectionBackgrounds_v82')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v82'));
-                if(localStorage.getItem('ari_sectionBackgroundVisibility_v82')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v82'));
-                if(localStorage.getItem('ari_sectionBackgroundDimmer_v82')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v82'));
-                if(localStorage.getItem('ari_attendanceList_v82')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v82'));
-                if(localStorage.getItem('ari_guestDatabase_v82')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v82'));
-                if(localStorage.getItem('ari_giftConfig_v82')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v82')) };
-                if(localStorage.getItem('ari_waTemplate_v82')) waTemplate = localStorage.getItem('ari_waTemplate_v82');
-                if(localStorage.getItem('ari_sectionOrder_v82')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v82'));
-                if(localStorage.getItem('ari_currentCategory_v82')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v82');
-                if(localStorage.getItem('ari_ultimateConfig_v82')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v82')) };
+            if(localStorage.getItem('ari_textElements_v83')) {
+                textElements = JSON.parse(localStorage.getItem('ari_textElements_v83'));
+                if(localStorage.getItem('ari_adminAuth_v83')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v83'));
+                if(localStorage.getItem('ari_sectionPhotos_v83')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v83'));
+                if(localStorage.getItem('ari_sectionPhotoVisibility_v83')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v83'));
+                if(localStorage.getItem('ari_sectionMicroVideos_v83')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v83'));
+                if(localStorage.getItem('ari_sectionMicroVideoVisibility_v83')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v83'));
+                if(localStorage.getItem('ari_sectionBackgrounds_v83')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v83'));
+                if(localStorage.getItem('ari_sectionBackgroundVisibility_v83')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v83'));
+                if(localStorage.getItem('ari_sectionBackgroundDimmer_v83')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v83'));
+                if(localStorage.getItem('ari_attendanceList_v83')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v83'));
+                if(localStorage.getItem('ari_guestDatabase_v83')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v83'));
+                if(localStorage.getItem('ari_giftConfig_v83')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v83')) };
+                if(localStorage.getItem('ari_waTemplate_v83')) waTemplate = localStorage.getItem('ari_waTemplate_v83');
+                if(localStorage.getItem('ari_sectionOrder_v83')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v83'));
+                if(localStorage.getItem('ari_currentCategory_v83')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v83');
+                if(localStorage.getItem('ari_ultimateConfig_v83')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v83')) };
             }
         }
     }
@@ -600,22 +625,22 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v82', JSON.stringify(textElements));
-            localStorage.setItem('ari_adminAuth_v82', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v82', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v82', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v82', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionMicroVideoVisibility_v82', JSON.stringify(sectionMicroVideoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v82', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v82', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v82', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v82', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v82', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v82', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v82', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v82', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v82', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v82', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v83', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth_v83', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v83', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v83', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v83', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionMicroVideoVisibility_v83', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v83', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v83', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v83', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v83', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v83', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v83', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v83', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v83', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v83', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v83', JSON.stringify(ultimateConfig));
         } catch (e) {
             showToast('Penyimpanan penuh!', 'error');
         }
@@ -629,14 +654,15 @@
     }
 
     const adminModules = [
-      { id: 'kategoriAcara', title: '20 Gen-Z Motif Templates', desc: 'Pilih Tema Estetik Gen-Z', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'kategoriAcara', title: '20 Tema Gen-Z', desc: 'Pilih Preset Teks Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'colorMotifs', title: '20 Warna Motif', desc: 'Pilih Skema Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
       { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Upload Video MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Upload Galeri & Hapus', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
-      { id: 'design', title: 'Desain & 20 Font', desc: 'Pilih Font, Prewed, Profil', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'design', title: 'Desain & 20 Font', desc: 'Pilih Font, Prewed, Profil', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
       { id: 'music', title: 'Musik & Video', desc: 'Upload MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Semua Teks', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop & QRIS', desc: 'Upload QRIS & Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
@@ -673,10 +699,25 @@
           }
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">🔥 20 Template Motif Estetik Gen-Z</h4>
+            <h4 class="font-bold text-amber-400 text-sm">🔥 20 Template Tema Gen-Z</h4>
             <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
                 <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Tema Gen-Z</button>
+            </div>
+          </div>`;
+      }
+      else if (id === 'colorMotifs') {
+          let motifOpts = '';
+          for (let k in genZColorMotifs) {
+              motifOpts += `<option value="${k}" ${ultimateConfig.colorMotif === k ? 'selected' : ''}>${genZColorMotifs[k].name}</option>`;
+          }
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-pink-400 text-sm">🎨 20 Layout Motif Warna Gen-Z</h4>
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+              <label class="block text-slate-300 font-bold">Pilih Skema Warna Estetik:</label>
+              <select id="selectColorMotif" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">${motifOpts}</select>
+              <button onclick="applySelectedColorMotif()" class="w-full bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Motif Warna</button>
             </div>
           </div>`;
       }
@@ -1040,7 +1081,17 @@
         saveAllDataToDevice();
         applyTextElementsToDOM();
         applyUltimateConfig();
-        showToast('Template Gen-Z Berhasil Diterapkan!');
+        showToast('Tema Gen-Z Berhasil Diterapkan!');
+        backToDashboard();
+    }
+
+    function applySelectedColorMotif() {
+        const motifKey = document.getElementById('selectColorMotif').value;
+        if(!genZColorMotifs[motifKey]) return;
+        ultimateConfig.colorMotif = motifKey;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Layout Motif Warna Diterapkan!');
         backToDashboard();
     }
 
@@ -1429,6 +1480,16 @@
     function applyUltimateConfig() {
         try {
             document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
+            
+            // Apply Gen-Z Color Motif
+            const motifKey = ultimateConfig.colorMotif || 'cyber_neon';
+            const motif = genZColorMotifs[motifKey] || genZColorMotifs['cyber_neon'];
+            const mainCont = document.getElementById('mainContent');
+            if(mainCont) {
+                mainCont.style.backgroundColor = motif.bg;
+                mainCont.style.color = motif.text;
+            }
+
             const coverBg = document.getElementById('coverBgImage');
             const heroBg = document.getElementById('mainHeroBg');
             if(coverBg && ultimateConfig.coverBg) coverBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
