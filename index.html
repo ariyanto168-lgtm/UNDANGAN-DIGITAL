@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.77</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.78</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -110,10 +110,11 @@
         </div>
       </section>
 
+      <!-- SECTION VIDEO DOKUMENTASI (SUDAH SIAP TERIMA BACKGROUND & MULTIFOTO) -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-video" class="w-full"></div>
         <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-video"></i></div>
+        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
         <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center relative">
           <video id="mainMp4Video" controls playsinline preload="metadata" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
@@ -149,9 +150,7 @@
         <div class="space-y-4 max-w-xs mx-auto">
           <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
             <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
-            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-white rounded-xl overflow-hidden flex items-center justify-center border border-slate-700">
-               <!-- QRIS Image inserted via JS -->
-            </div>
+            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-white rounded-xl overflow-hidden flex items-center justify-center border border-slate-700"></div>
           </div>
           <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3">
             <h3 id="displayBankName" class="font-bold text-sm text-blue-200">Bank BCA</h3>
@@ -183,7 +182,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.77 (Full Preview & Form Restored)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.78 (Live HTML Bundler)</p>
       </div>
     </footer>
   </main>
@@ -194,7 +193,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.77</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.78</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -238,6 +237,23 @@
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
   <script>
+    // =====================================================================
+    // ⚠️ AREA PUBLISH (WAJIB DIBACA SEBELUM DI-HOSTING) ⚠️
+    // =====================================================================
+    // KETERANGAN: Karena undangan ini HTML Statis (agar ringan & gratis tanpa database),
+    // Foto, Video, dan Teks yang Anda edit TERSIMPAN DI MEMORI BROWSER HP ANDA SAJA.
+    // Jika link disebar via WA lalu dibuka di HP klien/tamu, fotonya pasti tidak muncul.
+    //
+    // 💡 SOLUSI AGAR DESAIN PERMANEN DAN BISA DIBUKA SIAPAPUN:
+    // 1. Masuk menu Admin -> "Backup & Restore" -> Klik "Generate Kode Backup" -> Salin/Copy.
+    // 2. Paste kode tersebut ke dalam tanda kutip di variabel PUBLISH_DATA_BACKUP di bawah ini.
+    // 3. Simpan (Save) file HTML ini, barulah file ini siap di-hosting dan disebar.
+    // =====================================================================
+    
+    const PUBLISH_DATA_BACKUP = ""; 
+    
+    // =====================================================================
+
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
         const msgEl = document.getElementById('toastMessage');
@@ -306,7 +322,6 @@
       }
     };
 
-    // TABEL TEKS (DIPERLUAS DENGAN NAMA ORTU DAN JAM)
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", 
       dateDisplay: "Minggu, 25 Oktober 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
@@ -355,6 +370,8 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
 
+    let isPlaying = false;
+
     function compressImageFile(file, callback, maxWidth = 800, quality = 0.7) {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -374,61 +391,102 @@
         reader.readAsDataURL(file);
     }
 
-    try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const catParam = urlParams.get('cat');
-        if (catParam && eventPresetsList[catParam]) {
-            currentCategoryKey = catParam;
-            const preset = eventPresetsList[catParam];
-            for(let k in defaultText) {
-                if(preset[k] !== undefined) {
-                    let isTl = (k !== 'alamat' && k !== 'quoteText');
-                    textElements[k] = { text: preset[k], typewriter: isTl };
-                }
-            }
-            if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
-        } else {
-            if(localStorage.getItem('ari_textElements_v77')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v77'));
-            if(localStorage.getItem('ari_adminAuth_v77')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v77'));
-            if(localStorage.getItem('ari_sectionPhotos_v77')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v77'));
-            if(localStorage.getItem('ari_sectionPhotoVisibility_v77')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v77'));
-            if(localStorage.getItem('ari_sectionMicroVideos_v77')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v77'));
-            if(localStorage.getItem('ari_sectionMicroVideoVisibility_v77')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v77'));
-            if(localStorage.getItem('ari_sectionBackgrounds_v77')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v77'));
-            if(localStorage.getItem('ari_sectionBackgroundVisibility_v77')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v77'));
-            if(localStorage.getItem('ari_sectionBackgroundDimmer_v77')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v77'));
-            if(localStorage.getItem('ari_attendanceList_v77')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v77'));
-            if(localStorage.getItem('ari_guestDatabase_v77')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v77'));
-            if(localStorage.getItem('ari_giftConfig_v77')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v77')) };
-            if(localStorage.getItem('ari_waTemplate_v77')) waTemplate = localStorage.getItem('ari_waTemplate_v77');
-            if(localStorage.getItem('ari_sectionOrder_v77')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v77'));
-            if(localStorage.getItem('ari_currentCategory_v77')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v77');
-            if(localStorage.getItem('ari_ultimateConfig_v77')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v77')) };
-        }
-    } catch (e) {}
+    function applyDataDump(data) {
+        if(data.textElements) textElements = data.textElements;
+        if(data.adminAuth) adminAuth = data.adminAuth;
+        if(data.ultimateConfig) ultimateConfig = data.ultimateConfig;
+        if(data.sectionPhotos) sectionPhotos = data.sectionPhotos;
+        if(data.sectionPhotoVisibility) sectionPhotoVisibility = data.sectionPhotoVisibility;
+        if(data.sectionMicroVideos) sectionMicroVideos = data.sectionMicroVideos;
+        if(data.sectionMicroVideoVisibility) sectionMicroVideoVisibility = data.sectionMicroVideoVisibility;
+        if(data.sectionBackgrounds) sectionBackgrounds = data.sectionBackgrounds;
+        if(data.sectionBackgroundVisibility) sectionBackgroundVisibility = data.sectionBackgroundVisibility;
+        if(data.sectionBackgroundDimmer) sectionBackgroundDimmer = data.sectionBackgroundDimmer;
+        if(data.attendanceList) attendanceList = data.attendanceList;
+        if(data.guestDatabase) guestDatabase = data.guestDatabase;
+        if(data.giftConfig) giftConfig = data.giftConfig;
+        if(data.waTemplate) waTemplate = data.waTemplate;
+        if(data.sectionOrder) sectionOrder = data.sectionOrder;
+        if(data.currentCategoryKey) currentCategoryKey = data.currentCategoryKey;
+    }
 
-    let isPlaying = false;
+    // FUNGSI INIT UTAMA (MENGATASI BUG URL WA DAN LOAD DATA PERMANEN)
+    function initApp() {
+        let hasData = false;
+
+        // 1. Coba load dari Injected Backup (Bila di-hosting / disebar ke HP lain)
+        if (PUBLISH_DATA_BACKUP && PUBLISH_DATA_BACKUP.trim() !== "") {
+            try {
+                const data = JSON.parse(decodeURIComponent(atob(PUBLISH_DATA_BACKUP.trim())));
+                applyDataDump(data);
+                hasData = true;
+                console.log("Loaded from PUBLISH_DATA_BACKUP");
+            } catch(e) { console.error("Format Backup Data Invalid!"); }
+        }
+
+        // 2. Jika tidak ada Injeksi HTML, coba load dari LocalStorage (Bila sedang di-edit oleh Anda di HP yang sama)
+        if (!hasData) {
+            if(localStorage.getItem('ari_textElements_v78')) {
+                textElements = JSON.parse(localStorage.getItem('ari_textElements_v78'));
+                if(localStorage.getItem('ari_adminAuth_v78')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v78'));
+                if(localStorage.getItem('ari_sectionPhotos_v78')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v78'));
+                if(localStorage.getItem('ari_sectionPhotoVisibility_v78')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v78'));
+                if(localStorage.getItem('ari_sectionMicroVideos_v78')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v78'));
+                if(localStorage.getItem('ari_sectionMicroVideoVisibility_v78')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v78'));
+                if(localStorage.getItem('ari_sectionBackgrounds_v78')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v78'));
+                if(localStorage.getItem('ari_sectionBackgroundVisibility_v78')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v78'));
+                if(localStorage.getItem('ari_sectionBackgroundDimmer_v78')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v78'));
+                if(localStorage.getItem('ari_attendanceList_v78')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v78'));
+                if(localStorage.getItem('ari_guestDatabase_v78')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v78'));
+                if(localStorage.getItem('ari_giftConfig_v78')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v78')) };
+                if(localStorage.getItem('ari_waTemplate_v78')) waTemplate = localStorage.getItem('ari_waTemplate_v78');
+                if(localStorage.getItem('ari_sectionOrder_v78')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v78'));
+                if(localStorage.getItem('ari_currentCategory_v78')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v78');
+                if(localStorage.getItem('ari_ultimateConfig_v78')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v78')) };
+                hasData = true;
+            }
+        }
+
+        // 3. Fallback (HANYA DILAKUKAN JIKA BELUM PERNAH EDIT SAMA SEKALI, mencegah reset dari parameter WA)
+        if (!hasData) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catParam = urlParams.get('cat');
+            if (catParam && eventPresetsList[catParam]) {
+                currentCategoryKey = catParam;
+                const preset = eventPresetsList[catParam];
+                for(let k in defaultText) {
+                    if(preset[k] !== undefined) {
+                        let isTl = (k !== 'alamat' && k !== 'quoteText');
+                        textElements[k] = { text: preset[k], typewriter: isTl };
+                    }
+                }
+                if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
+            }
+        }
+    }
+
+    initApp(); // Jalankan inisialisasi Data Cerdas
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v77', JSON.stringify(textElements));
-            localStorage.setItem('ari_adminAuth_v77', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v77', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v77', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v77', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionMicroVideoVisibility_v77', JSON.stringify(sectionMicroVideoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v77', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v77', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v77', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v77', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v77', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v77', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v77', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v77', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v77', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v77', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v78', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth_v78', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v78', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v78', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v78', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionMicroVideoVisibility_v78', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v78', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v78', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v78', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v78', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v78', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v78', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v78', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v78', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v78', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v78', JSON.stringify(ultimateConfig));
         } catch (e) {
-            showToast('Penyimpanan penuh! Perkecil ukuran media.', 'error');
+            showToast('Penyimpanan penuh! Gunakan foto berukuran lebih kecil.', 'error');
         }
     }
 
@@ -453,7 +511,7 @@
       { id: 'gift', title: 'Amplop & QRIS', desc: 'Upload QRIS & Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'keamananAkun', title: 'Keamanan & Email', desc: 'PIN & EmailJS Config', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
       { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran (RSVP)', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
-      { id: 'backup', title: 'Backup & Restore', desc: 'Export & Import Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+      { id: 'backup', title: 'Backup & Publish', desc: 'Export HTML Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
 
     function renderDashboardCards() {
@@ -502,7 +560,7 @@
               htmlSections += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
-                  <span class="font-bold text-slate-200">Section: ${s}</span>
+                  <span class="font-bold text-slate-200 capitalize">Section: ${s}</span>
                   <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
                     <input type="checkbox" id="visMicro-${s}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
                     <span>Tampilkan Video</span>
@@ -519,7 +577,7 @@
           area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil Dinamis</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlSections}</div>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlSections}</div>
             <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
           </div>`;
       }
@@ -535,7 +593,7 @@
               htmlBg += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
-                  <span class="font-bold text-teal-300">Background: ${s}</span>
+                  <span class="font-bold text-teal-300 capitalize">Background: ${s}</span>
                   <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-teal-300 font-bold">
                     <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600 rounded cursor-pointer">
                     <span>Aktifkan</span>
@@ -558,8 +616,8 @@
           });
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${htmlBg}</div>
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer Tiap Section</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
             <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background</button>
           </div>`;
       }
@@ -568,7 +626,7 @@
           sectionOrder.forEach((key, idx) => {
               listHtml += `
               <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
-                <span class="font-bold text-cyan-300">${idx+1}. ${key}</span>
+                <span class="font-bold text-cyan-300 capitalize">${idx+1}. ${key}</span>
                 <div class="flex space-x-1">
                   <button onclick="moveSection(${idx}, -1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-up"></i></button>
                   <button onclick="moveSection(${idx}, 1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-down"></i></button>
@@ -598,21 +656,21 @@
               photoAdminHtml += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
-                  <span class="font-bold text-rose-300">Galeri: ${s}</span>
+                  <span class="font-bold text-rose-300 capitalize">Galeri: ${s}</span>
                   <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
                     <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
                     <span>Tampilkan</span>
                   </label>
                 </div>
                 <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto yang diupload</span>'}</div>
+                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto</span>'}</div>
               </div>`;
           });
           area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-rose-400 text-sm">📸 Upload Multi-Foto Dokumentasi</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${photoAdminHtml}</div>
-            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Foto</button>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Foto</button>
           </div>`;
       }
       else if (id === 'databaseWarga') {
@@ -668,19 +726,19 @@
             </div>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-pink-300">2. Foto Prewedding (Hero/Cover)</label>
+              <label class="block text-slate-300 font-bold text-pink-300">2. Foto Prewedding (Cover)</label>
               ${ultimateConfig.coverBg ? `<img src="${ultimateConfig.coverBg}" class="h-16 w-32 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
             </div>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-blue-300">3. Foto Profil Tuan Rumah 1 (Pria)</label>
+              <label class="block text-slate-300 font-bold text-blue-300">3. Foto Profil Tuan Rumah 1</label>
               ${ultimateConfig.profile1Img ? `<img src="${ultimateConfig.profile1Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
             </div>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-amber-300">4. Foto Profil Tuan Rumah 2 (Wanita)</label>
+              <label class="block text-slate-300 font-bold text-amber-300">4. Foto Profil Tuan Rumah 2</label>
               ${ultimateConfig.profile2Img ? `<img src="${ultimateConfig.profile2Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
             </div>
@@ -737,7 +795,6 @@
         area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-blue-400 text-sm">📋 Kolom Tabel Auto-Teks</h4>
-            <p class="text-slate-400">Semua teks undangan ada di sini (termasuk Nama Orang Tua dan Jam Acara).</p>
             <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${rows}</div>
             <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
           </div>`;
@@ -766,12 +823,10 @@
                   <label class="block text-slate-300 font-bold mb-1">Nama Bank / E-Wallet</label>
                   <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Misal: Bank BCA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
                 </div>
-                
                 <div class="pt-1">
                   <label class="block text-slate-300 font-bold mb-1">Nomor Rekening</label>
                   <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
                 </div>
-                
                 <div class="pt-1">
                   <label class="block text-slate-300 font-bold mb-1">Atas Nama (Pemilik Rekening)</label>
                   <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
@@ -822,13 +877,16 @@
       else if (id === 'backup') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-gray-300 text-sm">☁️ System Backup & Restore</h4>
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Publish (Wajib Baca)</h4>
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
-                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">1. Generate Kode Backup</button>
+                <p class="text-amber-400 font-bold">Langkah Publish HTML:</p>
+                <p class="text-[10px] text-slate-300">1. Klik Generate, lalu Salin kode.<br>2. Buka HTML ini di Notepad, paste kode ke bagian <span class="text-white bg-slate-900 px-1">PUBLISH_DATA_BACKUP</span> (di atas).<br>3. Save, lalu file siap disebar/hosting.</p>
+                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Generate Kode Backup</button>
                 <textarea id="backupOutput" readonly rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
-                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">2. Salin Kode</button>
+                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">Salin Kode</button>
             </div>
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <p class="text-cyan-400 font-bold">Atau Restore Data Manual:</p>
                 <textarea id="restoreInput" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup..."></textarea>
                 <button onclick="restoreBackup()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Restore Data</button>
             </div>
@@ -836,7 +894,7 @@
       }
     }
 
-    // SEMUA FUNGSI ADMIN SUPER LENGKAP KEMBALI
+    // FUNGSI ADMIN EXECUTOR
     function applyEventPreset() {
         const selKey = document.getElementById('selectEventPreset').value;
         const preset = eventPresetsList[selKey];
@@ -864,7 +922,7 @@
         
         saveAllDataToDevice();
         applySectionMicroVideos();
-        openAdminModule('animasiStiker'); // Refresh form agar preview muncul
+        openAdminModule('animasiStiker'); 
         showToast('Video diunggah!');
     }
 
@@ -889,7 +947,7 @@
             sectionBackgrounds[sectionKey] = compressedBase64;
             saveAllDataToDevice();
             applySectionBackgrounds();
-            openAdminModule('sectionBackgrounds'); // Refresh preview gambar
+            openAdminModule('sectionBackgrounds'); 
             showToast('Background diunggah!');
         });
     }
@@ -958,7 +1016,7 @@
         });
         saveAllDataToDevice();
         applySectionPhotos();
-        showToast('Galeri foto disimpan!');
+        showToast('Setelan foto disimpan!');
         backToDashboard();
     }
 
@@ -1047,9 +1105,9 @@
             if(type === 'profile2') ultimateConfig.profile2Img = base64;
             if(type === 'qris') {
                 giftConfig.qrisImage = base64;
-                openAdminModule('gift'); // Update preview QRIS langsung
+                openAdminModule('gift');
             } else {
-                openAdminModule('design'); // Update preview foto langsung
+                openAdminModule('design');
             }
             saveAllDataToDevice();
             applyUltimateConfig();
@@ -1076,7 +1134,7 @@
         reader.onload = (e) => {
             ultimateConfig.musicUrl = e.target.result;
             saveAllDataToDevice();
-            openAdminModule('music'); // Refresh audio player view
+            openAdminModule('music');
             showToast('Audio dimuat!');
         };
         reader.readAsDataURL(file);
@@ -1090,7 +1148,7 @@
         
         applyUltimateConfig();
         saveAllDataToDevice();
-        openAdminModule('music'); // Refresh video player view
+        openAdminModule('music'); 
         showToast('Video MP4 dimuat!');
     }
 
@@ -1175,9 +1233,7 @@
         if(!input) return showToast('Paste kode backup dulu!', 'error');
         try {
             const data = JSON.parse(decodeURIComponent(atob(input)));
-            if(data.textElements) textElements = data.textElements;
-            if(data.adminAuth) adminAuth = data.adminAuth;
-            if(data.ultimateConfig) ultimateConfig = data.ultimateConfig;
+            applyDataDump(data);
             saveAllDataToDevice();
             showToast('Restore Berhasil! Memuat ulang...');
             setTimeout(() => location.reload(), 1500);
