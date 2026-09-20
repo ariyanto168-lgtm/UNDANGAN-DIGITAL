@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.46</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.47</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK untuk Kirim Email Asli -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; }
+    html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word; }
     body { transition: background 0.4s ease, color 0.4s ease; font-family: 'Plus Jakarta Sans', sans-serif; }
     
     @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
@@ -21,7 +21,7 @@
     .cover-base { position: fixed; inset: 0; z-index: 99999999; background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(40,40,40,0.98)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
     .typewriter-cursor::after { content: '|'; animation: blink 0.8s infinite; color: #ff007f; font-weight: bold; margin-left: 2px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    .section-overlay { background-color: rgba(255, 255, 255, 0.88); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; }
+    .section-overlay { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; overflow: hidden; }
 
     /* GEN-Z PHOTO FRAME STYLES */
     .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
@@ -63,7 +63,7 @@
       </button>
     </div>
 
-    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.46)</p></div>
+    <div class="text-[10px] text-slate-400 mt-6"><p>Powered by Ari GPM (v10.1.47)</p></div>
   </div>
 
   <!-- KONTEN UTAMA -->
@@ -131,14 +131,14 @@
         </div>
       </section>
 
-      <!-- SECTION 4: VIDEO MP4 (URL MODE) -->
+      <!-- SECTION 4: VIDEO MP4 REAL-TIME FIX -->
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-video" class="w-full"></div>
         <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
-        <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center">
-          <video id="mainMp4Video" controls class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
+        <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center relative">
+          <video id="mainMp4Video" controls playsinline preload="metadata" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
             <source id="mp4VideoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
             Browser Anda tidak mendukung pemutaran video.
           </video>
@@ -205,7 +205,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.46 (Stacked Photo Grid)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.47 (Real-Time System)</p>
       </div>
     </footer>
   </main>
@@ -216,7 +216,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.46</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.47</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -262,7 +262,7 @@
 
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
-  <!-- JAVASCRIPT SYSTEM v10.1.46 -->
+  <!-- JAVASCRIPT SYSTEM v10.1.47 -->
   <script>
     // ELEGANT TOAST NOTIFICATION FUNCTION
     function showToast(message, type = 'success') {
@@ -407,7 +407,7 @@
         titleLokasi: "Masjid Raya Al-Ikhlas", titleGift: "Infaq Dakwah", subGift: "Mari salurkan infaq terbaik untuk kelancaran dakwah.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "DKM Al-Ikhlas"
       },
       lomba: {
-        badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antار Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
+        badgeText: "Tournament Cup", coupleName: "Badminton Warga Cup", subText: "Kejuaraan Antar Warga Se-Kecamatan", dateDisplay: "Minggu, 06 Desember 2026",
         heroTitle: "Badminton Warga Cup 2026", heroSub: "Sportivitas dan kebersamaan di atas segalanya.",
         quoteText: "Olahraga menyatukan kita dalam semangat juang yang sehat dan sportif.",
         titleMempelai: "Ketua Panitia", groomName: "Sdr. Rian Hidayat", brideName: "Karang Taruna Bhakti",
@@ -501,13 +501,13 @@
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
 
     try {
-        if(localStorage.getItem('ari_textElements_v46')) {
+        if(localStorage.getItem('ari_textElements_v47')) {
+            textElements = JSON.parse(localStorage.getItem('ari_textElements_v47'));
+        } else if(localStorage.getItem('ari_textElements_v46')) {
             textElements = JSON.parse(localStorage.getItem('ari_textElements_v46'));
-        } else if(localStorage.getItem('ari_textElements_v45')) {
-            textElements = JSON.parse(localStorage.getItem('ari_textElements_v45'));
         }
         if(localStorage.getItem('ari_adminAuth')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth'));
-        if(localStorage.getItem('ari_sectionPhotos_v46')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v46'));
+        if(localStorage.getItem('ari_sectionPhotos_v47')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v47'));
         if(localStorage.getItem('ari_sectionPhotoVisibility')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility'));
         if(localStorage.getItem('ari_sectionMicroVideos')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos'));
         if(localStorage.getItem('ari_sectionMicroVideoVisibility')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility'));
@@ -526,9 +526,9 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v46', JSON.stringify(textElements));
+            localStorage.setItem('ari_textElements_v47', JSON.stringify(textElements));
             localStorage.setItem('ari_adminAuth', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v46', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotos_v47', JSON.stringify(sectionPhotos));
             localStorage.setItem('ari_sectionPhotoVisibility', JSON.stringify(sectionPhotoVisibility));
             localStorage.setItem('ari_sectionMicroVideos', JSON.stringify(sectionMicroVideos));
             localStorage.setItem('ari_sectionMicroVideoVisibility', JSON.stringify(sectionMicroVideoVisibility));
@@ -587,7 +587,7 @@
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA & Data Sharelok Tamu', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Global Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & Foto Profil', desc: 'Upload Semua Foto Anda (Real)', icon: 'fa-palette', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'music', title: 'Musik & Video (URL/Upload)', desc: 'Atur MP3 URL & MP4 Video URL Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
       { id: 'textTable', title: 'Tabel Auto-Teks & Typewriter', desc: 'Ubah Teks & On/Off Typewriter', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
       { id: 'gift', title: 'Amplop, QRIS & Saklar', desc: 'Atur Rekening & Sembunyikan', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'keamananAkun', title: 'Keamanan Akun & Email Asli', desc: 'Ubah PIN, Lupa PIN, & Ganti Email OTP Real', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
@@ -919,7 +919,7 @@
       else if (id === 'music') {
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video (URL & Upload)</h4>
+            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Real-Time (URL & Upload)</h4>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
                 <label class="block text-slate-300 font-bold">Volume Musik</label>
@@ -933,8 +933,10 @@
             </div>
 
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-                <label class="block text-slate-300 font-bold text-cyan-300">Link URL Video MP4</label>
-                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" placeholder="https://example.com/video.mp4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                <label class="block text-slate-300 font-bold text-cyan-300">Link URL Video MP4 Real-Time</label>
+                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" placeholder="https://.../video.mp4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                <label class="block text-[10px] text-slate-400 pt-1">Atau Upload File Video MP4 Langsung:</label>
+                <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
             </div>
 
             <button onclick="saveMusicAndVideoConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Musik & Video</button>
@@ -1342,7 +1344,6 @@
             }
 
             container.classList.remove('hidden');
-            // Susun 2 kolom ke bawah (stacked grid 2 columns)
             container.className = "grid grid-cols-2 gap-2 mb-3";
             let gridHtml = '';
             photosArr.forEach(url => {
@@ -1472,6 +1473,19 @@
         reader.readAsDataURL(file);
     }
 
+    function handleVideoUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            ultimateConfig.videoUrl = e.target.result;
+            const urlInput = document.getElementById('inputVideoUrl');
+            if(urlInput) urlInput.value = ultimateConfig.videoUrl;
+            showToast("File Video MP4 berhasil dimuat secara real-time!");
+        };
+        reader.readAsDataURL(file);
+    }
+
     function applyUltimateConfig() {
         try {
             document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
@@ -1495,7 +1509,9 @@
             const vidElem = document.getElementById('mainMp4Video');
             if(vidSource && ultimateConfig.videoUrl) {
                 vidSource.src = ultimateConfig.videoUrl;
-                if(vidElem) vidElem.load();
+                if(vidElem) {
+                    vidElem.load();
+                }
             }
         } catch(e) {}
     }
@@ -1521,7 +1537,7 @@
         
         saveAllDataToDevice();
         applyUltimateConfig();
-        showToast("Musik & video berhasil disimpan!");
+        showToast("Musik & Video Dokumentasi berhasil diperbarui secara real-time!");
         backToDashboard();
     }
 
