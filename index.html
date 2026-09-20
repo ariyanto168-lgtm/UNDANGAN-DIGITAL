@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.76</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.77</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,18 +90,23 @@
         <div id="microVideo-mempelai" class="w-full"></div>
         <div id="dynamicPhotosGrid-mempelai" class="grid grid-cols-2 gap-2 mb-3"></div>
         <h2 id="text-titleMempelai" data-key="titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
+        
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
           <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile1FrameContainer">
             <img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
           <h3 id="text-groomName" data-key="groomName" class="text-2xl font-bold text-slate-900 pt-2">Rian Pratama</h3>
+          <p id="text-groomParents" data-key="groomParents" class="text-xs text-slate-600 font-medium">Putra dari Bpk. Budi & Ibu Ani</p>
         </div>
+        
         <div class="text-2xl text-pink-500 font-bold">&</div>
+        
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
           <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile2FrameContainer">
             <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
           </div>
           <h3 id="text-brideName" data-key="brideName" class="text-2xl font-bold text-slate-900 pt-2">Siska Amalia</h3>
+          <p id="text-brideParents" data-key="brideParents" class="text-xs text-slate-600 font-medium">Putri dari Bpk. Joko & Ibu Sri</p>
         </div>
       </section>
 
@@ -122,9 +127,13 @@
         <div id="microVideo-lokasi" class="w-full"></div>
         <div id="dynamicPhotosGrid-lokasi" class="grid grid-cols-2 gap-2 mb-3"></div>
         <h2 id="text-titleLokasi" data-key="titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
-        <div class="bg-white/80 p-4 rounded-3xl shadow-sm border border-slate-100 space-y-4">
-          <p id="text-alamat" data-key="alamat" class="text-xs text-slate-600">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
-          <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full">
+        <div class="bg-white/80 p-5 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+          <div class="space-y-1">
+             <p id="text-dateDisplay2" data-key="dateDisplay" class="font-bold text-pink-600 text-sm">Minggu, 25 Oktober 2026</p>
+             <p id="text-timeDisplay" data-key="timeDisplay" class="text-xs text-slate-700 font-medium">Pukul 09.00 WIB - Selesai</p>
+             <p id="text-alamat" data-key="alamat" class="text-xs text-slate-500 mt-2">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full border border-slate-200">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
           <button type="button" onclick="window.open(textElements.mapUrl ? textElements.mapUrl.text : 'https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
@@ -140,7 +149,9 @@
         <div class="space-y-4 max-w-xs mx-auto">
           <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
             <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
-            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center border border-slate-700"></div>
+            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-white rounded-xl overflow-hidden flex items-center justify-center border border-slate-700">
+               <!-- QRIS Image inserted via JS -->
+            </div>
           </div>
           <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3">
             <h3 id="displayBankName" class="font-bold text-sm text-blue-200">Bank BCA</h3>
@@ -172,20 +183,22 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.76 (Full 100% Functionality Restored)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.77 (Full Preview & Form Restored)</p>
       </div>
     </footer>
   </main>
 
+  <!-- ADMIN MODAL -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.76</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.77</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
+      
       <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
         <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
         <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
@@ -193,6 +206,7 @@
         <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none">
         <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard</button>
       </div>
+      
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
           <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ 14 Menu Admin Full Details</h3></div>
@@ -261,36 +275,46 @@
 
     const eventPresetsList = {
       pernikahan: {
-        badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
+        badgeText: "The Wedding Of", coupleName: "Rian & Siska", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
         heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
         quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
-        titleMempelai: "Mempelai Pria & Wanita", groomName: "Rian Pratama, S.Kom.", brideName: "Siska Amalia, S.Pd.",
+        titleMempelai: "Mempelai Pria & Wanita", 
+        groomName: "Rian Pratama, S.Kom.", groomParents: "Putra dari Bpk. Budi & Ibu Ani",
+        brideName: "Siska Amalia, S.Pd.", brideParents: "Putri dari Bpk. Joko & Ibu Sri",
         titleLokasi: "Lokasi Resepsi", titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.", titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska",
         coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000"
       },
       khitanan: {
-        badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026",
+        badgeText: "Tasyakuran Khitanan", coupleName: "Ahmad Fauzan", subText: "Kepada Yth. Bapak/Ibu & Saudara/i", dateDisplay: "Sabtu, 14 November 2026", timeDisplay: "Pukul 10.00 WIB - Selesai",
         heroTitle: "Khitanan Ahmad Fauzan", heroSub: "Semoga menjadi anak yang sholeh, berbakti kepada orang tua.",
         quoteText: "Ya Allah, jadikanlah anak ini anak yang sholeh, cerdas, serta bermanfaat bagi agama dan bangsa.",
-        titleMempelai: "Anak & Orang Tua", groomName: "Ahmad Fauzan (Anak)", brideName: "Keluarga Bpk. H. Abdullah",
+        titleMempelai: "Anak & Orang Tua", 
+        groomName: "Ahmad Fauzan (Anak)", groomParents: "Anak Pertama Bpk. Abdullah & Ibu Aisyah",
+        brideName: "Keluarga Bpk. H. Abdullah", brideParents: "Tuan Rumah Acara",
         titleLokasi: "Lokasi Kediaman", titleGift: "Tanda Kasih", subGift: "Doa Anda adalah kado terindah bagi kami.", titleRsvp: "Konfirmasi Kehadiran", footerCouple: "Keluarga Bpk. H. Abdullah",
         coverBg: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=1000"
       },
       ultah: {
-        badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026",
+        badgeText: "Sweet Seventeen", coupleName: "Aurelia Salsabila", subText: "Special Invitation for Bestie", dateDisplay: "Minggu, 20 Desember 2026", timeDisplay: "Pukul 19.00 WIB - Till Drop",
         heroTitle: "Aurelia's 17th Birthday", heroSub: "Let's celebrate wonderful moments together!",
         quoteText: "Grow with grace, live with passion, and shine brighter than ever.",
-        titleMempelai: "Birthday Girl", groomName: "Aurelia Salsabila", brideName: "Hosted by Family",
+        titleMempelai: "Birthday Girl", 
+        groomName: "Aurelia Salsabila", groomParents: "The Birthday Star",
+        brideName: "Hosted by Family", brideParents: "Putri Bpk. Wijaya & Ibu Ratna",
         titleLokasi: "Lokasi Pesta", titleGift: "Gift & Kado", subGift: "Your presence is the best gift!", titleRsvp: "RSVP Kehadiran", footerCouple: "Aurelia Salsabila",
         coverBg: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1000"
       }
     };
 
+    // TABEL TEKS (DIPERLUAS DENGAN NAMA ORTU DAN JAM)
     const defaultText = {
-      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", dateDisplay: "Minggu, 25 Oktober 2026",
+      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", 
+      dateDisplay: "Minggu, 25 Oktober 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
       heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
       quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
-      titleMempelai: "Profil Tuan Rumah", groomName: "Rian Pratama", brideName: "Siska Amalia",
+      titleMempelai: "Profil Tuan Rumah", 
+      groomName: "Rian Pratama", groomParents: "Putra dari Bpk. Budi & Ibu Ani", 
+      brideName: "Siska Amalia", brideParents: "Putri dari Bpk. Joko & Ibu Sri",
       titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta",
       titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
@@ -364,22 +388,22 @@
             }
             if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
         } else {
-            if(localStorage.getItem('ari_textElements_v76')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v76'));
-            if(localStorage.getItem('ari_adminAuth_v76')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v76'));
-            if(localStorage.getItem('ari_sectionPhotos_v76')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v76'));
-            if(localStorage.getItem('ari_sectionPhotoVisibility_v76')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v76'));
-            if(localStorage.getItem('ari_sectionMicroVideos_v76')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v76'));
-            if(localStorage.getItem('ari_sectionMicroVideoVisibility_v76')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v76'));
-            if(localStorage.getItem('ari_sectionBackgrounds_v76')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v76'));
-            if(localStorage.getItem('ari_sectionBackgroundVisibility_v76')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v76'));
-            if(localStorage.getItem('ari_sectionBackgroundDimmer_v76')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v76'));
-            if(localStorage.getItem('ari_attendanceList_v76')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v76'));
-            if(localStorage.getItem('ari_guestDatabase_v76')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v76'));
-            if(localStorage.getItem('ari_giftConfig_v76')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v76')) };
-            if(localStorage.getItem('ari_waTemplate_v76')) waTemplate = localStorage.getItem('ari_waTemplate_v76');
-            if(localStorage.getItem('ari_sectionOrder_v76')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v76'));
-            if(localStorage.getItem('ari_currentCategory_v76')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v76');
-            if(localStorage.getItem('ari_ultimateConfig_v76')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v76')) };
+            if(localStorage.getItem('ari_textElements_v77')) textElements = JSON.parse(localStorage.getItem('ari_textElements_v77'));
+            if(localStorage.getItem('ari_adminAuth_v77')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v77'));
+            if(localStorage.getItem('ari_sectionPhotos_v77')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v77'));
+            if(localStorage.getItem('ari_sectionPhotoVisibility_v77')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v77'));
+            if(localStorage.getItem('ari_sectionMicroVideos_v77')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v77'));
+            if(localStorage.getItem('ari_sectionMicroVideoVisibility_v77')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v77'));
+            if(localStorage.getItem('ari_sectionBackgrounds_v77')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v77'));
+            if(localStorage.getItem('ari_sectionBackgroundVisibility_v77')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v77'));
+            if(localStorage.getItem('ari_sectionBackgroundDimmer_v77')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v77'));
+            if(localStorage.getItem('ari_attendanceList_v77')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v77'));
+            if(localStorage.getItem('ari_guestDatabase_v77')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v77'));
+            if(localStorage.getItem('ari_giftConfig_v77')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v77')) };
+            if(localStorage.getItem('ari_waTemplate_v77')) waTemplate = localStorage.getItem('ari_waTemplate_v77');
+            if(localStorage.getItem('ari_sectionOrder_v77')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v77'));
+            if(localStorage.getItem('ari_currentCategory_v77')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v77');
+            if(localStorage.getItem('ari_ultimateConfig_v77')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v77')) };
         }
     } catch (e) {}
 
@@ -387,22 +411,22 @@
 
     function saveAllDataToDevice() {
         try {
-            localStorage.setItem('ari_textElements_v76', JSON.stringify(textElements));
-            localStorage.setItem('ari_adminAuth_v76', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v76', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v76', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v76', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionMicroVideoVisibility_v76', JSON.stringify(sectionMicroVideoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v76', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v76', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v76', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v76', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v76', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v76', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v76', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v76', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v76', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v76', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v77', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth_v77', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v77', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v77', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v77', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionMicroVideoVisibility_v77', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v77', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v77', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v77', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v77', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v77', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v77', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v77', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v77', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v77', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v77', JSON.stringify(ultimateConfig));
         } catch (e) {
             showToast('Penyimpanan penuh! Perkecil ukuran media.', 'error');
         }
@@ -473,6 +497,8 @@
           sections.forEach(s => {
               let currentUrl = sectionMicroVideos[s] || '';
               let isChecked = sectionMicroVideoVisibility[s] !== false ? 'checked' : '';
+              let previewHtml = currentUrl ? `<video src="${currentUrl}" class="h-12 w-12 object-cover rounded mb-2 border border-slate-500" autoplay muted loop playsinline></video>` : '';
+              
               htmlSections += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -482,6 +508,7 @@
                     <span>Tampilkan Video</span>
                   </label>
                 </div>
+                ${previewHtml}
                 <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="URL MP4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
                 <div class="pt-1">
                   <label class="text-[10px] text-slate-400 block">Atau Upload File MP4:</label>
@@ -503,6 +530,8 @@
               let currentUrl = sectionBackgrounds[s] || '';
               let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
               let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
+              let previewHtml = currentUrl ? `<img src="${currentUrl}" class="h-12 w-full object-cover rounded mb-2 border border-slate-500">` : '';
+              
               htmlBg += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -512,6 +541,7 @@
                     <span>Aktifkan</span>
                   </label>
                 </div>
+                ${previewHtml}
                 <input type="text" id="bgUrlInput-${s}" value="${currentUrl}" placeholder="URL Background" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
                 <div class="pt-1">
                   <label class="text-[10px] text-slate-400 block">Atau Upload Foto:</label>
@@ -575,7 +605,7 @@
                   </label>
                 </div>
                 <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto</span>'}</div>
+                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto yang diupload</span>'}</div>
               </div>`;
           });
           area.innerHTML = `
@@ -631,41 +661,59 @@
         area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-pink-400 text-sm">🎨 Desain, Font & Foto Utama</h4>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">1. Pilih Font Global</label>
               <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
             </div>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-pink-300">2. Upload Foto Prewedding (Hero/Cover)</label>
+              <label class="block text-slate-300 font-bold text-pink-300">2. Foto Prewedding (Hero/Cover)</label>
+              ${ultimateConfig.coverBg ? `<img src="${ultimateConfig.coverBg}" class="h-16 w-32 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
             </div>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-blue-300">3. Upload Foto Profil Tuan Rumah 1</label>
+              <label class="block text-slate-300 font-bold text-blue-300">3. Foto Profil Tuan Rumah 1 (Pria)</label>
+              ${ultimateConfig.profile1Img ? `<img src="${ultimateConfig.profile1Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
             </div>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-amber-300">4. Upload Foto Profil Tuan Rumah 2</label>
+              <label class="block text-slate-300 font-bold text-amber-300">4. Foto Profil Tuan Rumah 2 (Wanita)</label>
+              ${ultimateConfig.profile2Img ? `<img src="${ultimateConfig.profile2Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
             </div>
+            
             <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
           </div>`;
       }
       else if (id === 'music') {
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Dokumentasi (Real-Time)</h4>
+            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Utama</h4>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
                 <label class="block text-slate-300 font-bold">Volume Musik</label>
                 <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="${ultimateConfig.musicVolume}" onchange="changeVolume(this.value)" class="w-full accent-pink-500">
-                <label class="block text-slate-300 font-bold pt-2">Link Audio MP3</label>
-                <input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                
+                <label class="block text-slate-300 font-bold pt-2">Link Audio MP3 Terpasang:</label>
+                ${ultimateConfig.musicUrl ? `<audio controls src="${ultimateConfig.musicUrl}" class="w-full h-8 mb-2 opacity-80"></audio>` : ''}
+                <input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl || ''}" placeholder="URL MP3..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                
+                <label class="block text-[10px] text-slate-400">Atau Upload MP3 dari HP Anda:</label>
                 <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white">
             </div>
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
-                <label class="block text-slate-300 font-bold text-cyan-300">Link Video Utama (MP4)</label>
-                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                <label class="block text-slate-300 font-bold text-cyan-300">Link Video Utama (MP4) Terpasang:</label>
+                ${ultimateConfig.videoUrl ? `<video controls src="${ultimateConfig.videoUrl}" class="w-full h-32 object-cover rounded-lg mb-2 border border-slate-600"></video>` : ''}
+                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" placeholder="URL MP4..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                
+                <label class="block text-[10px] text-slate-400">Atau Upload Video dari HP Anda:</label>
                 <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
             </div>
+            
             <button onclick="saveMusicAndVideoConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Musik & Video</button>
           </div>`;
       }
@@ -677,19 +725,20 @@
             rows += `
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <div class="flex items-center justify-between">
-                <span class="text-cyan-400 font-mono text-[11px] font-bold">${key}</span>
+                <span class="text-cyan-400 font-mono text-[11px] font-bold capitalize">${key.replace(/([A-Z])/g, ' $1')}</span>
                 <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
                   <input type="checkbox" id="tw-${key}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
                   <span>Typewriter</span>
                 </label>
               </div>
-              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y">${item.text}</textarea>
+              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y leading-relaxed">${item.text}</textarea>
             </div>`; 
         }
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-blue-400 text-sm">📋 Tabel Auto-Teks</h4>
-            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">${rows}</div>
+            <h4 class="font-bold text-blue-400 text-sm">📋 Kolom Tabel Auto-Teks</h4>
+            <p class="text-slate-400">Semua teks undangan ada di sini (termasuk Nama Orang Tua dan Jam Acara).</p>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${rows}</div>
             <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
           </div>`;
       }
@@ -697,24 +746,38 @@
         let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop Digital & QRIS</h4>
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Kolom Amplop & QRIS</h4>
             <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
-                  <span class="font-bold text-white">Tampilkan Amplop</span>
+                  <span class="font-bold text-white">Tampilkan Amplop Digital</span>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="sr-only peer">
                     <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
                   </label>
                 </div>
-                <div class="pt-2">
-                  <label class="block text-slate-300 font-bold mb-1">Upload QRIS</label>
+                
+                <div class="pt-2 border-t border-slate-700 mt-2">
+                  <label class="block text-slate-300 font-bold mb-1 text-emerald-300">Upload Barcode QRIS Saat Ini:</label>
+                  ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="h-24 object-contain rounded mb-2 bg-white border border-slate-500 p-1">` : '<p class="text-slate-500 italic mb-2">Belum ada QRIS yang diupload</p>'}
                   <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
                 </div>
-                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Nama Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
-                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor Rekening" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
-                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white mt-2">
+                
+                <div class="pt-2 border-t border-slate-700 mt-2">
+                  <label class="block text-slate-300 font-bold mb-1">Nama Bank / E-Wallet</label>
+                  <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Misal: Bank BCA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
+                
+                <div class="pt-1">
+                  <label class="block text-slate-300 font-bold mb-1">Nomor Rekening</label>
+                  <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
+                
+                <div class="pt-1">
+                  <label class="block text-slate-300 font-bold mb-1">Atas Nama (Pemilik Rekening)</label>
+                  <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
             </div>
-            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Amplop</button>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Kolom Amplop</button>
           </div>`;
       }
       else if (id === 'keamananAkun') {
@@ -798,10 +861,10 @@
         if(!file) return;
         const blobUrl = URL.createObjectURL(file);
         sectionMicroVideos[sectionKey] = blobUrl;
-        const urlInput = document.getElementById(`microVideoInput-${sectionKey}`);
-        if(urlInput) urlInput.value = blobUrl;
+        
         saveAllDataToDevice();
         applySectionMicroVideos();
+        openAdminModule('animasiStiker'); // Refresh form agar preview muncul
         showToast('Video diunggah!');
     }
 
@@ -824,10 +887,9 @@
         if(!file) return;
         compressImageFile(file, (compressedBase64) => {
             sectionBackgrounds[sectionKey] = compressedBase64;
-            const urlInput = document.getElementById(`bgUrlInput-${sectionKey}`);
-            if(urlInput) urlInput.value = compressedBase64;
             saveAllDataToDevice();
             applySectionBackgrounds();
+            openAdminModule('sectionBackgrounds'); // Refresh preview gambar
             showToast('Background diunggah!');
         });
     }
@@ -973,6 +1035,7 @@
         saveAllDataToDevice();
         applyUltimateConfig();
         showToast('Desain & Font disimpan!');
+        backToDashboard();
     }
 
     function handleImageUpload(event, type) {
@@ -982,7 +1045,12 @@
             if(type === 'prewed') ultimateConfig.coverBg = base64;
             if(type === 'profile1') ultimateConfig.profile1Img = base64;
             if(type === 'profile2') ultimateConfig.profile2Img = base64;
-            if(type === 'qris') giftConfig.qrisImage = base64;
+            if(type === 'qris') {
+                giftConfig.qrisImage = base64;
+                openAdminModule('gift'); // Update preview QRIS langsung
+            } else {
+                openAdminModule('design'); // Update preview foto langsung
+            }
             saveAllDataToDevice();
             applyUltimateConfig();
             applyGiftToDOM();
@@ -1007,9 +1075,8 @@
         const reader = new FileReader();
         reader.onload = (e) => {
             ultimateConfig.musicUrl = e.target.result;
-            const urlInput = document.getElementById('inputMusicUrl');
-            if(urlInput) urlInput.value = ultimateConfig.musicUrl;
             saveAllDataToDevice();
+            openAdminModule('music'); // Refresh audio player view
             showToast('Audio dimuat!');
         };
         reader.readAsDataURL(file);
@@ -1020,10 +1087,10 @@
         if(!file) return;
         const blobUrl = URL.createObjectURL(file);
         ultimateConfig.videoUrl = blobUrl;
-        const urlInput = document.getElementById('inputVideoUrl');
-        if(urlInput) urlInput.value = blobUrl;
+        
         applyUltimateConfig();
         saveAllDataToDevice();
+        openAdminModule('music'); // Refresh video player view
         showToast('Video MP4 dimuat!');
     }
 
@@ -1054,7 +1121,7 @@
         giftConfig.owner = document.getElementById('inputRekOwner').value;
         saveAllDataToDevice();
         applyGiftToDOM();
-        showToast('Amplop disimpan!');
+        showToast('Kolom Amplop disimpan!');
         backToDashboard();
     }
 
@@ -1150,7 +1217,7 @@
                     }
                 }
                 typeNext();
-            }, index * 200);
+            }, index * 150);
         });
     }
 
@@ -1158,8 +1225,10 @@
         const idMap = {
             'coverCoupleName': 'coupleName', 'coverBadgeText': 'badgeText', 'coverSubText': 'subText', 'coverDateDisplay': 'dateDisplay',
             'text-badge': 'badgeText', 'text-heroTitle': 'heroTitle', 'text-heroSub': 'heroSub',
-            'text-titleMempelai': 'titleMempelai', 'text-groomName': 'groomName', 'text-brideName': 'brideName',
-            'text-titleLokasi': 'titleLokasi', 'text-alamat': 'alamat',
+            'text-titleMempelai': 'titleMempelai', 
+            'text-groomName': 'groomName', 'text-groomParents': 'groomParents', 
+            'text-brideName': 'brideName', 'text-brideParents': 'brideParents',
+            'text-titleLokasi': 'titleLokasi', 'text-dateDisplay2': 'dateDisplay', 'text-timeDisplay': 'timeDisplay', 'text-alamat': 'alamat',
             'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
             'text-titleRsvp': 'titleRsvp', 'text-footerCouple': 'footerCouple', 'quoteTextDisplay': 'quoteText'
         };
@@ -1212,7 +1281,14 @@
         if(drn) drn.innerText = giftConfig.number || "1234567890";
         if(dro) dro.innerText = giftConfig.owner || "A.N Rian Pratama";
         const qrisBox = document.getElementById('qrisImageRender');
-        if(qrisBox && giftConfig.qrisImage) qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain">`;
+        
+        if(qrisBox) {
+            if(giftConfig.qrisImage) {
+                qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain p-2">`;
+            } else {
+                qrisBox.innerHTML = `<p class="text-slate-400 text-xs text-center px-4">Upload QRIS dari Menu Admin</p>`;
+            }
+        }
     }
 
     function applySectionOrder() {
