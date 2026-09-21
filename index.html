@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z Ultimate 16 Menu v10.8.0</title>
+  <title>Undangan Digital - Master Gen-Z Ultimate 16 Menu v10.9.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,6 +19,8 @@
     .section-overlay { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; overflow: hidden; }
     .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
     .frame-polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transform: rotate(-1deg); border-radius: 4px; }
+    .frame-neon { border: 4px solid #ec4899; box-shadow: 0 0 20px #ec4899, inset 0 0 15px #06b6d4; border-radius: 2rem; }
+    .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -177,7 +179,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z Ultimate 16 Menu v10.8.0</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z Ultimate 16 Menu v10.9.0</p>
       </div>
     </footer>
   </main>
@@ -187,7 +189,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin (16 Menu)</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.8.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin (16 Menu)</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.9.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -202,7 +204,7 @@
       
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
-          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ 16 Menu Admin Lengkap</h3></div>
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ 16 Menu Admin Lengkap & Berisi</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
         <div id="adminModuleView" class="hidden space-y-4">
@@ -231,7 +233,6 @@
   <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
   <script>
-    const PUBLISH_DATA_BACKUP = ""; 
     let isSharingProcess = false;
 
     function showToast(message, type = 'success') {
@@ -337,40 +338,40 @@
 
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v1080', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v1080', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v1080', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v1080', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v1080', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionBackgrounds_v1080', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v1080', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v1080', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v1080', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v1080', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v1080', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v1080', waTemplate);
-            localStorage.setItem('ari_ultimateConfig_v1080', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v1090', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1090', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1090', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1090', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v1090', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionBackgrounds_v1090', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1090', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1090', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1090', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1090', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1090', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v1090', waTemplate);
+            localStorage.setItem('ari_ultimateConfig_v1090', JSON.stringify(ultimateConfig));
         } catch(e) {}
     }
 
-    // --- TOTAL 16 MENU ADMIN LENGKAP ---
+    // --- 16 MENU ADMIN LENGKAP SEUTUHNYA ---
     const adminModules = [
-      { id: 'kategoriAcara', title: '1. 20 Tema Gen-Z', desc: 'Preset Teks & Nuansa Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
-      { id: 'colorMotifs', title: '2. 20 Warna Motif', desc: 'Skema Palet Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
-      { id: 'animasiStiker', title: '3. Video Kecil (URL)', desc: 'Tempel Tautan MP4 Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: '4. Background (Hybrid)', desc: 'URL atau Kompres Foto', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
-      { id: 'sectionReorder', title: '5. Tata Letak Section', desc: 'Geser Urutan Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
+      { id: 'kategoriAcara', title: '1. Tema Preset Gen-Z', desc: 'Pilih Nuansa Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'colorMotifs', title: '2. Warna Motif', desc: 'Skema Palet Warna', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
+      { id: 'animasiStiker', title: '3. Video Kecil', desc: 'Tempel URL MP4 Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
+      { id: 'sectionBackgrounds', title: '4. Background Hybrid', desc: 'URL atau Kompres Foto', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'sectionReorder', title: '5. Tata Letak Section', desc: 'Geser Posisi Urutan', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: '6. Galeri & Logo Video', desc: 'Kelola Foto & Logo Video', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
-      { id: 'databaseWarga', title: '7. Database Warga', desc: 'Daftar Tamu & Kirim WA', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
-      { id: 'bingkaiGenZ', title: '8. Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
-      { id: 'design', title: '9. Desain & Profil', desc: 'Font Utama & Foto Prewed', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'music', title: '10. Musik & Video', desc: 'Atur Musik & Video Utama', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: '11. Tabel Auto-Teks', desc: 'Edit Seluruh Teks Undangan', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: '12. Amplop & QRIS', desc: 'Rekening Bank & QRIS Hybrid', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'keamananAkun', title: '13. Keamanan & PIN', desc: 'Ubah PIN Akses Admin', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
-      { id: 'guests', title: '14. Buku Tamu (RSVP)', desc: 'Rekap Kehadiran & Ucapan', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
+      { id: 'databaseWarga', title: '7. Database Warga', desc: 'Daftar Tamu & Wa.me', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'bingkaiGenZ', title: '8. Bingkai & Typewriter', desc: 'Gaya Bingkai Foto', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
+      { id: 'design', title: '9. Desain & Profil', desc: 'Font & Foto Utama', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'music', title: '10. Musik & Video', desc: 'Atur Musik Latar', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'textTable', title: '11. Tabel Auto-Teks', desc: 'Ubah Seluruh Teks', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'gift', title: '12. Amplop & QRIS', desc: 'Rekening & QRIS Hybrid', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'keamananAkun', title: '13. Keamanan PIN', desc: 'Ubah PIN Akses Admin', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
+      { id: 'guests', title: '14. Buku Tamu (RSVP)', desc: 'Rekap Kehadiran Tamu', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
       { id: 'presetShare', title: '15. Format Pesan WA', desc: 'Template Pesan Undangan', icon: 'fa-brands fa-whatsapp', gradient: 'from-emerald-600 to-green-500' },
-      { id: 'backup', title: '16. Reset & Publish', desc: 'Hapus Data atau Ekspor', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+      { id: 'backup', title: '16. Reset & Publish', desc: 'Hapus Riwayat & Ekspor', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
 
     function renderDashboardCards() {
@@ -436,11 +437,15 @@
       } else if (id === 'music') {
           area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Utama</h4><input type="text" value="${ultimateConfig.musicUrl}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"></div>`;
       } else if (id === 'textTable') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-blue-400 text-sm">📝 Tabel Auto-Teks</h4><input type="text" value="${textElements.coupleName.text}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"></div>`;
+          let fieldsHtml = '';
+          for(let k in textElements) {
+              fieldsHtml += `<div class="space-y-1"><label class="text-[10px] text-slate-300 uppercase">${k}</label><input type="text" id="txtField-${k}" value="${textElements[k].text}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white text-xs"></div>`;
+          }
+          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-blue-400 text-sm">📝 Tabel Auto-Teks Undangan</h4><div class="space-y-2 max-h-56 overflow-y-auto pr-1">${fieldsHtml}</div><button onclick="saveTextTableData()" class="w-full bg-blue-600 text-white py-2.5 rounded font-bold">Simpan Perubahan Teks</button></div>`;
       } else if (id === 'gift') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop & QRIS (Hybrid)</h4><input type="text" value="${giftConfig.bank}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"></div>`;
+          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop & QRIS (Hybrid)</h4><input type="text" id="inputBank" value="${giftConfig.bank}" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"></div>`;
       } else if (id === 'keamananAkun') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-slate-300 text-sm">🔒 Keamanan & PIN</h4><input type="password" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"></div>`;
+          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-slate-300 text-sm">🔒 Keamanan & PIN</h4><input type="password" id="newPinInput" placeholder="PIN Baru (4 digit)" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white"><button onclick="saveNewPin()" class="w-full bg-slate-700 text-white py-2 rounded font-bold">Simpan PIN</button></div>`;
       } else if (id === 'guests') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
@@ -463,7 +468,7 @@
       } else if (id === 'presetShare') {
           area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">💬 Format Pesan WhatsApp</h4><textarea id="inputWaTemplate" rows="8" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white font-mono text-[10px]">${waTemplate}</textarea><button onclick="saveWaTemplateData()" class="w-full bg-emerald-600 text-white py-2.5 rounded font-bold">Simpan Template WA</button></div>`;
       } else if (id === 'backup') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-gray-300 text-sm">☁️ Reset & Publish</h4><button onclick="showToast('Data direset')" class="w-full bg-rose-600 text-white py-2.5 rounded font-bold">Reset Semua Data</button></div>`;
+          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-gray-300 text-sm">☁️ Reset & Publish</h4><button onclick="resetAllData()" class="w-full bg-rose-600 text-white py-2.5 rounded font-bold">Reset Semua Data</button></div>`;
       }
     }
 
@@ -496,6 +501,35 @@
     function saveWaTemplateData() {
         const val = document.getElementById('inputWaTemplate');
         if(val) { waTemplate = val.value; dataVersion++; saveAllDataToDevice(); showToast('Template WhatsApp disimpan!'); }
+    }
+
+    function saveTextTableData() {
+        for(let k in textElements) {
+            let el = document.getElementById(`txtField-${k}`);
+            if(el) textElements[k].text = el.value;
+        }
+        dataVersion++; saveAllDataToDevice();
+        showToast('Teks undangan diperbarui!');
+        backToDashboard();
+    }
+
+    function saveNewPin() {
+        let pin = document.getElementById('newPinInput');
+        if(pin && pin.value.trim().length === 4) {
+            adminAuth.pin = pin.value.trim();
+            dataVersion++; saveAllDataToDevice();
+            showToast('PIN Admin berhasil diubah!');
+            backToDashboard();
+        } else {
+            showToast('PIN harus 4 digit!', 'error');
+        }
+    }
+
+    function resetAllData() {
+        if(confirm('Yakin ingin mereset seluruh data undangan?')) {
+            localStorage.clear();
+            location.reload();
+        }
     }
 
     function applyVideoLogoVisibility() {
@@ -593,7 +627,17 @@
     function backToDashboard() { document.getElementById('adminModuleView').classList.add('hidden'); document.getElementById('adminDashboardView').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); backToDashboard(); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-    function verifyPin() { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); showToast('Login Berhasil!'); }
+    function verifyPin() { 
+        let inputPin = document.getElementById('adminPinInput').value.trim();
+        if(inputPin === adminAuth.pin) {
+            document.getElementById('pinSection').classList.add('hidden'); 
+            document.getElementById('editorBody').classList.remove('hidden'); 
+            backToDashboard(); 
+            showToast('Login Berhasil!'); 
+        } else {
+            showToast('PIN Salah!', 'error');
+        }
+    }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
