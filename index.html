@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.85 (20 Gen-Z Color Motifs)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.86 (20 Gen-Z Color Motifs)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.85 (20 Gen-Z Color Motifs)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.86 (20 Gen-Z Color Motifs)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.85</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.86</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -552,13 +552,12 @@
     let isPlaying = false;
     let dataVersion = 1;
 
-    // Sistem ID Unik Konsisten (INV-YYYYMMDD-XXXX)
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v85');
+        let invId = localStorage.getItem('ari_inv_id_v86');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-20260921-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v85', invId);
+            localStorage.setItem('ari_inv_id_v86', invId);
         }
         return invId;
     }
@@ -602,7 +601,6 @@
         if(data.dataVersion) dataVersion = data.dataVersion;
     }
 
-    // 21. LOAD HARUS MENUNGGU & 20. PRIORITAS SUMBER DATA PUBLIC
     function initApp() {
         const urlParams = new URLSearchParams(window.location.search);
         const idParam = urlParams.get('id');
@@ -633,7 +631,6 @@
             } catch(e) {}
         }
 
-        // Jika tidak ada ID Public (Admin Mode / Draft Mode)
         if (!hasPublishedData && !idParam) {
             if(localStorage.getItem('ari_textElements_v85')) {
                 textElements = JSON.parse(localStorage.getItem('ari_textElements_v85'));
@@ -683,15 +680,12 @@
         }
     }
 
-    // 12, 13, 14, 15, 16, 17, 27. BUAT SNAPSHOT, DEEP COPY, VALIDASI & VERSIONING
     function createPublishedSnapshot() {
-        // Deteksi Data Default (Poin 15)
         if (!textElements || !textElements.coupleName || textElements.coupleName.text === "") {
             showToast('⚠️ Data yang akan dipublish masih menggunakan data default. Silakan simpan perubahan terlebih dahulu.', 'error');
             return null;
         }
 
-        // Naikkan versioning data (Poin 17)
         dataVersion = (parseInt(dataVersion) || 0) + 1;
         saveAllDataToDevice();
 
@@ -700,7 +694,7 @@
         const rawSnapshot = {
             publishId: invId,
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.85",
+            appVersion: "v10.1.86",
             dataVersion: dataVersion,
             currentCategoryKey: currentCategoryKey,
             textElements,
@@ -720,7 +714,6 @@
             ultimateConfig
         };
 
-        // Deep Copy Snapshot menggunakan structuredClone (Poin 13)
         try {
             return structuredClone(rawSnapshot);
         } catch(e) {
@@ -1778,20 +1771,48 @@
     }
 
     function bukaUndanganSekarang() {
-        document.getElementById('coverSection').style.display = 'none';
-        document.getElementById('mainContent').style.display = 'block';
-        document.getElementById('mainContent').style.opacity = '1';
-        window.scrollTo(0, 0);
+        const coverSection = document.getElementById('coverSection');
+        const mainContent = document.getElementById('mainContent');
+        
+        if (coverSection) {
+            coverSection.style.transition = 'opacity 0.4s ease';
+            coverSection.style.opacity = '0';
+            setTimeout(() => {
+                coverSection.style.display = 'none';
+            }, 400);
+        }
+        
+        if (mainContent) {
+            mainContent.style.display = 'block';
+            setTimeout(() => {
+                mainContent.style.opacity = '1';
+            }, 50);
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
         try { 
             const audio = document.getElementById('bgMusic');
             if (audio) {
                 audio.volume = ultimateConfig.musicVolume || 0.5;
-                audio.play().catch(e => {});
-                isPlaying = true;
-                document.getElementById('musicIcon').className = "fa-solid fa-music animate-spin text-sm"; 
-                document.getElementById('musicLabel').innerText = "Playing";
+                audio.play().then(() => {
+                    isPlaying = true;
+                    const icon = document.getElementById('musicIcon');
+                    const label = document.getElementById('musicLabel');
+                    if (icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+                    if (label) label.innerText = "Playing";
+                }).catch(error => {
+                    console.log("Autoplay audio dicegah oleh browser:", error);
+                    isPlaying = false;
+                    const icon = document.getElementById('musicIcon');
+                    const label = document.getElementById('musicLabel');
+                    if (icon) icon.className = "fa-solid fa-music text-sm"; 
+                    if (label) label.innerText = "Paused";
+                });
             }
-        } catch(e) {}
+        } catch(e) {
+            console.error("Error pada pemutaran musik:", e);
+        }
     }
 
     function toggleMusic() {
@@ -1822,7 +1843,7 @@
       } else { showToast('PIN Salah!', 'error'); }
     }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-    function openShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
     
     function shareGeneralWhatsApp() {
