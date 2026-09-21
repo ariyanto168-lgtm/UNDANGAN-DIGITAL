@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.97 (Lightweight & Clean)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.98 (Auto-Compress)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.97 (Lightweight & Clean)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.98 (Auto-Compress)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.97</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.98</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -225,7 +225,7 @@
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Kirim undangan instan tanpa membebani memori browser.</p>
+      <p class="text-xs text-slate-300">Kirim undangan instan tanpa macet.</p>
       <button type="button" id="btnShareWaAction" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
         <i class="fa-brands fa-whatsapp text-base"></i><span id="btnShareTextLabel">Kirim via WhatsApp</span>
       </button>
@@ -554,13 +554,33 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v97');
+        let invId = localStorage.getItem('ari_inv_id_v98');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v97', invId);
+            localStorage.setItem('ari_inv_id_v98', invId);
         }
         return invId;
+    }
+
+    // --- KOMPRESOR OTOMATIS (Mencegah Memori Penuh) ---
+    function compressImageFile(file, callback, maxWidth = 400, quality = 0.4) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+                if(width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; }
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                callback(canvas.toDataURL('image/jpeg', quality));
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
     }
 
     function applyDataDump(data) {
@@ -608,11 +628,10 @@
                 } catch(e) {}
             }
         } else {
-            // JIKA MEMBUKA EDIT BARU TANPA ID (Fresh Editor Mode):
-            // Bersihkan local storage lama agar laman benar-benar kosong/bersih dari riwayat sebelumnya.
+            // Auto-clean slate untuk edit baru
             try {
                 Object.keys(localStorage).forEach(k => {
-                    if (k.startsWith('ari_') && k !== 'ari_inv_id_v97') {
+                    if (k.startsWith('ari_') && k !== 'ari_inv_id_v98') {
                         localStorage.removeItem(k);
                     }
                 });
@@ -622,33 +641,32 @@
 
     initApp();
 
-    // --- FITUR UTAMA: HANYA MENYIMPAN TEKS & CONFIG (TIDAK ADA GAMBAR BERAT/BASE64) ---
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v97', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v97', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_attendanceList_v97', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v97', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_waTemplate_v97', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v97', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v97', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v97', JSON.stringify(ultimateConfig));
-            localStorage.setItem('ari_dataVersion_v97', dataVersion);
+            localStorage.setItem('ari_textElements_v98', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v98', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v98', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v98', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_attendanceList_v98', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v98', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v98', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v98', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v98', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v98', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v98', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_dataVersion_v98', dataVersion);
         } catch(e) {}
     }
 
-    // --- TOMBOL RESET MANUAL SEMUA RIWAYAT EDITOR ---
     function manualResetAllData() {
-        if(confirm("⚠️ Yakin ingin menghapus seluruh riwayat editan dan mengembalikan aplikasi ke kondisi awal (pabrik)?")) {
+        if(confirm("⚠️ Yakin ingin menghapus seluruh riwayat editan dan mengembalikan aplikasi ke kondisi bersih awal?")) {
             try {
                 Object.keys(localStorage).forEach(k => {
                     if(k.startsWith('ari_')) localStorage.removeItem(k);
                 });
             } catch(e) {}
             showToast("Semua riwayat berhasil dihapus bersih!");
-            setTimeout(() => {
-                window.location.href = window.location.pathname;
-            }, 1000);
+            setTimeout(() => { window.location.href = window.location.pathname; }, 1000);
         }
     }
 
@@ -658,7 +676,7 @@
       { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Upload Video MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Upload Galeri & Hapus', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'dynamicPhotos', title: 'Multi-Foto Kompresor', desc: 'Upload Galeri Otomatis', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & 20 Font', desc: 'Pilih Font, Prewed, Profil', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
@@ -726,8 +744,6 @@
           sections.forEach(s => {
               let currentUrl = sectionMicroVideos[s] || '';
               let isChecked = sectionMicroVideoVisibility[s] !== false ? 'checked' : '';
-              let previewHtml = currentUrl ? `<video src="${currentUrl}" class="h-12 w-12 object-cover rounded mb-2 border border-slate-500" autoplay muted loop playsinline></video>` : '';
-              
               htmlSections += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -737,7 +753,6 @@
                     <span>Tampilkan Video</span>
                   </label>
                 </div>
-                ${previewHtml}
                 <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="URL MP4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
               </div>`;
           });
@@ -755,8 +770,6 @@
               let currentUrl = sectionBackgrounds[s] || '';
               let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
               let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
-              let previewHtml = currentUrl ? `<img src="${currentUrl}" class="h-12 w-full object-cover rounded mb-2 border border-slate-500">` : '';
-              
               htmlBg += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -766,7 +779,6 @@
                     <span>Aktifkan</span>
                   </label>
                 </div>
-                ${previewHtml}
                 <input type="text" id="bgUrlInput-${s}" value="${currentUrl}" placeholder="URL Background" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
                 <div class="pt-2 border-t border-slate-700">
                   <div class="flex justify-between text-[11px] text-slate-300 mb-1">
@@ -807,6 +819,15 @@
           let photoAdminHtml = '';
           secs.forEach(s => {
               let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
+              let currentArr = sectionPhotos[s] || [];
+              let thumbsHtml = '';
+              currentArr.forEach((imgUrl, imgIdx) => {
+                  thumbsHtml += `
+                    <div class="relative w-14 h-14 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
+                      <img src="${imgUrl}" class="w-full h-full object-cover">
+                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-4 h-4 text-[9px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>`;
+              });
               photoAdminHtml += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -816,14 +837,16 @@
                     <span>Tampilkan</span>
                   </label>
                 </div>
-                <p class="text-[10px] text-slate-400 italic">Gunakan link eksternal (ImgBB) untuk menghindari memori penuh.</p>
+                <p class="text-[10px] text-slate-400">Upload dari HP (Otomatis Dikompres Super Ringan):</p>
+                <input type="file" accept="image/*" multiple onchange="handleAutoCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+                <div class="grid grid-cols-4 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-4">Belum ada foto</span>'}</div>
               </div>`;
           });
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">📸 Setelan Galeri Foto</h4>
+            <h4 class="font-bold text-rose-400 text-sm">📸 Upload Galeri (Auto-Compress)</h4>
             <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
-            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan</button>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Galeri</button>
           </div>`;
       }
       else if (id === 'databaseWarga') {
@@ -871,29 +894,32 @@
         let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & 20 Font Utama</h4>
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain, 20 Font & Upload Foto (Auto-Compress)</h4>
             
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">Pilih Dari 20 Pilihan Font:</label>
               <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
             </div>
-
+            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-pink-300">URL Foto Prewedding (Cover)</label>
-              <input type="text" id="inputCoverBgUrl" value="${ultimateConfig.coverBg || ''}" placeholder="https://..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-blue-300">URL Foto Profil Pria</label>
-              <input type="text" id="inputProf1Url" value="${ultimateConfig.profile1Img || ''}" placeholder="https://..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
-            </div>
-
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-amber-300">URL Foto Profil Wanita</label>
-              <input type="text" id="inputProf2Url" value="${ultimateConfig.profile2Img || ''}" placeholder="https://..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <label class="block text-slate-300 font-bold text-pink-300">Foto Prewedding (Cover)</label>
+              ${ultimateConfig.coverBg ? `<img src="${ultimateConfig.coverBg}" class="h-16 w-32 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
             </div>
             
-            <button onclick="saveDesignConfigUrl()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-blue-300">Foto Profil Pria</label>
+              ${ultimateConfig.profile1Img ? `<img src="${ultimateConfig.profile1Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
+            </div>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-amber-300">Foto Profil Wanita</label>
+              ${ultimateConfig.profile2Img ? `<img src="${ultimateConfig.profile2Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
+            </div>
+            
+            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
           </div>`;
       }
       else if (id === 'music') {
@@ -945,7 +971,7 @@
         let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
         area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Kolom Amplop & QRIS</h4>
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Kolom Amplop & QRIS (Auto-Compress)</h4>
             <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
                 <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
                   <span class="font-bold text-white">Tampilkan Amplop Digital</span>
@@ -956,8 +982,9 @@
                 </div>
                 
                 <div class="pt-2 border-t border-slate-700 mt-2">
-                  <label class="block text-slate-300 font-bold mb-1 text-emerald-300">URL Gambar Barcode QRIS:</label>
-                  <input type="text" id="inputQrisUrl" value="${giftConfig.qrisImage || ''}" placeholder="https://..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                  <label class="block text-slate-300 font-bold mb-1 text-emerald-300">Upload Barcode QRIS dari HP:</label>
+                  ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="h-20 object-contain rounded mb-2 bg-white border border-slate-500 p-1">` : ''}
+                  <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
                 </div>
                 
                 <div class="pt-2 border-t border-slate-700 mt-2">
@@ -973,7 +1000,7 @@
                   <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
                 </div>
             </div>
-            <button onclick="saveGiftConfigUrl()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Kolom Amplop</button>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Amplop</button>
           </div>`;
       }
       else if (id === 'keamananAkun') {
@@ -1021,7 +1048,7 @@
             <h4 class="font-bold text-rose-400 text-sm">🔄 Mode Reset & Publish</h4>
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
                 <p class="text-rose-300 font-bold">Tombol Reset Manual:</p>
-                <p class="text-[10px] text-slate-300">Gunakan tombol ini untuk menghapus seluruh riwayat editan di memori browser dan mengembalikan aplikasi ke kondisi bersih awal.</p>
+                <p class="text-[10px] text-slate-300">Gunakan tombol ini untuk menghapus seluruh riwayat editan di memori browser.</p>
                 <button onclick="manualResetAllData()" class="w-full bg-rose-600 hover:bg-rose-500 text-white py-2.5 rounded-lg font-bold shadow-md cursor-pointer"><i class="fa-solid fa-trash-can mr-1.5"></i> Reset Semua Riwayat Editor</button>
             </div>
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
@@ -1032,6 +1059,58 @@
             </div>
           </div>`;
       }
+    }
+
+    function handleAutoCompressUpload(event, sectionKey) {
+        const files = event.target.files;
+        if(!files || files.length === 0) return;
+        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
+        let loaded = 0;
+        Array.from(files).forEach(file => {
+            compressImageFile(file, (compressedBase64) => {
+                sectionPhotos[sectionKey].push(compressedBase64);
+                loaded++;
+                if(loaded === files.length) {
+                    dataVersion++;
+                    saveAllDataToDevice();
+                    applySectionPhotos();
+                    openAdminModule('dynamicPhotos');
+                    showToast('Foto berhasil dikompres & diunggah!');
+                }
+            }, 400, 0.4);
+        });
+    }
+
+    function removeSectionPhoto(sectionKey, index) {
+        if(sectionPhotos[sectionKey]) {
+            sectionPhotos[sectionKey].splice(index, 1);
+            dataVersion++;
+            saveAllDataToDevice();
+            applySectionPhotos();
+            openAdminModule('dynamicPhotos');
+            showToast('Foto dihapus.');
+        }
+    }
+
+    function handleSingleCompressUpload(event, type) {
+        const file = event.target.files[0];
+        if(!file) return;
+        compressImageFile(file, (base64) => {
+            if(type === 'prewed') ultimateConfig.coverBg = base64;
+            if(type === 'profile1') ultimateConfig.profile1Img = base64;
+            if(type === 'profile2') ultimateConfig.profile2Img = base64;
+            if(type === 'qris') {
+                giftConfig.qrisImage = base64;
+                openAdminModule('gift');
+            } else {
+                openAdminModule('design');
+            }
+            dataVersion++;
+            saveAllDataToDevice();
+            applyUltimateConfig();
+            applyGiftToDOM();
+            showToast('Foto dikompres & dimuat!');
+        }, 400, 0.4);
     }
 
     function applyEventPreset() {
@@ -1117,7 +1196,8 @@
         });
         dataVersion++;
         saveAllDataToDevice();
-        showToast('Setelan foto disimpan!');
+        applySectionPhotos();
+        showToast('Setelan galeri disimpan!');
         backToDashboard();
     }
 
@@ -1184,15 +1264,12 @@
         backToDashboard();
     }
 
-    function saveDesignConfigUrl() {
+    function saveDesignConfig() {
         ultimateConfig.font = document.getElementById('editFont').value;
-        ultimateConfig.coverBg = document.getElementById('inputCoverBgUrl').value.trim() || ultimateConfig.coverBg;
-        ultimateConfig.profile1Img = document.getElementById('inputProf1Url').value.trim() || ultimateConfig.profile1Img;
-        ultimateConfig.profile2Img = document.getElementById('inputProf2Url').value.trim() || ultimateConfig.profile2Img;
         dataVersion++;
         saveAllDataToDevice();
         applyUltimateConfig();
-        showToast('Desain & URL Foto Disimpan!');
+        showToast('Desain disimpan!');
         backToDashboard();
     }
 
@@ -1221,17 +1298,13 @@
           const checkbox = document.getElementById(`tw-${key}`);
           if (input) {
               textElements[key] = { text: input.value, typewriter: checkbox ? checkbox.checked : true };
-              if (key === 'coupleName') {
-                  newCoupleName = input.value;
-              }
+              if (key === 'coupleName') { newCoupleName = input.value; }
           }
       }
-      
       if (newCoupleName) {
           if (textElements['heroTitle']) textElements['heroTitle'].text = newCoupleName;
           if (textElements['footerCouple']) textElements['footerCouple'].text = newCoupleName;
       }
-
       dataVersion++;
       saveAllDataToDevice();
       applyTextElementsToDOM();
@@ -1239,16 +1312,15 @@
       backToDashboard();
     }
 
-    function saveGiftConfigUrl() {
+    function saveGiftConfig() {
         giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
-        giftConfig.qrisImage = document.getElementById('inputQrisUrl').value.trim();
         giftConfig.bank = document.getElementById('inputBankName').value;
         giftConfig.number = document.getElementById('inputRekNumber').value;
         giftConfig.owner = document.getElementById('inputRekOwner').value;
         dataVersion++;
         saveAllDataToDevice();
         applyGiftToDOM();
-        showToast('Kolom Amplop disimpan!');
+        showToast('Amplop disimpan!');
         backToDashboard();
     }
 
@@ -1258,7 +1330,7 @@
         adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
         dataVersion++;
         saveAllDataToDevice();
-        showToast('Konfigurasi EmailJS disimpan!');
+        showToast('EmailJS disimpan!');
     }
 
     function processChangePin() {
@@ -1285,10 +1357,9 @@
         const snapshot = {
             publishId: getOrCreateInvitationId(),
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.97",
-            dataVersion: dataVersion,
-            currentCategoryKey, textElements, adminAuth, ultimateConfig,
-            attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
+            appVersion: "v10.1.98",
+            dataVersion, currentCategoryKey, textElements, adminAuth, ultimateConfig,
+            sectionPhotos, sectionPhotoVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
         };
 
         try {
@@ -1454,6 +1525,28 @@
         });
     }
 
+    function applySectionPhotos() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(key => {
+            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
+            if(!container) return;
+            const isVisible = sectionPhotoVisibility[key] !== false;
+            const photosArr = sectionPhotos[key] || [];
+            if(!isVisible || photosArr.length === 0) {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+            container.className = "grid grid-cols-2 gap-2 mb-3";
+            let gridHtml = '';
+            photosArr.forEach(url => {
+                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
+            });
+            container.innerHTML = gridHtml;
+        });
+    }
+
     function applySectionMicroVideos() {
         const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
@@ -1563,9 +1656,7 @@
                     const label = document.getElementById('musicLabel');
                     if (icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
                     if (label) label.innerText = "Playing";
-                }).catch(error => {
-                    isPlaying = false;
-                });
+                }).catch(error => { isPlaying = false; });
             }
         } catch(e) {}
     }
@@ -1638,9 +1729,9 @@
                     const snapshot = {
                         publishId: invId,
                         publishedAt: new Date().toISOString(),
-                        appVersion: "v10.1.97",
+                        appVersion: "v10.1.98",
                         dataVersion, currentCategoryKey, textElements, adminAuth, ultimateConfig,
-                        attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
+                        sectionPhotos, sectionPhotoVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
                     };
                     localStorage.setItem('ari_published_snapshot_' + invId, JSON.stringify(snapshot));
                 } catch(err) {}
@@ -1665,6 +1756,7 @@
         applyGiftToDOM();
         applySectionOrder();
         applyTextElementsToDOM();
+        applySectionPhotos();
         applySectionMicroVideos();
         applySectionBackgrounds();
         renderWishesToDOM();
