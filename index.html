@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.86 (20 Gen-Z Color Motifs)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.88 (Fully Synchronized)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.86 (20 Gen-Z Color Motifs)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.88 (Fully Synchronized)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.86</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.88</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -553,11 +553,11 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v86');
+        let invId = localStorage.getItem('ari_inv_id_v88');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-20260921-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v86', invId);
+            localStorage.setItem('ari_inv_id_v88', invId);
         }
         return invId;
     }
@@ -617,11 +617,6 @@
                     applyDataDump(parsed);
                     hasPublishedData = true;
                 } catch(e) {}
-            }
-            if (!hasPublishedData) {
-                setTimeout(() => {
-                    showToast('⚠️ Data undangan belum ditemukan. Silakan gunakan link undangan terbaru.', 'error');
-                }, 500);
             }
         } else if (PUBLISH_DATA_BACKUP && PUBLISH_DATA_BACKUP.trim() !== "") {
             try {
@@ -694,7 +689,7 @@
         const rawSnapshot = {
             publishId: invId,
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.86",
+            appVersion: "v10.1.88",
             dataVersion: dataVersion,
             currentCategoryKey: currentCategoryKey,
             textElements,
@@ -1435,16 +1430,26 @@
     }
 
     function saveTextTable() {
+      let newCoupleName = "";
       for (let key in defaultText) { 
           const input = document.getElementById(`txt-${key}`); 
           const checkbox = document.getElementById(`tw-${key}`);
           if (input) {
               textElements[key] = { text: input.value, typewriter: checkbox ? checkbox.checked : true };
+              if (key === 'coupleName') {
+                  newCoupleName = input.value;
+              }
           }
       }
+      
+      if (newCoupleName) {
+          if (textElements['heroTitle']) textElements['heroTitle'].text = newCoupleName;
+          if (textElements['footerCouple']) textElements['footerCouple'].text = newCoupleName;
+      }
+
       saveAllDataToDevice();
       applyTextElementsToDOM();
-      showToast('Teks disimpan!');
+      showToast('Teks & Nama Berhasil Diperbarui!');
       backToDashboard();
     }
 
