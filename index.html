@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.3.0 (Hybrid Mode)</title>
+  <title>Undangan Digital - Master Gen-Z v10.4.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -113,7 +113,7 @@
       <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
         <div id="microVideo-video" class="w-full"></div>
         <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
-        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-video"></i></div>
+        <div id="videoLogoWrapper" class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-video"></i></div>
         <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
         <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center relative">
           <video id="mainMp4Video" controls playsinline preload="metadata" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
@@ -165,11 +165,11 @@
         <div id="dynamicPhotosGrid-rsvp" class="grid grid-cols-2 gap-2 mb-3"></div>
         <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
         <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
-          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
-          <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 font-semibold focus:ring-2 focus:ring-pink-500 outline-none">
+          <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 font-semibold focus:ring-2 focus:ring-pink-500 outline-none">
             <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
           </select>
-          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
+          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 font-semibold focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
           <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan</button>
         </div>
         <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.3.0 (Hybrid Mode)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.4.0</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.3.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.4.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -279,35 +279,7 @@
       y2k_hotpink: { name: "2. Y2K Hot Pink", bg: "#18181b", text: "#fafafa", accent: "#ff007f", secondary: "#a1a1aa" },
       vaporwave: { name: "3. Vaporwave Synth", bg: "#2e1065", text: "#f3e8ff", accent: "#c084fc", secondary: "#2dd4bf" },
       coquette_bow: { name: "4. Coquette Pastel", bg: "#fff1f2", text: "#4c0519", accent: "#fb7185", secondary: "#fda4af" },
-      indie_sleaze: { name: "5. Indie Sleaze", bg: "#1c1917", text: "#f5f5f4", accent: "#d97706", secondary: "#65a30d" },
-      hypebeast: { name: "6. Hypebeast Monotone", bg: "#09090b", text: "#ffffff", accent: "#f97316", secondary: "#52525b" },
-      holographic: { name: "7. Holographic Iridescent", bg: "#1e1b4b", text: "#e0e7ff", accent: "#818cf8", secondary: "#38bdf8" },
-      pastel_dream: { name: "8. Pastel Dream", bg: "#f0fdf4", text: "#14532d", accent: "#34d399", secondary: "#fb923c" },
-      dark_academia: { name: "9. Dark Academia", bg: "#1c1917", text: "#e7e5e4", accent: "#d4af37", secondary: "#78716c" },
-      bubblegum_pop: { name: "10. Bubblegum Pop", bg: "#fdf4ff", text: "#701a75", accent: "#e879f9", secondary: "#facc15" }
-    };
-
-    const eventPresetsList = {
-      y2k_cyber: {
-        badgeText: "✨ Y2K CYBER VIBES ✨", coupleName: "Rian & Siska", subText: "Calling All Besties", dateDisplay: "Sabtu, 14 Juli 2026", timeDisplay: "Pukul 15.00 WIB - Till Drop",
-        heroTitle: "Rian & Siska", heroSub: "Welcome to our futuristic cyber love story.",
-        quoteText: "Living in a digital matrix but my love for you is 100% real.",
-        titleMempelai: "The Main Characters", 
-        groomName: "Rian Cyber", groomParents: "Matrix Leader",
-        brideName: "Siska Neo", brideParents: "Cyber Queen",
-        titleLokasi: "Cyber Dome Arena", titleGift: "Digital Wallet QRIS", subGift: "Send virtual love & support.", titleRsvp: "RSVP Squad", footerCouple: "Rian & Siska Y2K",
-        coverBg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000"
-      },
-      coquette_core: {
-        badgeText: "🎀 COQUETTE CORE 🎀", coupleName: "Rian & Siska", subText: "A Delicate Romance", dateDisplay: "Minggu, 20 Agustus 2026", timeDisplay: "Pukul 10.00 WIB - Selesai",
-        heroTitle: "Rian & Siska", heroSub: "Soft ribbons, pink aesthetics, and endless love.",
-        quoteText: "Elegance is the only beauty that never fades away.",
-        titleMempelai: "The Couple", 
-        groomName: "Rian Gentleman", groomParents: "Son of Family",
-        brideName: "Siska Coquette", brideParents: "Daughter of Family",
-        titleLokasi: "Pink Rose Garden", titleGift: "Sweet Gift", subGift: "Your graceful presence is everything.", titleRsvp: "Guestbook", footerCouple: "Rian & Siska",
-        coverBg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000"
-      }
+      indie_sleaze: { name: "5. Indie Sleaze", bg: "#1c1917", text: "#f5f5f4", accent: "#d97706", secondary: "#65a30d" }
     };
 
     const defaultText = {
@@ -349,7 +321,8 @@
         typewriterSpeed: 30, 
         photoFrame: "frame-polaroid",
         profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
-        profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+        profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+        showVideoLogo: true // Opsi baru untuk tombol logo video
     };
 
     let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
@@ -364,16 +337,15 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v1030');
+        let invId = localStorage.getItem('ari_inv_id_v1040');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v1030', invId);
+            localStorage.setItem('ari_inv_id_v1040', invId);
         }
         return invId;
     }
 
-    // --- ENGINE AUTO-COMPRESS ---
     function compressImageFile(file, callback, maxWidth = 400, quality = 0.4) {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -416,7 +388,6 @@
     function initApp() {
         const urlParams = new URLSearchParams(window.location.search);
         const idParam = urlParams.get('id');
-        let hasPublishedData = false;
         if (idParam) {
             let pubDataStr = null;
             try { pubDataStr = localStorage.getItem('ari_published_snapshot_' + idParam); } catch(e) {}
@@ -425,7 +396,6 @@
                 try {
                     let parsed = pubDataStr.trim().startsWith('{') ? JSON.parse(pubDataStr) : JSON.parse(decodeURIComponent(atob(pubDataStr)));
                     applyDataDump(parsed);
-                    hasPublishedData = true;
                 } catch(e) {}
             }
         }
@@ -434,49 +404,22 @@
 
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v1030', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v1030', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v1030', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v1030', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v1030', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v1030', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v1030', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v1030', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v1030', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v1030', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v1030', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v1030', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v1030', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v1030', JSON.stringify(ultimateConfig));
-            localStorage.setItem('ari_dataVersion_v1030', dataVersion);
+            localStorage.setItem('ari_textElements_v1040', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1040', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1040', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1040', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v1040', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1040', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1040', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1040', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1040', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1040', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v1040', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v1040', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v1040', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v1040', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_dataVersion_v1040', dataVersion);
         } catch(e) {}
-    }
-
-    // --- HYBRID URL HANDLERS ---
-    function handleUrlInput(event, type, key) {
-        const val = event.target.value.trim();
-        if (type === 'background') { sectionBackgrounds[key] = val; applySectionBackgrounds(); }
-        else if (type === 'prewed') { ultimateConfig.coverBg = val; applyUltimateConfig(); }
-        else if (type === 'profile1') { ultimateConfig.profile1Img = val; applyUltimateConfig(); }
-        else if (type === 'profile2') { ultimateConfig.profile2Img = val; applyUltimateConfig(); }
-        else if (type === 'qris') { giftConfig.qrisImage = val; applyGiftToDOM(); }
-        dataVersion++;
-        saveAllDataToDevice();
-        showToast('URL berhasil disimpan & dimuat!');
-    }
-
-    function addGalleryUrl(section) {
-        const input = document.getElementById(`urlGaleriInput-${section}`);
-        if(input && input.value.trim()) {
-            if(!sectionPhotos[section]) sectionPhotos[section] = [];
-            sectionPhotos[section].push(input.value.trim());
-            input.value = '';
-            dataVersion++;
-            saveAllDataToDevice();
-            applySectionPhotos();
-            openAdminModule('dynamicPhotos');
-            showToast('URL foto ditambahkan!');
-        }
     }
 
     const adminModules = [
@@ -485,7 +428,7 @@
       { id: 'animasiStiker', title: 'Video Kecil (URL Only)', desc: 'Tempel URL MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
       { id: 'sectionBackgrounds', title: 'Background (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Galeri (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'dynamicPhotos', title: 'Galeri & Logo Video', desc: 'Sembunyikan/Tampilkan Logo Video', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
@@ -518,9 +461,82 @@
       document.getElementById('adminModuleView').classList.remove('hidden');
       const area = document.getElementById('moduleContentArea');
       
-      if (id === 'kategoriAcara') {
-          // ... (sama seperti sebelumnya, dipotong agar muat di prompt) ...
-          area.innerHTML = `<h4 class="font-bold text-amber-400 text-sm">🔥 Menu Preset Tema (Aktif)</h4>`;
+      if (id === 'dynamicPhotos') {
+          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+          let photoAdminHtml = '';
+          secs.forEach(s => {
+              let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
+              let currentArr = sectionPhotos[s] || [];
+              let thumbsHtml = '';
+              currentArr.forEach((imgUrl, imgIdx) => {
+                  thumbsHtml += `<div class="relative w-14 h-14 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
+                      <img src="${imgUrl}" class="w-full h-full object-cover">
+                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-4 h-4 text-[9px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>`;
+              });
+              photoAdminHtml += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-bold text-rose-300 capitalize">Galeri: ${s}</span>
+                  <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600">
+                </div>
+                <div class="flex space-x-2">
+                    <input type="text" id="urlGaleriInput-${s}" placeholder="Tempel URL Foto..." class="flex-1 p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
+                    <button onclick="addGalleryUrl('${s}')" class="bg-slate-700 text-white px-3 rounded text-[10px] font-bold">Tambah</button>
+                </div>
+                <input type="file" accept="image/*" multiple onchange="handleAutoCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:bg-rose-600 file:text-white">
+                <div class="grid grid-cols-4 gap-2 pt-2 border-t border-slate-700 mt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-4">Belum ada foto</span>'}</div>
+              </div>`;
+          });
+          
+          let isVideoLogoChecked = ultimateConfig.showVideoLogo !== false ? 'checked' : '';
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-rose-400 text-sm">📸 Galeri & Kontrol Logo Video</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-white">Tampilkan Logo/Ikon Video Dokumentasi</span>
+                <p class="text-[10px] text-slate-400">Sembunyikan atau tampilkan logo video di atas judul.</p>
+              </div>
+              <input type="checkbox" id="toggleVideoLogo" ${isVideoLogoChecked} onchange="saveVideoLogoToggle(this)" class="w-5 h-5 accent-pink-600 cursor-pointer">
+            </div>
+            <div class="space-y-3 max-h-[50vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Galeri</button>
+          </div>`;
+      }
+      else if (id === 'sectionBackgrounds') {
+          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+          let htmlBg = '';
+          sections.forEach(s => {
+              let currentBg = sectionBackgrounds[s] || '';
+              let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
+              let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
+              let displayUrl = currentBg.startsWith('data:image') ? '' : currentBg;
+              
+              htmlBg += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-teal-300 capitalize">Background: ${s}</span>
+                  <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600">
+                </div>
+                ${currentBg ? `<img src="${currentBg}" class="h-12 w-full object-cover rounded mb-1 border border-slate-600">` : ''}
+                <input type="text" onchange="handleUrlInput(event, 'background', '${s}')" value="${displayUrl}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
+                <input type="file" accept="image/*" onchange="handleBackgroundCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:bg-teal-600 file:text-white">
+                <div class="pt-2 border-t border-slate-700 mt-2">
+                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
+                    <span>💡 Redup Kontras</span>
+                    <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
+                  </div>
+                  <input type="range" id="dimmerInput-${s}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${s}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background (Hybrid)</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
+            <button onclick="saveSectionBackgroundsDimmer()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Redup & Visibilitas</button>
+          </div>`;
       }
       else if (id === 'animasiStiker') {
           const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
@@ -540,82 +556,8 @@
           area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil (URL Only)</h4>
-            <p class="text-[10px] text-slate-400">File video terlalu besar untuk Auto-Compress browser. Gunakan link URL langsung untuk mencegah memori penuh.</p>
             <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlSections}</div>
             <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
-          </div>`;
-      }
-      else if (id === 'sectionBackgrounds') {
-          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-          let htmlBg = '';
-          sections.forEach(s => {
-              let currentBg = sectionBackgrounds[s] || '';
-              let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
-              let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
-              let displayUrl = currentBg.startsWith('data:image') ? '' : currentBg;
-              
-              htmlBg += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-teal-300 capitalize">Background: ${s}</span>
-                  <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600">
-                </div>
-                ${currentBg ? `<img src="${currentBg}" class="h-12 w-full object-cover rounded mb-1 border border-slate-600">` : ''}
-                
-                <input type="text" onchange="handleUrlInput(event, 'background', '${s}')" value="${displayUrl}" placeholder="Tempel URL Gambar di sini..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
-                <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD (AUTO-COMPRESS)</p>
-                <input type="file" accept="image/*" onchange="handleBackgroundCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white">
-                
-                <div class="pt-2 border-t border-slate-700 mt-2">
-                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
-                    <span>💡 Redup Kontras</span>
-                    <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
-                  </div>
-                  <input type="range" id="dimmerInput-${s}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${s}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
-                </div>
-              </div>`;
-          });
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background (Hybrid)</h4>
-            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
-            <button onclick="saveSectionBackgroundsDimmer()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Redup & Visibilitas</button>
-          </div>`;
-      }
-      else if (id === 'dynamicPhotos') {
-          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-          let photoAdminHtml = '';
-          secs.forEach(s => {
-              let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
-              let currentArr = sectionPhotos[s] || [];
-              let thumbsHtml = '';
-              currentArr.forEach((imgUrl, imgIdx) => {
-                  thumbsHtml += `<div class="relative w-14 h-14 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
-                      <img src="${imgUrl}" class="w-full h-full object-cover">
-                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-4 h-4 text-[9px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
-                    </div>`;
-              });
-              photoAdminHtml += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center mb-1">
-                  <span class="font-bold text-rose-300 capitalize">Galeri: ${s}</span>
-                  <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600">
-                </div>
-                
-                <div class="flex space-x-2">
-                    <input type="text" id="urlGaleriInput-${s}" placeholder="Tempel URL Foto..." class="flex-1 p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
-                    <button onclick="addGalleryUrl('${s}')" class="bg-slate-700 text-white px-3 rounded text-[10px] font-bold">Tambah</button>
-                </div>
-                <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD (AUTO-COMPRESS)</p>
-                <input type="file" accept="image/*" multiple onchange="handleAutoCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
-                <div class="grid grid-cols-4 gap-2 pt-2 border-t border-slate-700 mt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-4">Belum ada foto</span>'}</div>
-              </div>`;
-          });
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">📸 Galeri (Hybrid)</h4>
-            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
-            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Visibilitas Galeri</button>
           </div>`;
       }
       else if (id === 'design') {
@@ -623,45 +565,23 @@
         let displayP1 = ultimateConfig.profile1Img.startsWith('data:image') ? '' : ultimateConfig.profile1Img;
         let displayP2 = ultimateConfig.profile2Img.startsWith('data:image') ? '' : ultimateConfig.profile2Img;
         let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
-        
         area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & Profil (Hybrid)</h4>
-            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">Pilihan Font Utama</label>
               <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
             </div>
-            
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold text-pink-300">Foto Prewedding (Cover)</label>
-              ${ultimateConfig.coverBg ? `<img src="${ultimateConfig.coverBg}" class="h-16 w-32 object-cover rounded mb-1 border border-slate-600">` : ''}
               <input type="text" onchange="handleUrlInput(event, 'prewed')" value="${displayCover}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-[10px] text-white">
-              <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD (AUTO-COMPRESS)</p>
-              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
+              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:bg-pink-600 file:text-white">
             </div>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-blue-300">Foto Profil Pria</label>
-              ${ultimateConfig.profile1Img ? `<img src="${ultimateConfig.profile1Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
-              <input type="text" onchange="handleUrlInput(event, 'profile1')" value="${displayP1}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-[10px] text-white">
-              <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD DARI HP</p>
-              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:bg-blue-600 file:text-white">
-            </div>
-            
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-amber-300">Foto Profil Wanita</label>
-              ${ultimateConfig.profile2Img ? `<img src="${ultimateConfig.profile2Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
-              <input type="text" onchange="handleUrlInput(event, 'profile2')" value="${displayP2}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-[10px] text-white">
-              <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD DARI HP</p>
-              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:bg-amber-600 file:text-white">
-            </div>
-            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Font & Desain</button>
+            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
           </div>`;
       }
       else if (id === 'gift') {
         let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
-        let displayQris = giftConfig.qrisImage.startsWith('data:image') ? '' : giftConfig.qrisImage;
         area.innerHTML = `
           <div class="space-y-4 text-xs">
             <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop & QRIS (Hybrid)</h4>
@@ -670,38 +590,69 @@
                   <span class="font-bold text-white">Tampilkan Amplop Digital</span>
                   <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="w-4 h-4 accent-emerald-500">
                 </div>
-                
-                <div class="pt-2 border-t border-slate-700 mt-2">
-                  <label class="block text-slate-300 font-bold mb-1 text-emerald-300">Gambar QRIS (URL atau Upload)</label>
-                  ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="h-20 object-contain rounded mb-2 bg-white border border-slate-500 p-1">` : ''}
-                  
-                  <input type="text" onchange="handleUrlInput(event, 'qris')" value="${displayQris}" placeholder="Tempel URL Gambar QRIS..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
-                  <p class="text-center text-[9px] text-slate-500 font-bold my-1">ATAU UPLOAD DARI HP (AUTO-COMPRESS)</p>
-                  <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:bg-emerald-600 file:text-white file:border-0 file:rounded file:px-2">
-                </div>
-                
-                <div class="pt-2 border-t border-slate-700 mt-2">
-                  <label class="block text-slate-300 font-bold mb-1">Nama Bank / E-Wallet</label>
-                  <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Misal: Bank BCA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                </div>
-                <div class="pt-1">
-                  <label class="block text-slate-300 font-bold mb-1">Nomor Rekening</label>
-                  <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                </div>
-                <div class="pt-1">
-                  <label class="block text-slate-300 font-bold mb-1">Atas Nama (Pemilik Rekening)</label>
-                  <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                </div>
+                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Nama Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="No Rekening" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
             </div>
             <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Setelan Amplop</button>
           </div>`;
       }
+      else if (id === 'guests') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & RSVP</h4>
+            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
+          </div>`;
+          setTimeout(() => {
+              const container = document.getElementById('adminGuestList');
+              if (!container) return;
+              container.innerHTML = '';
+              attendanceList.forEach((w, idx) => {
+                container.innerHTML += `
+                  <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1 relative">
+                    <div class="flex justify-between font-bold text-white"><span>${w.name} (${w.status})</span></div>
+                    <p class="text-slate-200 italic font-medium">"${w.message}"</p>
+                    <button onclick="deleteGuestWish(${idx})" class="absolute top-2 right-2 text-rose-500 hover:text-rose-400"><i class="fa-solid fa-trash"></i></button>
+                  </div>`;
+              });
+          }, 50);
+      }
       else {
-          area.innerHTML = `<h4 class="font-bold text-slate-400 text-sm">Modul sedang dimuat atau tidak tersedia pada versi ini...</h4>`;
+          area.innerHTML = `<h4 class="font-bold text-slate-400 text-sm">Gunakan menu di atas untuk mengatur undangan Anda.</h4>`;
       }
     }
 
-    // --- UPLOAD HANDLERS ---
+    function saveVideoLogoToggle(el) {
+        ultimateConfig.showVideoLogo = el.checked;
+        dataVersion++; saveAllDataToDevice(); applyVideoLogoVisibility();
+        showToast('Setelan logo video disimpan!');
+    }
+
+    function applyVideoLogoVisibility() {
+        const wrapper = document.getElementById('videoLogoWrapper');
+        if(wrapper) {
+            wrapper.style.display = ultimateConfig.showVideoLogo !== false ? 'flex' : 'none';
+        }
+    }
+
+    function handleUrlInput(event, type, key) {
+        const val = event.target.value.trim();
+        if (type === 'background') { sectionBackgrounds[key] = val; applySectionBackgrounds(); }
+        else if (type === 'prewed') { ultimateConfig.coverBg = val; applyUltimateConfig(); }
+        dataVersion++; saveAllDataToDevice(); showToast('URL disimpan & dimuat!');
+    }
+
+    function addGalleryUrl(section) {
+        const input = document.getElementById(`urlGaleriInput-${section}`);
+        if(input && input.value.trim()) {
+            if(!sectionPhotos[section]) sectionPhotos[section] = [];
+            sectionPhotos[section].push(input.value.trim());
+            input.value = '';
+            dataVersion++; saveAllDataToDevice(); applySectionPhotos();
+            openAdminModule('dynamicPhotos'); showToast('URL foto ditambahkan!');
+        }
+    }
+
     function handleBackgroundCompressUpload(event, sectionKey) {
         const file = event.target.files[0];
         if(!file) return;
@@ -717,11 +668,7 @@
         if(!file) return;
         compressImageFile(file, (base64) => {
             if(type === 'prewed') ultimateConfig.coverBg = base64;
-            if(type === 'profile1') ultimateConfig.profile1Img = base64;
-            if(type === 'profile2') ultimateConfig.profile2Img = base64;
-            if(type === 'qris') { giftConfig.qrisImage = base64; openAdminModule('gift'); } 
-            else { openAdminModule('design'); }
-            dataVersion++; saveAllDataToDevice(); applyUltimateConfig(); applyGiftToDOM();
+            dataVersion++; saveAllDataToDevice(); applyUltimateConfig();
             showToast('Foto dikompres & dimuat!');
         }, 400, 0.4);
     }
@@ -737,7 +684,7 @@
                 loaded++;
                 if(loaded === files.length) {
                     dataVersion++; saveAllDataToDevice(); applySectionPhotos();
-                    openAdminModule('dynamicPhotos'); showToast('Foto galeri dikompres & dimuat!');
+                    openAdminModule('dynamicPhotos'); showToast('Foto galeri dimuat!');
                 }
             }, 400, 0.4); 
         });
@@ -751,7 +698,6 @@
         }
     }
 
-    // --- SAVE HANDLERS ---
     function saveSectionBackgroundsDimmer() {
         const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
@@ -781,7 +727,7 @@
     }
     
     function saveGiftConfig() {
-        if(document.getElementById('toggleAmplopVisible')) giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
+        if(document.getElementById('toggleAmplopVisible')) giftConfig.visible = document.getElementById('toggleAmplopVisible'].checked;
         if(document.getElementById('inputBankName')) giftConfig.bank = document.getElementById('inputBankName').value;
         if(document.getElementById('inputRekNumber')) giftConfig.number = document.getElementById('inputRekNumber').value;
         if(document.getElementById('inputRekOwner')) giftConfig.owner = document.getElementById('inputRekOwner').value;
@@ -789,17 +735,90 @@
         showToast('Amplop disimpan!'); backToDashboard();
     }
 
+    function applySectionPhotos() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(key => {
+            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
+            if(!container) return;
+            const isVisible = sectionPhotoVisibility[key] !== false;
+            const photosArr = sectionPhotos[key] || [];
+            if(!isVisible || photosArr.length === 0) {
+                container.innerHTML = ''; container.classList.add('hidden'); return;
+            }
+            container.classList.remove('hidden');
+            let gridHtml = '';
+            photosArr.forEach(url => {
+                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
+            });
+            container.innerHTML = gridHtml;
+        });
+    }
+
+    function applySectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
+            if(!secEl) return;
+            const isVisible = sectionBackgroundVisibility[k] !== false;
+            const bgUrl = sectionBackgrounds[k];
+            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
+            if(!isVisible || !bgUrl) {
+                if(k !== 'hero') secEl.style.backgroundImage = '';
+            } else {
+                if(k === 'hero') {
+                    const heroBg = document.getElementById('mainHeroBg');
+                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
+                } else {
+                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
+                    secEl.style.backgroundSize = 'cover'; secEl.style.backgroundPosition = 'center';
+                }
+            }
+        });
+    }
+
+    function renderWishesToDOM() {
+        const container = document.getElementById('wishesList');
+        if(!container) return;
+        container.innerHTML = '';
+        attendanceList.forEach(w => {
+            container.innerHTML += `
+              <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
+                <div class="flex justify-between items-center font-bold text-slate-900">
+                  <span>${w.name}</span>
+                  <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
+                </div>
+                <p class="text-slate-800 font-medium leading-relaxed">${w.message}</p>
+              </div>`;
+        });
+    }
+
+    function submitWish() {
+      const name = document.getElementById('guestInputName').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const message = document.getElementById('guestMessage').value.trim();
+      if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
+      
+      attendanceList.unshift({ name, status, message });
+      dataVersion++; saveAllDataToDevice(); renderWishesToDOM();
+      showToast('Ucapan dikirim!');
+      document.getElementById('guestInputName').value = '';
+      document.getElementById('guestMessage').value = '';
+    }
+
     function backToDashboard() { document.getElementById('adminModuleView').classList.add('hidden'); document.getElementById('adminDashboardView').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); backToDashboard(); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-
-    // DUMMY FUNCTIONS UNTUK FUNGSI JS YANG TERPOTONG AGAR KODE TETAP JALAN
-    function toggleMusic() {} function openShareModal() {} function bukaUndanganSekarang() {}
     function verifyPin() { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); showToast('Login Berhasil!'); }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-    function applyUltimateConfig() {} function applyGiftToDOM() {} function applySectionPhotos() {} function applySectionBackgrounds() {}
+    function applyUltimateConfig() {} function applyGiftToDOM() {}
 
-    window.onload = function() { renderDashboardCards(); };
+    window.onload = function() { 
+        renderDashboardCards(); 
+        renderWishesToDOM();
+        applyVideoLogoVisibility();
+        applySectionPhotos();
+        applySectionBackgrounds();
+    };
   </script>
 </body>
 </html>
