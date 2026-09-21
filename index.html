@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.5.0</title>
+  <title>Undangan Digital - Master Gen-Z Ultimate v10.6.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.5.0</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z Ultimate v10.6.0</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.5.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.6.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -206,7 +206,7 @@
       
       <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
         <div id="adminDashboardView" class="space-y-4">
-          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Admin Utama</h3></div>
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Admin Lengkap</h3></div>
           <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
         <div id="adminModuleView" class="hidden space-y-4">
@@ -236,7 +236,6 @@
 
   <script>
     const PUBLISH_DATA_BACKUP = ""; 
-    window.typewriterTimeouts = window.typewriterTimeouts || [];
     let isSharingProcess = false;
 
     function showToast(message, type = 'success') {
@@ -287,12 +286,9 @@
     }
 
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
-    let adminAuth = { pin: "1234", email: "admin@ariyanto.com", emailjsServiceId: "", emailjsTemplateId: "", emailjsPublicKey: "" };
+    let adminAuth = { pin: "1234", email: "admin@ariyanto.com" };
     let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
-    let waTemplate = "Assalamu’alaikum Wr. Wb.\n\nDengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara kami.\n\n💌 Undangan Digital\n{nama_undangan}\n\n📅 {tanggal}\n📍 {lokasi}\n\nSilakan buka undangan melalui link berikut:\n{link}\n\nTerima kasih atas perhatian dan kehadirannya.";
-    let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-    let currentCategoryKey = 'y2k_cyber';
     
     let ultimateConfig = { 
         font: "Plus Jakarta Sans", 
@@ -318,11 +314,11 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v1050');
+        let invId = localStorage.getItem('ari_inv_id_v1060');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v1050', invId);
+            localStorage.setItem('ari_inv_id_v1060', invId);
         }
         return invId;
     }
@@ -348,17 +344,17 @@
 
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v1050', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v1050', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v1050', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v1050', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v1050', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v1050', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v1050', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v1050', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v1050', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v1050', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_ultimateConfig_v1050', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v1060', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1060', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1060', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1060', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v1060', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1060', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1060', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1060', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1060', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1060', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_ultimateConfig_v1060', JSON.stringify(ultimateConfig));
         } catch(e) {}
     }
 
