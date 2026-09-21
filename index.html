@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z Ultimate 16 Menu v10.7.0</title>
+  <title>Undangan Digital - Master Gen-Z Ultimate 16 Menu v10.8.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,10 +19,6 @@
     .section-overlay { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; overflow: hidden; }
     .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
     .frame-polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transform: rotate(-1deg); border-radius: 4px; }
-    .frame-neon { border: 4px solid #ec4899; box-shadow: 0 0 20px #ec4899, inset 0 0 15px #06b6d4; border-radius: 2rem; }
-    .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
-    .frame-cyber { border: 3px solid #06b6d4; box-shadow: 5px 5px 0px #ec4899; border-radius: 0.5rem; }
-    .frame-hologram { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); padding: 4px; border-radius: 2rem; box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
   </style>
 </head>
 <body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
@@ -181,7 +177,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z Ultimate 16 Menu v10.7.0</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z Ultimate 16 Menu v10.8.0</p>
       </div>
     </footer>
   </main>
@@ -191,7 +187,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin (16 Menu)</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.7.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin (16 Menu)</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.8.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -309,7 +305,10 @@
     let adminAuth = { pin: "1234", email: "admin@ariyanto.com" };
     let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
-    let waTemplate = "Assalamu’alaikum Wr. Wb.\n\nDengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara kami.\n\n💌 Undangan Digital\n{nama_undangan}\n\n📅 {tanggal}\n📍 {lokasi}\n\nSilakan buka undangan melalui link berikut:\n{link}\n\nTerima kasih atas perhatian dan kehadirannya.";
+    
+    // TEMPLATE WHATSAPP PERSIS SEPERTI TANGKAPAN LAYAR ANDA
+    let waTemplate = "💌 Undangan Digital\nRian & Siska\n\n📅 Minggu, 25 Oktober 2026\n📍 Gedung Serbaguna Jakarta\nJl. Sudirman No. 1\n\nSilakan buka undangan melalui link berikut:\n{link}\n\nTerima kasih atas perhatian dan kehadirannya";
+
     let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     
     let ultimateConfig = { 
@@ -336,44 +335,25 @@
     let isPlaying = false;
     let dataVersion = 1;
 
-    function compressImageFile(file, callback, maxWidth = 400, quality = 0.4) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                let width = img.width;
-                let height = img.height;
-                if(width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; }
-                canvas.width = width; canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                callback(canvas.toDataURL('image/jpeg', quality));
-            };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v1070', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v1070', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v1070', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v1070', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v1070', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionBackgrounds_v1070', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v1070', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v1070', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v1070', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v1070', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v1070', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v1070', waTemplate);
-            localStorage.setItem('ari_ultimateConfig_v1070', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_textElements_v1080', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1080', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1080', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1080', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v1080', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionBackgrounds_v1080', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1080', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1080', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1080', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1080', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1080', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v1080', waTemplate);
+            localStorage.setItem('ari_ultimateConfig_v1080', JSON.stringify(ultimateConfig));
         } catch(e) {}
     }
 
-    // --- TOTAL 16 MENU ADMIN ---
+    // --- TOTAL 16 MENU ADMIN LENGKAP ---
     const adminModules = [
       { id: 'kategoriAcara', title: '1. 20 Tema Gen-Z', desc: 'Preset Teks & Nuansa Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'colorMotifs', title: '2. 20 Warna Motif', desc: 'Skema Palet Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
@@ -442,7 +422,7 @@
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex justify-between items-center">
               <div>
                 <span class="font-bold text-white">Tampilkan Ikon/Logo Video</span>
-                <p class="text-[10px] text-slate-400">Aktifkan untuk memunculkan logo video di atas judul.</p>
+                <p class="text-[10px] text-slate-400">Aktifkan untuk memunculkan logo video di atas teks.</p>
               </div>
               <input type="checkbox" id="toggleVideoLogo" ${isVideoLogoChecked} onchange="saveVideoLogoToggle(this)" class="w-5 h-5 accent-pink-600 cursor-pointer">
             </div>
@@ -481,7 +461,7 @@
               });
           }, 50);
       } else if (id === 'presetShare') {
-          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">💬 Format Pesan WhatsApp</h4><textarea rows="4" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white">${waTemplate}</textarea></div>`;
+          area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-emerald-400 text-sm">💬 Format Pesan WhatsApp</h4><textarea id="inputWaTemplate" rows="8" class="w-full p-2 bg-slate-900 border border-slate-700 rounded text-white font-mono text-[10px]">${waTemplate}</textarea><button onclick="saveWaTemplateData()" class="w-full bg-emerald-600 text-white py-2.5 rounded font-bold">Simpan Template WA</button></div>`;
       } else if (id === 'backup') {
           area.innerHTML = `<div class="space-y-3 text-xs"><h4 class="font-bold text-gray-300 text-sm">☁️ Reset & Publish</h4><button onclick="showToast('Data direset')" class="w-full bg-rose-600 text-white py-2.5 rounded font-bold">Reset Semua Data</button></div>`;
       }
@@ -511,6 +491,11 @@
         ultimateConfig.showVideoLogo = el.checked;
         dataVersion++; saveAllDataToDevice(); applyVideoLogoVisibility();
         showToast('Setelan logo video disimpan!');
+    }
+
+    function saveWaTemplateData() {
+        const val = document.getElementById('inputWaTemplate');
+        if(val) { waTemplate = val.value; dataVersion++; saveAllDataToDevice(); showToast('Template WhatsApp disimpan!'); }
     }
 
     function applyVideoLogoVisibility() {
@@ -612,9 +597,10 @@
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    
     function shareGeneralWhatsApp() {
         const baseUrl = window.location.origin + window.location.pathname;
-        const finalMessage = `Halo, silakan buka undangan kami:\n${baseUrl}`;
+        const finalMessage = waTemplate.replace('{link}', baseUrl);
         const waLink = `https://wa.me/?text=${encodeURIComponent(finalMessage)}`;
         window.open(waLink, '_blank');
         closeShareModal();
