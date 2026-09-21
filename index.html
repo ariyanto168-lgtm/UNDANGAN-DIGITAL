@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.98 (Auto-Compress)</title>
+  <title>Undangan Digital - Master Gen-Z v10.2.0 (Full Auto-Compress)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.98 (Auto-Compress)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.2.0 (Full Auto-Compress)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.98</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.2.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -554,16 +554,16 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v98');
+        let invId = localStorage.getItem('ari_inv_id_v1020');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v98', invId);
+            localStorage.setItem('ari_inv_id_v1020', invId);
         }
         return invId;
     }
 
-    // --- KOMPRESOR OTOMATIS (Mencegah Memori Penuh) ---
+    // --- ENGINE AUTO-COMPRESS YANG SUPER RINGAN ---
     function compressImageFile(file, callback, maxWidth = 400, quality = 0.4) {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -611,27 +611,23 @@
         if (idParam) {
             let pubDataStr = null;
             try { pubDataStr = localStorage.getItem('ari_published_snapshot_' + idParam); } catch(e) {}
-            
             if (!pubDataStr && PUBLISH_DATA_BACKUP && PUBLISH_DATA_BACKUP.trim() !== "") {
                 pubDataStr = PUBLISH_DATA_BACKUP.trim();
             }
             if (pubDataStr) {
                 try {
                     let parsed;
-                    if (pubDataStr.trim().startsWith('{')) {
-                        parsed = JSON.parse(pubDataStr);
-                    } else {
-                        parsed = JSON.parse(decodeURIComponent(atob(pubDataStr)));
-                    }
+                    if (pubDataStr.trim().startsWith('{')) { parsed = JSON.parse(pubDataStr); } 
+                    else { parsed = JSON.parse(decodeURIComponent(atob(pubDataStr))); }
                     applyDataDump(parsed);
                     hasPublishedData = true;
                 } catch(e) {}
             }
         } else {
-            // Auto-clean slate untuk edit baru
+            // Auto Clean Slate
             try {
                 Object.keys(localStorage).forEach(k => {
-                    if (k.startsWith('ari_') && k !== 'ari_inv_id_v98') {
+                    if (k.startsWith('ari_') && k !== 'ari_inv_id_v1020') {
                         localStorage.removeItem(k);
                     }
                 });
@@ -643,27 +639,28 @@
 
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v98', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v98', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v98', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v98', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_attendanceList_v98', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v98', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v98', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v98', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v98', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v98', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v98', JSON.stringify(ultimateConfig));
-            localStorage.setItem('ari_dataVersion_v98', dataVersion);
+            localStorage.setItem('ari_textElements_v1020', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1020', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1020', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1020', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v1020', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1020', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1020', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1020', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1020', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1020', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v1020', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v1020', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v1020', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v1020', JSON.stringify(ultimateConfig));
+            localStorage.setItem('ari_dataVersion_v1020', dataVersion);
         } catch(e) {}
     }
 
     function manualResetAllData() {
         if(confirm("⚠️ Yakin ingin menghapus seluruh riwayat editan dan mengembalikan aplikasi ke kondisi bersih awal?")) {
             try {
-                Object.keys(localStorage).forEach(k => {
-                    if(k.startsWith('ari_')) localStorage.removeItem(k);
-                });
+                Object.keys(localStorage).forEach(k => { if(k.startsWith('ari_')) localStorage.removeItem(k); });
             } catch(e) {}
             showToast("Semua riwayat berhasil dihapus bersih!");
             setTimeout(() => { window.location.href = window.location.pathname; }, 1000);
@@ -674,9 +671,9 @@
       { id: 'kategoriAcara', title: '20 Tema Gen-Z', desc: 'Pilih Preset Teks Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
       { id: 'colorMotifs', title: '20 Warna Motif', desc: 'Pilih Skema Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
       { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Upload Video MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Auto-Compress & Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
       { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
-      { id: 'dynamicPhotos', title: 'Multi-Foto Kompresor', desc: 'Upload Galeri Otomatis', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'dynamicPhotos', title: 'Galeri (Auto-Compress)', desc: 'Upload Galeri Otomatis', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
       { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
       { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
       { id: 'design', title: 'Desain & 20 Font', desc: 'Pilih Font, Prewed, Profil', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
@@ -763,13 +760,15 @@
             <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
           </div>`;
       }
+      // --- BACKGROUND MENGGUNAKAN AUTO COMPRESS BUTTON (Sesuai Request) ---
       else if (id === 'sectionBackgrounds') {
           const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
           let htmlBg = '';
           sections.forEach(s => {
-              let currentUrl = sectionBackgrounds[s] || '';
+              let currentBg = sectionBackgrounds[s] || '';
               let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
               let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
+              
               htmlBg += `
               <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
                 <div class="flex justify-between items-center">
@@ -779,8 +778,12 @@
                     <span>Aktifkan</span>
                   </label>
                 </div>
-                <input type="text" id="bgUrlInput-${s}" value="${currentUrl}" placeholder="URL Background" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
-                <div class="pt-2 border-t border-slate-700">
+                
+                <p class="text-[10px] text-slate-400">Upload dari HP (Otomatis Dikompres Ringan):</p>
+                ${currentBg ? `<img src="${currentBg}" class="h-12 w-full object-cover rounded mb-1 border border-slate-600">` : ''}
+                <input type="file" accept="image/*" onchange="handleBackgroundCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white">
+                
+                <div class="pt-2 border-t border-slate-700 mt-2">
                   <div class="flex justify-between text-[11px] text-slate-300 mb-1">
                     <span>💡 Dimer Kontras / Redup</span>
                     <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
@@ -791,9 +794,9 @@
           });
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer Tiap Section</h4>
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background Upload (Auto-Compress)</h4>
             <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
-            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background</button>
+            <button onclick="saveSectionBackgroundsDimmer()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Visibilitas & Redup</button>
           </div>`;
       }
       else if (id === 'sectionReorder') {
@@ -1000,7 +1003,7 @@
                   <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
                 </div>
             </div>
-            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Amplop</button>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Setelan Amplop</button>
           </div>`;
       }
       else if (id === 'keamananAkun') {
@@ -1061,6 +1064,7 @@
       }
     }
 
+    // --- UPLOAD HANDLER GALERI MULTIPLE ---
     function handleAutoCompressUpload(event, sectionKey) {
         const files = event.target.files;
         if(!files || files.length === 0) return;
@@ -1075,23 +1079,28 @@
                     saveAllDataToDevice();
                     applySectionPhotos();
                     openAdminModule('dynamicPhotos');
-                    showToast('Foto berhasil dikompres & diunggah!');
+                    showToast('Foto galeri berhasil dikompres & diunggah!');
                 }
-            }, 400, 0.4);
+            }, 400, 0.4); 
         });
     }
 
-    function removeSectionPhoto(sectionKey, index) {
-        if(sectionPhotos[sectionKey]) {
-            sectionPhotos[sectionKey].splice(index, 1);
+    // --- UPLOAD HANDLER BACKGROUND (BARU) ---
+    function handleBackgroundCompressUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        // Kita set maxWidth 600 agar background lumayan tajam tapi memori tetap super ringan
+        compressImageFile(file, (base64) => {
+            sectionBackgrounds[sectionKey] = base64;
             dataVersion++;
             saveAllDataToDevice();
-            applySectionPhotos();
-            openAdminModule('dynamicPhotos');
-            showToast('Foto dihapus.');
-        }
+            applySectionBackgrounds();
+            openAdminModule('sectionBackgrounds'); // Refresh preview
+            showToast('Background dikompres & dimuat!');
+        }, 600, 0.4); 
     }
 
+    // --- UPLOAD HANDLER PROFIL/COVER/QRIS ---
     function handleSingleCompressUpload(event, type) {
         const file = event.target.files[0];
         if(!file) return;
@@ -1111,6 +1120,17 @@
             applyGiftToDOM();
             showToast('Foto dikompres & dimuat!');
         }, 400, 0.4);
+    }
+
+    function removeSectionPhoto(sectionKey, index) {
+        if(sectionPhotos[sectionKey]) {
+            sectionPhotos[sectionKey].splice(index, 1);
+            dataVersion++;
+            saveAllDataToDevice();
+            applySectionPhotos();
+            openAdminModule('dynamicPhotos');
+            showToast('Foto dihapus.');
+        }
     }
 
     function applyEventPreset() {
@@ -1159,20 +1179,19 @@
         backToDashboard();
     }
 
-    function saveAllSectionBackgrounds() {
+    // Fungsi menyimpan dimmer & toggle saja, karena upload file lgsg menyimpan gambar ke variabel
+    function saveSectionBackgroundsDimmer() {
         const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
         keys.forEach(k => {
-            const el = document.getElementById(`bgUrlInput-${k}`);
             const cb = document.getElementById(`visBg-${k}`);
             const dimInput = document.getElementById(`dimmerInput-${k}`);
-            if(el) sectionBackgrounds[k] = el.value.trim();
             if(cb) sectionBackgroundVisibility[k] = cb.checked;
             if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
         });
         dataVersion++;
         saveAllDataToDevice();
         applySectionBackgrounds();
-        showToast('Background disimpan!');
+        showToast('Setelan Background disimpan!');
         backToDashboard();
     }
 
@@ -1357,9 +1376,9 @@
         const snapshot = {
             publishId: getOrCreateInvitationId(),
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.98",
+            appVersion: "v10.2.0",
             dataVersion, currentCategoryKey, textElements, adminAuth, ultimateConfig,
-            sectionPhotos, sectionPhotoVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
+            sectionPhotos, sectionPhotoVisibility, sectionBackgrounds, sectionBackgroundVisibility, sectionBackgroundDimmer, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
         };
 
         try {
@@ -1729,9 +1748,9 @@
                     const snapshot = {
                         publishId: invId,
                         publishedAt: new Date().toISOString(),
-                        appVersion: "v10.1.98",
+                        appVersion: "v10.2.0",
                         dataVersion, currentCategoryKey, textElements, adminAuth, ultimateConfig,
-                        sectionPhotos, sectionPhotoVisibility, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
+                        sectionPhotos, sectionPhotoVisibility, sectionBackgrounds, sectionBackgroundVisibility, sectionBackgroundDimmer, attendanceList, guestDatabase, giftConfig, waTemplate, sectionOrder
                     };
                     localStorage.setItem('ari_published_snapshot_' + invId, JSON.stringify(snapshot));
                 } catch(err) {}
