@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.4.0</title>
+  <title>Undangan Digital - Master Gen-Z v10.5.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.4.0</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.5.0</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.4.0</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.5.0</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -267,21 +267,6 @@
         }, 3000);
     }
 
-    const realFonts = [
-        "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
-        "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
-        "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
-        "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
-    ];
-
-    const genZColorMotifs = {
-      cyber_neon: { name: "1. Cyberpunk Neon", bg: "#0f172a", text: "#f8fafc", accent: "#ec4899", secondary: "#06b6d4" },
-      y2k_hotpink: { name: "2. Y2K Hot Pink", bg: "#18181b", text: "#fafafa", accent: "#ff007f", secondary: "#a1a1aa" },
-      vaporwave: { name: "3. Vaporwave Synth", bg: "#2e1065", text: "#f3e8ff", accent: "#c084fc", secondary: "#2dd4bf" },
-      coquette_bow: { name: "4. Coquette Pastel", bg: "#fff1f2", text: "#4c0519", accent: "#fb7185", secondary: "#fda4af" },
-      indie_sleaze: { name: "5. Indie Sleaze", bg: "#1c1917", text: "#f5f5f4", accent: "#d97706", secondary: "#65a30d" }
-    };
-
     const defaultText = {
       coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", 
       dateDisplay: "Minggu, 25 Oktober 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
@@ -292,15 +277,13 @@
       brideName: "Siska Amalia", brideParents: "Putri dari Bpk. Joko & Ibu Sri",
       titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta",
-      mapIframeUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid",
       titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
 
     let textElements = {};
     for(let k in defaultText) {
-        let isTl = (k !== 'alamat' && k !== 'quoteText' && k !== 'mapIframeUrl');
-        textElements[k] = { text: defaultText[k], typewriter: isTl };
+        textElements[k] = { text: defaultText[k], typewriter: true };
     }
 
     let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
@@ -322,13 +305,11 @@
         photoFrame: "frame-polaroid",
         profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
         profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
-        showVideoLogo: true // Opsi baru untuk tombol logo video
+        showVideoLogo: true
     };
 
     let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
     let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
-    let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
-    let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
     let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
     let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
@@ -337,11 +318,11 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v1040');
+        let invId = localStorage.getItem('ari_inv_id_v1050');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v1040', invId);
+            localStorage.setItem('ari_inv_id_v1050', invId);
         }
         return invId;
     }
@@ -365,79 +346,29 @@
         reader.readAsDataURL(file);
     }
 
-    function applyDataDump(data) {
-        if(data.textElements) textElements = data.textElements;
-        if(data.adminAuth) adminAuth = data.adminAuth;
-        if(data.ultimateConfig) ultimateConfig = data.ultimateConfig;
-        if(data.sectionPhotos) sectionPhotos = data.sectionPhotos;
-        if(data.sectionPhotoVisibility) sectionPhotoVisibility = data.sectionPhotoVisibility;
-        if(data.sectionMicroVideos) sectionMicroVideos = data.sectionMicroVideos;
-        if(data.sectionMicroVideoVisibility) sectionMicroVideoVisibility = data.sectionMicroVideoVisibility;
-        if(data.sectionBackgrounds) sectionBackgrounds = data.sectionBackgrounds;
-        if(data.sectionBackgroundVisibility) sectionBackgroundVisibility = data.sectionBackgroundVisibility;
-        if(data.sectionBackgroundDimmer) sectionBackgroundDimmer = data.sectionBackgroundDimmer;
-        if(data.attendanceList) attendanceList = data.attendanceList;
-        if(data.guestDatabase) guestDatabase = data.guestDatabase;
-        if(data.giftConfig) giftConfig = data.giftConfig;
-        if(data.waTemplate) waTemplate = data.waTemplate;
-        if(data.sectionOrder) sectionOrder = data.sectionOrder;
-        if(data.currentCategoryKey) currentCategoryKey = data.currentCategoryKey;
-        if(data.dataVersion) dataVersion = data.dataVersion;
-    }
-
-    function initApp() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const idParam = urlParams.get('id');
-        if (idParam) {
-            let pubDataStr = null;
-            try { pubDataStr = localStorage.getItem('ari_published_snapshot_' + idParam); } catch(e) {}
-            if (!pubDataStr && PUBLISH_DATA_BACKUP && PUBLISH_DATA_BACKUP.trim() !== "") pubDataStr = PUBLISH_DATA_BACKUP.trim();
-            if (pubDataStr) {
-                try {
-                    let parsed = pubDataStr.trim().startsWith('{') ? JSON.parse(pubDataStr) : JSON.parse(decodeURIComponent(atob(pubDataStr)));
-                    applyDataDump(parsed);
-                } catch(e) {}
-            }
-        }
-    }
-    initApp();
-
     function saveAllDataToDevice() {
         try { 
-            localStorage.setItem('ari_textElements_v1040', JSON.stringify(textElements)); 
-            localStorage.setItem('ari_adminAuth_v1040', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v1040', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v1040', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v1040', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v1040', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v1040', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v1040', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v1040', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v1040', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v1040', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v1040', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v1040', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v1040', JSON.stringify(ultimateConfig));
-            localStorage.setItem('ari_dataVersion_v1040', dataVersion);
+            localStorage.setItem('ari_textElements_v1050', JSON.stringify(textElements)); 
+            localStorage.setItem('ari_adminAuth_v1050', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v1050', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v1050', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v1050', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v1050', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v1050', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v1050', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v1050', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v1050', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_ultimateConfig_v1050', JSON.stringify(ultimateConfig));
         } catch(e) {}
     }
 
     const adminModules = [
-      { id: 'kategoriAcara', title: '20 Tema Gen-Z', desc: 'Pilih Preset Teks Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
-      { id: 'colorMotifs', title: '20 Warna Motif', desc: 'Pilih Skema Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
-      { id: 'animasiStiker', title: 'Video Kecil (URL Only)', desc: 'Tempel URL MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
-      { id: 'sectionBackgrounds', title: 'Background (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
-      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
       { id: 'dynamicPhotos', title: 'Galeri & Logo Video', desc: 'Sembunyikan/Tampilkan Logo Video', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
-      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
-      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
-      { id: 'design', title: 'Desain (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
-      { id: 'music', title: 'Musik & Video', desc: 'Upload MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
-      { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Semua Teks', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
-      { id: 'gift', title: 'Amplop (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
-      { id: 'keamananAkun', title: 'Keamanan & Email', desc: 'PIN & EmailJS Config', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
+      { id: 'sectionBackgrounds', title: 'Background (Hybrid)', desc: 'URL atau Auto-Compress', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'design', title: 'Desain & Profil', desc: 'Font & Foto Utama', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Rekening & QRIS', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
       { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran (RSVP)', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
-      { id: 'backup', title: 'Reset & Publish', desc: 'Hapus Riwayat & Export', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+      { id: 'backup', title: 'Reset & Publish', desc: 'Hapus Riwayat', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
     ];
 
     function renderDashboardCards() {
@@ -462,146 +393,23 @@
       const area = document.getElementById('moduleContentArea');
       
       if (id === 'dynamicPhotos') {
-          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-          let photoAdminHtml = '';
-          secs.forEach(s => {
-              let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
-              let currentArr = sectionPhotos[s] || [];
-              let thumbsHtml = '';
-              currentArr.forEach((imgUrl, imgIdx) => {
-                  thumbsHtml += `<div class="relative w-14 h-14 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
-                      <img src="${imgUrl}" class="w-full h-full object-cover">
-                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-4 h-4 text-[9px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
-                    </div>`;
-              });
-              photoAdminHtml += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center mb-1">
-                  <span class="font-bold text-rose-300 capitalize">Galeri: ${s}</span>
-                  <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600">
-                </div>
-                <div class="flex space-x-2">
-                    <input type="text" id="urlGaleriInput-${s}" placeholder="Tempel URL Foto..." class="flex-1 p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
-                    <button onclick="addGalleryUrl('${s}')" class="bg-slate-700 text-white px-3 rounded text-[10px] font-bold">Tambah</button>
-                </div>
-                <input type="file" accept="image/*" multiple onchange="handleAutoCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:bg-rose-600 file:text-white">
-                <div class="grid grid-cols-4 gap-2 pt-2 border-t border-slate-700 mt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-4">Belum ada foto</span>'}</div>
-              </div>`;
-          });
-          
           let isVideoLogoChecked = ultimateConfig.showVideoLogo !== false ? 'checked' : '';
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-rose-400 text-sm">📸 Galeri & Kontrol Logo Video</h4>
+            <h4 class="font-bold text-rose-400 text-sm">📸 Kontrol Logo Video Dokumentasi</h4>
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex justify-between items-center">
               <div>
-                <span class="font-bold text-white">Tampilkan Logo/Ikon Video Dokumentasi</span>
-                <p class="text-[10px] text-slate-400">Sembunyikan atau tampilkan logo video di atas judul.</p>
+                <span class="font-bold text-white">Tampilkan Ikon/Logo Video</span>
+                <p class="text-[10px] text-slate-400">Aktifkan untuk memunculkan logo video di atas teks.</p>
               </div>
               <input type="checkbox" id="toggleVideoLogo" ${isVideoLogoChecked} onchange="saveVideoLogoToggle(this)" class="w-5 h-5 accent-pink-600 cursor-pointer">
             </div>
-            <div class="space-y-3 max-h-[50vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
-            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Galeri</button>
           </div>`;
-      }
-      else if (id === 'sectionBackgrounds') {
-          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-          let htmlBg = '';
-          sections.forEach(s => {
-              let currentBg = sectionBackgrounds[s] || '';
-              let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
-              let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
-              let displayUrl = currentBg.startsWith('data:image') ? '' : currentBg;
-              
-              htmlBg += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-teal-300 capitalize">Background: ${s}</span>
-                  <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600">
-                </div>
-                ${currentBg ? `<img src="${currentBg}" class="h-12 w-full object-cover rounded mb-1 border border-slate-600">` : ''}
-                <input type="text" onchange="handleUrlInput(event, 'background', '${s}')" value="${displayUrl}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-[10px]">
-                <input type="file" accept="image/*" onchange="handleBackgroundCompressUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:bg-teal-600 file:text-white">
-                <div class="pt-2 border-t border-slate-700 mt-2">
-                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
-                    <span>💡 Redup Kontras</span>
-                    <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
-                  </div>
-                  <input type="range" id="dimmerInput-${s}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${s}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
-                </div>
-              </div>`;
-          });
+      } else if (id === 'guests') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background (Hybrid)</h4>
-            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
-            <button onclick="saveSectionBackgroundsDimmer()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Redup & Visibilitas</button>
-          </div>`;
-      }
-      else if (id === 'animasiStiker') {
-          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-          let htmlSections = '';
-          sections.forEach(s => {
-              let currentUrl = sectionMicroVideos[s] || '';
-              let isChecked = sectionMicroVideoVisibility[s] !== false ? 'checked' : '';
-              htmlSections += `
-              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="font-bold text-slate-200 capitalize">Video Section: ${s}</span>
-                  <input type="checkbox" id="visMicro-${s}" ${isChecked} class="w-4 h-4 accent-pink-600">
-                </div>
-                <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="Tempel Tautan MP4..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
-              </div>`;
-          });
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil (URL Only)</h4>
-            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlSections}</div>
-            <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
-          </div>`;
-      }
-      else if (id === 'design') {
-        let displayCover = ultimateConfig.coverBg.startsWith('data:image') ? '' : ultimateConfig.coverBg;
-        let displayP1 = ultimateConfig.profile1Img.startsWith('data:image') ? '' : ultimateConfig.profile1Img;
-        let displayP2 = ultimateConfig.profile2Img.startsWith('data:image') ? '' : ultimateConfig.profile2Img;
-        let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain & Profil (Hybrid)</h4>
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold">Pilihan Font Utama</label>
-              <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
-            </div>
-            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
-              <label class="block text-slate-300 font-bold text-pink-300">Foto Prewedding (Cover)</label>
-              <input type="text" onchange="handleUrlInput(event, 'prewed')" value="${displayCover}" placeholder="URL Gambar..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-[10px] text-white">
-              <input type="file" accept="image/*" onchange="handleSingleCompressUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:bg-pink-600 file:text-white">
-            </div>
-            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
-          </div>`;
-      }
-      else if (id === 'gift') {
-        let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
-        area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-emerald-400 text-sm">🎁 Amplop & QRIS (Hybrid)</h4>
-            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
-                  <span class="font-bold text-white">Tampilkan Amplop Digital</span>
-                  <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="w-4 h-4 accent-emerald-500">
-                </div>
-                <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Nama Bank" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="No Rekening" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-                <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Atas Nama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
-            </div>
-            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Setelan Amplop</button>
-          </div>`;
-      }
-      else if (id === 'guests') {
-          area.innerHTML = `
-          <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & RSVP</h4>
-            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
+            <h4 class="font-bold text-amber-400 text-sm">👥 Daftar Ucapan Masuk (RSVP)</h4>
+            <div id="adminGuestList" class="space-y-2 max-h-60 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
           </div>`;
           setTimeout(() => {
               const container = document.getElementById('adminGuestList');
@@ -611,14 +419,13 @@
                 container.innerHTML += `
                   <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1 relative">
                     <div class="flex justify-between font-bold text-white"><span>${w.name} (${w.status})</span></div>
-                    <p class="text-slate-200 italic font-medium">"${w.message}"</p>
-                    <button onclick="deleteGuestWish(${idx})" class="absolute top-2 right-2 text-rose-500 hover:text-rose-400"><i class="fa-solid fa-trash"></i></button>
+                    <p class="text-slate-200 font-medium italic">"${w.message}"</p>
+                    <button onclick="deleteGuestWish(${idx})" class="absolute top-2 right-2 text-rose-500"><i class="fa-solid fa-trash"></i></button>
                   </div>`;
               });
           }, 50);
-      }
-      else {
-          area.innerHTML = `<h4 class="font-bold text-slate-400 text-sm">Gunakan menu di atas untuk mengatur undangan Anda.</h4>`;
+      } else {
+          area.innerHTML = `<h4 class="font-bold text-slate-400 text-sm">Gunakan menu utama untuk pengaturan lainnya.</h4>`;
       }
     }
 
@@ -633,147 +440,6 @@
         if(wrapper) {
             wrapper.style.display = ultimateConfig.showVideoLogo !== false ? 'flex' : 'none';
         }
-    }
-
-    function handleUrlInput(event, type, key) {
-        const val = event.target.value.trim();
-        if (type === 'background') { sectionBackgrounds[key] = val; applySectionBackgrounds(); }
-        else if (type === 'prewed') { ultimateConfig.coverBg = val; applyUltimateConfig(); }
-        dataVersion++; saveAllDataToDevice(); showToast('URL disimpan & dimuat!');
-    }
-
-    function addGalleryUrl(section) {
-        const input = document.getElementById(`urlGaleriInput-${section}`);
-        if(input && input.value.trim()) {
-            if(!sectionPhotos[section]) sectionPhotos[section] = [];
-            sectionPhotos[section].push(input.value.trim());
-            input.value = '';
-            dataVersion++; saveAllDataToDevice(); applySectionPhotos();
-            openAdminModule('dynamicPhotos'); showToast('URL foto ditambahkan!');
-        }
-    }
-
-    function handleBackgroundCompressUpload(event, sectionKey) {
-        const file = event.target.files[0];
-        if(!file) return;
-        compressImageFile(file, (base64) => {
-            sectionBackgrounds[sectionKey] = base64;
-            dataVersion++; saveAllDataToDevice(); applySectionBackgrounds();
-            openAdminModule('sectionBackgrounds'); showToast('Background dikompres & dimuat!');
-        }, 600, 0.4); 
-    }
-    
-    function handleSingleCompressUpload(event, type) {
-        const file = event.target.files[0];
-        if(!file) return;
-        compressImageFile(file, (base64) => {
-            if(type === 'prewed') ultimateConfig.coverBg = base64;
-            dataVersion++; saveAllDataToDevice(); applyUltimateConfig();
-            showToast('Foto dikompres & dimuat!');
-        }, 400, 0.4);
-    }
-    
-    function handleAutoCompressUpload(event, sectionKey) {
-        const files = event.target.files;
-        if(!files || files.length === 0) return;
-        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
-        let loaded = 0;
-        Array.from(files).forEach(file => {
-            compressImageFile(file, (compressedBase64) => {
-                sectionPhotos[sectionKey].push(compressedBase64);
-                loaded++;
-                if(loaded === files.length) {
-                    dataVersion++; saveAllDataToDevice(); applySectionPhotos();
-                    openAdminModule('dynamicPhotos'); showToast('Foto galeri dimuat!');
-                }
-            }, 400, 0.4); 
-        });
-    }
-    
-    function removeSectionPhoto(sectionKey, index) {
-        if(sectionPhotos[sectionKey]) {
-            sectionPhotos[sectionKey].splice(index, 1);
-            dataVersion++; saveAllDataToDevice(); applySectionPhotos();
-            openAdminModule('dynamicPhotos'); showToast('Foto dihapus.');
-        }
-    }
-
-    function saveSectionBackgroundsDimmer() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const cb = document.getElementById(`visBg-${k}`);
-            const dimInput = document.getElementById(`dimmerInput-${k}`);
-            if(cb) sectionBackgroundVisibility[k] = cb.checked;
-            if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
-        });
-        dataVersion++; saveAllDataToDevice(); applySectionBackgrounds();
-        showToast('Setelan Background disimpan!'); backToDashboard();
-    }
-    
-    function saveMultiPhotoConfig() {
-        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-        sections.forEach(sec => {
-            const cb = document.getElementById(`visPhoto-${sec}`);
-            if(cb) sectionPhotoVisibility[sec] = cb.checked;
-        });
-        dataVersion++; saveAllDataToDevice(); applySectionPhotos();
-        showToast('Setelan galeri disimpan!'); backToDashboard();
-    }
-    
-    function saveDesignConfig() {
-        if(document.getElementById('editFont')) ultimateConfig.font = document.getElementById('editFont').value;
-        dataVersion++; saveAllDataToDevice(); applyUltimateConfig();
-        showToast('Desain disimpan!'); backToDashboard();
-    }
-    
-    function saveGiftConfig() {
-        if(document.getElementById('toggleAmplopVisible')) giftConfig.visible = document.getElementById('toggleAmplopVisible'].checked;
-        if(document.getElementById('inputBankName')) giftConfig.bank = document.getElementById('inputBankName').value;
-        if(document.getElementById('inputRekNumber')) giftConfig.number = document.getElementById('inputRekNumber').value;
-        if(document.getElementById('inputRekOwner')) giftConfig.owner = document.getElementById('inputRekOwner').value;
-        dataVersion++; saveAllDataToDevice(); applyGiftToDOM();
-        showToast('Amplop disimpan!'); backToDashboard();
-    }
-
-    function applySectionPhotos() {
-        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
-        sections.forEach(key => {
-            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
-            if(!container) return;
-            const isVisible = sectionPhotoVisibility[key] !== false;
-            const photosArr = sectionPhotos[key] || [];
-            if(!isVisible || photosArr.length === 0) {
-                container.innerHTML = ''; container.classList.add('hidden'); return;
-            }
-            container.classList.remove('hidden');
-            let gridHtml = '';
-            photosArr.forEach(url => {
-                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
-            });
-            container.innerHTML = gridHtml;
-        });
-    }
-
-    function applySectionBackgrounds() {
-        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
-        keys.forEach(k => {
-            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
-            if(!secEl) return;
-            const isVisible = sectionBackgroundVisibility[k] !== false;
-            const bgUrl = sectionBackgrounds[k];
-            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
-            if(!isVisible || !bgUrl) {
-                if(k !== 'hero') secEl.style.backgroundImage = '';
-            } else {
-                if(k === 'hero') {
-                    const heroBg = document.getElementById('mainHeroBg');
-                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
-                } else {
-                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
-                    secEl.style.backgroundSize = 'cover'; secEl.style.backgroundPosition = 'center';
-                }
-            }
-        });
     }
 
     function renderWishesToDOM() {
@@ -805,19 +471,83 @@
       document.getElementById('guestMessage').value = '';
     }
 
+    function deleteGuestWish(index) {
+        attendanceList.splice(index, 1);
+        dataVersion++; saveAllDataToDevice();
+        openAdminModule('guests'); renderWishesToDOM();
+        showToast('Ucapan dihapus');
+    }
+
+    function bukaUndanganSekarang() {
+        const coverSection = document.getElementById('coverSection');
+        const mainContent = document.getElementById('mainContent');
+        
+        if (coverSection) {
+            coverSection.style.transition = 'opacity 0.4s ease';
+            coverSection.style.opacity = '0';
+            setTimeout(() => { coverSection.style.display = 'none'; }, 400);
+        }
+        
+        if (mainContent) {
+            mainContent.style.display = 'block';
+            setTimeout(() => { mainContent.style.opacity = '1'; }, 50);
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        try { 
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = ultimateConfig.musicVolume || 0.5;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    const icon = document.getElementById('musicIcon');
+                    const label = document.getElementById('musicLabel');
+                    if (icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+                    if (label) label.innerText = "Playing";
+                }).catch(error => { isPlaying = false; });
+            }
+        } catch(e) {}
+    }
+
+    function toggleMusic() {
+        const music = document.getElementById('bgMusic');
+        const icon = document.getElementById('musicIcon');
+        const label = document.getElementById('musicLabel');
+        if (isPlaying) { 
+            music.pause(); 
+            if(icon) icon.className = "fa-solid fa-music text-sm"; 
+            if(label) label.innerText = "Paused"; 
+        } else { 
+            music.play().catch(e => {}); 
+            if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+            if(label) label.innerText = "Playing"; 
+        }
+        isPlaying = !isPlaying;
+    }
+
+    function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { showToast(`Rekening ${bank} disalin!`); }); }
     function backToDashboard() { document.getElementById('adminModuleView').classList.add('hidden'); document.getElementById('adminDashboardView').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); backToDashboard(); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
     function verifyPin() { document.getElementById('pinSection').classList.add('hidden'); document.getElementById('editorBody').classList.remove('hidden'); backToDashboard(); showToast('Login Berhasil!'); }
     function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
-    function applyUltimateConfig() {} function applyGiftToDOM() {}
+    function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
+    function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+    function shareGeneralWhatsApp() {
+        const invId = getOrCreateInvitationId();
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?id=${invId}`;
+        const finalMessage = `Halo, silakan buka undangan kami:\n${shareUrl}`;
+        const waLink = `https://wa.me/?text=${encodeURIComponent(finalMessage)}`;
+        window.open(waLink, '_blank');
+        closeShareModal();
+    }
 
     window.onload = function() { 
         renderDashboardCards(); 
         renderWishesToDOM();
         applyVideoLogoVisibility();
-        applySectionPhotos();
-        applySectionBackgrounds();
     };
   </script>
 </body>
