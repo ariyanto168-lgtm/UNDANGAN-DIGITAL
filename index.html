@@ -134,7 +134,7 @@
              <p id="text-alamat" data-key="alamat" class="text-xs text-slate-500 mt-2">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
           </div>
           <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full border border-slate-200">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+            <iframe id="mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
           </div>
           <button type="button" onclick="window.open(textElements.mapUrl ? textElements.mapUrl.text : 'https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
         </div>
@@ -236,6 +236,7 @@
 
   <script>
     const PUBLISH_DATA_BACKUP = ""; 
+    window.typewriterTimeouts = window.typewriterTimeouts || [];
 
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -272,7 +273,6 @@
         "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
     ];
 
-    // 20 Pilihan Warna Motif Gen-Z (Gen-Z Color Motifs)
     const genZColorMotifs = {
       cyber_neon: { name: "1. Cyberpunk Neon (Pink & Cyan)", bg: "#0f172a", text: "#f8fafc", accent: "#ec4899", secondary: "#06b6d4" },
       y2k_hotpink: { name: "2. Y2K Hot Pink (Magenta & Silver)", bg: "#18181b", text: "#fafafa", accent: "#ff007f", secondary: "#a1a1aa" },
@@ -296,7 +296,6 @@
       lofi_chill: { name: "20. Lofi Chill (Muted Blue & Warm Gray)", bg: "#1e293b", text: "#e2e8f0", accent: "#38bdf8", secondary: "#64748b" }
     };
 
-    // 20 Pilihan Tema / Template Motif Gen-Z Estetik
     const eventPresetsList = {
       y2k_cyber: {
         badgeText: "✨ Y2K CYBER VIBES ✨", coupleName: "Rian & Siska", subText: "Calling All Besties", dateDisplay: "Sabtu, 14 Juli 2026", timeDisplay: "Pukul 15.00 WIB - Till Drop",
@@ -510,13 +509,14 @@
       brideName: "Siska Amalia", brideParents: "Putri dari Bpk. Joko & Ibu Sri",
       titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta",
+      mapIframeUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid",
       titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
       titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
     };
 
     let textElements = {};
     for(let k in defaultText) {
-        let isTl = (k !== 'alamat' && k !== 'quoteText');
+        let isTl = (k !== 'alamat' && k !== 'quoteText' && k !== 'mapIframeUrl');
         textElements[k] = { text: defaultText[k], typewriter: isTl };
     }
 
@@ -551,7 +551,8 @@
 
     let isPlaying = false;
 
-    function compressImageFile(file, callback, maxWidth = 800, quality = 0.7) {
+    // Perbaikan Resolusi Kompresi
+    function compressImageFile(file, callback, maxWidth = 600, quality = 0.6) {
         const reader = new FileReader();
         reader.onload = (e) => {
             const img = new Image();
@@ -642,7 +643,7 @@
             localStorage.setItem('ari_currentCategory_v83', currentCategoryKey);
             localStorage.setItem('ari_ultimateConfig_v83', JSON.stringify(ultimateConfig));
         } catch (e) {
-            showToast('Penyimpanan penuh!', 'error');
+            showToast('Penyimpanan penuh! Batasi jumlah unggahan foto.', 'error');
         }
     }
 
@@ -741,7 +742,8 @@
                 ${previewHtml}
                 <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="URL MP4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
                 <div class="pt-1">
-                  <label class="text-[10px] text-slate-400 block">Atau Upload File MP4:</label>
+                  <label class="text-[10px] text-slate-400 block font-bold">Atau Upload MP4 dari HP (Hanya Preview):</label>
+                  <p class="text-[9px] text-rose-400 mb-1 leading-tight">⚠️ Video dari HP tidak bisa dibagikan (hilang saat refresh). Gunakan URL di atas untuk hasil permanen.</p>
                   <input type="file" accept="video/mp4" onchange="handleCustomMicroVideoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-purple-600 file:text-white mt-1">
                 </div>
               </div>`;
@@ -940,7 +942,8 @@
                 ${ultimateConfig.videoUrl ? `<video controls src="${ultimateConfig.videoUrl}" class="w-full h-32 object-cover rounded-lg mb-2 border border-slate-600"></video>` : ''}
                 <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" placeholder="URL MP4..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
                 
-                <label class="block text-[10px] text-slate-400">Atau Upload Video dari HP Anda:</label>
+                <label class="block text-[10px] text-slate-400 font-bold mt-3">Atau Upload Video dari HP (Hanya Preview):</label>
+                <p class="text-[9px] text-rose-400 mb-1 leading-tight">⚠️ Video dari HP bersifat lokal dan tidak bisa dibagikan ke tamu. Wajib gunakan URL di atas agar video bisa ditonton orang lain.</p>
                 <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
             </div>
             
@@ -1073,7 +1076,7 @@
         currentCategoryKey = selKey;
         for(let k in defaultText) {
             if(preset[k] !== undefined) {
-                let isTl = (k !== 'alamat' && k !== 'quoteText');
+                let isTl = (k !== 'alamat' && k !== 'quoteText' && k !== 'mapIframeUrl');
                 textElements[k] = { text: preset[k], typewriter: isTl };
             }
         }
@@ -1174,7 +1177,7 @@
                     openAdminModule('dynamicPhotos');
                     showToast('Foto berhasil diunggah!');
                 }
-            }, 800, 0.7);
+            }, 600, 0.6);
         });
     }
 
@@ -1244,8 +1247,12 @@
         });
     }
 
+    // Perbaikan Regex Konversi Angka WA (0 ke 62)
     function sendPersonalWhatsApp(name, phone, sharelok = '') {
-        const cleanPhone = phone.replace(/[^0-9]/g, '');
+        let cleanPhone = phone.replace(/[^0-9]/g, '');
+        if (cleanPhone.startsWith('0')) {
+            cleanPhone = '62' + cleanPhone.substring(1);
+        }
         const personalLink = generateShareableLink(name);
         let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
         if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
@@ -1293,7 +1300,7 @@
             applyUltimateConfig();
             applyGiftToDOM();
             showToast('Foto berhasil dimuat!');
-        }, 800, 0.7);
+        }, 600, 0.6);
     }
 
     function saveMusicAndVideoConfig() {
@@ -1307,13 +1314,22 @@
         backToDashboard();
     }
 
+    // Proteksi Kapasitas Memori Audio (Limit 2MB)
     function handleAudioUpload(event) {
         const file = event.target.files[0];
         if(!file) return;
+        
+        if (file.size > 2 * 1024 * 1024) {
+            showToast('Ukuran MP3 Max 2MB! Gunakan kolom URL MP3 di atas untuk lagu panjang.', 'error');
+            event.target.value = '';
+            return;
+        }
+
         const reader = new FileReader();
         reader.onload = (e) => {
             ultimateConfig.musicUrl = e.target.result;
             saveAllDataToDevice();
+            applyUltimateConfig();
             openAdminModule('music');
             showToast('Audio dimuat!');
         };
@@ -1421,13 +1437,24 @@
         }
     }
 
+    // Perbaikan Modal Reset View
     function backToDashboard() {
       document.getElementById('adminModuleView').classList.add('hidden');
       document.getElementById('adminDashboardView').classList.remove('hidden');
     }
 
+    function closeAdminModal() { 
+      document.getElementById('adminModal').classList.add('hidden'); 
+      backToDashboard(); 
+    }
+
+    // Perbaikan Typewriter (Mencegah Overlap/Ganda)
     function runGlobalTypewriter() {
         const speed = ultimateConfig.typewriterSpeed || 30;
+        
+        window.typewriterTimeouts.forEach(clearTimeout);
+        window.typewriterTimeouts = [];
+
         const mappedElements = document.querySelectorAll('[data-key]');
         mappedElements.forEach((el, index) => {
             const key = el.getAttribute('data-key');
@@ -1436,22 +1463,26 @@
             const fullText = item.text;
             const useTypewriter = item.typewriter !== false;
             
-            if(!useTypewriter || key === 'alamat' || key === 'quoteText') {
-                el.innerText = fullText;
+            if(!useTypewriter || key === 'alamat' || key === 'quoteText' || key === 'mapIframeUrl') {
+                if(key !== 'mapIframeUrl') el.innerText = fullText;
                 return;
             }
             el.innerText = "";
             let charIndex = 0;
-            setTimeout(() => {
+            
+            const initialTimeout = setTimeout(() => {
                 function typeNext() {
                     if(charIndex < fullText.length) {
                         el.innerText += fullText.charAt(charIndex);
                         charIndex++;
-                        setTimeout(typeNext, speed);
+                        const nextTimeout = setTimeout(typeNext, speed);
+                        window.typewriterTimeouts.push(nextTimeout);
                     }
                 }
                 typeNext();
             }, index * 150);
+            
+            window.typewriterTimeouts.push(initialTimeout);
         });
     }
 
@@ -1474,6 +1505,13 @@
                 if (item) el.innerText = item.text;
             }
         }
+
+        // Perbaikan Visual Maps Iframe (Dinamis dari URL Tabel Teks)
+        const iframeEl = document.getElementById('mapIframe');
+        if(iframeEl && textElements.mapIframeUrl) {
+            iframeEl.src = textElements.mapIframeUrl.text;
+        }
+
         runGlobalTypewriter();
     }
 
@@ -1481,7 +1519,6 @@
         try {
             document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
             
-            // Apply Gen-Z Color Motif
             const motifKey = ultimateConfig.colorMotif || 'cyber_neon';
             const motif = genZColorMotifs[motifKey] || genZColorMotifs['cyber_neon'];
             const mainCont = document.getElementById('mainContent');
@@ -1511,6 +1548,14 @@
             if(vidSource && ultimateConfig.videoUrl) {
                 vidSource.src = ultimateConfig.videoUrl;
                 if(vidElem) vidElem.load();
+            }
+
+            // Perbaikan Audio URL Dinamis
+            const audioSource = document.getElementById('musicSource');
+            const audioElem = document.getElementById('bgMusic');
+            if(audioSource && ultimateConfig.musicUrl) {
+                audioSource.src = ultimateConfig.musicUrl;
+                if(audioElem) audioElem.load(); 
             }
         } catch(e) {}
     }
@@ -1622,14 +1667,27 @@
         });
     }
 
+    // Perbaikan Logika RSVP & Eksekusi EmailJS
     function submitWish() {
       const name = document.getElementById('guestInputName').value.trim();
       const status = document.getElementById('attendanceStatus').value;
       const message = document.getElementById('guestMessage').value.trim();
       if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
+      
       attendanceList.unshift({ name, status, message });
       saveAllDataToDevice();
       renderWishesToDOM();
+
+      if(adminAuth.emailjsServiceId && adminAuth.emailjsTemplateId && adminAuth.emailjsPublicKey) {
+          emailjs.send(adminAuth.emailjsServiceId, adminAuth.emailjsTemplateId, {
+              guest_name: name,
+              attendance_status: status,
+              message: message
+          }, adminAuth.emailjsPublicKey)
+          .then(() => console.log('RSVP Email Terkirim'))
+          .catch((err) => console.error('Gagal Kirim EmailJS:', err));
+      }
+
       showToast('Ucapan dikirim!');
       document.getElementById('guestInputName').value = '';
       document.getElementById('guestMessage').value = '';
@@ -1670,7 +1728,7 @@
 
     function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { showToast(`Rekening ${bank} disalin!`); }); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-    function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
+    
     function verifyPin() {
       if (document.getElementById('adminPinInput').value.trim() === adminAuth.pin) { 
           document.getElementById('pinSection').classList.add('hidden'); 
