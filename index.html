@@ -3,1098 +3,1714 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Undangan Pernikahan Digital - Live Hybrid Edition v2.8.0</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Undangan Digital - Master Gen-Z v10.1.83 (20 Gen-Z Color Motifs)</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Great+Vibes&family=Dancing+Script:wght@400..700&family=Sacramento&family=Caveat:wght@400..700&family=Pacifico&family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&family=Quicksand:wght@300;400;600;700&family=Urbanist:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Lobster&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease; }
-    .font-serif-custom { font-family: 'Playfair Display', serif; }
-    .font-space { font-family: 'Space Grotesk', sans-serif; }
-    .font-syne { font-family: 'Syne', sans-serif; }
-    .font-outfit { font-family: 'Outfit', sans-serif; }
-
-    /* Gen Z Photo Frames Styles */
-    .frame-polaroid { background: #fffdf9; padding: 12px 12px 40px 12px; box-shadow: 0 12px 30px rgba(236,72,153,0.2); transform: rotate(-1.5deg); transition: transform 0.3s; border: 2px solid #fbcfe8; }
-    .frame-polaroid:hover { transform: rotate(0deg) scale(1.03); }
-    .frame-neobrutalism { border: 3px solid #000; box-shadow: 5px 5px 0px #ff007f; background: #fff; border-radius: 1.25rem; }
-    .frame-neon { border: 2px solid #ff007f; box-shadow: 0 0 20px rgba(255, 0, 127, 0.7); border-radius: 1.25rem; }
-    .frame-gradient { border: double 4px transparent; border-radius: 1.25rem; background-image: linear-gradient(white, white), linear-gradient(to right, #ff007f, #7928ca, #00f0ff); background-origin: border-box; background-clip: padding-box, border-box; }
-    .frame-standard { border-radius: 1.25rem; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-
-    /* ================= 20 FRONT SECTION FRAMES ================= */
-    .sec-frame-1 { border: 2px solid #ff007f; border-radius: 1.5rem; box-shadow: 0 10px 25px rgba(255,0,127,0.15); margin: 12px; background: inherit; }
-    .sec-frame-2 { border: 3px dashed #7928ca; border-radius: 1rem; margin: 12px; }
-    .sec-frame-3 { border: 4px solid #000; box-shadow: 6px 6px 0px #ff007f; border-radius: 1rem; margin: 12px; }
-    .sec-frame-4 { border: 2px solid #00f0ff; box-shadow: 0 0 20px rgba(0,240,255,0.4); border-radius: 1.5rem; margin: 12px; }
-    .sec-frame-5 { border: double 5px #ff007f; border-radius: 2rem; margin: 12px; }
-    .sec-frame-6 { border-left: 6px solid #ff007f; border-right: 6px solid #7928ca; border-radius: 1rem; margin: 12px; }
-    .sec-frame-7 { border: 1px solid rgba(255,255,255,0.6); backdrop-filter: blur(12px); border-radius: 1.5rem; margin: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-    .sec-frame-8 { border: 3px solid #ff758c; border-radius: 2.5rem; margin: 12px; }
-    .sec-frame-9 { border-top: 4px solid #ff007f; border-bottom: 4px solid #ff007f; border-radius: 0.5rem; margin: 12px; }
-    .sec-frame-10 { border: 2px solid #a855f7; border-radius: 1rem; transform: rotate(-0.5deg); margin: 12px; }
-    .sec-frame-11 { border: 2px solid #ec4899; border-radius: 2rem; box-shadow: inset 0 0 15px rgba(236,72,153,0.2); margin: 12px; }
-    .sec-frame-12 { border: 3px groove #3b82f6; border-radius: 1rem; margin: 12px; }
-    .sec-frame-13 { border: 2px solid #10b981; border-radius: 1.25rem; box-shadow: 0 5px 15px rgba(16,185,129,0.2); margin: 12px; }
-    .sec-frame-14 { border: 4px ridge #f59e0b; border-radius: 1.5rem; margin: 12px; }
-    .sec-frame-15 { border: 2px solid #6366f1; border-radius: 3rem; margin: 12px; }
-    .sec-frame-16 { border: 1px solid #cbd5e1; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); margin: 12px; }
-    .sec-frame-17 { border: 3px solid #f43f5e; border-radius: 0; margin: 12px; }
-    .sec-frame-18 { border: 2px dashed #06b6d4; border-radius: 1.5rem; margin: 12px; }
-    .sec-frame-19 { border: 5px solid #8b5cf6; border-radius: 1rem; margin: 12px; }
-    .sec-frame-20 { border: 2px solid #ec4899; border-radius: 1.25rem; background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,240,255,0.9)); margin: 12px; }
-
-    /* ================= 20 LABEL MODELS ================= */
-    .label-model-1 { display: inline-block; padding: 4px 14px; background: #ff007f; color: #fff; font-size: 11px; font-weight: 700; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .label-model-2 { display: inline-block; padding: 4px 14px; background: #7928ca; color: #fff; font-size: 11px; font-weight: 700; border-radius: 8px; text-transform: uppercase; }
-    .label-model-3 { display: inline-block; padding: 4px 14px; border: 2px solid #ff007f; color: #ff007f; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-4 { display: inline-block; padding: 4px 14px; background: #000; color: #00f0ff; font-size: 11px; font-weight: 700; border-radius: 6px; box-shadow: 3px 3px 0px #ff007f; }
-    .label-model-5 { display: inline-block; padding: 4px 14px; background: linear-gradient(to right, #ff007f, #7928ca); color: #fff; font-size: 11px; font-weight: 700; border-radius: 12px; }
-    .label-model-6 { display: inline-block; padding: 4px 14px; background: #ec4899; color: #fff; font-size: 11px; font-style: italic; border-radius: 4px; }
-    .label-model-7 { display: inline-block; padding: 4px 14px; border-bottom: 2px solid #ff007f; color: #ff007f; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; }
-    .label-model-8 { display: inline-block; padding: 4px 14px; background: #fef08a; color: #854d0e; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-9 { display: inline-block; padding: 4px 14px; background: #ccfbf1; color: #0f766e; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-10 { display: inline-block; padding: 4px 14px; background: #e0e7ff; color: #3730a3; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-11 { display: inline-block; padding: 4px 14px; background: #fbcfe8; color: #831843; font-size: 11px; font-weight: 700; border-radius: 6px; }
-    .label-model-12 { display: inline-block; padding: 4px 14px; border: 1px dashed #7928ca; color: #7928ca; font-size: 11px; font-weight: 700; border-radius: 8px; }
-    .label-model-13 { display: inline-block; padding: 4px 14px; background: #1e293b; color: #38bdf8; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-14 { display: inline-block; padding: 4px 14px; background: #ffedd5; color: #c2410c; font-size: 11px; font-weight: 700; border-radius: 4px; }
-    .label-model-15 { display: inline-block; padding: 4px 14px; background: #f3e8ff; color: #6b21a8; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-16 { display: inline-block; padding: 4px 14px; border: 2px solid #000; background: #fff; color: #000; font-size: 11px; font-weight: 700; border-radius: 4px; }
-    .label-model-17 { display: inline-block; padding: 4px 14px; background: #bae6fd; color: #0369a1; font-size: 11px; font-weight: 700; border-radius: 12px; }
-    .label-model-18 { display: inline-block; padding: 4px 14px; background: #fed7aa; color: #9a3412; font-size: 11px; font-weight: 700; border-radius: 9999px; }
-    .label-model-19 { display: inline-block; padding: 4px 14px; background: #a7f3d0; color: #065f46; font-size: 11px; font-weight: 700; border-radius: 8px; }
-    .label-model-20 { display: inline-block; padding: 4px 14px; background: #f43f5e; color: #fff; font-size: 11px; font-weight: 700; border-radius: 9999px; box-shadow: 0 0 10px rgba(244,63,94,0.5); }
-
-    /* Typewriter Cursor Effect */
-    .typewriter-effect::after {
-      content: '|';
-      animation: blink 0.8s infinite;
-      color: #ff007f;
-      font-weight: bold;
-      margin-left: 2px;
-    }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    /* ================= 20 DYNAMIC SCROLL MODES ================= */
-    .scroll-mode-mode1 { /* Standard Flow */ }
-    .scroll-mode-mode2 { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
-    .scroll-mode-mode2 > div > div { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; }
-    .scroll-mode-mode3 { scroll-behavior: smooth; }
-    .scroll-mode-mode4 > div > div { box-shadow: 0 15px 35px -5px rgba(255,0,127,0.2); margin-bottom: 1.5rem; border-radius: 1.5rem; }
-    .scroll-mode-mode5 > div > div:nth-child(even) { border-left: 6px solid #ff007f; }
-    .scroll-mode-mode5 > div > div:nth-child(odd) { border-right: 6px solid #7928ca; }
-    .scroll-mode-mode6 > div { position: relative; }
-    .scroll-mode-mode6 > div::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 3px; background: #ff007f; z-index: 1; }
-    .scroll-mode-mode6 > div > div { position: relative; margin-left: 40px; margin-right: 16px; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 6px 12px -1px rgba(0,0,0,0.08); margin-bottom: 1.5rem; z-index: 2; }
-    .scroll-mode-mode6 > div > div::after { content: ''; position: absolute; left: -24px; top: 2rem; width: 12px; height: 12px; background: #ff007f; border-radius: 50%; border: 2px solid #ffffff; }
-    .scroll-mode-mode7 > div > div { border-radius: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; }
-    .scroll-mode-mode8 > div > div { position: sticky; top: 1rem; margin-bottom: 2rem; border-radius: 1.5rem; box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
-    .scroll-mode-mode9 > div > div { transition: transform 0.4s ease; margin-bottom: 1.5rem; border-radius: 1rem; }
-    .scroll-mode-mode10 > div > div { border-left: 6px solid #ff007f; margin-bottom: 1rem; }
-    .scroll-mode-mode11 > div > div { border: 2px solid #ff007f; box-shadow: 0 0 25px rgba(255,0,127,0.3); border-radius: 1.5rem; margin-bottom: 1.5rem; }
-    .scroll-mode-mode12 > div > div { border-radius: 2.5rem; box-shadow: 0 20px 30px -5px rgba(0,0,0,0.1); margin-bottom: 2rem; padding: 2rem; }
-    .scroll-mode-mode13 > div > div { transform: rotate(0.75deg); margin-bottom: 1.5rem; border-radius: 1rem; }
-    .scroll-mode-mode14 > div > div { border-left: 6px solid #ff007f; border-radius: 0.5rem; margin-bottom: 1rem; }
-    .scroll-mode-mode15 > div > div { border: 3px solid #000; box-shadow: 6px 6px 0px #ff007f; border-radius: 1rem; margin-bottom: 1.5rem; }
-    .scroll-mode-mode16 > div > div { border-radius: 1.5rem; margin: 1rem; padding: 2rem; }
-    .scroll-mode-mode17 > div > div { border-radius: 1.5rem; margin-bottom: 1.5rem; }
-    .scroll-mode-mode18 > div > div { backdrop-filter: blur(16px); border-radius: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.1); }
-    .scroll-mode-mode19 > div > div { border-top: 3px double currentColor; border-bottom: 3px double currentColor; margin-bottom: 2rem; padding: 2rem; }
-    .scroll-mode-mode20 > div > div { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 2rem; border-radius: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-
-    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .toast-animate { animation: slideUp 0.3s ease-out forwards; }
+    html, body { width: 100%; min-height: 100vh; margin: 0; padding: 0; overflow-x: hidden; word-break: break-word; overflow-wrap: break-word; }
+    body { transition: background 0.4s ease, color 0.4s ease; font-family: 'Plus Jakarta Sans', sans-serif; }
+    @keyframes textPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 14px currentColor); } }
+    .pulse-glow-active { animation: textPulse 2.5s infinite ease-in-out; }
+    .cover-base { position: fixed; inset: 0; z-index: 99999999; background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(40,40,40,0.98)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+    .section-overlay { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(4px); margin: 12px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); background-size: cover; background-position: center; overflow: hidden; }
+    .frame-none { border: none; box-shadow: none; border-radius: 1.5rem; }
+    .frame-polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); transform: rotate(-1deg); border-radius: 4px; }
+    .frame-neon { border: 4px solid #ec4899; box-shadow: 0 0 20px #ec4899, inset 0 0 15px #06b6d4; border-radius: 2rem; }
+    .frame-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-radius: 2rem; padding: 8px; }
+    .frame-cyber { border: 3px solid #06b6d4; box-shadow: 5px 5px 0px #ec4899; border-radius: 0.5rem; }
+    .frame-hologram { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); padding: 4px; border-radius: 2rem; box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
   </style>
 </head>
-<body id="bodyThemeContainer" class="relative antialiased">
+<body id="bodyThemeContainer" class="relative antialiased pb-20 bg-slate-50 text-slate-800">
 
-  <!-- ================= TOMBOL FLOATING ADMIN DI PREVIEW ================= -->
-  <div class="fixed top-4 left-4 z-50">
-    <button onclick="openAdminModal()" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-90 text-white text-xs font-bold py-2 px-3.5 rounded-full shadow-2xl flex items-center space-x-1.5 border-2 border-white/80 transition transform active:scale-95">
-      <i class="fa-solid fa-gear animate-spin"></i>
-      <span>Admin Editor</span>
-    </button>
+  <div id="toastNotification" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-[999999999] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
+    <div id="toastContent" class="bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs">
+      <i id="toastIcon" class="fa-solid fa-circle-check text-pink-400 text-base"></i>
+      <span id="toastMessage">Pesan Berhasil</span>
+    </div>
   </div>
 
-  <!-- ================= COVER SECTION FULL LAYAR ================= -->
-  <div id="coverSection" class="fixed inset-0 z-40 flex flex-col items-center justify-between p-6 text-center bg-cover bg-center transition-transform duration-700" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');">
-    <div class="w-full pt-8 flex justify-between items-center px-4">
-      <span id="coverOpeningTitle" class="text-xs uppercase tracking-widest text-pink-300 font-bold bg-black/40 px-3.5 py-1.5 rounded-full border border-pink-500/30">The Wedding Of</span>
-      <span id="syncStatusBadge" class="text-[10px] font-mono bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-3 py-1 rounded-full shadow-lg">🟢 Cloud Sync</span>
+  <div id="coverSection" class="cover-base text-white text-center">
+    <div class="absolute inset-0 opacity-40 bg-cover bg-center -z-10" id="coverBgImage" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'); pointer-events: none;"></div>
+    <div class="space-y-2 mb-6" style="pointer-events: none;">
+      <span id="coverBadgeText" class="bg-slate-800/80 text-pink-200 px-4 py-1.5 rounded-full border border-pink-500/30 text-[11px] tracking-widest uppercase font-semibold">The Wedding Of</span>
+      <h1 id="coverCoupleName" class="text-4xl md:text-5xl font-bold tracking-wide text-pink-100 pulse-glow-active pt-2">Rian & Siska</h1>
+      <p id="coverSubText" class="text-slate-300 text-xs font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
     </div>
-    
-    <div class="my-auto space-y-4">
-      <h1 id="coverCoupleName" class="text-4xl md:text-6xl font-syne font-bold text-white drop-shadow-lg">Rian & Siska</h1>
-      <p id="guestGreeting" class="text-sm text-pink-100 font-medium">Kepada Yth. Bestie & Tamu Undangan</p>
-      <div id="guestNameContainer" class="inline-block bg-white/20 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/40 text-white font-bold text-lg shadow-xl">
-        Tamu Undangan
-      </div>
-      <p id="coverDate" class="text-sm text-pink-200 font-semibold pt-2">Minggu, 25 Oktober 2026</p>
-    </div>
-
-    <div class="w-full pb-8 space-y-3">
-      <button id="coverOpenBtn" onclick="openInvitation()" class="w-full max-w-xs mx-auto bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:opacity-90 text-white font-bold py-3.5 px-8 rounded-full shadow-2xl transition transform active:scale-95 flex items-center justify-center space-x-2">
-        <i class="fa-solid fa-sparkles"></i>
-        <span>Buka Undangan ✨</span>
+    <div class="w-full max-w-xs space-y-3 bg-slate-900/95 p-5 rounded-2xl border border-slate-800 shadow-2xl">
+      <div id="guestName" class="font-bold text-base text-pink-300 bg-slate-950 py-2.5 px-4 rounded-xl border border-slate-800 truncate">Tamu Undangan</div>
+      <p id="coverDateDisplay" class="text-slate-300 text-xs">Minggu, 25 Oktober 2026</p>
+      <button type="button" onclick="bukaUndanganSekarang()" style="width: 100%; cursor: pointer; touch-action: manipulation; background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); color: white; font-weight: bold; padding: 16px 24px; border-radius: 12px; box-shadow: 0 0 25px rgba(236,72,153,0.8); border: none; font-size: 14px;">
+        Buka Undangan ✨
       </button>
-      <div class="space-y-1">
-        <div class="flex justify-center space-x-4 text-xs text-white/90">
-          <button onclick="toggleMode()" class="underline hover:text-pink-300 font-semibold">🔄 Cek Koneksi DB</button>
-          <span>•</span>
-          <button onclick="openAdminModal()" class="underline hover:text-pink-300 font-semibold">⚙️ Admin Master Lock</button>
+    </div>
+  </div>
+
+  <main id="mainContent" style="display: none; opacity: 0;" class="transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative bg-cover bg-center bg-fixed text-slate-800 pb-16 bg-slate-50">
+    <nav class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-6 py-2.5 flex items-center justify-between">
+      <button type="button" onclick="toggleMusic()" class="flex flex-col items-center text-slate-600 hover:text-pink-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shadow-sm"><i id="musicIcon" class="fa-solid fa-music text-sm"></i></div>
+        <span id="musicLabel" class="text-[10px] font-semibold mt-1 text-pink-600">Music</span>
+      </button>
+      <button type="button" onclick="openAdminModal()" class="flex flex-col items-center text-slate-600 hover:text-amber-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-gear text-sm"></i></div>
+        <span class="text-[10px] font-semibold mt-1">Admin</span>
+      </button>
+      <button type="button" onclick="openShareModal()" class="flex flex-col items-center text-slate-600 hover:text-purple-600 transition cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shadow-sm"><i class="fa-solid fa-share-nodes text-sm"></i></div>
+        <span class="text-[10px] font-semibold mt-1">Bagikan</span>
+      </button>
+    </nav>
+
+    <div id="sectionsContainer" class="space-y-4 pt-4 px-2">
+      <section data-section-key="hero" class="relative h-[80vh] flex flex-col justify-end p-6 text-center text-white rounded-3xl overflow-hidden shadow-lg mx-2">
+        <div id="mainHeroBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+        <div class="relative z-10 space-y-3 pb-8">
+          <div id="microVideo-hero" class="w-full"></div>
+          <div id="dynamicPhotosGrid-hero" class="grid grid-cols-2 gap-2 mb-3"></div>
+          <span id="text-badge" data-key="badgeText" class="text-xs uppercase tracking-widest text-pink-400 font-semibold bg-pink-950/80 px-3 py-1 rounded-full border border-pink-500/30">The Wedding Of</span>
+          <h1 id="text-heroTitle" data-key="heroTitle" class="text-5xl font-bold pulse-glow-active">Rian & Siska</h1>
+          <p id="text-heroSub" data-key="heroSub" class="text-sm text-slate-300">Kami sangat bersyukur atas kehadiran & doa restu Anda.</p>
         </div>
-        <p class="text-[10px] text-pink-300/90 font-bold tracking-wider pt-1">Powered by Ari GPM</p>
-      </div>
+      </section>
+
+      <section data-section-key="quotes" class="py-10 px-6 text-center section-overlay space-y-4 relative overflow-hidden">
+        <div id="microVideo-quotes" class="w-full"></div>
+        <div id="dynamicPhotosGrid-quotes" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <div class="w-10 h-10 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <p id="quoteTextDisplay" data-key="quoteText" class="text-xs text-slate-600 leading-relaxed italic max-w-xs mx-auto">"Dan di antara tanda-tanda kebesaran-Nya..."</p>
+      </section>
+
+      <section data-section-key="mempelai" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="microVideo-mempelai" class="w-full"></div>
+        <div id="dynamicPhotosGrid-mempelai" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <h2 id="text-titleMempelai" data-key="titleMempelai" class="text-3xl font-bold text-slate-900">Profil Tuan Rumah</h2>
+        
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile1FrameContainer">
+            <img id="img-groom" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
+          </div>
+          <h3 id="text-groomName" data-key="groomName" class="text-2xl font-bold text-slate-900 pt-2">Rian Pratama</h3>
+          <p id="text-groomParents" data-key="groomParents" class="text-xs text-slate-600 font-medium">Putra dari Bpk. Budi & Ibu Ani</p>
+        </div>
+        
+        <div class="text-2xl text-pink-500 font-bold">&</div>
+        
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-3">
+          <div class="w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 frame-polaroid" id="profile2FrameContainer">
+            <img id="img-bride" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover rounded-2xl">
+          </div>
+          <h3 id="text-brideName" data-key="brideName" class="text-2xl font-bold text-slate-900 pt-2">Siska Amalia</h3>
+          <p id="text-brideParents" data-key="brideParents" class="text-xs text-slate-600 font-medium">Putri dari Bpk. Joko & Ibu Sri</p>
+        </div>
+      </section>
+
+      <section data-section-key="video" class="py-10 px-6 text-center section-overlay space-y-4">
+        <div id="microVideo-video" class="w-full"></div>
+        <div id="dynamicPhotosGrid-video" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <div class="w-10 h-10 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-video"></i></div>
+        <h2 class="text-2xl font-bold text-slate-900">Video Dokumentasi</h2>
+        <div class="w-full rounded-2xl overflow-hidden shadow-lg bg-black aspect-video flex items-center justify-center relative">
+          <video id="mainMp4Video" controls playsinline preload="metadata" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800">
+            <source id="mp4VideoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            Browser Anda tidak mendukung pemutaran video.
+          </video>
+        </div>
+      </section>
+
+      <section data-section-key="lokasi" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="microVideo-lokasi" class="w-full"></div>
+        <div id="dynamicPhotosGrid-lokasi" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <h2 id="text-titleLokasi" data-key="titleLokasi" class="text-3xl font-bold text-slate-900">Lokasi Acara</h2>
+        <div class="bg-white/80 p-5 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+          <div class="space-y-1">
+             <p id="text-dateDisplay2" data-key="dateDisplay" class="font-bold text-pink-600 text-sm">Minggu, 25 Oktober 2026</p>
+             <p id="text-timeDisplay" data-key="timeDisplay" class="text-xs text-slate-700 font-medium">Pukul 09.00 WIB - Selesai</p>
+             <p id="text-alamat" data-key="alamat" class="text-xs text-slate-500 mt-2">Gedung Serbaguna Jakarta<br>Jl. Sudirman No. 1</p>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-sm h-48 w-full border border-slate-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126917.83446049216!2d106.75874223292415!3d-6.241586566060416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1707567845233!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+          </div>
+          <button type="button" onclick="window.open(textElements.mapUrl ? textElements.mapUrl.text : 'https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta', '_blank')" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer">Buka di Google Maps</button>
+        </div>
+      </section>
+
+      <section data-section-key="amplop" id="amplopSectionContainer" class="py-10 px-6 text-center section-overlay space-y-6">
+        <div id="microVideo-amplop" class="w-full"></div>
+        <div id="dynamicPhotosGrid-amplop" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-gift"></i></div>
+        <h2 id="text-titleGift" data-key="titleGift" class="text-3xl font-bold text-slate-900">Amplop Digital</h2>
+        <p id="text-subGift" data-key="subGift" class="text-xs text-slate-600 max-w-xs mx-auto">Doa restu Anda sangat berarti bagi kami.</p>
+        <div class="space-y-4 max-w-xs mx-auto">
+          <div class="bg-slate-900 p-6 rounded-2xl shadow-xl text-white space-y-3">
+            <h3 class="font-bold text-sm text-pink-400">Scan QRIS</h3>
+            <div id="qrisImageRender" class="w-48 h-48 mx-auto bg-white rounded-xl overflow-hidden flex items-center justify-center border border-slate-700"></div>
+          </div>
+          <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-6 rounded-2xl shadow-xl text-white text-left space-y-3">
+            <h3 id="displayBankName" class="font-bold text-sm text-blue-200">Bank BCA</h3>
+            <p id="displayRekNumber" class="font-mono text-xl font-bold tracking-widest">1234567890</p>
+            <p id="displayRekOwner" class="text-xs text-blue-100 uppercase">A.N Rian Pratama</p>
+            <button type="button" onclick="copyToClipboard(document.getElementById('displayRekNumber').innerText, document.getElementById('displayBankName').innerText)" class="w-full bg-white/20 text-white py-2.5 rounded-lg text-xs font-bold cursor-pointer">Salin Rekening</button>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-key="rsvp" class="py-10 px-6 section-overlay space-y-6">
+        <div id="microVideo-rsvp" class="w-full"></div>
+        <div id="dynamicPhotosGrid-rsvp" class="grid grid-cols-2 gap-2 mb-3"></div>
+        <div class="text-center space-y-2"><h2 id="text-titleRsvp" data-key="titleRsvp" class="text-2xl font-bold text-slate-900">Ucapan & Kehadiran</h2></div>
+        <div class="bg-white/80 p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+          <input type="text" id="guestInputName" placeholder="Nama Anda" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+          <select id="attendanceStatus" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none">
+            <option value="Hadir">Hadir</option><option value="Berhalangan Hadir">Berhalangan Hadir</option>
+          </select>
+          <textarea id="guestMessage" rows="3" placeholder="Tulis ucapan atau doa..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs focus:ring-2 focus:ring-pink-500 outline-none"></textarea>
+          <button type="button" onclick="submitWish()" class="w-full bg-pink-600 text-white font-semibold py-3 rounded-xl text-xs shadow-md cursor-pointer">Kirim Ucapan</button>
+        </div>
+        <div id="wishesList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
+      </section>
     </div>
-  </div>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <div id="mainContent" class="hidden opacity-0 transition-opacity duration-700 max-w-md mx-auto min-h-screen shadow-2xl relative">
-    
-    <!-- Floating Music & Share -->
-    <div class="fixed bottom-6 right-6 z-30 flex flex-col space-y-3">
-      <button onclick="toggleMusic()" id="musicBtn" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-pink-700 transition active:scale-95 border-2 border-white">
-        <i id="musicIcon" class="fa-solid fa-music animate-spin"></i>
-      </button>
-      <button onclick="openShareModal()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-purple-700 transition active:scale-95 border-2 border-white">
-        <i class="fa-solid fa-share-nodes"></i>
-      </button>
-    </div>
-
-    <!-- Sections Container -->
-    <div id="sectionsContainer" class="space-y-0"></div>
-
-    <!-- Footer Share & Branding -->
-    <div id="footerContainer" class="p-6 text-center space-y-4 border-t">
-      <p class="text-xs font-medium opacity-90">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila kawan-kawan berkenan hadir.</p>
-      <h3 class="font-syne text-xl font-bold" id="footerCouple">Rian & Siska</h3>
-      <button onclick="openShareModal()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2">
-        <i class="fa-solid fa-share"></i>
-        <span>Bagikan Undangan Ini</span>
-      </button>
-      <div class="pt-4 border-t opacity-80">
+    <footer data-section-key="footer" class="p-6 text-center space-y-4 mt-8 section-overlay">
+      <div id="microVideo-footer" class="w-full"></div>
+      <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
+      <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 font-mono">Master Editor Suite v2.8.0 - Hybrid Live Sheet</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.83 (20 Gen-Z Color Motifs)</p>
       </div>
-    </div>
-  </div>
+    </footer>
+  </main>
 
-  <!-- ================= ADMIN EDITOR MODAL (MASTER LOCK PROTECTED) ================= -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white px-6 py-4 flex items-center justify-between">
+    <div class="bg-slate-900 text-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-800">
+      <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-cloud-arrow-up"></i>
-          <div>
-            <h2 class="font-syne text-lg font-bold">Cloud Editor v2.8.0</h2>
-            <p class="text-[10px] text-pink-200">Connected to Google Sheets DB</p>
-          </div>
+          <i class="fa-solid fa-gauge-high text-lg"></i>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.83</p></div>
         </div>
-        <button onclick="closeAdminModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-
-      <!-- PIN Section -->
-      <div id="pinSection" class="p-6 space-y-4 text-center my-auto">
-        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
-          <i class="fa-solid fa-lock"></i>
-        </div>
-        <h3 class="font-bold text-gray-800">Verifikasi Cloud Access</h3>
-        <p class="text-xs text-gray-500">PIN Default Editor: <span class="font-mono font-bold text-emerald-600">1234</span></p>
-        <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="w-full text-center tracking-widest text-lg py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-        <button onclick="verifyPin()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2.5 rounded-xl font-bold transition shadow-md">Buka Kunci Editor</button>
+      
+      <div id="pinSection" class="p-8 space-y-4 text-center my-auto">
+        <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner border border-pink-500/30"><i class="fa-solid fa-lock"></i></div>
+        <h3 class="font-bold text-lg text-slate-200">Verifikasi Master Lock</h3>
+        <p class="text-xs text-slate-400">PIN Default: <span class="font-mono font-bold text-pink-400">1234</span></p>
+        <input type="password" id="adminPinInput" onkeydown="handlePinKey(event)" placeholder="PIN (1234)" class="w-full text-center tracking-widest text-lg py-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none">
+        <button type="button" onclick="verifyPin()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-bold shadow-lg cursor-pointer">Buka Dashboard</button>
       </div>
-
-      <!-- Editor Tabs Body (Unlocked) -->
-      <div id="editorBody" class="hidden flex-1 overflow-y-auto p-6 space-y-6">
-        <div class="flex space-x-2 border-b border-gray-200 pb-2 overflow-x-auto text-sm">
-          <button onclick="switchTab('teks')" class="tab-btn px-3 py-1.5 font-bold text-emerald-600 border-b-2 border-emerald-600 whitespace-nowrap">✨ Tema & Bingkai</button>
-          <button onclick="switchTab('guests')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-emerald-600 whitespace-nowrap">🔗 Link Tamu</button>
-          <button onclick="switchTab('typewriter')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-emerald-600 whitespace-nowrap">⌨️ Typewriter</button>
-          <button onclick="switchTab('foto')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-emerald-600 whitespace-nowrap">🖼 Galeri</button>
-          <button onclick="switchTab('sections')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-emerald-600 whitespace-nowrap">🚀 Sections</button>
-          <button onclick="switchTab('scroll')" class="tab-btn px-3 py-1.5 text-gray-600 hover:text-emerald-600 whitespace-nowrap">📜 Scroll</button>
+      
+      <div id="editorBody" class="hidden flex-1 overflow-y-auto p-5 space-y-5">
+        <div id="adminDashboardView" class="space-y-4">
+          <div class="flex items-center justify-between"><h3 class="text-sm font-bold text-slate-300">⚡ Menu Admin Utama</h3></div>
+          <div id="dashboardCardsGrid" class="grid grid-cols-2 gap-3"></div>
         </div>
-
-        <!-- Tab: Tema & Bingkai -->
-        <div id="tab-teks" class="editor-tab space-y-4">
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Nama Pasangan</label>
-            <input type="text" id="editCoupleName" class="w-full p-2.5 border rounded-xl text-sm font-medium">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Tanggal Acara (Target Countdown)</label>
-            <input type="date" id="editEventDate" class="w-full p-2.5 border rounded-xl text-sm font-medium">
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Font Estetik</label>
-              <select id="editFontFamily" class="w-full p-2.5 border rounded-xl text-sm bg-white font-medium">
-                <option value="'Syne', sans-serif">Syne (Bold Modern)</option>
-                <option value="'Space Grotesk', sans-serif">Space Grotesk (Tech/Clean)</option>
-                <option value="'Outfit', sans-serif">Outfit (Trendy Soft)</option>
-                <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Pilih 1 dari 20 Tema Gen Z</label>
-              <select id="editThemeVibe" class="w-full p-2.5 border rounded-xl text-sm bg-pink-50 font-bold text-pink-700">
-                <option value="y2k">1. Y2K Bubblegum Pink</option>
-                <option value="sage">2. Gen Z Matcha Sage</option>
-                <option value="cyber">3. Cyberpunk Neon Dark</option>
-                <option value="minimalist">4. Clean Aesthetic Soft</option>
-                <option value="lavender">5. Lilac Dream Pop</option>
-                <option value="sunset">6. Sunset Orange Glow</option>
-                <option value="ocean">7. Electric Cyan Ocean</option>
-                <option value="rosegold">8. Metallic Rose Gold</option>
-                <option value="emerald">9. Brat Green (Lime Vibe)</option>
-                <option value="vintage">10. Retro 90s Sepia</option>
-                <option value="synthwave">11. Synthwave Purple Haze</option>
-                <option value="latte">12. Iced Latte Aesthetic</option>
-                <option value="cherry">13. Cherry Blossom Soft</option>
-                <option value="midnight">14. Midnight Glow Dark</option>
-                <option value="nordic">15. Clean Nordic Frost</option>
-                <option value="tuscan">16. Golden Hour Tuscan</option>
-                <option value="monochrome">17. Monochrome High Contrast</option>
-                <option value="peachy">18. Peachy Coral Pop</option>
-                <option value="royal">19. Royal Cyber Emerald</option>
-                <option value="amethyst">20. Mystic Amethyst Neon</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3 pt-2">
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Bingkai Front Section</label>
-              <select id="editSectionFrame" class="w-full p-2.5 border rounded-xl text-sm bg-white font-bold text-purple-700">
-                <option value="sec-frame-1">1. Neon Pink Border</option>
-                <option value="sec-frame-2">2. Dashed Purple Outline</option>
-                <option value="sec-frame-3">3. Neo-Brutalism Solid</option>
-                <option value="sec-frame-4">4. Cyber Cyan Glow</option>
-                <option value="sec-frame-5">5. Double Pink Frame</option>
-                <option value="sec-frame-6">6. Dual Tone Side Border</option>
-                <option value="sec-frame-7">7. Glassmorphic Blur Card</option>
-                <option value="sec-frame-8">8. Soft Rounded Peach</option>
-                <option value="sec-frame-9">9. Newspaper Editorial Line</option>
-                <option value="sec-frame-10">10. Rotated Aesthetic Tilt</option>
-                <option value="sec-frame-11">11. Inner Neon Glow</option>
-                <option value="sec-frame-12">12. Blue Groove Frame</option>
-                <option value="sec-frame-13">13. Emerald Clean Border</option>
-                <option value="sec-frame-14">14. Ridge Amber Border</option>
-                <option value="sec-frame-15">15. Indigo Pill Shape</option>
-                <option value="sec-frame-16">16. Soft Shadow Box</option>
-                <option value="sec-frame-17">17. Sharp Minimalist Box</option>
-                <option value="sec-frame-18">18. Cyan Dashed Border</option>
-                <option value="sec-frame-19">19. Thick Violet Border</option>
-                <option value="sec-frame-20">20. Gradient Light Fill</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Model Label / Tag</label>
-              <select id="editLabelModel" class="w-full p-2.5 border rounded-xl text-sm bg-white font-bold text-pink-700">
-                <option value="label-model-1">1. Pink Solid Pill</option>
-                <option value="label-model-2">2. Purple Rounded Tag</option>
-                <option value="label-model-3">3. Pink Outline Pill</option>
-                <option value="label-model-4">4. Brutalist Black/Cyan</option>
-                <option value="label-model-5">5. Gradient Neon Tag</option>
-                <option value="label-model-6">6. Pink Italic Badge</option>
-                <option value="label-model-7">7. Underline Modern</option>
-                <option value="label-model-8">8. Yellow Sun Badge</option>
-                <option value="label-model-9">9. Mint Clean Tag</option>
-                <option value="label-model-10">10. Indigo Soft Pill</option>
-                <option value="label-model-11">11. Rose Squared Badge</option>
-                <option value="label-model-12">12. Purple Dashed Tag</option>
-                <option value="label-model-13">13. Dark Cyber Pill</option>
-                <option value="label-model-14">14. Orange Warm Tag</option>
-                <option value="label-model-15">15. Amethyst Soft Badge</option>
-                <option value="label-model-16">16. Noir Brutal Box</option>
-                <option value="label-model-17">17. Sky Blue Rounded</option>
-                <option value="label-model-18">18. Peach Soft Tag</option>
-                <option value="label-model-19">19. Emerald Rounded Pill</option>
-                <option value="label-model-20">20. Glowing Rose Badge</option>
-              </select>
-            </div>
-          </div>
+        <div id="adminModuleView" class="hidden space-y-4">
+          <button type="button" onclick="backToDashboard()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 cursor-pointer">
+            <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
+          </button>
+          <div id="moduleContentArea" class="space-y-4 pb-4"></div>
         </div>
-
-        <!-- Tab: Guest Link Generator -->
-        <div id="tab-guests" class="editor-tab hidden space-y-4">
-          <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-xl text-xs text-indigo-900">
-            <i class="fa-solid fa-link mr-1"></i> <strong>Guest Link Generator:</strong> Ketik nama tamu untuk membuat tautan undangan personal secara instan.
-          </div>
-          <div class="space-y-3 bg-gray-50 p-3.5 rounded-xl border">
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Nama Tamu / Undangan</label>
-              <input type="text" id="inputGuestName" placeholder="Contoh: Budi Santoso & Partner" class="w-full p-2.5 border rounded-xl text-sm bg-white">
-            </div>
-            <button onclick="generateGuestLink()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-xl text-xs font-bold shadow transition">Generate Link WhatsApp</button>
-          </div>
-          <div id="generatedLinkResult" class="hidden p-3 bg-green-50 border border-green-200 rounded-xl space-y-2">
-            <p class="text-[11px] text-green-800 font-semibold">Tautan Berhasil Dibuat:</p>
-            <input type="text" id="outputGuestUrl" readonly class="w-full p-2 text-xs bg-white border rounded-lg font-mono text-gray-600">
-            <button onclick="copyGeneratedLink()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg text-xs font-bold">Salin Link & Pesan WA</button>
-          </div>
-        </div>
-
-        <!-- Tab: Universal Typewriter Editor -->
-        <div id="tab-typewriter" class="editor-tab hidden space-y-4">
-          <div class="bg-pink-50 border border-pink-200 p-3 rounded-xl text-xs text-pink-800">
-            <i class="fa-solid fa-keyboard mr-1"></i> <strong>Universal Typewriter Manager:</strong> Atur efek ketik otomatis untuk **semua** front section.
-          </div>
-          <div id="universalTypewriterList" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
-          <button onclick="saveAllTypewriterSettings()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-xs font-bold shadow transition">Simpan Pengaturan ke Cloud</button>
-        </div>
-
-        <!-- Tab: Galeri & Bingkai Foto -->
-        <div id="tab-foto" class="editor-tab hidden space-y-4">
-          <div class="bg-pink-50 border border-pink-200 p-3 rounded-xl text-xs text-pink-800">
-            <i class="fa-solid fa-camera-retro mr-1"></i> <strong>Bingkai Foto Gen Z:</strong> Pilih bingkai foto estetik (Polaroid, Neobrutalism, Neon, dll).
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Gaya Bingkai Foto Global</label>
-            <select id="editGlobalFrameStyle" class="w-full p-2.5 border rounded-xl text-sm bg-white font-bold text-pink-700">
-              <option value="frame-polaroid">🖼️ Polaroid Aesthetic (Rotated)</option>
-              <option value="frame-neobrutalism">🔳 Neo-Brutalism (Bold Border & Shadow)</option>
-              <option value="frame-neon">💖 Neon Glow Frame</option>
-              <option value="frame-gradient">🌈 Gradient Rainbow Border</option>
-              <option value="frame-standard">✨ Clean Minimalist Rounded</option>
-            </select>
-          </div>
-          <div class="space-y-3 bg-gray-50 p-3.5 rounded-xl border">
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">URL Gambar Foto Baru</label>
-              <input type="text" id="inputPhotoUrl" placeholder="https://..." class="w-full p-2.5 border rounded-xl text-sm bg-white">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1">Caption / Catatan Foto</label>
-              <input type="text" id="inputPhotoCaption" placeholder="Contoh: Best Moment Ever ✨" class="w-full p-2.5 border rounded-xl text-sm bg-white">
-            </div>
-            <button onclick="addNewPhoto()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-xs font-bold shadow transition">Tambah ke Galeri Cloud</button>
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-2">Daftar Foto Galeri:</label>
-            <div id="dynamicGalleryPreviewList" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
-          </div>
-        </div>
-
-        <!-- Tab: Dynamic Front Sections Manager -->
-        <div id="tab-sections" class="editor-tab hidden space-y-4">
-          <div class="bg-pink-50 border border-pink-200 p-3 rounded-xl text-xs text-pink-800">
-            <i class="fa-solid fa-layer-group mr-1"></i> <strong>Front Sections Manager:</strong> Tambah atau hapus section undangan secara dinamis di Cloud.
-          </div>
-          
-          <div class="space-y-3 bg-gray-50 p-3.5 rounded-xl border">
-            <h4 class="text-xs font-bold text-gray-700">Tambah Front Section Baru</h4>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Judul Bagian</label>
-              <input type="text" id="newSecTitle" placeholder="Contoh: Our Love Story" class="w-full p-2 border rounded-xl text-xs bg-white">
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">ID Unik</label>
-              <input type="text" id="newSecId" placeholder="Contoh: love_story" class="w-full p-2 border rounded-xl text-xs bg-white">
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Template Layout</label>
-                <select id="newSecTemplate" class="w-full p-2 border rounded-xl text-xs bg-white">
-                  <option value="standard">Standard Center</option>
-                  <option value="card">Card Elegan</option>
-                  <option value="split">Split Layout</option>
-                  <option value="overlay">Full Overlay</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Stiker / Ikon</label>
-                <select id="newSecSticker" class="w-full p-2 border rounded-xl text-xs bg-white">
-                  <option value="fa-heart">❤️ Heart</option>
-                  <option value="fa-fire">🔥 Fire Vibe</option>
-                  <option value="fa-star">⭐ Star</option>
-                  <option value="fa-camera-retro">📷 Camera</option>
-                  <option value="fa-music">🎵 Music</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">URL Foto (Opsional)</label>
-              <input type="text" id="newSecPhotoInput" placeholder="https://..." class="w-full p-2 border rounded-xl text-xs bg-white">
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Isi Konten / Teks</label>
-              <textarea id="newSecContent" placeholder="Tulis teks atau cerita..." rows="2" class="w-full p-2 border rounded-xl text-xs bg-white"></textarea>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Subteks / Meta</label>
-              <input type="text" id="newSecMeta" placeholder="Subteks..." class="w-full p-2 border rounded-xl text-xs bg-white">
-            </div>
-            <button onclick="addNewSection()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-xs font-bold shadow transition">Tambah Section Ini ke DB</button>
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-2">Daftar Front Sections:</label>
-            <div id="sectionManagerList" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
-          </div>
-        </div>
-
-        <!-- Tab: 20 Scroll Modes -->
-        <div id="tab-scroll" class="editor-tab hidden space-y-4">
-          <div class="bg-pink-50 border border-pink-200 p-3 rounded-xl text-xs text-pink-800">
-            <i class="fa-solid fa-scroll mr-1"></i> <strong>20 Dynamic Scroll Modes:</strong> Pilih dari 20 gaya gulir dan transisi interaktif.
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-600 mb-1">Pilih Model Scroll (1 - 20)</label>
-            <select id="editScrollMode" class="w-full p-2.5 border rounded-xl text-sm bg-white font-bold text-pink-700">
-              <option value="mode1">Mode 1: Standar Scroll Vertikal</option>
-              <option value="mode2">Mode 2: Section Snap per Layar (Story Snap)</option>
-              <option value="mode3">Mode 3: Smooth Scrolling Halus</option>
-              <option value="mode4">Mode 4: Parallax Cinematic Shadow</option>
-              <option value="mode5">Mode 5: Story Zig-zag Bergantian</option>
-              <option value="mode6">Mode 6: Timeline Style (Lini Masa)</option>
-              <option value="mode7">Mode 7: Grid Feed Modern Layout</option>
-              <option value="mode8">Mode 8: Stacked Card Deck (Efek Tumpuk)</option>
-              <option value="mode9">Mode 9: Zoom-In Scale Effect</option>
-              <option value="mode10">Mode 10: Elegant Bordered Boxes</option>
-              <option value="mode11">Mode 11: Cyberpunk Glowing Neon Flow</option>
-              <option value="mode12">Mode 12: Floating Soft Rounded Cards</option>
-              <option value="mode13">Mode 13: Rotated Dynamic Angle Cards</option>
-              <option value="mode14">Mode 14: Sharp Minimalist Line Style</option>
-              <option value="mode15">Mode 15: Retro Brutalist Bold Box</option>
-              <option value="mode16">Mode 16: Bento Grid Style Feed</option>
-              <option value="mode17">Mode 17: Pastel Gradient Flow</option>
-              <option value="mode18">Mode 18: Glassmorphism Frosted Cards</option>
-              <option value="mode19">Mode 19: Editorial Serif Newspaper Style</option>
-              <option value="mode20">Mode 20: Immersive Fullscreen Fade Snap</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer Buttons -->
-      <div id="editorFooter" class="hidden bg-gray-50 px-6 py-3 border-t border-gray-100 flex items-center justify-between">
-        <button onclick="closeAdminModal()" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-xl text-sm font-bold">Batal</button>
-        <button onclick="saveChanges()" class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-md">Simpan & Perbarui ke Cloud</button>
       </div>
     </div>
   </div>
 
-  <!-- ================= QUICK EDIT SECTION MODAL ================= -->
-  <div id="quickEditModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-md rounded-2xl shadow-2xl p-6 space-y-4 relative">
-      <h3 class="font-syne text-lg font-bold text-gray-800">Edit Section Dinamis ✏️</h3>
-      <input type="hidden" id="qeIndex">
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Judul Bagian</label>
-        <input type="text" id="qeTitle" class="w-full p-2.5 border rounded-xl text-xs bg-white font-medium">
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1">Template Layout</label>
-          <select id="qeTemplate" class="w-full p-2.5 border rounded-xl text-xs bg-white font-medium">
-            <option value="standard">Standard Center</option>
-            <option value="card">Card Elegan</option>
-            <option value="split">Split Layout</option>
-            <option value="overlay">Full Overlay</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-gray-600 mb-1">Stiker / Ikon</label>
-          <select id="qeSticker" class="w-full p-2.5 border rounded-xl text-xs bg-white font-medium">
-            <option value="fa-heart">❤️ Heart</option>
-            <option value="fa-fire">🔥 Fire Vibe</option>
-            <option value="fa-star">⭐ Star</option>
-            <option value="fa-camera-retro">📷 Camera</option>
-            <option value="fa-music">🎵 Music</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Subteks / Meta</label>
-        <input type="text" id="qeMeta" class="w-full p-2.5 border rounded-xl text-xs bg-white font-medium">
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Isi Konten Utama</label>
-        <textarea id="qeContent" rows="3" class="w-full p-2.5 border rounded-xl text-xs bg-white font-medium"></textarea>
-      </div>
-      <div class="flex space-x-2 pt-2">
-        <button onclick="closeQuickEditModal()" class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-xl text-xs font-bold">Batal</button>
-        <button onclick="saveQuickEdit()" class="w-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-2 rounded-xl text-xs font-bold shadow">Simpan & Sync Cloud</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= SHARE MODAL ================= -->
   <div id="shareModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-5 text-center">
-      <h3 class="font-syne text-xl font-bold text-gray-800">Bagikan Undangan</h3>
-      <div class="space-y-3">
-        <button onclick="shareWhatsApp()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 shadow">
-          <i class="fa-brands fa-whatsapp text-lg"></i><span>Kirim via WhatsApp</span>
-        </button>
-        <button onclick="copyLink()" class="w-full bg-gray-100 text-gray-800 py-3 rounded-xl font-bold flex items-center justify-center space-x-2 border">
-          <i class="fa-solid fa-link text-lg"></i><span>Salin Link</span>
-        </button>
+    <div class="bg-slate-900 text-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden p-6 space-y-4 border border-slate-800">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
+        <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <button onclick="closeShareModal()" class="text-sm text-gray-400 font-semibold pt-2">Tutup</button>
+      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Super pendek, ringan, 100% anti-nyepam).</p>
+      <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
+        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (Clean Link)</span>
+      </button>
     </div>
   </div>
 
-  <!-- ================= QRIS MODAL ================= -->
-  <div id="qrisModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white text-gray-900 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-4 text-center relative">
-      <button onclick="closeQrisModal()" class="absolute top-4 right-4 text-gray-400"><i class="fa-solid fa-xmark text-lg"></i></button>
-      <h3 class="font-syne text-xl font-bold text-gray-800">Kado Digital ✨</h3>
-      <img id="qrisImgPreview" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QRIS" class="w-48 h-48 mx-auto rounded-xl border p-2 object-cover">
-      <p class="text-sm font-bold text-gray-800" id="qrisBankInfo">BCA : 1234567890</p>
-      <p class="text-xs text-gray-500" id="qrisOwnerInfo">a.n Rian Pratama</p>
-      <button onclick="copyAccountNum()" class="w-full bg-pink-600 text-white py-2.5 rounded-xl text-sm font-bold shadow">Salin Nomor Rekening</button>
-    </div>
-  </div>
-
-  <!-- TOAST -->
-  <div id="toastContainer" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden">
-    <div class="bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs font-bold flex items-center space-x-2 border border-emerald-500">
-      <i class="fa-solid fa-cloud-arrow-up text-emerald-400"></i>
-      <span id="toastText">Berhasil</span>
-    </div>
-  </div>
+  <audio id="bgMusic" loop><source id="musicSource" src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3"></audio>
 
   <script>
-    // URL Web App Google Apps Script Kamu
-    const GOOGLE_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbymtQDf6AYkrRCygAPsrsM6b19FeRhrpRKhZ3c1uUnTEsXbVXsF7OamD8rizt0Y7BQNgQ/exec"; 
-    
-    let appData = {
-      settings: {
-        couple_name: "Rian & Siska", event_date: "2026-10-25", opening_title: "The Wedding Of", opening_button: "Buka Undangan ✨",
-        font_family: "'Syne', sans-serif", theme_vibe: "y2k", frame_style: "frame-polaroid", section_frame: "sec-frame-1",
-        label_model: "label-model-1", scroll_mode: "mode1", music_url: "", admin_pin: "1234"
-      },
-      undangan: [
-        { sectionId: 'cover', title: 'Cover', content: 'Cover Undangan', meta: '25 Oktober 2026', status: 'active', order: 1, isTypewriter: false, typewriterSpeed: 100, templateLayout: 'overlay', stickerIcon: 'fa-heart', sectionPhoto: '' },
-        { sectionId: 'pembukaan', title: 'Doa & Vibe', content: 'Maha suci Allah yang telah menciptakan makhluk-nya berpasang-pasangan.', meta: 'QS. Ar-Rum: 21', status: 'active', order: 2, isTypewriter: true, typewriterSpeed: 100, templateLayout: 'card', stickerIcon: 'fa-fire', sectionPhoto: '' },
-        { sectionId: 'mempelai', title: 'The Main Character', content: 'Rian & Siska', meta: 'Putra & Putri Terbaik...', status: 'active', order: 3, isTypewriter: true, typewriterSpeed: 80, templateLayout: 'standard', stickerIcon: 'fa-star', sectionPhoto: '' },
-        { sectionId: 'galeri', title: 'Photo Dump', content: 'Momen Seru & Bahagia Kami', meta: 'Gallery', status: 'active', order: 4, isTypewriter: false, typewriterSpeed: 100, templateLayout: 'standard', stickerIcon: 'fa-camera-retro', sectionPhoto: '' },
-        { sectionId: 'countdown_sec', title: 'Countdown Hari-H', content: 'Menuju Hari Bahagia Kami ✨', meta: 'Time is ticking', status: 'active', order: 5, isTypewriter: false, typewriterSpeed: 100, templateLayout: 'card', stickerIcon: 'fa-clock', sectionPhoto: '' },
-        { sectionId: 'kado', title: 'Digital Gift', content: 'Kirim tanda kasih untuk kedua mempelai', meta: 'QRIS', status: 'active', order: 7, isTypewriter: false, typewriterSpeed: 100, templateLayout: 'card', stickerIcon: 'fa-heart', sectionPhoto: '' }
-      ],
-      galeri: [
-        { id: 1, category: 'Prewedding', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000', caption: 'Best Vibe Ever ✨' }
-      ]
+    const PUBLISH_DATA_BACKUP = ""; 
+
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toastNotification');
+        const msgEl = document.getElementById('toastMessage');
+        const iconEl = document.getElementById('toastIcon');
+        const contentEl = toast.querySelector('div');
+        if(!toast) return;
+
+        msgEl.innerText = message;
+        if(type === 'error') {
+            iconEl.className = "fa-solid fa-circle-exclamation text-rose-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-rose-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        } else {
+            iconEl.className = "fa-solid fa-circle-check text-pink-400 text-base";
+            contentEl.className = "bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-pink-500/30 backdrop-blur-md flex items-center space-x-3 text-xs";
+        }
+
+        toast.style.opacity = '1';
+        toast.style.pointerEvents = 'auto';
+        toast.style.transform = 'translate(-50%, 0)';
+
+        if(window.toastTimeout) clearTimeout(window.toastTimeout);
+        window.toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.pointerEvents = 'none';
+            toast.style.transform = 'translate(-50%, -20px)';
+        }, 3000);
+    }
+
+    const realFonts = [
+        "Plus Jakarta Sans", "Poppins", "Montserrat", "Playfair Display", "Cormorant Garamond",
+        "Great Vibes", "Dancing Script", "Sacramento", "Caveat", "Pacifico",
+        "Outfit", "Space Grotesk", "Syne", "Quicksand", "Urbanist",
+        "Cinzel", "DM Serif Display", "Bungee", "Lobster", "Oswald"
+    ];
+
+    // 20 Pilihan Warna Motif Gen-Z (Gen-Z Color Motifs)
+    const genZColorMotifs = {
+      cyber_neon: { name: "1. Cyberpunk Neon (Pink & Cyan)", bg: "#0f172a", text: "#f8fafc", accent: "#ec4899", secondary: "#06b6d4" },
+      y2k_hotpink: { name: "2. Y2K Hot Pink (Magenta & Silver)", bg: "#18181b", text: "#fafafa", accent: "#ff007f", secondary: "#a1a1aa" },
+      vaporwave: { name: "3. Vaporwave Synth (Purple & Mint)", bg: "#2e1065", text: "#f3e8ff", accent: "#c084fc", secondary: "#2dd4bf" },
+      coquette_bow: { name: "4. Coquette Pastel (Soft Pink & White)", bg: "#fff1f2", text: "#4c0519", accent: "#fb7185", secondary: "#fda4af" },
+      indie_sleaze: { name: "5. Indie Sleaze (Olive & Rust)", bg: "#1c1917", text: "#f5f5f4", accent: "#d97706", secondary: "#65a30d" },
+      hypebeast: { name: "6. Hypebeast Monotone (Black & Orange)", bg: "#09090b", text: "#ffffff", accent: "#f97316", secondary: "#52525b" },
+      holographic: { name: "7. Holographic Iridescent (Lavender & Turquoise)", bg: "#1e1b4b", text: "#e0e7ff", accent: "#818cf8", secondary: "#38bdf8" },
+      pastel_dream: { name: "8. Pastel Dream (Baby Blue & Peach)", bg: "#f0fdf4", text: "#14532d", accent: "#34d399", secondary: "#fb923c" },
+      dark_academia: { name: "9. Dark Academia (Espresso & Gold)", bg: "#1c1917", text: "#e7e5e4", accent: "#d4af37", secondary: "#78716c" },
+      bubblegum_pop: { name: "10. Bubblegum Pop (Electric Pink & Yellow)", bg: "#fdf4ff", text: "#701a75", accent: "#e879f9", secondary: "#facc15" },
+      retro_90s: { name: "11. Retro 90s (Teal & Mustard)", bg: "#042f2e", text: "#ccfbf1", accent: "#14b8a6", secondary: "#eab308" },
+      grunge_sludge: { name: "12. Grunge Sludge (Charcoal & Blood Red)", bg: "#0f0f0f", text: "#e5e5e5", accent: "#dc2626", secondary: "#404040" },
+      matcha_latte: { name: "13. Matcha Latte (Sage Green & Cream)", bg: "#f4f5f0", text: "#2c3e2d", accent: "#658354", secondary: "#b5c99a" },
+      sunset_chaser: { name: "14. Sunset Chaser (Coral & Deep Violet)", bg: "#31103c", text: "#ffe4e6", accent: "#fb7185", secondary: "#a855f7" },
+      electric_lime: { name: "15. Electric Lime (Neon Green & Black)", bg: "#000000", text: "#ffffff", accent: "#84cc16", secondary: "#22c55e" },
+      lavender_haze: { name: "16. Lavender Haze (Soft Purple & Silver)", bg: "#f5f3ff", text: "#3b0764", accent: "#8b5cf6", secondary: "#cbd5e1" },
+      cherry_cola: { name: "17. Cherry Cola (Burgundy & Cream)", bg: "#2d0612", text: "#fdf2f8", accent: "#9f1239", secondary: "#fbcfe8" },
+      matrix_code: { name: "18. Cyber Matrix (Matrix Green & Dark)", bg: "#022c22", text: "#ecfdf5", accent: "#10b981", secondary: "#065f46" },
+      barbiecore: { name: "19. Barbiecore Glow (Hot Pink & White)", bg: "#fdf2f8", text: "#831843", accent: "#db2777", secondary: "#f472b6" },
+      lofi_chill: { name: "20. Lofi Chill (Muted Blue & Warm Gray)", bg: "#1e293b", text: "#e2e8f0", accent: "#38bdf8", secondary: "#64748b" }
     };
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const guestName = urlParams.get('nama');
-      if (guestName) document.getElementById('guestNameContainer').innerText = decodeURIComponent(guestName);
-      
-      loadDataFromCloud();
-    });
+    // 20 Pilihan Tema / Template Motif Gen-Z Estetik
+    const eventPresetsList = {
+      y2k_cyber: {
+        badgeText: "✨ Y2K CYBER VIBES ✨", coupleName: "Rian & Siska", subText: "Calling All Besties", dateDisplay: "Sabtu, 14 Juli 2026", timeDisplay: "Pukul 15.00 WIB - Till Drop",
+        heroTitle: "Rian & Siska", heroSub: "Welcome to our futuristic cyber love story.",
+        quoteText: "Living in a digital matrix but my love for you is 100% real.",
+        titleMempelai: "The Main Characters", 
+        groomName: "Rian Cyber", groomParents: "Matrix Leader",
+        brideName: "Siska Neo", brideParents: "Cyber Queen",
+        titleLokasi: "Cyber Dome Arena", titleGift: "Digital Wallet QRIS", subGift: "Send virtual love & support.", titleRsvp: "RSVP Squad", footerCouple: "Rian & Siska Y2K",
+        coverBg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000"
+      },
+      coquette_core: {
+        badgeText: "🎀 COQUETTE CORE 🎀", coupleName: "Rian & Siska", subText: "A Delicate Romance", dateDisplay: "Minggu, 20 Agustus 2026", timeDisplay: "Pukul 10.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Soft ribbons, pink aesthetics, and endless love.",
+        quoteText: "Elegance is the only beauty that never fades away.",
+        titleMempelai: "The Couple", 
+        groomName: "Rian Gentleman", groomParents: "Son of Family",
+        brideName: "Siska Coquette", brideParents: "Daughter of Family",
+        titleLokasi: "Pink Rose Garden", titleGift: "Sweet Gift", subGift: "Your graceful presence is everything.", titleRsvp: "Guestbook", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000"
+      },
+      vaporwave_synth: {
+        badgeText: "🌴 VAPORWAVE 90S 🌴", coupleName: "Rian & Siska", subText: "Aesthetic Retro Memory", dateDisplay: "Sabtu, 12 September 2026", timeDisplay: "Pukul 16.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Aesthetic neon sunset vibes from another dimension.",
+        quoteText: "Entering a nostalgic synthwave dream where time stands still.",
+        titleMempelai: "Dreamers", 
+        groomName: "Rian Synth", groomParents: "Retro Master",
+        brideName: "Siska Wave", brideParents: "Neon Princess",
+        titleLokasi: "Retro Arcade Lounge", titleGift: "Crypto & Bank", subGift: "Support our aesthetic journey.", titleRsvp: "Check-in", footerCouple: "Vaporwave Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=1000"
+      },
+      indie_grunge: {
+        badgeText: "🎸 INDIE SLEAZE & GRUNGE 🎸", coupleName: "Rian & Siska", subText: "Raw & Unfiltered", dateDisplay: "Minggu, 18 Oktober 2026", timeDisplay: "Pukul 19.00 WIB - Till Drop",
+        heroTitle: "Rian & Siska", heroSub: "No filter, just pure indie rock soul.",
+        quoteText: "We were born to be real, not to be perfect.",
+        titleMempelai: "Indie Souls", 
+        groomName: "Rian Grunge", groomParents: "Guitarist",
+        brideName: "Siska Indie", brideParents: "Vocalist",
+        titleLokasi: "Warehouse Loft", titleGift: "Amplop Indie", subGift: "Keep the music playing.", titleRsvp: "RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000"
+      },
+      cyberpunk_neon: {
+        badgeText: "⚡ CYBERPUNK NEON ⚡", coupleName: "Rian & Siska", subText: "High Tech, Low Life Love", dateDisplay: "Sabtu, 21 November 2026", timeDisplay: "Pukul 20.00 WIB - End",
+        heroTitle: "Rian & Siska", heroSub: "Glow in the dark neon futuristic celebration.",
+        quoteText: "In a world of concrete and steel, our bond shines the brightest.",
+        titleMempelai: "Cyber Duo", 
+        groomName: "Rian Hacker", groomParents: "Tech Syndicate",
+        brideName: "Siska Neon", brideParents: "Grid Runner",
+        titleLokasi: "Neo Tokyo Club", titleGift: "QRIS Cyber", subGift: "Fuel our futuristic journey.", titleRsvp: "Access Pass", footerCouple: "Cyber Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1000"
+      },
+      pastel_dream: {
+        badgeText: "☁️ PASTEL DREAM VIBE ☁️", coupleName: "Rian & Siska", subText: "Soft Skies & Sweet Love", dateDisplay: "Minggu, 6 Desember 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Wrapped in fluffy clouds and pastel skies.",
+        quoteText: "Love is like a gentle breeze on a warm spring afternoon.",
+        titleMempelai: "The Sweethearts", 
+        groomName: "Rian Pastel", groomParents: "Cloud Gazer",
+        brideName: "Siska Dreamy", brideParents: "Sky Painter",
+        titleLokasi: "Pastel Glasshouse", titleGift: "Gift Box", subGift: "Your sweet prayers are everything.", titleRsvp: "Guestbook", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000"
+      },
+      dark_academia: {
+        badgeText: "📚 DARK ACADEMIA 📚", coupleName: "Rian & Siska", subText: "Poetry, Coffee & Old Books", dateDisplay: "Sabtu, 16 Januari 2027", timeDisplay: "Pukul 14.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "A classical romance written in ancient poetry books.",
+        quoteText: "To read is to voyage through time with someone you adore.",
+        titleMempelai: "Scholars", 
+        groomName: "Rian Scholar", groomParents: "Library Keepers",
+        brideName: "Siska Poet", brideParents: "Literature Guild",
+        titleLokasi: "Antique Library Hall", titleGift: "Book Fund", subGift: "Contribute to our endless library.", titleRsvp: "RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=1000"
+      },
+      hypebeast_drop: {
+        badgeText: "🔥 HYPEBEAST DROP 🔥", coupleName: "Rian & Siska", subText: "Exclusive Limited Edition", dateDisplay: "Minggu, 14 Februari 2027", timeDisplay: "Pukul 15.00 WIB - Till Drop",
+        heroTitle: "Rian & Siska Drop", heroSub: "The most hyped wedding of the year is finally here.",
+        quoteText: "Drip too hard, love too deep.",
+        titleMempelai: "Hype Icons", 
+        groomName: "Rian Hype", groomParents: "Streetwear Boss",
+        brideName: "Siska Drip", brideParents: "Fashion Icon",
+        titleLokasi: "Hype Studio Space", titleGift: "Cash Drop QRIS", subGift: "Cop the best memories with us.", titleRsvp: "VIP Access", footerCouple: "Hype Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1000"
+      },
+      bubblegum_pop: {
+        badgeText: "🫧 BUBBLEGUM POP 🫧", coupleName: "Rian & Siska", subText: "Fun, Loud & Colorful", dateDisplay: "Sabtu, 20 Maret 2027", timeDisplay: "Pukul 13.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Pop the champagne, we're throwing a massive party!",
+        quoteText: "Life is sweet like bubblegum when you're around.",
+        titleMempelai: "Pop Stars", 
+        groomName: "Rian Pop", groomParents: "Beat Maker",
+        brideName: "Siska Bubble", brideParents: "Party Planner",
+        titleLokasi: "Neon Pop Studio", titleGift: "Gift Registry", subGift: "Bring your best energy.", titleRsvp: "Party RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000"
+      },
+      holographic_glow: {
+        badgeText: "💿 HOLOGRAPHIC FUTURE 💿", coupleName: "Rian & Siska", subText: "Prismatic Dimension", dateDisplay: "Minggu, 18 April 2027", timeDisplay: "Pukul 16.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Shimmering through holographic dimensions of love.",
+        quoteText: "Reflecting all colors of the universe into one single heartbeat.",
+        titleMempelai: "Future Duo", 
+        groomName: "Rian Prism", groomParents: "Light Bender",
+        brideName: "Siska Holo", brideParents: "Spectrum Queen",
+        titleLokasi: "Prism Dome", titleGift: "Digital QRIS", subGift: "Shine bright with us.", titleRsvp: "Check-in", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=1000"
+      },
+      retro_arcade: {
+        badgeText: "🕹️ PIXEL ARCADE 90s 🕹️", coupleName: "Rian & Siska", subText: "Player 1 & Player 2 Ready", dateDisplay: "Sabtu, 15 Mei 2027", timeDisplay: "Pukul 15.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Insert coin to start our multiplayer forever stage.",
+        quoteText: "Game over for single life, high score for eternal love.",
+        titleMempelai: "Gamers", 
+        groomName: "Rian P1", groomParents: "Joystick Master",
+        brideName: "Siska P2", brideParents: "High Score Queen",
+        titleLokasi: "Pixel Arcade Center", titleGift: "Coin Drop", subGift: "Press START to join our celebration.", titleRsvp: "Player RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000"
+      },
+      minimalist_genz: {
+        badgeText: "🤍 CLEAN MINIMALIST 🤍", coupleName: "Rian & Siska", subText: "Less is More", dateDisplay: "Minggu, 6 Juni 2027", timeDisplay: "Pukul 10.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Clean aesthetics, quiet luxury, pure intentions.",
+        quoteText: "Simplicity is the ultimate sophistication.",
+        titleMempelai: "The Couple", 
+        groomName: "Rian Minimal", groomParents: "Clean Living",
+        brideName: "Siska Clean", brideParents: "Modern Design",
+        titleLokasi: "White Cube Gallery", titleGift: "Digital Transfer", subGift: "Your presence is valued.", titleRsvp: "RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000"
+      },
+      eboy_egirl: {
+        badgeText: "🖤 E-BOY & E-GIRL EDGE 🖤", coupleName: "Rian & Siska", subText: "TikTok & Discord Royalty", dateDisplay: "Sabtu, 10 Juli 2027", timeDisplay: "Pukul 20.00 WIB - End",
+        heroTitle: "Rian & Siska", heroSub: "Chains, oversized hoodies, and late night livestreams.",
+        quoteText: "Found my player two in the middle of the dark timeline.",
+        titleMempelai: "The Duo", 
+        groomName: "Rian E-Boy", groomParents: "Streamer Lead",
+        brideName: "Siska E-Girl", brideParents: "TikTok Queen",
+        titleLokasi: "Neon Cyber Lounge", titleGift: "Donation QRIS", subGift: "Drop a follow & attend.", titleRsvp: "Chat RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000"
+      },
+      cottagecore_vibes: {
+        badgeText: "🍄 COTTAGECORE VIBES 🍄", coupleName: "Rian & Siska", subText: "Mushrooms, Forests & Tea", dateDisplay: "Minggu, 8 Agustus 2027", timeDisplay: "Pukul 11.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Living quietly in a magical forest fairytale cottage.",
+        quoteText: "In the quiet woods, our hearts beat as one with nature.",
+        titleMempelai: "Forest Keepers", 
+        groomName: "Rian Forest", groomParents: "Nature Lover",
+        brideName: "Siska Meadow", brideParents: "Flower Gatherer",
+        titleLokasi: "Pine Forest Cottage", titleGift: "Nature Gift", subGift: "Breathe the fresh air with us.", titleRsvp: "Guestbook", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1000"
+      },
+      sunset_chaser: {
+        badgeText: "🌅 GOLDEN HOUR SUNSET 🌅", coupleName: "Rian & Siska", subText: "Chasing Golden Skies", dateDisplay: "Sabtu, 11 September 2027", timeDisplay: "Pukul 16.30 WIB - Sunset",
+        heroTitle: "Rian & Siska", heroSub: "Underneath the warm golden orange sky horizon.",
+        quoteText: "Every sunset brings the promise of a new dawn together.",
+        titleMempelai: "Sun Chasers", 
+        groomName: "Rian Horizon", groomParents: "Sun Seeker",
+        brideName: "Siska Amber", brideParents: "Sky Watcher",
+        titleLokasi: "Cliffside Sunset View", titleGift: "Sunset Fund", subGift: "Let's watch the sun go down.", titleRsvp: "RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?auto=format&fit=crop&q=80&w=1000"
+      },
+      cosmic_galaxy: {
+        badgeText: "🌌 COSMIC GALAXY 🌌", coupleName: "Rian & Siska", subText: "Written in the Stars", dateDisplay: "Minggu, 10 Oktober 2027", timeDisplay: "Pukul 19.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Two stardust souls colliding across the infinite universe.",
+        quoteText: "We are made of starstuff, destined to find each other in the cosmos.",
+        titleMempelai: "Stardust Souls", 
+        groomName: "Rian Cosmic", groomParents: "Star Navigator",
+        brideName: "Siska Nebula", brideParents: "Galaxy Weaver",
+        titleLokasi: "Starlight Observatory", titleGift: "Cosmic QRIS", subGift: "Join our stellar celebration.", titleRsvp: "Stellar Pass", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&q=80&w=1000"
+      },
+      baddie_lux: {
+        badgeText: "💎 BADDIE LUXURY VIBE 💎", coupleName: "Rian & Siska", subText: "High Class & Untouchable", dateDisplay: "Sabtu, 13 November 2027", timeDisplay: "Pukul 19.30 WIB - End",
+        heroTitle: "Rian & Siska Lux", heroSub: "Chic outfits, crystal champagne, and elite vibes.",
+        quoteText: "Elegance is an attitude when you run the room.",
+        titleMempelai: "Elite Couple", 
+        groomName: "Rian Boss", groomParents: "Executive Suite",
+        brideName: "Siska Baddie", brideParents: "Glamour Icon",
+        titleLokasi: "Penthouse Skyline", titleGift: "Black Card QRIS", subGift: "Dress to impress.", titleRsvp: "VIP List", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000"
+      },
+      skater_culture: {
+        badgeText: "🛹 SKATER CULTURE 🛹", coupleName: "Rian & Siska", subText: "Kickflip to Forever", dateDisplay: "Minggu, 5 Desember 2027", timeDisplay: "Pukul 15.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Ollie into our next big life chapter together.",
+        quoteText: "Life is like skateboarding, even when you fall, you get right back up.",
+        titleMempelai: "Skater Crew", 
+        groomName: "Rian Skater", groomParents: "Board Master",
+        brideName: "Siska Ramp", brideParents: "Street Style",
+        titleLokasi: "Urban Skatepark Arena", titleGift: "Skater Fund", subGift: "Bring your board and best vibes.", titleRsvp: "Crew RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?auto=format&fit=crop&q=80&w=1000"
+      },
+      lofi_chill: {
+        badgeText: "🎧 LOFI CHILL BEATS 🎧", coupleName: "Rian & Siska", subText: "Relax & Study Together", dateDisplay: "Sabtu, 1 Januari 2028", timeDisplay: "Pukul 16.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Lo-fi beats to relax, chill, and fall in love to.",
+        quoteText: "Peaceful quiet moments are the truest form of luxury.",
+        titleMempelai: "Lo-Fi Dreamers", 
+        groomName: "Rian Chill", groomParents: "Headphones On",
+        brideName: "Siska Lofi", brideParents: "Rainy Window",
+        titleLokasi: "Cozy Lofi Room", titleGift: "Coffee Fund", subGift: "Sit back, relax, and enjoy.", titleRsvp: "Chill RSVP", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1000"
+      },
+      aesthetic_loft: {
+        badgeText: "🌿 AESTHETIC LOFT 🌿", coupleName: "Rian & Siska", subText: "Plants, Sunlit Windows & Art", dateDisplay: "Minggu, 20 Januari 2028", timeDisplay: "Pukul 10.00 WIB - Selesai",
+        heroTitle: "Rian & Siska", heroSub: "Sunny plant-filled apartment loft celebration.",
+        quoteText: "Creating a sanctuary of love in the middle of the city.",
+        titleMempelai: "Loft Owners", 
+        groomName: "Rian Loft", groomParents: "Plant Dad",
+        brideName: "Siska Art", brideParents: "Interior Stylist",
+        titleLokasi: "Sunlit Urban Loft", titleGift: "Housewarming Gift", subGift: "Make yourself at home.", titleRsvp: "Guestbook", footerCouple: "Rian & Siska",
+        coverBg: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1000"
+      }
+    };
 
-    function showToast(msg) {
-      const t = document.getElementById('toastContainer');
-      document.getElementById('toastText').innerText = msg;
-      t.classList.remove('hidden');
-      setTimeout(() => t.classList.add('hidden'), 3500);
+    const defaultText = {
+      coupleName: "Rian & Siska", badgeText: "The Wedding Of", subText: "Kepada Yth. Bestie & Tamu Undangan", 
+      dateDisplay: "Minggu, 25 Oktober 2026", timeDisplay: "Pukul 09.00 WIB - Selesai",
+      heroTitle: "Rian & Siska", heroSub: "Kami sangat bersyukur atas kehadiran & doa restu Anda.",
+      quoteText: "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri...",
+      titleMempelai: "Profil Tuan Rumah", 
+      groomName: "Rian Pratama", groomParents: "Putra dari Bpk. Budi & Ibu Ani", 
+      brideName: "Siska Amalia", brideParents: "Putri dari Bpk. Joko & Ibu Sri",
+      titleLokasi: "Lokasi Acara", alamat: "Gedung Serbaguna Jakarta\nJl. Sudirman No. 1",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Gedung+Serbaguna+Jakarta",
+      titleGift: "Amplop Digital", subGift: "Doa restu Anda sangat berarti bagi kami.",
+      titleRsvp: "Ucapan & Kehadiran", footerCouple: "Rian & Siska"
+    };
+
+    let textElements = {};
+    for(let k in defaultText) {
+        let isTl = (k !== 'alamat' && k !== 'quoteText');
+        textElements[k] = { text: defaultText[k], typewriter: isTl };
     }
 
-    function toggleMode() {
-      showToast("🔄 Mengecek koneksi ke Cloud DB...");
-      loadDataFromCloud();
+    let giftConfig = { bank: "Bank BCA", number: "1234567890", owner: "A.N Rian Pratama", qrisImage: "", visible: true };
+    let adminAuth = { pin: "1234", email: "admin@ariyanto.com", emailjsServiceId: "", emailjsTemplateId: "", emailjsPublicKey: "" };
+    let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
+    let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
+    let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
+    let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+    let currentCategoryKey = 'y2k_cyber';
+    
+    let ultimateConfig = { 
+        font: "Plus Jakarta Sans", 
+        colorMotif: "cyber_neon",
+        coverBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000", 
+        musicUrl: "https://www.bensound.com/bensound-music/bensound-love.mp3", 
+        musicVolume: 0.5, 
+        videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        typewriterSpeed: 30, 
+        photoFrame: "frame-polaroid",
+        profile1Img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400", 
+        profile2Img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+    };
+
+    let sectionPhotos = { hero: [], quotes: [], mempelai: [], video: [], lokasi: [], amplop: [], rsvp: [] };
+    let sectionPhotoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true };
+    let sectionMicroVideos = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+    let sectionMicroVideoVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionBackgrounds = { hero: '', quotes: '', mempelai: '', video: '', lokasi: '', amplop: '', rsvp: '', footer: '' };
+    let sectionBackgroundVisibility = { hero: true, quotes: true, mempelai: true, video: true, lokasi: true, amplop: true, rsvp: true, footer: true };
+    let sectionBackgroundDimmer = { hero: 0.9, quotes: 0.9, mempelai: 0.9, video: 0.9, lokasi: 0.9, amplop: 0.9, rsvp: 0.9, footer: 0.9 };
+
+    let isPlaying = false;
+
+    function compressImageFile(file, callback, maxWidth = 800, quality = 0.7) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+                if(width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; }
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                callback(canvas.toDataURL('image/jpeg', quality));
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
     }
 
-    async function loadDataFromCloud() {
-      if (!GOOGLE_SCRIPT_API_URL || GOOGLE_SCRIPT_API_URL === "TARUH_URL_WEB_APP_GS_DISINI") {
-        showToast("⚠️ Peringatan: URL API GS Belum Diisi, pakai mode offline.");
-        loadLocalFallback();
-      } else {
-        try {
-          const response = await fetch(GOOGLE_SCRIPT_API_URL);
-          const data = await response.json();
-          
-          if (data && data.settings) {
-            appData = data;
-            localStorage.setItem('undangan_master_data_v2.8', JSON.stringify(appData));
-            document.getElementById('syncStatusBadge').innerText = "🟢 Tersinkronisasi";
-          } else {
-            showToast("⚠️ Sheet kosong, menggunakan default app.");
-          }
-        } catch (e) {
-          console.error("Gagal load DB:", e);
-          document.getElementById('syncStatusBadge').innerText = "🔴 Offline Mode";
-          showToast("⚠️ Gagal koneksi cloud, pakai mode offline lokal.");
-          loadLocalFallback();
+    function applyDataDump(data) {
+        if(data.textElements) textElements = data.textElements;
+        if(data.adminAuth) adminAuth = data.adminAuth;
+        if(data.ultimateConfig) ultimateConfig = data.ultimateConfig;
+        if(data.sectionPhotos) sectionPhotos = data.sectionPhotos;
+        if(data.sectionPhotoVisibility) sectionPhotoVisibility = data.sectionPhotoVisibility;
+        if(data.sectionMicroVideos) sectionMicroVideos = data.sectionMicroVideos;
+        if(data.sectionMicroVideoVisibility) sectionMicroVideoVisibility = data.sectionMicroVideoVisibility;
+        if(data.sectionBackgrounds) sectionBackgrounds = data.sectionBackgrounds;
+        if(data.sectionBackgroundVisibility) sectionBackgroundVisibility = data.sectionBackgroundVisibility;
+        if(data.sectionBackgroundDimmer) sectionBackgroundDimmer = data.sectionBackgroundDimmer;
+        if(data.attendanceList) attendanceList = data.attendanceList;
+        if(data.guestDatabase) guestDatabase = data.guestDatabase;
+        if(data.giftConfig) giftConfig = data.giftConfig;
+        if(data.waTemplate) waTemplate = data.waTemplate;
+        if(data.sectionOrder) sectionOrder = data.sectionOrder;
+        if(data.currentCategoryKey) currentCategoryKey = data.currentCategoryKey;
+    }
+
+    function initApp() {
+        let hasData = false;
+        if (PUBLISH_DATA_BACKUP && PUBLISH_DATA_BACKUP.trim() !== "") {
+            try {
+                const data = JSON.parse(decodeURIComponent(atob(PUBLISH_DATA_BACKUP.trim())));
+                applyDataDump(data);
+                hasData = true;
+            } catch(e) {}
         }
-      }
-      refreshAllUI();
+
+        if (!hasData) {
+            if(localStorage.getItem('ari_textElements_v83')) {
+                textElements = JSON.parse(localStorage.getItem('ari_textElements_v83'));
+                if(localStorage.getItem('ari_adminAuth_v83')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v83'));
+                if(localStorage.getItem('ari_sectionPhotos_v83')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v83'));
+                if(localStorage.getItem('ari_sectionPhotoVisibility_v83')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v83'));
+                if(localStorage.getItem('ari_sectionMicroVideos_v83')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v83'));
+                if(localStorage.getItem('ari_sectionMicroVideoVisibility_v83')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v83'));
+                if(localStorage.getItem('ari_sectionBackgrounds_v83')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v83'));
+                if(localStorage.getItem('ari_sectionBackgroundVisibility_v83')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v83'));
+                if(localStorage.getItem('ari_sectionBackgroundDimmer_v83')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v83'));
+                if(localStorage.getItem('ari_attendanceList_v83')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v83'));
+                if(localStorage.getItem('ari_guestDatabase_v83')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v83'));
+                if(localStorage.getItem('ari_giftConfig_v83')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v83')) };
+                if(localStorage.getItem('ari_waTemplate_v83')) waTemplate = localStorage.getItem('ari_waTemplate_v83');
+                if(localStorage.getItem('ari_sectionOrder_v83')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v83'));
+                if(localStorage.getItem('ari_currentCategory_v83')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v83');
+                if(localStorage.getItem('ari_ultimateConfig_v83')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v83')) };
+            }
+        }
     }
 
-    function loadLocalFallback() {
-      const saved = localStorage.getItem('undangan_master_data_v2.8');
-      if (saved) { try { appData = JSON.parse(saved); } catch(e){} }
+    initApp();
+
+    function saveAllDataToDevice() {
+        try {
+            localStorage.setItem('ari_textElements_v83', JSON.stringify(textElements));
+            localStorage.setItem('ari_adminAuth_v83', JSON.stringify(adminAuth));
+            localStorage.setItem('ari_sectionPhotos_v83', JSON.stringify(sectionPhotos));
+            localStorage.setItem('ari_sectionPhotoVisibility_v83', JSON.stringify(sectionPhotoVisibility));
+            localStorage.setItem('ari_sectionMicroVideos_v83', JSON.stringify(sectionMicroVideos));
+            localStorage.setItem('ari_sectionMicroVideoVisibility_v83', JSON.stringify(sectionMicroVideoVisibility));
+            localStorage.setItem('ari_sectionBackgrounds_v83', JSON.stringify(sectionBackgrounds));
+            localStorage.setItem('ari_sectionBackgroundVisibility_v83', JSON.stringify(sectionBackgroundVisibility));
+            localStorage.setItem('ari_sectionBackgroundDimmer_v83', JSON.stringify(sectionBackgroundDimmer));
+            localStorage.setItem('ari_attendanceList_v83', JSON.stringify(attendanceList));
+            localStorage.setItem('ari_guestDatabase_v83', JSON.stringify(guestDatabase));
+            localStorage.setItem('ari_giftConfig_v83', JSON.stringify(giftConfig));
+            localStorage.setItem('ari_waTemplate_v83', waTemplate);
+            localStorage.setItem('ari_sectionOrder_v83', JSON.stringify(sectionOrder));
+            localStorage.setItem('ari_currentCategory_v83', currentCategoryKey);
+            localStorage.setItem('ari_ultimateConfig_v83', JSON.stringify(ultimateConfig));
+        } catch (e) {
+            showToast('Penyimpanan penuh!', 'error');
+        }
     }
 
-    async function saveToCloud() {
-      localStorage.setItem('undangan_master_data_v2.8', JSON.stringify(appData));
+    function generateShareableLink(guestName = '') {
+        const baseUrl = window.location.origin + window.location.pathname;
+        let queryParams = [`cat=${currentCategoryKey}`];
+        if(guestName) queryParams.push(`to=${encodeURIComponent(guestName)}`);
+        return `${baseUrl}?${queryParams.join('&')}`;
+    }
+
+    const adminModules = [
+      { id: 'kategoriAcara', title: '20 Tema Gen-Z', desc: 'Pilih Preset Teks Acara', icon: 'fa-calendar-days', gradient: 'from-pink-600 to-amber-600' },
+      { id: 'colorMotifs', title: '20 Warna Motif', desc: 'Pilih Skema Warna Gen-Z', icon: 'fa-palette', gradient: 'from-indigo-600 to-pink-600' },
+      { id: 'animasiStiker', title: 'Video Kecil (Micro-Video)', desc: 'Upload Video MP4/Section', icon: 'fa-video', gradient: 'from-purple-600 to-pink-600' },
+      { id: 'sectionBackgrounds', title: 'Background & Dimer', desc: 'Upload Foto & Kontras Redup', icon: 'fa-image', gradient: 'from-teal-600 to-emerald-600' },
+      { id: 'sectionReorder', title: 'Tata Letak Section', desc: 'Geser Posisi Naik/Turun', icon: 'fa-layer-group', gradient: 'from-cyan-600 to-blue-600' },
+      { id: 'dynamicPhotos', title: 'Multi-Foto Dokumentasi', desc: 'Upload Galeri & Hapus', icon: 'fa-images', gradient: 'from-rose-600 to-orange-600' },
+      { id: 'databaseWarga', title: 'Database Warga & Wa.me', desc: 'Kirim WA Otomatis', icon: 'fa-address-book', gradient: 'from-emerald-600 to-teal-600' },
+      { id: 'bingkaiGenZ', title: 'Bingkai & Kecepatan', desc: 'Bingkai Foto & Typewriter', icon: 'fa-wand-magic-sparkles', gradient: 'from-fuchsia-600 to-pink-600' },
+      { id: 'design', title: 'Desain & 20 Font', desc: 'Pilih Font, Prewed, Profil', icon: 'fa-pen-nib', gradient: 'from-pink-500 to-rose-500' },
+      { id: 'music', title: 'Musik & Video', desc: 'Upload MP3 & Video Real-Time', icon: 'fa-music', gradient: 'from-indigo-500 to-purple-600' },
+      { id: 'textTable', title: 'Tabel Auto-Teks', desc: 'Ubah Semua Teks', icon: 'fa-table', gradient: 'from-blue-500 to-cyan-500' },
+      { id: 'gift', title: 'Amplop & QRIS', desc: 'Upload QRIS & Rekening', icon: 'fa-gift', gradient: 'from-emerald-500 to-teal-500' },
+      { id: 'keamananAkun', title: 'Keamanan & Email', desc: 'PIN & EmailJS Config', icon: 'fa-user-shield', gradient: 'from-slate-700 to-indigo-900' },
+      { id: 'guests', title: 'Buku Tamu', desc: 'Rekap Kehadiran (RSVP)', icon: 'fa-comments', gradient: 'from-amber-500 to-orange-500' },
+      { id: 'backup', title: 'Backup & Publish', desc: 'Export HTML Data', icon: 'fa-cloud-arrow-up', gradient: 'from-gray-700 to-gray-900' }
+    ];
+
+    function renderDashboardCards() {
+      const grid = document.getElementById('dashboardCardsGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      adminModules.forEach(mod => {
+        grid.innerHTML += `
+          <div onclick="openAdminModule('${mod.id}')" class="bg-gradient-to-br ${mod.gradient} p-4 rounded-2xl shadow-lg cursor-pointer transform hover:scale-105 transition active:scale-95 flex flex-col justify-between space-y-2 text-white border border-white/10">
+            <div class="flex justify-between items-start">
+              <div class="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-base"><i class="fa-solid ${mod.icon}"></i></div>
+            </div>
+            <div><h4 class="font-bold text-xs">${mod.title}</h4><p class="text-[10px] text-white/80 leading-tight">${mod.desc}</p></div>
+          </div>
+        `;
+      });
+    }
+
+    function openAdminModule(id) {
+      document.getElementById('adminDashboardView').classList.add('hidden');
+      document.getElementById('adminModuleView').classList.remove('hidden');
+      const area = document.getElementById('moduleContentArea');
       
-      if (!GOOGLE_SCRIPT_API_URL || GOOGLE_SCRIPT_API_URL === "TARUH_URL_WEB_APP_GS_DISINI") {
-        showToast("✅ Tersimpan di LocalStorage (API GS belum diset).");
-        return;
+      if (id === 'kategoriAcara') {
+          let optionsHtml = '';
+          for (let key in eventPresetsList) {
+              optionsHtml += `<option value="${key}" ${currentCategoryKey === key ? 'selected' : ''}>${eventPresetsList[key].badgeText} - ${eventPresetsList[key].coupleName}</option>`;
+          }
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">🔥 20 Template Tema Gen-Z</h4>
+            <div class="space-y-2 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <select id="selectEventPreset" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${optionsHtml}</select>
+                <button onclick="applyEventPreset()" class="w-full bg-gradient-to-r from-pink-600 to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Tema Gen-Z</button>
+            </div>
+          </div>`;
       }
-      
-      try {
-        showToast("⏳ Menyimpan perubahan ke Database Google Sheets...");
-        await fetch(GOOGLE_SCRIPT_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(appData)
+      else if (id === 'colorMotifs') {
+          let motifOpts = '';
+          for (let k in genZColorMotifs) {
+              motifOpts += `<option value="${k}" ${ultimateConfig.colorMotif === k ? 'selected' : ''}>${genZColorMotifs[k].name}</option>`;
+          }
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-pink-400 text-sm">🎨 20 Layout Motif Warna Gen-Z</h4>
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+              <label class="block text-slate-300 font-bold">Pilih Skema Warna Estetik:</label>
+              <select id="selectColorMotif" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">${motifOpts}</select>
+              <button onclick="applySelectedColorMotif()" class="w-full bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg mt-2">Terapkan Motif Warna</button>
+            </div>
+          </div>`;
+      }
+      else if (id === 'animasiStiker') {
+          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+          let htmlSections = '';
+          sections.forEach(s => {
+              let currentUrl = sectionMicroVideos[s] || '';
+              let isChecked = sectionMicroVideoVisibility[s] !== false ? 'checked' : '';
+              let previewHtml = currentUrl ? `<video src="${currentUrl}" class="h-12 w-12 object-cover rounded mb-2 border border-slate-500" autoplay muted loop playsinline></video>` : '';
+              
+              htmlSections += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-200 capitalize">Section: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                    <input type="checkbox" id="visMicro-${s}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                    <span>Tampilkan Video</span>
+                  </label>
+                </div>
+                ${previewHtml}
+                <input type="text" id="microVideoInput-${s}" value="${currentUrl}" placeholder="URL MP4" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
+                <div class="pt-1">
+                  <label class="text-[10px] text-slate-400 block">Atau Upload File MP4:</label>
+                  <input type="file" accept="video/mp4" onchange="handleCustomMicroVideoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-purple-600 file:text-white mt-1">
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-purple-400 text-sm">🎥 Video Kecil Dinamis</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlSections}</div>
+            <button onclick="saveAllMicroVideos()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Video</button>
+          </div>`;
+      }
+      else if (id === 'sectionBackgrounds') {
+          const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+          let htmlBg = '';
+          sections.forEach(s => {
+              let currentUrl = sectionBackgrounds[s] || '';
+              let isChecked = sectionBackgroundVisibility[s] !== false ? 'checked' : '';
+              let currentDimmer = sectionBackgroundDimmer[s] !== undefined ? sectionBackgroundDimmer[s] : 0.9;
+              let previewHtml = currentUrl ? `<img src="${currentUrl}" class="h-12 w-full object-cover rounded mb-2 border border-slate-500">` : '';
+              
+              htmlBg += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-teal-300 capitalize">Background: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-teal-300 font-bold">
+                    <input type="checkbox" id="visBg-${s}" ${isChecked} class="w-4 h-4 accent-teal-600 rounded cursor-pointer">
+                    <span>Aktifkan</span>
+                  </label>
+                </div>
+                ${previewHtml}
+                <input type="text" id="bgUrlInput-${s}" value="${currentUrl}" placeholder="URL Background" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 text-xs">
+                <div class="pt-1">
+                  <label class="text-[10px] text-slate-400 block">Atau Upload Foto:</label>
+                  <input type="file" accept="image/*" onchange="handleSectionBackgroundUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-teal-600 file:text-white mt-1">
+                </div>
+                <div class="pt-2 border-t border-slate-700">
+                  <div class="flex justify-between text-[11px] text-slate-300 mb-1">
+                    <span>💡 Dimer Kontras / Redup</span>
+                    <span id="dimmerValText-${s}" class="font-mono text-teal-400">${Math.round(currentDimmer * 100)}%</span>
+                  </div>
+                  <input type="range" id="dimmerInput-${s}" min="0.1" max="1.0" step="0.05" value="${currentDimmer}" oninput="document.getElementById('dimmerValText-${s}').innerText = Math.round(this.value * 100) + '%'" class="w-full accent-teal-500 cursor-pointer">
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-teal-400 text-sm">🖼️ Background & Dimer Tiap Section</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${htmlBg}</div>
+            <button onclick="saveAllSectionBackgrounds()" class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Background</button>
+          </div>`;
+      }
+      else if (id === 'sectionReorder') {
+          let listHtml = '';
+          sectionOrder.forEach((key, idx) => {
+              listHtml += `
+              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
+                <span class="font-bold text-cyan-300 capitalize">${idx+1}. ${key}</span>
+                <div class="flex space-x-1">
+                  <button onclick="moveSection(${idx}, -1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-up"></i></button>
+                  <button onclick="moveSection(${idx}, 1)" class="bg-slate-700 hover:bg-slate-600 text-white px-2.5 py-1 rounded"><i class="fa-solid fa-arrow-down"></i></button>
+                </div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-cyan-400 text-sm">📐 Tata Letak Section</h4>
+            <div class="space-y-2">${listHtml}</div>
+          </div>`;
+      }
+      else if (id === 'dynamicPhotos') {
+          const secs = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+          let photoAdminHtml = '';
+          secs.forEach(s => {
+              let currentArr = sectionPhotos[s] || [];
+              let isVisible = sectionPhotoVisibility[s] !== false ? 'checked' : '';
+              let thumbsHtml = '';
+              currentArr.forEach((imgUrl, imgIdx) => {
+                  thumbsHtml += `
+                    <div class="relative w-16 h-16 rounded-lg overflow-hidden border border-slate-600 bg-slate-900 flex items-center justify-center">
+                      <img src="${imgUrl}" class="w-full h-full object-cover">
+                      <button onclick="removeSectionPhoto('${s}', ${imgIdx})" class="absolute top-0 right-0 bg-rose-600 text-white w-5 h-5 text-[10px] flex items-center justify-center rounded-bl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>`;
+              });
+              photoAdminHtml += `
+              <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-rose-300 capitalize">Galeri: ${s}</span>
+                  <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                    <input type="checkbox" id="visPhoto-${s}" ${isVisible} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                    <span>Tampilkan</span>
+                  </label>
+                </div>
+                <input type="file" accept="image/*" multiple onchange="handleMultiPhotoUpload(event, '${s}')" class="w-full text-[10px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-rose-600 file:text-white">
+                <div class="grid grid-cols-3 gap-2 pt-2">${thumbsHtml || '<span class="text-[10px] text-slate-500 italic col-span-3">Belum ada foto</span>'}</div>
+              </div>`;
+          });
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-rose-400 text-sm">📸 Upload Multi-Foto Dokumentasi</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${photoAdminHtml}</div>
+            <button onclick="saveMultiPhotoConfig()" class="w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Setelan Foto</button>
+          </div>`;
+      }
+      else if (id === 'databaseWarga') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">👥 Database Warga & Sharelok</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <input type="text" id="newWargaName" placeholder="Nama Tamu" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="newWargaPhone" placeholder="No WA (0812...)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
+              <input type="text" id="newWargaSharelok" placeholder="Link Sharelok (Opsional)" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs mt-2">
+              <button onclick="addWargaToDb()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold mt-2">Simpan ke Database</button>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Template Pesan WA</label>
+              <textarea id="adminWaTemplate" rows="3" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">${waTemplate}</textarea>
+              <button onclick="saveAdminWaTemplate()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Simpan Template</button>
+            </div>
+            <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
+          </div>`;
+          setTimeout(renderAdminWargaList, 50);
+      }
+      else if (id === 'bingkaiGenZ') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-fuchsia-400 text-sm">✨ Bingkai Foto & Kecepatan Typewriter</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Pilih Model Bingkai</label>
+              <select id="selectPhotoFrame" class="w-full p-2.5 bg-slate-900 border border-slate-600 rounded text-pink-300 font-bold">
+                <option value="frame-polaroid" ${ultimateConfig.photoFrame === 'frame-polaroid' ? 'selected' : ''}>Polaroid Real Classic</option>
+                <option value="frame-neon" ${ultimateConfig.photoFrame === 'frame-neon' ? 'selected' : ''}>Neon Cyberpunk Glow</option>
+                <option value="frame-glass" ${ultimateConfig.photoFrame === 'frame-glass' ? 'selected' : ''}>Glassmorphic Blur</option>
+                <option value="frame-cyber" ${ultimateConfig.photoFrame === 'frame-cyber' ? 'selected' : ''}>Cyberpunk Shadow</option>
+                <option value="frame-hologram" ${ultimateConfig.photoFrame === 'frame-hologram' ? 'selected' : ''}>Holographic Gradient</option>
+                <option value="frame-none" ${ultimateConfig.photoFrame === 'frame-none' ? 'selected' : ''}>Tanpa Bingkai (Normal)</option>
+              </select>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">Kecepatan Typewriter (ms)</label>
+              <input type="number" id="inputTypingSpeed" value="${ultimateConfig.typewriterSpeed || 30}" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+            </div>
+            <button onclick="saveGenZFrameAndSpeed()" class="w-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-lg">Simpan Gen-Z Options</button>
+          </div>`;
+      }
+      else if (id === 'design') {
+        let fontOptions = realFonts.map(f => `<option value="${f}" ${ultimateConfig.font === f ? 'selected' : ''}>${f}</option>`).join('');
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-pink-400 text-sm">🎨 Desain, 20 Font & Foto Utama</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold">1. Pilih Dari 20 Pilihan Font (Text Front)</label>
+              <select id="editFont" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-cyan-300 font-bold">${fontOptions}</select>
+            </div>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-pink-300">2. Foto Prewedding (Cover)</label>
+              ${ultimateConfig.coverBg ? `<img src="${ultimateConfig.coverBg}" class="h-16 w-32 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'prewed')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-pink-600 file:text-white">
+            </div>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-blue-300">3. Foto Profil Tuan Rumah 1</label>
+              ${ultimateConfig.profile1Img ? `<img src="${ultimateConfig.profile1Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile1')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-blue-600 file:text-white">
+            </div>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <label class="block text-slate-300 font-bold text-amber-300">4. Foto Profil Tuan Rumah 2</label>
+              ${ultimateConfig.profile2Img ? `<img src="${ultimateConfig.profile2Img}" class="h-16 w-16 object-cover rounded mb-1 border border-slate-600">` : ''}
+              <input type="file" accept="image/*" onchange="handleImageUpload(event, 'profile2')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-amber-600 file:text-white">
+            </div>
+            
+            <button onclick="saveDesignConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Desain</button>
+          </div>`;
+      }
+      else if (id === 'music') {
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🎵 Musik & Video Utama</h4>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+                <label class="block text-slate-300 font-bold">Volume Musik</label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="${ultimateConfig.musicVolume}" onchange="changeVolume(this.value)" class="w-full accent-pink-500">
+                
+                <label class="block text-slate-300 font-bold pt-2">Link Audio MP3 Terpasang:</label>
+                ${ultimateConfig.musicUrl ? `<audio controls src="${ultimateConfig.musicUrl}" class="w-full h-8 mb-2 opacity-80"></audio>` : ''}
+                <input type="text" id="inputMusicUrl" value="${ultimateConfig.musicUrl || ''}" placeholder="URL MP3..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                
+                <label class="block text-[10px] text-slate-400">Atau Upload MP3 dari HP Anda:</label>
+                <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white">
+            </div>
+            
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+                <label class="block text-slate-300 font-bold text-cyan-300">Link Video Utama (MP4) Terpasang:</label>
+                ${ultimateConfig.videoUrl ? `<video controls src="${ultimateConfig.videoUrl}" class="w-full h-32 object-cover rounded-lg mb-2 border border-slate-600"></video>` : ''}
+                <input type="text" id="inputVideoUrl" value="${ultimateConfig.videoUrl || ''}" placeholder="URL MP4..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+                
+                <label class="block text-[10px] text-slate-400">Atau Upload Video dari HP Anda:</label>
+                <input type="file" accept="video/mp4" onchange="handleVideoUpload(event)" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-cyan-600 file:text-white">
+            </div>
+            
+            <button onclick="saveMusicAndVideoConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Musik & Video</button>
+          </div>`;
+      }
+      else if (id === 'textTable') {
+        let rows = '';
+        for(let key in defaultText) { 
+            let item = textElements[key] !== undefined ? textElements[key] : { text: defaultText[key], typewriter: true };
+            let isChecked = item.typewriter !== false ? 'checked' : '';
+            rows += `
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-cyan-400 font-mono text-[11px] font-bold capitalize">${key.replace(/([A-Z])/g, ' $1')}</span>
+                <label class="flex items-center space-x-1.5 cursor-pointer text-[11px] text-pink-300 font-bold">
+                  <input type="checkbox" id="tw-${key}" ${isChecked} class="w-4 h-4 accent-pink-600 rounded cursor-pointer">
+                  <span>Typewriter</span>
+                </label>
+              </div>
+              <textarea id="txt-${key}" rows="2" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-xs text-white resize-y leading-relaxed">${item.text}</textarea>
+            </div>`; 
+        }
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-blue-400 text-sm">📋 Kolom Tabel Auto-Teks</h4>
+            <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 pb-4">${rows}</div>
+            <button type="button" onclick="saveTextTable()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Teks</button>
+          </div>`;
+      }
+      else if (id === 'gift') {
+        let isAmplopVisible = giftConfig.visible !== false ? 'checked' : '';
+        area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-emerald-400 text-sm">🎁 Kolom Amplop & QRIS</h4>
+            <div class="space-y-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-700">
+                  <span class="font-bold text-white">Tampilkan Amplop Digital</span>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="toggleAmplopVisible" ${isAmplopVisible} class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                  </label>
+                </div>
+                
+                <div class="pt-2 border-t border-slate-700 mt-2">
+                  <label class="block text-slate-300 font-bold mb-1 text-emerald-300">Upload Barcode QRIS Saat Ini:</label>
+                  ${giftConfig.qrisImage ? `<img src="${giftConfig.qrisImage}" class="h-24 object-contain rounded mb-2 bg-white border border-slate-500 p-1">` : '<p class="text-slate-500 italic mb-2">Belum ada QRIS yang diupload</p>'}
+                  <input type="file" accept="image/*" onchange="handleImageUpload(event, 'qris')" class="w-full text-[10px] text-slate-400 file:mr-3 file:py-1 file:px-3 file:rounded file:bg-emerald-600 file:text-white file:border-0">
+                </div>
+                
+                <div class="pt-2 border-t border-slate-700 mt-2">
+                  <label class="block text-slate-300 font-bold mb-1">Nama Bank / E-Wallet</label>
+                  <input type="text" id="inputBankName" value="${giftConfig.bank}" placeholder="Misal: Bank BCA" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
+                <div class="pt-1">
+                  <label class="block text-slate-300 font-bold mb-1">Nomor Rekening</label>
+                  <input type="text" id="inputRekNumber" value="${giftConfig.number}" placeholder="Nomor..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
+                <div class="pt-1">
+                  <label class="block text-slate-300 font-bold mb-1">Atas Nama (Pemilik Rekening)</label>
+                  <input type="text" id="inputRekOwner" value="${giftConfig.owner}" placeholder="Nama pemilik..." class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white">
+                </div>
+            </div>
+            <button onclick="saveGiftConfig()" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold">Simpan Kolom Amplop</button>
+          </div>`;
+      }
+      else if (id === 'keamananAkun') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-indigo-400 text-sm">🔒 Keamanan & Email Asli</h4>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-cyan-300 text-[11px]">Konfigurasi EmailJS</h5>
+              <input type="text" id="ejsServiceId" value="${adminAuth.emailjsServiceId || ''}" placeholder="Service ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsTemplateId" value="${adminAuth.emailjsTemplateId || ''}" placeholder="Template ID" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="text" id="ejsPublicKey" value="${adminAuth.emailjsPublicKey || ''}" placeholder="Public Key" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="saveEmailJsConfig()" class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold">Simpan EmailJS</button>
+            </div>
+            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-3">
+              <h5 class="font-bold text-pink-400">Ubah PIN Admin</h5>
+              <input type="password" id="oldPinInput" placeholder="PIN Lama" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <input type="password" id="newPinInput" placeholder="PIN Baru" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">
+              <button onclick="processChangePin()" class="w-full bg-pink-600 text-white py-2 rounded-lg font-bold">Simpan PIN Baru</button>
+            </div>
+          </div>`;
+      }
+      else if (id === 'guests') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-amber-400 text-sm">👥 Buku Tamu & RSVP</h4>
+            <div id="adminGuestList" class="space-y-2 max-h-48 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700"></div>
+          </div>`;
+          setTimeout(() => {
+              const container = document.getElementById('adminGuestList');
+              if (!container) return;
+              container.innerHTML = '';
+              attendanceList.forEach((w, idx) => {
+                container.innerHTML += `
+                  <div class="bg-slate-800 p-3 rounded-lg text-[10px] text-slate-300 border border-slate-700 space-y-1 relative">
+                    <div class="flex justify-between font-bold text-white"><span>${w.name} (${w.status})</span></div>
+                    <p class="text-slate-400 italic">"${w.message}"</p>
+                    <button onclick="deleteGuestWish(${idx})" class="absolute top-2 right-2 text-rose-500 hover:text-rose-400"><i class="fa-solid fa-trash"></i></button>
+                  </div>`;
+              });
+          }, 50);
+      }
+      else if (id === 'backup') {
+          area.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Publish (Wajib Baca)</h4>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <p class="text-amber-400 font-bold">Langkah Publish HTML:</p>
+                <p class="text-[10px] text-slate-300">1. Klik Generate, lalu Salin kode.<br>2. Buka HTML ini di Notepad, paste kode ke bagian <span class="text-white bg-slate-900 px-1">PUBLISH_DATA_BACKUP</span>.<br>3. Save, lalu commit ke GitHub.</p>
+                <button onclick="generateBackup()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Generate Kode Backup</button>
+                <textarea id="backupOutput" readonly rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-pink-400"></textarea>
+                <button onclick="copyBackup()" class="w-full bg-slate-700 text-white py-2 rounded-lg font-bold">Salin Kode</button>
+            </div>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+                <p class="text-cyan-400 font-bold">Restore Data Manual:</p>
+                <textarea id="restoreInput" rows="2" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-[10px] font-mono text-cyan-400" placeholder="Paste kode backup..."></textarea>
+                <button onclick="restoreBackup()" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-bold">Restore Data</button>
+            </div>
+          </div>`;
+      }
+    }
+
+    function applyEventPreset() {
+        const selKey = document.getElementById('selectEventPreset').value;
+        const preset = eventPresetsList[selKey];
+        if(!preset) return;
+        currentCategoryKey = selKey;
+        for(let k in defaultText) {
+            if(preset[k] !== undefined) {
+                let isTl = (k !== 'alamat' && k !== 'quoteText');
+                textElements[k] = { text: preset[k], typewriter: isTl };
+            }
+        }
+        if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
+        saveAllDataToDevice();
+        applyTextElementsToDOM();
+        applyUltimateConfig();
+        showToast('Tema Gen-Z Berhasil Diterapkan!');
+        backToDashboard();
+    }
+
+    function applySelectedColorMotif() {
+        const motifKey = document.getElementById('selectColorMotif').value;
+        if(!genZColorMotifs[motifKey]) return;
+        ultimateConfig.colorMotif = motifKey;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Layout Motif Warna Diterapkan!');
+        backToDashboard();
+    }
+
+    function handleCustomMicroVideoUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const blobUrl = URL.createObjectURL(file);
+        sectionMicroVideos[sectionKey] = blobUrl;
+        saveAllDataToDevice();
+        applySectionMicroVideos();
+        openAdminModule('animasiStiker'); 
+        showToast('Video diunggah!');
+    }
+
+    function saveAllMicroVideos() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`microVideoInput-${k}`);
+            const cb = document.getElementById(`visMicro-${k}`);
+            if(el) sectionMicroVideos[k] = el.value.trim();
+            if(cb) sectionMicroVideoVisibility[k] = cb.checked;
         });
-        showToast("✅ Data Berhasil Disinkronkan ke Cloud!");
-      } catch (e) {
-        console.error("Save error:", e);
-        showToast("❌ Gagal menyimpan ke Cloud, tersimpan lokal.");
-      }
+        saveAllDataToDevice();
+        applySectionMicroVideos();
+        showToast('Video & Saklar disimpan!');
+        backToDashboard();
     }
 
-    function refreshAllUI() {
-      populateEditor();
-      renderSectionManager();
-      renderUniversalTypewriterManager();
-      applySettingsToUI();
-      renderSections();
-      renderDynamicGalleryPreviewList();
-      startCountdownTimer();
+    function handleSectionBackgroundUpload(event, sectionKey) {
+        const file = event.target.files[0];
+        if(!file) return;
+        compressImageFile(file, (compressedBase64) => {
+            sectionBackgrounds[sectionKey] = compressedBase64;
+            saveAllDataToDevice();
+            applySectionBackgrounds();
+            openAdminModule('sectionBackgrounds'); 
+            showToast('Background diunggah!');
+        });
     }
 
-    function applySettingsToUI() {
-      document.body.style.fontFamily = appData.settings.font_family || "'Syne', sans-serif";
-      document.getElementById('coverOpeningTitle').innerText = appData.settings.opening_title || "The Wedding Of";
-      document.getElementById('coverCoupleName').innerText = appData.settings.couple_name || "Rian & Siska";
-      document.getElementById('coverOpenBtn').querySelector('span').innerText = appData.settings.opening_button || "Buka Undangan ✨";
-      document.getElementById('footerCouple').innerText = appData.settings.couple_name || "Rian & Siska";
-
-      const vibe = appData.settings.theme_vibe || 'y2k';
-      const bodyContainer = document.getElementById('bodyThemeContainer');
-      const mainContainer = document.getElementById('mainContent');
-      const footerContainer = document.getElementById('footerContainer');
-
-      const themes = {
-        y2k: { bg: '#fff0f5', cardBg: '#ffffff', text: '#2c2c2c', border: '#fbcfe8', accent: '#ff007f' },
-        sage: { bg: '#f2f8f2', cardBg: '#ffffff', text: '#1b3b2b', border: '#bbf7d0', accent: '#10b981' },
-        cyber: { bg: '#0b0f19', cardBg: '#111827', text: '#f3f4f6', border: '#374151', accent: '#38bdf8' },
-        minimalist: { bg: '#f8fafc', cardBg: '#ffffff', text: '#0f172a', border: '#e2e8f0', accent: '#6366f1' },
-        lavender: { bg: '#f5f3ff', cardBg: '#ffffff', text: '#4c1d95', border: '#ddd6fe', accent: '#8b5cf6' },
-        sunset: { bg: '#fff7ed', cardBg: '#ffffff', text: '#7c2d12', border: '#fed7aa', accent: '#f97316' },
-        ocean: { bg: '#f0f9ff', cardBg: '#ffffff', text: '#0c4a6e', border: '#bae6fd', accent: '#0ea5e9' },
-        rosegold: { bg: '#fff1f2', cardBg: '#ffffff', text: '#881337', border: '#fecdd3', accent: '#f43f5e' },
-        emerald: { bg: '#f0fdf4', cardBg: '#ffffff', text: '#064e3b', border: '#bbf7d0', accent: '#22c55e' },
-        vintage: { bg: '#fef3c7', cardBg: '#ffffff', text: '#78350f', border: '#fde68a', accent: '#d97706' },
-        synthwave: { bg: '#0f0728', cardBg: '#18103d', text: '#f43f5e', border: '#4c1d95', accent: '#a855f7' },
-        latte: { bg: '#fbf8f5', cardBg: '#ffffff', text: '#432818', border: '#e7bc91', accent: '#bc6c25' },
-        cherry: { bg: '#fff1f2', cardBg: '#ffffff', text: '#9f1239', border: '#fbcfe8', accent: '#fb7185' },
-        midnight: { bg: '#030712', cardBg: '#0f172a', text: '#f8fafc', border: '#1e293b', accent: '#818cf8' },
-        nordic: { bg: '#f1f5f9', cardBg: '#ffffff', text: '#0f172a', border: '#cbd5e1', accent: '#0284c7' },
-        tuscan: { bg: '#fff7ed', cardBg: '#ffffff', text: '#9a3412', border: '#ffedd5', accent: '#ea580c' },
-        monochrome: { bg: '#ffffff', cardBg: '#f8fafc', text: '#000000', border: '#000000', accent: '#000000' },
-        peachy: { bg: '#fffbeb', cardBg: '#ffffff', text: '#9a3412', border: '#fed7aa', accent: '#fb923c' },
-        royal: { bg: '#022c22', cardBg: '#064e3b', text: '#fef08a', border: '#047857', accent: '#facc15' },
-        amethyst: { bg: '#2e1065', cardBg: '#3b0764', text: '#f3e8ff', border: '#6b21a8', accent: '#c084fc' }
-      };
-
-      const t = themes[vibe] || themes.y2k;
-      bodyContainer.style.backgroundColor = t.bg;
-      bodyContainer.style.color = t.text;
-      if(mainContainer) {
-        mainContainer.style.backgroundColor = t.cardBg;
-        mainContainer.style.color = t.text;
-      }
-      if(footerContainer) {
-        footerContainer.style.backgroundColor = t.cardBg;
-        footerContainer.style.borderColor = t.border;
-      }
+    function saveAllSectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const el = document.getElementById(`bgUrlInput-${k}`);
+            const cb = document.getElementById(`visBg-${k}`);
+            const dimInput = document.getElementById(`dimmerInput-${k}`);
+            if(el) sectionBackgrounds[k] = el.value.trim();
+            if(cb) sectionBackgroundVisibility[k] = cb.checked;
+            if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
+        });
+        saveAllDataToDevice();
+        applySectionBackgrounds();
+        showToast('Background & Dimer disimpan!');
+        backToDashboard();
     }
 
-    let bgMusic = null;
-    function openInvitation() {
-      document.getElementById('coverSection').classList.add('-translate-y-full', 'opacity-0');
-      setTimeout(() => {
+    function moveSection(index, direction) {
+        const newIndex = index + direction;
+        if(newIndex < 0 || newIndex >= sectionOrder.length) return;
+        const temp = sectionOrder[index];
+        sectionOrder[index] = sectionOrder[newIndex];
+        sectionOrder[newIndex] = temp;
+        saveAllDataToDevice();
+        applySectionOrder();
+        openAdminModule('sectionReorder');
+    }
+
+    function handleMultiPhotoUpload(event, sectionKey) {
+        const files = event.target.files;
+        if(!files || files.length === 0) return;
+        if(!sectionPhotos[sectionKey]) sectionPhotos[sectionKey] = [];
+        let loadedCount = 0;
+        Array.from(files).forEach(file => {
+            compressImageFile(file, (compressedBase64) => {
+                sectionPhotos[sectionKey].push(compressedBase64);
+                loadedCount++;
+                if(loadedCount === files.length) {
+                    saveAllDataToDevice();
+                    applySectionPhotos();
+                    openAdminModule('dynamicPhotos');
+                    showToast('Foto berhasil diunggah!');
+                }
+            }, 800, 0.7);
+        });
+    }
+
+    function removeSectionPhoto(sectionKey, index) {
+        if(sectionPhotos[sectionKey]) {
+            sectionPhotos[sectionKey].splice(index, 1);
+            saveAllDataToDevice();
+            applySectionPhotos();
+            openAdminModule('dynamicPhotos');
+            showToast('Foto dihapus.');
+        }
+    }
+
+    function saveMultiPhotoConfig() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(sec => {
+            const cb = document.getElementById(`visPhoto-${sec}`);
+            if(cb) sectionPhotoVisibility[sec] = cb.checked;
+        });
+        saveAllDataToDevice();
+        applySectionPhotos();
+        showToast('Setelan foto disimpan!');
+        backToDashboard();
+    }
+
+    function addWargaToDb() {
+        const name = document.getElementById('newWargaName').value.trim();
+        const whatsapp = document.getElementById('newWargaPhone').value.trim();
+        const sharelok = document.getElementById('newWargaSharelok').value.trim();
+        if(!name || !whatsapp) return showToast('Isi nama dan nomor WA!', 'error');
+        guestDatabase.push({ name, whatsapp, sharelok });
+        saveAllDataToDevice();
+        renderAdminWargaList();
+        document.getElementById('newWargaName').value = '';
+        document.getElementById('newWargaPhone').value = '';
+        document.getElementById('newWargaSharelok').value = '';
+        showToast('Warga/Tamu ditambahkan!');
+    }
+
+    function deleteWarga(index) {
+        guestDatabase.splice(index, 1);
+        saveAllDataToDevice();
+        renderAdminWargaList();
+        showToast('Tamu dihapus.');
+    }
+
+    function renderAdminWargaList() {
+        const container = document.getElementById('adminWargaListContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        if(guestDatabase.length === 0) {
+            container.innerHTML = '<p class="text-slate-400 text-center py-2">Kosong</p>';
+            return;
+        }
+        guestDatabase.forEach((w, idx) => {
+            container.innerHTML += `
+              <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-white">${w.name}</p>
+                  <p class="text-emerald-400 text-[10px]">${w.whatsapp}</p>
+                </div>
+                <div class="flex space-x-1.5 items-center">
+                  <button onclick="sendPersonalWhatsApp('${w.name}', '${w.whatsapp}', '${w.sharelok || ''}')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px] font-bold"><i class="fa-brands fa-whatsapp"></i></button>
+                  <button onclick="deleteWarga(${idx})" class="bg-rose-600 text-white px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </div>`;
+        });
+    }
+
+    function sendPersonalWhatsApp(name, phone, sharelok = '') {
+        const cleanPhone = phone.replace(/[^0-9]/g, '');
+        const personalLink = generateShareableLink(name);
+        let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
+        if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
+        window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function saveAdminWaTemplate() {
+        waTemplate = document.getElementById('adminWaTemplate').value;
+        saveAllDataToDevice();
+        showToast('Template disimpan!');
+    }
+
+    function saveGenZFrameAndSpeed() {
+        ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
+        ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 30;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        runGlobalTypewriter();
+        showToast('Pengaturan Frame Gen-Z disimpan!');
+        backToDashboard();
+    }
+
+    function saveDesignConfig() {
+        ultimateConfig.font = document.getElementById('editFont').value;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Desain & Font disimpan!');
+        backToDashboard();
+    }
+
+    function handleImageUpload(event, type) {
+        const file = event.target.files[0];
+        if(!file) return;
+        compressImageFile(file, (base64) => {
+            if(type === 'prewed') ultimateConfig.coverBg = base64;
+            if(type === 'profile1') ultimateConfig.profile1Img = base64;
+            if(type === 'profile2') ultimateConfig.profile2Img = base64;
+            if(type === 'qris') {
+                giftConfig.qrisImage = base64;
+                openAdminModule('gift');
+            } else {
+                openAdminModule('design');
+            }
+            saveAllDataToDevice();
+            applyUltimateConfig();
+            applyGiftToDOM();
+            showToast('Foto berhasil dimuat!');
+        }, 800, 0.7);
+    }
+
+    function saveMusicAndVideoConfig() {
+        const musicUrlInput = document.getElementById('inputMusicUrl').value.trim();
+        const videoUrlInput = document.getElementById('inputVideoUrl').value.trim();
+        if(musicUrlInput) ultimateConfig.musicUrl = musicUrlInput;
+        if(videoUrlInput) ultimateConfig.videoUrl = videoUrlInput;
+        saveAllDataToDevice();
+        applyUltimateConfig();
+        showToast('Musik & Video Utama Disimpan!');
+        backToDashboard();
+    }
+
+    function handleAudioUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            ultimateConfig.musicUrl = e.target.result;
+            saveAllDataToDevice();
+            openAdminModule('music');
+            showToast('Audio dimuat!');
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function handleVideoUpload(event) {
+        const file = event.target.files[0];
+        if(!file) return;
+        const blobUrl = URL.createObjectURL(file);
+        ultimateConfig.videoUrl = blobUrl;
+        applyUltimateConfig();
+        saveAllDataToDevice();
+        openAdminModule('music'); 
+        showToast('Video MP4 dimuat!');
+    }
+
+    function changeVolume(val) {
+        ultimateConfig.musicVolume = parseFloat(val);
+        const audio = document.getElementById('bgMusic');
+        if(audio) audio.volume = ultimateConfig.musicVolume;
+    }
+
+    function saveTextTable() {
+      for (let key in defaultText) { 
+          const input = document.getElementById(`txt-${key}`); 
+          const checkbox = document.getElementById(`tw-${key}`);
+          if (input) {
+              textElements[key] = { text: input.value, typewriter: checkbox ? checkbox.checked : true };
+          }
+      }
+      saveAllDataToDevice();
+      applyTextElementsToDOM();
+      showToast('Teks disimpan!');
+      backToDashboard();
+    }
+
+    function saveGiftConfig() {
+        giftConfig.visible = document.getElementById('toggleAmplopVisible').checked;
+        giftConfig.bank = document.getElementById('inputBankName').value;
+        giftConfig.number = document.getElementById('inputRekNumber').value;
+        giftConfig.owner = document.getElementById('inputRekOwner').value;
+        saveAllDataToDevice();
+        applyGiftToDOM();
+        showToast('Kolom Amplop disimpan!');
+        backToDashboard();
+    }
+
+    function saveEmailJsConfig() {
+        adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
+        adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
+        adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
+        saveAllDataToDevice();
+        showToast('Konfigurasi EmailJS disimpan!');
+    }
+
+    function processChangePin() {
+        const oldPin = document.getElementById('oldPinInput').value.trim();
+        const newPin = document.getElementById('newPinInput').value.trim();
+        if(oldPin !== adminAuth.pin) return showToast('PIN lama salah!', 'error');
+        if(!newPin || newPin.length < 3) return showToast('PIN baru min. 3 karakter!', 'error');
+        adminAuth.pin = newPin;
+        saveAllDataToDevice();
+        showToast('PIN berhasil diubah!');
+    }
+
+    function deleteGuestWish(index) {
+        attendanceList.splice(index, 1);
+        saveAllDataToDevice();
+        openAdminModule('guests');
+        renderWishesToDOM();
+        showToast('Ucapan dihapus');
+    }
+
+    function generateBackup() {
+        const data = {
+            textElements, adminAuth, sectionPhotos, sectionPhotoVisibility,
+            sectionMicroVideos, sectionMicroVideoVisibility, sectionBackgrounds,
+            sectionBackgroundVisibility, sectionBackgroundDimmer, attendanceList,
+            guestDatabase, giftConfig, waTemplate, sectionOrder, currentCategoryKey, ultimateConfig
+        };
+        const code = btoa(encodeURIComponent(JSON.stringify(data)));
+        document.getElementById('backupOutput').value = code;
+        showToast('Kode Backup Dibuat!');
+    }
+
+    function copyBackup() {
+        const out = document.getElementById('backupOutput');
+        out.select();
+        document.execCommand('copy');
+        showToast('Kode Backup Disalin!');
+    }
+
+    function restoreBackup() {
+        const input = document.getElementById('restoreInput').value.trim();
+        if(!input) return showToast('Paste kode backup dulu!', 'error');
+        try {
+            const data = JSON.parse(decodeURIComponent(atob(input)));
+            applyDataDump(data);
+            saveAllDataToDevice();
+            showToast('Restore Berhasil! Memuat ulang...');
+            setTimeout(() => location.reload(), 1500);
+        } catch(e) {
+            showToast('Kode Backup Tidak Valid!', 'error');
+        }
+    }
+
+    function backToDashboard() {
+      document.getElementById('adminModuleView').classList.add('hidden');
+      document.getElementById('adminDashboardView').classList.remove('hidden');
+    }
+
+    function runGlobalTypewriter() {
+        const speed = ultimateConfig.typewriterSpeed || 30;
+        const mappedElements = document.querySelectorAll('[data-key]');
+        mappedElements.forEach((el, index) => {
+            const key = el.getAttribute('data-key');
+            const item = textElements[key];
+            if(!item) return;
+            const fullText = item.text;
+            const useTypewriter = item.typewriter !== false;
+            
+            if(!useTypewriter || key === 'alamat' || key === 'quoteText') {
+                el.innerText = fullText;
+                return;
+            }
+            el.innerText = "";
+            let charIndex = 0;
+            setTimeout(() => {
+                function typeNext() {
+                    if(charIndex < fullText.length) {
+                        el.innerText += fullText.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeNext, speed);
+                    }
+                }
+                typeNext();
+            }, index * 150);
+        });
+    }
+
+    function applyTextElementsToDOM() {
+        const idMap = {
+            'coverCoupleName': 'coupleName', 'coverBadgeText': 'badgeText', 'coverSubText': 'subText', 'coverDateDisplay': 'dateDisplay',
+            'text-badge': 'badgeText', 'text-heroTitle': 'heroTitle', 'text-heroSub': 'heroSub',
+            'text-titleMempelai': 'titleMempelai', 
+            'text-groomName': 'groomName', 'text-groomParents': 'groomParents', 
+            'text-brideName': 'brideName', 'text-brideParents': 'brideParents',
+            'text-titleLokasi': 'titleLokasi', 'text-dateDisplay2': 'dateDisplay', 'text-timeDisplay': 'timeDisplay', 'text-alamat': 'alamat',
+            'text-titleGift': 'titleGift', 'text-subGift': 'subGift',
+            'text-titleRsvp': 'titleRsvp', 'text-footerCouple': 'footerCouple', 'quoteTextDisplay': 'quoteText'
+        };
+        for (let elementId in idMap) {
+            const el = document.getElementById(elementId);
+            if(el) {
+                el.setAttribute('data-key', idMap[elementId]);
+                const item = textElements[idMap[elementId]];
+                if (item) el.innerText = item.text;
+            }
+        }
+        runGlobalTypewriter();
+    }
+
+    function applyUltimateConfig() {
+        try {
+            document.body.style.fontFamily = `'${ultimateConfig.font}', sans-serif`;
+            
+            // Apply Gen-Z Color Motif
+            const motifKey = ultimateConfig.colorMotif || 'cyber_neon';
+            const motif = genZColorMotifs[motifKey] || genZColorMotifs['cyber_neon'];
+            const mainCont = document.getElementById('mainContent');
+            if(mainCont) {
+                mainCont.style.backgroundColor = motif.bg;
+                mainCont.style.color = motif.text;
+            }
+
+            const coverBg = document.getElementById('coverBgImage');
+            const heroBg = document.getElementById('mainHeroBg');
+            if(coverBg && ultimateConfig.coverBg) coverBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+            if(heroBg && ultimateConfig.coverBg) heroBg.style.backgroundImage = `url('${ultimateConfig.coverBg}')`;
+
+            const prof1 = document.getElementById('img-groom');
+            const prof2 = document.getElementById('img-bride');
+            if(prof1 && ultimateConfig.profile1Img) prof1.src = ultimateConfig.profile1Img;
+            if(prof2 && ultimateConfig.profile2Img) prof2.src = ultimateConfig.profile2Img;
+
+            const f1 = document.getElementById('profile1FrameContainer');
+            const f2 = document.getElementById('profile2FrameContainer');
+            const frameClass = ultimateConfig.photoFrame || 'frame-polaroid';
+            if(f1) f1.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
+            if(f2) f2.className = `w-32 h-32 mx-auto overflow-hidden flex items-center justify-center transition-all duration-500 ${frameClass}`;
+
+            const vidSource = document.getElementById('mp4VideoSource');
+            const vidElem = document.getElementById('mainMp4Video');
+            if(vidSource && ultimateConfig.videoUrl) {
+                vidSource.src = ultimateConfig.videoUrl;
+                if(vidElem) vidElem.load();
+            }
+        } catch(e) {}
+    }
+
+    function applyGiftToDOM() {
+        const amplopSection = document.getElementById('amplopSectionContainer');
+        if(amplopSection) amplopSection.style.display = giftConfig.visible === false ? 'none' : 'block';
+        const dbn = document.getElementById('displayBankName');
+        const drn = document.getElementById('displayRekNumber');
+        const dro = document.getElementById('displayRekOwner');
+        if(dbn) dbn.innerText = giftConfig.bank || "Bank BCA";
+        if(drn) drn.innerText = giftConfig.number || "1234567890";
+        if(dro) dro.innerText = giftConfig.owner || "A.N Rian Pratama";
+        const qrisBox = document.getElementById('qrisImageRender');
+        
+        if(qrisBox) {
+            if(giftConfig.qrisImage) {
+                qrisBox.innerHTML = `<img src="${giftConfig.qrisImage}" class="w-full h-full object-contain p-2">`;
+            } else {
+                qrisBox.innerHTML = `<p class="text-slate-400 text-xs text-center px-4">Upload QRIS dari Menu Admin</p>`;
+            }
+        }
+    }
+
+    function applySectionOrder() {
+        const container = document.getElementById('sectionsContainer');
+        if(!container) return;
+        sectionOrder.forEach(key => {
+            const el = container.querySelector(`[data-section-key="${key}"]`);
+            if(el) container.appendChild(el);
+        });
+    }
+
+    function applySectionPhotos() {
+        const sections = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
+        sections.forEach(key => {
+            const container = document.getElementById(`dynamicPhotosGrid-${key}`);
+            if(!container) return;
+            const isVisible = sectionPhotoVisibility[key] !== false;
+            const photosArr = sectionPhotos[key] || [];
+            if(!isVisible || photosArr.length === 0) {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+            container.className = "grid grid-cols-2 gap-2 mb-3";
+            let gridHtml = '';
+            photosArr.forEach(url => {
+                gridHtml += `<div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100"><img src="${url}" class="w-full h-full object-cover"></div>`;
+            });
+            container.innerHTML = gridHtml;
+        });
+    }
+
+    function applySectionMicroVideos() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const container = document.getElementById(`microVideo-${k}`);
+            if(!container) return;
+            const isVisible = sectionMicroVideoVisibility[k] !== false;
+            const url = sectionMicroVideos[k];
+            if(!isVisible || !url) {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+            container.innerHTML = `<video autoplay muted loop playsinline class="w-full h-auto object-cover rounded-2xl shadow-md border border-white/20 mb-3"><source src="${url}" type="video/mp4"></video>`;
+        });
+    }
+
+    function applySectionBackgrounds() {
+        const keys = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp', 'footer'];
+        keys.forEach(k => {
+            const secEl = document.querySelector(`[data-section-key="${k}"]`) || (k === 'footer' ? document.querySelector('footer') : null);
+            if(!secEl) return;
+            const isVisible = sectionBackgroundVisibility[k] !== false;
+            const bgUrl = sectionBackgrounds[k];
+            const dimmerVal = sectionBackgroundDimmer[k] !== undefined ? sectionBackgroundDimmer[k] : 0.9;
+            if(!isVisible || !bgUrl) {
+                if(k !== 'hero') secEl.style.backgroundImage = '';
+            } else {
+                if(k === 'hero') {
+                    const heroBg = document.getElementById('mainHeroBg');
+                    if(heroBg) heroBg.style.backgroundImage = `url('${bgUrl}')`;
+                } else {
+                    secEl.style.backgroundImage = `linear-gradient(rgba(255,255,255,${dimmerVal}), rgba(255,255,255,${dimmerVal})), url('${bgUrl}')`;
+                    secEl.style.backgroundSize = 'cover';
+                    secEl.style.backgroundPosition = 'center';
+                }
+            }
+        });
+    }
+
+    function renderWishesToDOM() {
+        const container = document.getElementById('wishesList');
+        if(!container) return;
+        container.innerHTML = '';
+        attendanceList.forEach(w => {
+            container.innerHTML += `
+              <div class="bg-white/90 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 shadow-sm">
+                <div class="flex justify-between items-center font-bold text-slate-800">
+                  <span>${w.name}</span>
+                  <span class="text-pink-600 text-[10px] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">${w.status}</span>
+                </div>
+                <p class="text-slate-600">${w.message}</p>
+              </div>`;
+        });
+    }
+
+    function submitWish() {
+      const name = document.getElementById('guestInputName').value.trim();
+      const status = document.getElementById('attendanceStatus').value;
+      const message = document.getElementById('guestMessage').value.trim();
+      if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
+      attendanceList.unshift({ name, status, message });
+      saveAllDataToDevice();
+      renderWishesToDOM();
+      showToast('Ucapan dikirim!');
+      document.getElementById('guestInputName').value = '';
+      document.getElementById('guestMessage').value = '';
+    }
+
+    function bukaUndanganSekarang() {
         document.getElementById('coverSection').style.display = 'none';
-        const m = document.getElementById('mainContent');
-        m.classList.remove('hidden');
-        setTimeout(() => m.classList.remove('opacity-0'), 50);
-        playMusic();
-        setTimeout(() => window.scrollTo({ top: window.innerHeight * 0.9, behavior: 'smooth' }), 300);
-      }, 700);
-    }
-
-    function playMusic() {
-      const url = appData.settings.music_url || "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-      bgMusic = new Audio(url);
-      bgMusic.loop = true;
-      bgMusic.play().catch(() => showToast("Ketuk ikon musik untuk memutar"));
+        document.getElementById('mainContent').style.display = 'block';
+        document.getElementById('mainContent').style.opacity = '1';
+        window.scrollTo(0, 0);
+        try { 
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = ultimateConfig.musicVolume || 0.5;
+                audio.play().catch(e => {});
+                isPlaying = true;
+                document.getElementById('musicIcon').className = "fa-solid fa-music animate-spin text-sm"; 
+                document.getElementById('musicLabel').innerText = "Playing";
+            }
+        } catch(e) {}
     }
 
     function toggleMusic() {
-      if(!bgMusic) { playMusic(); return; }
-      if(bgMusic.paused) { bgMusic.play(); showToast("Musik diputar 🎵"); }
-      else { bgMusic.pause(); showToast("Musik dijeda"); }
-    }
-
-    function runTypewriter(elementId, text, speed) {
-      const el = document.getElementById(elementId);
-      if(!el) return;
-      el.innerText = '';
-      el.classList.add('typewriter-effect');
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          el.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, speed || 100);
-        } else {
-          setTimeout(() => el.classList.remove('typewriter-effect'), 1000);
+        const music = document.getElementById('bgMusic');
+        const icon = document.getElementById('musicIcon');
+        const label = document.getElementById('musicLabel');
+        if (isPlaying) { 
+            music.pause(); 
+            if(icon) icon.className = "fa-solid fa-music text-sm"; 
+            if(label) label.innerText = "Paused"; 
+        } else { 
+            music.play().catch(e => {}); 
+            if(icon) icon.className = "fa-solid fa-music animate-spin text-sm"; 
+            if(label) label.innerText = "Playing"; 
         }
-      }
-      type();
+        isPlaying = !isPlaying;
     }
 
-    function startCountdownTimer() {
-      setInterval(() => {
-        const eventDate = new Date(appData.settings.event_date || "2026-10-25").getTime();
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-
-        if (distance < 0) return;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        const cdEl = document.getElementById('countdownDisplay');
-        if (cdEl) {
-          cdEl.innerHTML = `
-            <div class="grid grid-cols-4 gap-2 text-center py-2">
-              <div class="bg-pink-100 text-pink-700 p-2 rounded-xl border border-pink-300"><span class="block font-bold text-lg">${days}</span><span class="text-[10px]">Hari</span></div>
-              <div class="bg-purple-100 text-purple-700 p-2 rounded-xl border border-purple-300"><span class="block font-bold text-lg">${hours}</span><span class="text-[10px]">Jam</span></div>
-              <div class="bg-cyan-100 text-cyan-700 p-2 rounded-xl border border-cyan-300"><span class="block font-bold text-lg">${minutes}</span><span class="text-[10px]">Menit</span></div>
-              <div class="bg-amber-100 text-amber-700 p-2 rounded-xl border border-amber-300"><span class="block font-bold text-lg">${seconds}</span><span class="text-[10px]">Detik</span></div>
-            </div>`;
-        }
-      }, 1000);
-    }
-
-    function renderSections() {
-      const container = document.getElementById('sectionsContainer');
-      container.innerHTML = '';
-      const main = document.getElementById('mainContent');
-      const currentScrollMode = appData.settings.scroll_mode || 'mode1';
-      main.className = `max-w-md mx-auto min-h-screen shadow-2xl relative scroll-mode-${currentScrollMode}`;
-      
-      const globalFrame = appData.settings.frame_style || 'frame-polaroid';
-      const sectionFrame = appData.settings.section_frame || 'sec-frame-1';
-      const labelModel = appData.settings.label_model || 'label-model-1';
-
-      appData.undangan.forEach((sec, idx) => {
-        if(sec.status !== 'active') return;
-        const el = document.createElement('div');
-        const contentId = `sec-content-${idx}`;
-        const layout = sec.templateLayout || 'standard';
-        const sticker = sec.stickerIcon || 'fa-heart';
-        const secPhoto = sec.sectionPhoto || '';
-
-        let baseClass = `${sectionFrame} p-6 relative group transition duration-300`;
-        if(layout === 'card') {
-          baseClass += " m-4 text-center space-y-3";
-        } else if(layout === 'split') {
-          baseClass += " flex flex-col md:flex-row items-center gap-4 text-left";
-        } else if(layout === 'overlay' && secPhoto) {
-          baseClass += " text-center space-y-4 bg-cover bg-center text-white min-h-[70vh] flex flex-col justify-center items-center";
-          el.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('${secPhoto}')`;
-        } else {
-          baseClass += " text-center space-y-4";
-        }
-        el.className = baseClass;
-
-        let inlineToolbar = `
-          <div class="absolute top-3 right-3 flex items-center space-x-1 bg-white/90 backdrop-blur-sm border shadow-md p-1 rounded-xl opacity-80 group-hover:opacity-100 transition z-20 text-gray-900">
-            <button onclick="openQuickEdit(${idx})" title="Edit Section" class="w-7 h-7 bg-amber-200 text-amber-800 hover:bg-amber-300 rounded-lg flex items-center justify-center text-xs transition font-bold"><i class="fa-solid fa-pen"></i></button>
-            <button onclick="quickDeleteSection(${idx})" title="Hapus Section" class="w-7 h-7 bg-rose-200 text-rose-700 hover:bg-rose-300 rounded-lg flex items-center justify-center text-xs transition font-bold"><i class="fa-solid fa-trash"></i></button>
-          </div>
-        `;
-
-        let innerHtml = inlineToolbar + `<div class="text-pink-600 text-xl mb-1"><i class="fa-solid ${sticker}"></i></div>`;
-
-        if(sec.sectionId === 'cover') {
-          const coverBg = secPhoto || appData.galeri[0]?.url || 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000';
-          el.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('${coverBg}')`;
-          el.className = `${sectionFrame} p-8 text-center space-y-4 bg-cover bg-center text-white min-h-screen flex flex-col justify-center items-center relative group`;
-          innerHtml = inlineToolbar + `<h2 class="text-4xl font-syne font-bold">${appData.settings.couple_name}</h2><p class="font-medium">${sec.meta}</p>`;
-        } else if(sec.sectionId === 'galeri') {
-          let galleryHtml = `<h3 class="font-syne text-2xl font-bold mb-2">${sec.title}</h3><p class="text-xs opacity-80 mb-4">${sec.content}</p><div class="grid grid-cols-2 gap-4">`;
-          appData.galeri.forEach(photo => {
-            galleryHtml += `<div class="${globalFrame} bg-white text-gray-900"><img src="${photo.url}" class="w-full h-32 object-cover rounded-lg"><p class="text-[11px] font-bold mt-2 truncate text-center">${photo.caption || 'Aesthetic ✨'}</p></div>`;
-          });
-          galleryHtml += `</div>`;
-          innerHtml += galleryHtml;
-        } else if(sec.sectionId === 'countdown_sec') {
-          innerHtml += `<h3 class="font-syne text-2xl font-bold">${sec.title}</h3><p class="text-xs opacity-90">${sec.content}</p><div id="countdownDisplay"></div>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+${encodeURIComponent(appData.settings.couple_name)}&dates=20261025T080000Z/20261025T130000Z&details=Acara+Pernikahan" target="_blank" class="inline-block bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-90 text-white text-xs py-2.5 px-6 rounded-xl shadow-lg font-bold transition mt-2"><i class="fa-solid fa-calendar-days mr-1"></i> Simpan ke Google Kalender</a>`;
-        } else if(sec.sectionId === 'kado') {
-           innerHtml += `<span class="${labelModel}">${sec.meta}</span><h3 class="font-syne text-2xl font-bold">${sec.title}</h3><p class="text-sm opacity-90">${sec.content}</p>
-           <button onclick="openQrisModal()" class="inline-block bg-pink-600 hover:bg-pink-700 text-white text-xs py-2.5 px-6 rounded-xl shadow font-bold transition mt-2"><i class="fa-solid fa-gift mr-1"></i> Berikan Kado Digital</button>`;
-        } else {
-          if(layout === 'split' && secPhoto) {
-            innerHtml += `<div class="${globalFrame} w-full md:w-1/3 bg-white p-2 text-gray-900"><img src="${secPhoto}" class="w-full h-36 object-cover rounded-lg"></div>
-              <div class="space-y-2 flex-1"><span class="${labelModel}">${sec.meta}</span><h3 class="font-syne text-2xl font-bold">${sec.title}</h3><p id="${contentId}" class="text-sm leading-relaxed opacity-90">${sec.content}</p></div>`;
-          } else {
-            if(secPhoto) { innerHtml += `<div class="${globalFrame} bg-white p-2 mb-3 inline-block max-w-xs mx-auto text-gray-900"><img src="${secPhoto}" class="w-full h-44 object-cover rounded-lg"></div>`; }
-            innerHtml += `<span class="${labelModel}">${sec.meta}</span><h3 class="font-syne text-2xl font-bold">${sec.title}</h3><p id="${contentId}" class="text-sm leading-relaxed opacity-90">${sec.content}</p>`;
-          }
-        }
-
-        el.innerHTML = innerHtml;
-        container.appendChild(el);
-
-        if (sec.isTypewriter && sec.content && sec.sectionId !== 'cover' && sec.sectionId !== 'countdown_sec') {
-          setTimeout(() => { runTypewriter(contentId, sec.content, sec.typewriterSpeed || 100); }, 400);
-        }
-      });
-    }
-
-    function populateEditor() {
-      document.getElementById('editCoupleName').value = appData.settings.couple_name || '';
-      document.getElementById('editEventDate').value = appData.settings.event_date || '';
-      document.getElementById('editFontFamily').value = appData.settings.font_family || '';
-      document.getElementById('editThemeVibe').value = appData.settings.theme_vibe || 'y2k';
-      document.getElementById('editGlobalFrameStyle').value = appData.settings.frame_style || 'frame-polaroid';
-      document.getElementById('editSectionFrame').value = appData.settings.section_frame || 'sec-frame-1';
-      document.getElementById('editLabelModel').value = appData.settings.label_model || 'label-model-1';
-      document.getElementById('editScrollMode').value = appData.settings.scroll_mode || 'mode1';
-    }
-
-    function saveChanges() {
-      appData.settings.couple_name = document.getElementById('editCoupleName').value;
-      appData.settings.event_date = document.getElementById('editEventDate').value;
-      appData.settings.font_family = document.getElementById('editFontFamily').value;
-      appData.settings.theme_vibe = document.getElementById('editThemeVibe').value;
-      appData.settings.frame_style = document.getElementById('editGlobalFrameStyle').value;
-      appData.settings.section_frame = document.getElementById('editSectionFrame').value;
-      appData.settings.label_model = document.getElementById('editLabelModel').value;
-      appData.settings.scroll_mode = document.getElementById('editScrollMode').value;
-
-      applySettingsToUI();
-      renderSections();
-      closeAdminModal();
-      saveToCloud();
-    }
-
-    function openQuickEdit(idx) {
-      const sec = appData.undangan[idx];
-      if(!sec) return;
-      document.getElementById('qeIndex').value = idx;
-      document.getElementById('qeTitle').value = sec.title;
-      document.getElementById('qeMeta').value = sec.meta;
-      document.getElementById('qeContent').value = sec.content;
-      document.getElementById('qeTemplate').value = sec.templateLayout || 'standard';
-      document.getElementById('qeSticker').value = sec.stickerIcon || 'fa-heart';
-      document.getElementById('quickEditModal').classList.remove('hidden');
-    }
-
-    function closeQuickEditModal() { document.getElementById('quickEditModal').classList.add('hidden'); }
-
-    function saveQuickEdit() {
-      const idx = document.getElementById('qeIndex').value;
-      if(idx === undefined || !appData.undangan[idx]) return;
-
-      appData.undangan[idx].title = document.getElementById('qeTitle').value;
-      appData.undangan[idx].meta = document.getElementById('qeMeta').value;
-      appData.undangan[idx].content = document.getElementById('qeContent').value;
-      appData.undangan[idx].templateLayout = document.getElementById('qeTemplate').value;
-      appData.undangan[idx].stickerIcon = document.getElementById('qeSticker').value;
-
-      renderSections();
-      renderSectionManager();
-      renderUniversalTypewriterManager();
-      closeQuickEditModal();
-      saveToCloud();
-    }
-
-    function quickDeleteSection(idx) {
-      if(appData.undangan.length <= 1) return showToast("Minimal 1 bagian!");
-      if(confirm(`Yakin ingin menghapus section "${appData.undangan[idx].title}"?`)) {
-        appData.undangan.splice(idx, 1);
-        renderSections();
-        renderSectionManager();
-        saveToCloud();
-      }
-    }
-
-    function renderUniversalTypewriterManager() {
-      const container = document.getElementById('universalTypewriterList');
-      if(!container) return;
-      container.innerHTML = '';
-      appData.undangan.forEach((sec, idx) => {
-        if(sec.sectionId === 'cover') return;
-        container.innerHTML += `
-          <div class="p-3 bg-gray-50 border rounded-xl space-y-2 text-gray-900">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold">${sec.title} <span class="text-[10px] text-pink-600 font-normal">(${sec.sectionId})</span></span>
-              <label class="flex items-center space-x-1.5 text-xs font-medium cursor-pointer">
-                <input type="checkbox" id="tw_active_${idx}" ${sec.isTypewriter ? 'checked' : ''} class="w-4 h-4 accent-pink-600">
-                <span>Aktifkan Typewriter</span>
-              </label>
-            </div>
-            <div>
-              <label class="block text-[10px] text-gray-500 mb-0.5">Kecepatan Ketik (ms)</label>
-              <select id="tw_speed_${idx}" class="w-full p-2 border rounded-lg text-xs bg-white font-medium">
-                <option value="30" ${sec.typewriterSpeed === 30 ? 'selected' : ''}>Sangat Cepat (30 ms)</option>
-                <option value="60" ${sec.typewriterSpeed === 60 ? 'selected' : ''}>Cepat (60 ms)</option>
-                <option value="100" ${sec.typewriterSpeed === 100 || !sec.typewriterSpeed ? 'selected' : ''}>Normal (100 ms)</option>
-                <option value="180" ${sec.typewriterSpeed === 180 ? 'selected' : ''}>Santai / Lambat (180 ms)</option>
-              </select>
-            </div>
-          </div>
-        `;
-      });
-    }
-
-    function saveAllTypewriterSettings() {
-      appData.undangan.forEach((sec, idx) => {
-        if(sec.sectionId === 'cover') return;
-        const activeCheckbox = document.getElementById(`tw_active_${idx}`);
-        const speedSelect = document.getElementById(`tw_speed_${idx}`);
-        if(activeCheckbox && speedSelect) {
-          sec.isTypewriter = activeCheckbox.checked;
-          sec.typewriterSpeed = parseInt(speedSelect.value) || 100;
-        }
-      });
-      renderSections();
-      saveToCloud();
-    }
-
-    function addNewSection() {
-      const title = document.getElementById('newSecTitle').value.trim();
-      const secId = document.getElementById('newSecId').value.trim().toLowerCase().replace(/\s+/g, '_');
-      const content = document.getElementById('newSecContent').value.trim();
-      const meta = document.getElementById('newSecMeta').value.trim();
-      const template = document.getElementById('newSecTemplate').value;
-      const sticker = document.getElementById('newSecSticker').value;
-      const photoUrl = document.getElementById('newSecPhotoInput').value.trim();
-
-      if(!title || !secId) return showToast("Judul dan ID Bagian wajib diisi!");
-
-      appData.undangan.push({
-        sectionId: secId, title: title, content: content || 'Vibe baru...', meta: meta || 'New Section',
-        status: 'active', order: appData.undangan.length + 1, isTypewriter: false, typewriterSpeed: 100,
-        templateLayout: template, stickerIcon: sticker, sectionPhoto: photoUrl
-      });
-
-      document.getElementById('newSecTitle').value = ''; document.getElementById('newSecId').value = '';
-      document.getElementById('newSecContent').value = ''; document.getElementById('newSecMeta').value = '';
-      document.getElementById('newSecPhotoInput').value = '';
-
-      renderSections(); renderSectionManager(); renderUniversalTypewriterManager();
-      saveToCloud();
-    }
-
-    function renderSectionManager() {
-      const sm = document.getElementById('sectionManagerList');
-      if(!sm) return;
-      sm.innerHTML = '';
-      appData.undangan.forEach((sec, idx) => {
-        sm.innerHTML += `
-          <div class="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl border text-xs font-medium text-gray-900">
-            <div class="flex items-center space-x-2">
-              <input type="checkbox" ${sec.status==='active'?'checked':''} onchange="toggleSectionStatus(${idx})" class="w-4 h-4 accent-pink-600">
-              <span class="font-bold">${sec.title}</span>
-              <span class="text-[10px] text-pink-600 bg-pink-100 px-1.5 py-0.5 rounded font-bold">${sec.templateLayout || 'standard'}</span>
-            </div>
-            <button onclick="quickDeleteSection(${idx})" class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-2 py-1 rounded-lg text-xs font-bold"><i class="fa-solid fa-trash"></i></button>
-          </div>
-        `;
-      });
-    }
-
-    function toggleSectionStatus(idx) {
-      appData.undangan[idx].status = appData.undangan[idx].status === 'active' ? 'inactive' : 'active';
-      renderSections();
-      saveToCloud();
-    }
-
-    function addNewPhoto() {
-      const urlInput = document.getElementById('inputPhotoUrl').value.trim();
-      const captionInput = document.getElementById('inputPhotoCaption').value.trim() || 'Aesthetic Moment ✨';
-      if (urlInput) {
-        appData.galeri.push({ id: Date.now(), category: 'Prewedding', url: urlInput, caption: captionInput });
-        document.getElementById('inputPhotoUrl').value = ''; document.getElementById('inputPhotoCaption').value = '';
-        renderDynamicGalleryPreviewList(); renderSections();
-        saveToCloud();
-      } else { showToast("URL Foto wajib diisi!"); }
-    }
-
-    function deletePhoto(id) {
-      appData.galeri = appData.galeri.filter(p => p.id !== id);
-      renderDynamicGalleryPreviewList(); renderSections();
-      saveToCloud();
-    }
-
-    function renderDynamicGalleryPreviewList() {
-      const listEl = document.getElementById('dynamicGalleryPreviewList');
-      if(!listEl) return;
-      if(appData.galeri.length === 0) { listEl.innerHTML = `<p class="text-xs text-gray-400 text-center py-2">Belum ada foto.</p>`; return; }
-      listEl.innerHTML = '';
-      appData.galeri.forEach(photo => {
-        listEl.innerHTML += `
-          <div class="flex items-center justify-between p-2 bg-gray-50 border rounded-xl text-gray-900">
-            <div class="flex items-center space-x-2"><img src="${photo.url}" class="w-9 h-9 object-cover rounded-lg border"><span class="text-xs font-bold truncate max-w-[150px]">${photo.caption}</span></div>
-            <button onclick="deletePhoto(${photo.id})" class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-2 py-1 rounded-lg text-xs font-bold"><i class="fa-solid fa-trash"></i></button>
-          </div>
-        `;
-      });
-    }
-
+    function copyToClipboard(text, bank) { navigator.clipboard.writeText(text).then(() => { showToast(`Rekening ${bank} disalin!`); }); }
     function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
     function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
-    
     function verifyPin() {
-      const pinVal = document.getElementById('adminPinInput').value;
-      if(pinVal === (appData.settings.admin_pin || "1234")) {
-        document.getElementById('pinSection').classList.add('hidden');
-        document.getElementById('editorBody').classList.remove('hidden');
-        document.getElementById('editorFooter').classList.remove('hidden');
-        showToast("Akses Master Cloud Terbuka 🔓");
-      } else { showToast("PIN Master Salah!"); }
+      if (document.getElementById('adminPinInput').value.trim() === adminAuth.pin) { 
+          document.getElementById('pinSection').classList.add('hidden'); 
+          document.getElementById('editorBody').classList.remove('hidden'); 
+          backToDashboard(); 
+          showToast('Login Berhasil!');
+      } else { showToast('PIN Salah!', 'error'); }
     }
-
-    function switchTab(tName) {
-      document.querySelectorAll('.editor-tab').forEach(t => t.classList.add('hidden'));
-      document.getElementById('tab-' + tName).classList.remove('hidden');
-    }
-
-    function generateGuestLink() {
-      const gName = document.getElementById('inputGuestName').value.trim();
-      if(!gName) return showToast("Masukkan nama tamu terlebih dahulu!");
-      const baseUrl = window.location.href.split('?')[0];
-      const generatedUrl = `${baseUrl}?nama=${encodeURIComponent(gName)}`;
-      document.getElementById('outputGuestUrl').value = generatedUrl;
-      document.getElementById('generatedLinkResult').classList.remove('hidden');
-    }
-
-    function copyGeneratedLink() {
-      const urlBox = document.getElementById('outputGuestUrl');
-      urlBox.select(); navigator.clipboard.writeText(urlBox.value);
-      showToast("Link berhasil disalin ke clipboard! 📋");
-    }
-
-    function openQrisModal() { document.getElementById('qrisModal').classList.remove('hidden'); }
-    function closeQrisModal() { document.getElementById('qrisModal').classList.add('hidden'); }
-    function copyAccountNum() { navigator.clipboard.writeText("1234567890"); showToast("Nomor rekening disalin!"); }
+    function handlePinKey(event) { if (event.key === 'Enter') verifyPin(); }
     function openShareModal() { document.getElementById('shareModal').classList.remove('hidden'); }
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
-    function shareWhatsApp() {
-      const text = `Check out our digital invite ✨\n${appData.settings.couple_name}\n${window.location.href.split('?')[0]}`;
-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+    function shareGeneralWhatsApp() {
+        const shareUrl = generateShareableLink();
+        const text = `✨ UNDANGAN DIGITAL ✨\n\nSilakan buka tautan undangan berikut:\n${shareUrl}`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     }
-    function copyLink() { navigator.clipboard.writeText(window.location.href.split('?')[0]); showToast("Link disalin!"); closeShareModal(); }
+
+    window.onload = function() {
+        renderDashboardCards();
+        applyUltimateConfig();
+        applyGiftToDOM();
+        applySectionOrder();
+        applyTextElementsToDOM();
+        applySectionPhotos();
+        applySectionMicroVideos();
+        applySectionBackgrounds();
+        renderWishesToDOM();
+        
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const toParam = urlParams.get('to');
+            if (toParam) {
+                const dec = decodeURIComponent(toParam);
+                const gName = document.getElementById('guestName');
+                const gInput = document.getElementById('guestInputName');
+                if(gName) gName.innerText = dec;
+                if(gInput) gInput.value = dec;
+            }
+        } catch(e) {}
+    };
   </script>
 </body>
 </html>
-
-  
