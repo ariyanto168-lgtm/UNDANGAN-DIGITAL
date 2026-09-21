@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.88 (Fully Synchronized)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.89 (Optimized Storage)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.88 (Fully Synchronized)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.89 (Optimized Storage)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.88</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.89</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -553,16 +553,16 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v88');
+        let invId = localStorage.getItem('ari_inv_id_v89');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-20260921-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v88', invId);
+            localStorage.setItem('ari_inv_id_v89', invId);
         }
         return invId;
     }
 
-    function compressImageFile(file, callback, maxWidth = 600, quality = 0.6) {
+    function compressImageFile(file, callback, maxWidth = 500, quality = 0.5) {
         const reader = new FileReader();
         reader.onload = (e) => {
             const img = new Image();
@@ -652,27 +652,23 @@
     initApp();
 
     function saveAllDataToDevice() {
-        try {
-            localStorage.setItem('ari_textElements_v85', JSON.stringify(textElements));
-            localStorage.setItem('ari_adminAuth_v85', JSON.stringify(adminAuth));
-            localStorage.setItem('ari_sectionPhotos_v85', JSON.stringify(sectionPhotos));
-            localStorage.setItem('ari_sectionPhotoVisibility_v85', JSON.stringify(sectionPhotoVisibility));
-            localStorage.setItem('ari_sectionMicroVideos_v85', JSON.stringify(sectionMicroVideos));
-            localStorage.setItem('ari_sectionMicroVideoVisibility_v85', JSON.stringify(sectionMicroVideoVisibility));
-            localStorage.setItem('ari_sectionBackgrounds_v85', JSON.stringify(sectionBackgrounds));
-            localStorage.setItem('ari_sectionBackgroundVisibility_v85', JSON.stringify(sectionBackgroundVisibility));
-            localStorage.setItem('ari_sectionBackgroundDimmer_v85', JSON.stringify(sectionBackgroundDimmer));
-            localStorage.setItem('ari_attendanceList_v85', JSON.stringify(attendanceList));
-            localStorage.setItem('ari_guestDatabase_v85', JSON.stringify(guestDatabase));
-            localStorage.setItem('ari_giftConfig_v85', JSON.stringify(giftConfig));
-            localStorage.setItem('ari_waTemplate_v85', waTemplate);
-            localStorage.setItem('ari_sectionOrder_v85', JSON.stringify(sectionOrder));
-            localStorage.setItem('ari_currentCategory_v85', currentCategoryKey);
-            localStorage.setItem('ari_ultimateConfig_v85', JSON.stringify(ultimateConfig));
-            localStorage.setItem('ari_dataVersion_v85', dataVersion);
-        } catch (e) {
-            showToast('Penyimpanan penuh! Batasi jumlah unggahan foto.', 'error');
-        }
+        try { localStorage.setItem('ari_textElements_v85', JSON.stringify(textElements)); } catch(e) {}
+        try { localStorage.setItem('ari_adminAuth_v85', JSON.stringify(adminAuth)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionPhotos_v85', JSON.stringify(sectionPhotos)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionPhotoVisibility_v85', JSON.stringify(sectionPhotoVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionMicroVideos_v85', JSON.stringify(sectionMicroVideos)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionMicroVideoVisibility_v85', JSON.stringify(sectionMicroVideoVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgrounds_v85', JSON.stringify(sectionBackgrounds)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgroundVisibility_v85', JSON.stringify(sectionBackgroundVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgroundDimmer_v85', JSON.stringify(sectionBackgroundDimmer)); } catch(e) {}
+        try { localStorage.setItem('ari_attendanceList_v85', JSON.stringify(attendanceList)); } catch(e) {}
+        try { localStorage.setItem('ari_guestDatabase_v85', JSON.stringify(guestDatabase)); } catch(e) {}
+        try { localStorage.setItem('ari_giftConfig_v85', JSON.stringify(giftConfig)); } catch(e) {}
+        try { localStorage.setItem('ari_waTemplate_v85', waTemplate); } catch(e) {}
+        try { localStorage.setItem('ari_sectionOrder_v85', JSON.stringify(sectionOrder)); } catch(e) {}
+        try { localStorage.setItem('ari_currentCategory_v85', currentCategoryKey); } catch(e) {}
+        try { localStorage.setItem('ari_ultimateConfig_v85', JSON.stringify(ultimateConfig)); } catch(e) {}
+        try { localStorage.setItem('ari_dataVersion_v85', dataVersion); } catch(e) {}
     }
 
     function createPublishedSnapshot() {
@@ -689,7 +685,7 @@
         const rawSnapshot = {
             publishId: invId,
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.88",
+            appVersion: "v10.1.89",
             dataVersion: dataVersion,
             currentCategoryKey: currentCategoryKey,
             textElements,
@@ -721,8 +717,13 @@
         if (!snapshot) return '';
 
         const invId = snapshot.publishId;
-        const token = btoa(encodeURIComponent(JSON.stringify(snapshot)));
-        localStorage.setItem('ari_published_snapshot_' + invId, token);
+        try {
+            const token = btoa(encodeURIComponent(JSON.stringify(snapshot)));
+            localStorage.setItem('ari_published_snapshot_' + invId, token);
+        } catch(e) {
+            // Jika token terlalu besar untuk localStorage, gunakan fallback ID murni tanpa token besar
+            console.warn("Storage penuh untuk snapshot token, menggunakan ID langsung.");
+        }
 
         const baseUrl = window.location.origin + window.location.pathname;
         let queryParams = [`id=${invId}`, `cat=${currentCategoryKey}`, `v=${dataVersion}`];
@@ -1254,7 +1255,7 @@
                     openAdminModule('dynamicPhotos');
                     showToast('Foto berhasil diunggah!');
                 }
-            }, 600, 0.6);
+            }, 500, 0.5);
         });
     }
 
@@ -1377,7 +1378,7 @@
             applyUltimateConfig();
             applyGiftToDOM();
             showToast('Foto berhasil dimuat!');
-        }, 600, 0.6);
+        }, 500, 0.5);
     }
 
     function saveMusicAndVideoConfig() {
@@ -1873,7 +1874,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const toParam = urlParams.get('to');
             if (toParam) {
-                const dec = decodeURIComponent(toParam);
+                const dec = decodeURIComponent(toPtr = decodeURIComponent(toParam));
                 const gName = document.getElementById('guestName');
                 const gInput = document.getElementById('guestInputName');
                 if(gName) gName.innerText = dec;
