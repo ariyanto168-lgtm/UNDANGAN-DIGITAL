@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.89 (Optimized Storage)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.90 (Anti-Macet)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.89 (Optimized Storage)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.90 (Anti-Macet)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.89</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.90</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -553,11 +553,11 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v89');
+        let invId = localStorage.getItem('ari_inv_id_v90');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
             invId = `INV-20260921-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v89', invId);
+            localStorage.setItem('ari_inv_id_v90', invId);
         }
         return invId;
     }
@@ -672,11 +672,6 @@
     }
 
     function createPublishedSnapshot() {
-        if (!textElements || !textElements.coupleName || textElements.coupleName.text === "") {
-            showToast('⚠️ Data yang akan dipublish masih menggunakan data default. Silakan simpan perubahan terlebih dahulu.', 'error');
-            return null;
-        }
-
         dataVersion = (parseInt(dataVersion) || 0) + 1;
         saveAllDataToDevice();
 
@@ -685,7 +680,7 @@
         const rawSnapshot = {
             publishId: invId,
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.89",
+            appVersion: "v10.1.90",
             dataVersion: dataVersion,
             currentCategoryKey: currentCategoryKey,
             textElements,
@@ -714,15 +709,15 @@
 
     function generateShareableLink(guestName = '') {
         const snapshot = createPublishedSnapshot();
-        if (!snapshot) return '';
+        const invId = snapshot ? snapshot.publishId : getOrCreateInvitationId();
 
-        const invId = snapshot.publishId;
         try {
-            const token = btoa(encodeURIComponent(JSON.stringify(snapshot)));
-            localStorage.setItem('ari_published_snapshot_' + invId, token);
+            if (snapshot) {
+                const token = btoa(encodeURIComponent(JSON.stringify(snapshot)));
+                localStorage.setItem('ari_published_snapshot_' + invId, token);
+            }
         } catch(e) {
-            // Jika token terlalu besar untuk localStorage, gunakan fallback ID murni tanpa token besar
-            console.warn("Storage penuh untuk snapshot token, menggunakan ID langsung.");
+            console.warn("Storage penuh untuk snapshot token, menggunakan link dasar.");
         }
 
         const baseUrl = window.location.origin + window.location.pathname;
@@ -1331,7 +1326,6 @@
             cleanPhone = '62' + cleanPhone.substring(1);
         }
         const personalLink = generateShareableLink(name);
-        if(!personalLink) return;
         let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
         if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
         window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -1854,7 +1848,6 @@
     
     function shareGeneralWhatsApp() {
         const shareUrl = generateShareableLink();
-        if(!shareUrl) return;
         const text = `✨ UNDANGAN DIGITAL ✨\n\nSilakan buka tautan undangan berikut:\n${shareUrl}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     }
@@ -1874,7 +1867,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const toParam = urlParams.get('to');
             if (toParam) {
-                const dec = decodeURIComponent(toPtr = decodeURIComponent(toParam));
+                const dec = decodeURIComponent(toParam);
                 const gName = document.getElementById('guestName');
                 const gInput = document.getElementById('guestInputName');
                 if(gName) gName.innerText = dec;
