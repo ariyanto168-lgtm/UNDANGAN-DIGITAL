@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Undangan Digital - Master Gen-Z v10.1.90 (Anti-Macet)</title>
+  <title>Undangan Digital - Master Gen-Z v10.1.93 (Deep Version Sync & Anti-Macet)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -181,7 +181,7 @@
       <h3 id="text-footerCouple" data-key="footerCouple" class="text-xl font-bold text-slate-900">Rian & Siska</h3>
       <div class="pt-4 border-t border-slate-200">
         <p class="text-xs font-bold tracking-wide text-pink-500">Powered by Ari GPM</p>
-        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.90 (Anti-Macet)</p>
+        <p class="text-[10px] mt-0.5 text-slate-500 font-mono">Master Gen-Z v10.1.93 (Deep Version Sync)</p>
       </div>
     </footer>
   </main>
@@ -191,7 +191,7 @@
       <div class="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 px-6 py-4 flex items-center justify-between shadow-md">
         <div class="flex items-center space-x-2">
           <i class="fa-solid fa-gauge-high text-lg"></i>
-          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.90</p></div>
+          <div><h2 class="text-base font-bold">Gen-Z Admin</h2><p class="text-[10px] text-pink-100">Ultimate Engine v10.1.93</p></div>
         </div>
         <button type="button" onclick="closeAdminModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
@@ -225,9 +225,9 @@
         <h3 class="text-base font-bold text-pink-400">Bagikan Undangan</h3>
         <button type="button" onclick="closeShareModal()" class="text-white/80 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
       </div>
-      <p class="text-xs text-slate-300">Tautan WhatsApp menggunakan Clean Link murni (Super pendek, ringan, 100% anti-nyepam).</p>
-      <button type="button" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
-        <i class="fa-brands fa-whatsapp text-base"></i><span>Kirim via WhatsApp (Clean Link)</span>
+      <p class="text-xs text-slate-300">Kirim undangan publik langsung ke WhatsApp dengan versi data terbaru (v10.1.93).</p>
+      <button type="button" id="btnShareWaAction" onclick="shareGeneralWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
+        <i class="fa-brands fa-whatsapp text-base"></i><span id="btnShareTextLabel">Kirim via WhatsApp</span>
       </button>
     </div>
   </div>
@@ -237,6 +237,7 @@
   <script>
     const PUBLISH_DATA_BACKUP = ""; 
     window.typewriterTimeouts = window.typewriterTimeouts || [];
+    let isSharingProcess = false;
 
     function showToast(message, type = 'success') {
         const toast = document.getElementById('toastNotification');
@@ -524,7 +525,7 @@
     let adminAuth = { pin: "1234", email: "admin@ariyanto.com", emailjsServiceId: "", emailjsTemplateId: "", emailjsPublicKey: "" };
     let attendanceList = [{ name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru!" }];
     let guestDatabase = [{ name: "Bpk. Budi Santoso", whatsapp: "08123456789", sharelok: "" }];
-    let waTemplate = "Halo {nama},\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara kami.\n\n{link}\n\nTerima kasih. 🙏";
+    let waTemplate = "Assalamu’alaikum Wr. Wb.\n\nDengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara kami.\n\n💌 Undangan Digital\n{nama_undangan}\n\n📅 {tanggal}\n📍 {lokasi}\n\nSilakan buka undangan melalui link berikut:\n{link}\n\nTerima kasih atas perhatian dan kehadirannya.";
     let sectionOrder = ['hero', 'quotes', 'mempelai', 'video', 'lokasi', 'amplop', 'rsvp'];
     let currentCategoryKey = 'y2k_cyber';
     
@@ -553,11 +554,11 @@
     let dataVersion = 1;
 
     function getOrCreateInvitationId() {
-        let invId = localStorage.getItem('ari_inv_id_v90');
+        let invId = localStorage.getItem('ari_inv_id_v93');
         if (!invId) {
             const randomCode = Math.random().toString(36).substring(2, 7).toUpperCase();
-            invId = `INV-20260921-${randomCode}`;
-            localStorage.setItem('ari_inv_id_v90', invId);
+            invId = `INV-${randomCode}`;
+            localStorage.setItem('ari_inv_id_v93', invId);
         }
         return invId;
     }
@@ -627,7 +628,26 @@
         }
 
         if (!hasPublishedData && !idParam) {
-            if(localStorage.getItem('ari_textElements_v85')) {
+            if(localStorage.getItem('ari_textElements_v93')) {
+                textElements = JSON.parse(localStorage.getItem('ari_textElements_v93'));
+                if(localStorage.getItem('ari_adminAuth_v93')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v93'));
+                if(localStorage.getItem('ari_sectionPhotos_v93')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v93'));
+                if(localStorage.getItem('ari_sectionPhotoVisibility_v93')) sectionPhotoVisibility = JSON.parse(localStorage.getItem('ari_sectionPhotoVisibility_v93'));
+                if(localStorage.getItem('ari_sectionMicroVideos_v93')) sectionMicroVideos = JSON.parse(localStorage.getItem('ari_sectionMicroVideos_v93'));
+                if(localStorage.getItem('ari_sectionMicroVideoVisibility_v93')) sectionMicroVideoVisibility = JSON.parse(localStorage.getItem('ari_sectionMicroVideoVisibility_v93'));
+                if(localStorage.getItem('ari_sectionBackgrounds_v93')) sectionBackgrounds = JSON.parse(localStorage.getItem('ari_sectionBackgrounds_v93'));
+                if(localStorage.getItem('ari_sectionBackgroundVisibility_v93')) sectionBackgroundVisibility = JSON.parse(localStorage.getItem('ari_sectionBackgroundVisibility_v93'));
+                if(localStorage.getItem('ari_sectionBackgroundDimmer_v93')) sectionBackgroundDimmer = JSON.parse(localStorage.getItem('ari_sectionBackgroundDimmer_v93'));
+                if(localStorage.getItem('ari_attendanceList_v93')) attendanceList = JSON.parse(localStorage.getItem('ari_attendanceList_v93'));
+                if(localStorage.getItem('ari_guestDatabase_v93')) guestDatabase = JSON.parse(localStorage.getItem('ari_guestDatabase_v93'));
+                if(localStorage.getItem('ari_giftConfig_v93')) giftConfig = { ...giftConfig, ...JSON.parse(localStorage.getItem('ari_giftConfig_v93')) };
+                if(localStorage.getItem('ari_waTemplate_v93')) waTemplate = localStorage.getItem('ari_waTemplate_v93');
+                if(localStorage.getItem('ari_sectionOrder_v93')) sectionOrder = JSON.parse(localStorage.getItem('ari_sectionOrder_v93'));
+                if(localStorage.getItem('ari_currentCategory_v93')) currentCategoryKey = localStorage.getItem('ari_currentCategory_v93');
+                if(localStorage.getItem('ari_ultimateConfig_v93')) ultimateConfig = { ...ultimateConfig, ...JSON.parse(localStorage.getItem('ari_ultimateConfig_v93')) };
+                if(localStorage.getItem('ari_dataVersion_v93')) dataVersion = parseInt(localStorage.getItem('ari_dataVersion_v93')) || 1;
+            } else if(localStorage.getItem('ari_textElements_v85')) {
+                // Backward compatibility fallback
                 textElements = JSON.parse(localStorage.getItem('ari_textElements_v85'));
                 if(localStorage.getItem('ari_adminAuth_v85')) adminAuth = JSON.parse(localStorage.getItem('ari_adminAuth_v85'));
                 if(localStorage.getItem('ari_sectionPhotos_v85')) sectionPhotos = JSON.parse(localStorage.getItem('ari_sectionPhotos_v85'));
@@ -652,23 +672,23 @@
     initApp();
 
     function saveAllDataToDevice() {
-        try { localStorage.setItem('ari_textElements_v85', JSON.stringify(textElements)); } catch(e) {}
-        try { localStorage.setItem('ari_adminAuth_v85', JSON.stringify(adminAuth)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionPhotos_v85', JSON.stringify(sectionPhotos)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionPhotoVisibility_v85', JSON.stringify(sectionPhotoVisibility)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionMicroVideos_v85', JSON.stringify(sectionMicroVideos)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionMicroVideoVisibility_v85', JSON.stringify(sectionMicroVideoVisibility)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionBackgrounds_v85', JSON.stringify(sectionBackgrounds)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionBackgroundVisibility_v85', JSON.stringify(sectionBackgroundVisibility)); } catch(e) {}
-        try { localStorage.setItem('ari_sectionBackgroundDimmer_v85', JSON.stringify(sectionBackgroundDimmer)); } catch(e) {}
-        try { localStorage.setItem('ari_attendanceList_v85', JSON.stringify(attendanceList)); } catch(e) {}
-        try { localStorage.setItem('ari_guestDatabase_v85', JSON.stringify(guestDatabase)); } catch(e) {}
-        try { localStorage.setItem('ari_giftConfig_v85', JSON.stringify(giftConfig)); } catch(e) {}
-        try { localStorage.setItem('ari_waTemplate_v85', waTemplate); } catch(e) {}
-        try { localStorage.setItem('ari_sectionOrder_v85', JSON.stringify(sectionOrder)); } catch(e) {}
-        try { localStorage.setItem('ari_currentCategory_v85', currentCategoryKey); } catch(e) {}
-        try { localStorage.setItem('ari_ultimateConfig_v85', JSON.stringify(ultimateConfig)); } catch(e) {}
-        try { localStorage.setItem('ari_dataVersion_v85', dataVersion); } catch(e) {}
+        try { localStorage.setItem('ari_textElements_v93', JSON.stringify(textElements)); } catch(e) {}
+        try { localStorage.setItem('ari_adminAuth_v93', JSON.stringify(adminAuth)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionPhotos_v93', JSON.stringify(sectionPhotos)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionPhotoVisibility_v93', JSON.stringify(sectionPhotoVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionMicroVideos_v93', JSON.stringify(sectionMicroVideos)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionMicroVideoVisibility_v93', JSON.stringify(sectionMicroVideoVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgrounds_v93', JSON.stringify(sectionBackgrounds)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgroundVisibility_v93', JSON.stringify(sectionBackgroundVisibility)); } catch(e) {}
+        try { localStorage.setItem('ari_sectionBackgroundDimmer_v93', JSON.stringify(sectionBackgroundDimmer)); } catch(e) {}
+        try { localStorage.setItem('ari_attendanceList_v93', JSON.stringify(attendanceList)); } catch(e) {}
+        try { localStorage.setItem('ari_guestDatabase_v93', JSON.stringify(guestDatabase)); } catch(e) {}
+        try { localStorage.setItem('ari_giftConfig_v93', JSON.stringify(giftConfig)); } catch(e) {}
+        try { localStorage.setItem('ari_waTemplate_v93', waTemplate); } catch(e) {}
+        try { localStorage.setItem('ari_sectionOrder_v93', JSON.stringify(sectionOrder)); } catch(e) {}
+        try { localStorage.setItem('ari_currentCategory_v93', currentCategoryKey); } catch(e) {}
+        try { localStorage.setItem('ari_ultimateConfig_v93', JSON.stringify(ultimateConfig)); } catch(e) {}
+        try { localStorage.setItem('ari_dataVersion_v93', dataVersion); } catch(e) {}
     }
 
     function createPublishedSnapshot() {
@@ -680,12 +700,12 @@
         const rawSnapshot = {
             publishId: invId,
             publishedAt: new Date().toISOString(),
-            appVersion: "v10.1.90",
+            appVersion: "v10.1.93",
             dataVersion: dataVersion,
             currentCategoryKey: currentCategoryKey,
             textElements,
             adminAuth,
-            sectionPhotos,
+            sectionPhotos: {}, 
             sectionPhotoVisibility,
             sectionMicroVideos,
             sectionMicroVideoVisibility,
@@ -694,10 +714,10 @@
             sectionBackgroundDimmer,
             attendanceList,
             guestDatabase,
-            giftConfig,
+            giftConfig: { ...giftConfig, qrisImage: "" }, 
             waTemplate,
             sectionOrder,
-            ultimateConfig
+            ultimateConfig: { ...ultimateConfig, coverBg: "", profile1Img: "", profile2Img: "" }
         };
 
         try {
@@ -708,16 +728,20 @@
     }
 
     function generateShareableLink(guestName = '') {
-        const snapshot = createPublishedSnapshot();
-        const invId = snapshot ? snapshot.publishId : getOrCreateInvitationId();
-
+        const invId = getOrCreateInvitationId();
+        if (!invId) {
+            showToast("Undangan belum memiliki ID. Simpan undangan terlebih dahulu.", "error");
+            return "";
+        }
+        
         try {
+            const snapshot = createPublishedSnapshot();
             if (snapshot) {
                 const token = btoa(encodeURIComponent(JSON.stringify(snapshot)));
                 localStorage.setItem('ari_published_snapshot_' + invId, token);
             }
         } catch(e) {
-            console.warn("Storage penuh untuk snapshot token, menggunakan link dasar.");
+            console.warn("Background storage warning:", e);
         }
 
         const baseUrl = window.location.origin + window.location.pathname;
@@ -932,7 +956,7 @@
             </div>
             <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 space-y-2">
               <label class="block text-slate-300 font-bold">Template Pesan WA</label>
-              <textarea id="adminWaTemplate" rows="3" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs">${waTemplate}</textarea>
+              <textarea id="adminWaTemplate" rows="5" class="w-full p-2 bg-slate-900 border border-slate-600 rounded text-white text-xs leading-relaxed">${waTemplate}</textarea>
               <button onclick="saveAdminWaTemplate()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">Simpan Template</button>
             </div>
             <div class="space-y-2 max-h-56 overflow-y-auto bg-slate-900 p-2 rounded border border-slate-700" id="adminWargaListContainer"></div>
@@ -1125,7 +1149,7 @@
       else if (id === 'backup') {
           area.innerHTML = `
           <div class="space-y-4 text-xs">
-            <h4 class="font-bold text-gray-300 text-sm">☁️ System Publish (Wajib Baca)</h4>
+            <h4 class="font-bold text-gray-300 text-sm">☁️ System Publish v10.1.93</h4>
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
                 <p class="text-amber-400 font-bold">Langkah Publish HTML:</p>
                 <p class="text-[10px] text-slate-300">1. Klik Generate, lalu Salin kode.<br>2. Buka HTML ini di Notepad, paste kode ke bagian <span class="text-white bg-slate-900 px-1">PUBLISH_DATA_BACKUP</span>.<br>3. Save, lalu commit ke GitHub.</p>
@@ -1154,10 +1178,11 @@
             }
         }
         if(preset.coverBg) ultimateConfig.coverBg = preset.coverBg;
+        dataVersion++;
         saveAllDataToDevice();
         applyTextElementsToDOM();
         applyUltimateConfig();
-        showToast('Tema Gen-Z Berhasil Diterapkan!');
+        showToast('Tema Gen-Z Berhasil Diterapkan (v10.1.93)!');
         backToDashboard();
     }
 
@@ -1165,6 +1190,7 @@
         const motifKey = document.getElementById('selectColorMotif').value;
         if(!genZColorMotifs[motifKey]) return;
         ultimateConfig.colorMotif = motifKey;
+        dataVersion++;
         saveAllDataToDevice();
         applyUltimateConfig();
         showToast('Layout Motif Warna Diterapkan!');
@@ -1176,6 +1202,7 @@
         if(!file) return;
         const blobUrl = URL.createObjectURL(file);
         sectionMicroVideos[sectionKey] = blobUrl;
+        dataVersion++;
         saveAllDataToDevice();
         applySectionMicroVideos();
         openAdminModule('animasiStiker'); 
@@ -1190,6 +1217,7 @@
             if(el) sectionMicroVideos[k] = el.value.trim();
             if(cb) sectionMicroVideoVisibility[k] = cb.checked;
         });
+        dataVersion++;
         saveAllDataToDevice();
         applySectionMicroVideos();
         showToast('Video & Saklar disimpan!');
@@ -1201,6 +1229,7 @@
         if(!file) return;
         compressImageFile(file, (compressedBase64) => {
             sectionBackgrounds[sectionKey] = compressedBase64;
+            dataVersion++;
             saveAllDataToDevice();
             applySectionBackgrounds();
             openAdminModule('sectionBackgrounds'); 
@@ -1218,6 +1247,7 @@
             if(cb) sectionBackgroundVisibility[k] = cb.checked;
             if(dimInput) sectionBackgroundDimmer[k] = parseFloat(dimInput.value) || 0.9;
         });
+        dataVersion++;
         saveAllDataToDevice();
         applySectionBackgrounds();
         showToast('Background & Dimer disimpan!');
@@ -1230,6 +1260,7 @@
         const temp = sectionOrder[index];
         sectionOrder[index] = sectionOrder[newIndex];
         sectionOrder[newIndex] = temp;
+        dataVersion++;
         saveAllDataToDevice();
         applySectionOrder();
         openAdminModule('sectionReorder');
@@ -1245,6 +1276,7 @@
                 sectionPhotos[sectionKey].push(compressedBase64);
                 loadedCount++;
                 if(loadedCount === files.length) {
+                    dataVersion++;
                     saveAllDataToDevice();
                     applySectionPhotos();
                     openAdminModule('dynamicPhotos');
@@ -1257,6 +1289,7 @@
     function removeSectionPhoto(sectionKey, index) {
         if(sectionPhotos[sectionKey]) {
             sectionPhotos[sectionKey].splice(index, 1);
+            dataVersion++;
             saveAllDataToDevice();
             applySectionPhotos();
             openAdminModule('dynamicPhotos');
@@ -1270,6 +1303,7 @@
             const cb = document.getElementById(`visPhoto-${sec}`);
             if(cb) sectionPhotoVisibility[sec] = cb.checked;
         });
+        dataVersion++;
         saveAllDataToDevice();
         applySectionPhotos();
         showToast('Setelan foto disimpan!');
@@ -1282,6 +1316,7 @@
         const sharelok = document.getElementById('newWargaSharelok').value.trim();
         if(!name || !whatsapp) return showToast('Isi nama dan nomor WA!', 'error');
         guestDatabase.push({ name, whatsapp, sharelok });
+        dataVersion++;
         saveAllDataToDevice();
         renderAdminWargaList();
         document.getElementById('newWargaName').value = '';
@@ -1292,6 +1327,7 @@
 
     function deleteWarga(index) {
         guestDatabase.splice(index, 1);
+        dataVersion++;
         saveAllDataToDevice();
         renderAdminWargaList();
         showToast('Tamu dihapus.');
@@ -1326,13 +1362,26 @@
             cleanPhone = '62' + cleanPhone.substring(1);
         }
         const personalLink = generateShareableLink(name);
-        let msg = waTemplate.replace('{nama}', name).replace('{link}', personalLink);
+        if(!personalLink) return;
+
+        const coupleNameVal = textElements.coupleName ? textElements.coupleName.text : "Rian & Siska";
+        const dateVal = textElements.dateDisplay ? textElements.dateDisplay.text : "Minggu, 25 Oktober 2026";
+        const alamatVal = textElements.alamat ? textElements.alamat.text : "Gedung Serbaguna Jakarta";
+
+        let msg = waTemplate
+            .replace('{nama}', name)
+            .replace('{nama_undangan}', coupleNameVal)
+            .replace('{tanggal}', dateVal)
+            .replace('{lokasi}', alamatVal)
+            .replace('{link}', personalLink);
+
         if(sharelok) msg += `\n\nSharelok: ${sharelok}`;
         window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function saveAdminWaTemplate() {
         waTemplate = document.getElementById('adminWaTemplate').value;
+        dataVersion++;
         saveAllDataToDevice();
         showToast('Template disimpan!');
     }
@@ -1340,6 +1389,7 @@
     function saveGenZFrameAndSpeed() {
         ultimateConfig.photoFrame = document.getElementById('selectPhotoFrame').value;
         ultimateConfig.typewriterSpeed = parseInt(document.getElementById('inputTypingSpeed').value) || 30;
+        dataVersion++;
         saveAllDataToDevice();
         applyUltimateConfig();
         runGlobalTypewriter();
@@ -1349,6 +1399,7 @@
 
     function saveDesignConfig() {
         ultimateConfig.font = document.getElementById('editFont').value;
+        dataVersion++;
         saveAllDataToDevice();
         applyUltimateConfig();
         showToast('Desain & Font disimpan!');
@@ -1368,6 +1419,7 @@
             } else {
                 openAdminModule('design');
             }
+            dataVersion++;
             saveAllDataToDevice();
             applyUltimateConfig();
             applyGiftToDOM();
@@ -1380,6 +1432,7 @@
         const videoUrlInput = document.getElementById('inputVideoUrl').value.trim();
         if(musicUrlInput) ultimateConfig.musicUrl = musicUrlInput;
         if(videoUrlInput) ultimateConfig.videoUrl = videoUrlInput;
+        dataVersion++;
         saveAllDataToDevice();
         applyUltimateConfig();
         showToast('Musik & Video Utama Disimpan!');
@@ -1399,6 +1452,7 @@
         const reader = new FileReader();
         reader.onload = (e) => {
             ultimateConfig.musicUrl = e.target.result;
+            dataVersion++;
             saveAllDataToDevice();
             applyUltimateConfig();
             openAdminModule('music');
@@ -1412,6 +1466,7 @@
         if(!file) return;
         const blobUrl = URL.createObjectURL(file);
         ultimateConfig.videoUrl = blobUrl;
+        dataVersion++;
         applyUltimateConfig();
         saveAllDataToDevice();
         openAdminModule('music'); 
@@ -1442,9 +1497,10 @@
           if (textElements['footerCouple']) textElements['footerCouple'].text = newCoupleName;
       }
 
+      dataVersion++;
       saveAllDataToDevice();
       applyTextElementsToDOM();
-      showToast('Teks & Nama Berhasil Diperbarui!');
+      showToast('Teks & Nama Berhasil Diperbarui (v10.1.93)!');
       backToDashboard();
     }
 
@@ -1453,6 +1509,7 @@
         giftConfig.bank = document.getElementById('inputBankName').value;
         giftConfig.number = document.getElementById('inputRekNumber').value;
         giftConfig.owner = document.getElementById('inputRekOwner').value;
+        dataVersion++;
         saveAllDataToDevice();
         applyGiftToDOM();
         showToast('Kolom Amplop disimpan!');
@@ -1463,6 +1520,7 @@
         adminAuth.emailjsServiceId = document.getElementById('ejsServiceId').value.trim();
         adminAuth.emailjsTemplateId = document.getElementById('ejsTemplateId').value.trim();
         adminAuth.emailjsPublicKey = document.getElementById('ejsPublicKey').value.trim();
+        dataVersion++;
         saveAllDataToDevice();
         showToast('Konfigurasi EmailJS disimpan!');
     }
@@ -1473,12 +1531,14 @@
         if(oldPin !== adminAuth.pin) return showToast('PIN lama salah!', 'error');
         if(!newPin || newPin.length < 3) return showToast('PIN baru min. 3 karakter!', 'error');
         adminAuth.pin = newPin;
+        dataVersion++;
         saveAllDataToDevice();
         showToast('PIN berhasil diubah!');
     }
 
     function deleteGuestWish(index) {
         attendanceList.splice(index, 1);
+        dataVersion++;
         saveAllDataToDevice();
         openAdminModule('guests');
         renderWishesToDOM();
@@ -1492,9 +1552,9 @@
         try {
             const code = btoa(encodeURIComponent(JSON.stringify(snapshot)));
             document.getElementById('backupOutput').value = code;
-            showToast(`🟢 Undangan berhasil dipublish dan siap dibagikan.\nID: ${snapshot.publishId} (v${snapshot.dataVersion})`);
+            showToast(`🟢 Undangan v10.1.93 berhasil dipublish!\nID: ${snapshot.publishId} (v${snapshot.dataVersion})`);
         } catch(e) {
-            showToast('🔴 Publish gagal. Data undangan belum berhasil disimpan. Silakan coba lagi.', 'error');
+            showToast('🔴 Publish gagal. Silakan coba lagi.', 'error');
         }
     }
 
@@ -1752,6 +1812,7 @@
       if (!name || !message) return showToast('Isi Nama dan Pesan!', 'error');
       
       attendanceList.unshift({ name, status, message });
+      dataVersion++;
       saveAllDataToDevice();
       renderWishesToDOM();
 
@@ -1847,9 +1908,50 @@
     function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
     
     function shareGeneralWhatsApp() {
-        const shareUrl = generateShareableLink();
-        const text = `✨ UNDANGAN DIGITAL ✨\n\nSilakan buka tautan undangan berikut:\n${shareUrl}`;
-        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        if (isSharingProcess) return;
+        isSharingProcess = true;
+
+        const btnLabel = document.getElementById('btnShareTextLabel');
+        const btnAction = document.getElementById('btnShareWaAction');
+        if (btnLabel) btnLabel.innerText = "Menyiapkan WhatsApp (v10.1.93)...";
+        if (btnAction) btnAction.style.opacity = "0.7";
+
+        try {
+            saveAllDataToDevice();
+            const shareUrl = generateShareableLink();
+            if (!shareUrl) {
+                isSharingProcess = false;
+                if (btnLabel) btnLabel.innerText = "Kirim via WhatsApp";
+                if (btnAction) btnAction.style.opacity = "1";
+                return;
+            }
+
+            const coupleNameVal = textElements.coupleName ? textElements.coupleName.text : "Rian & Siska";
+            const dateVal = textElements.dateDisplay ? textElements.dateDisplay.text : "Minggu, 25 Oktober 2026";
+            const alamatVal = textElements.alamat ? textElements.alamat.text : "Gedung Serbaguna Jakarta";
+
+            const finalMessage = waTemplate
+                .replace('{nama_undangan}', coupleNameVal)
+                .replace('{tanggal}', dateVal)
+                .replace('{lokasi}', alamatVal)
+                .replace('{link}', shareUrl);
+
+            showToast("Undangan v10.1.93 siap dibagikan.");
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/?text=${encodeURIComponent(finalMessage)}`, '_blank');
+                isSharingProcess = false;
+                if (btnLabel) btnLabel.innerText = "Kirim via WhatsApp";
+                if (btnAction) btnAction.style.opacity = "1";
+                closeShareModal();
+            }, 300);
+
+        } catch (e) {
+            isSharingProcess = false;
+            if (btnLabel) btnLabel.innerText = "Kirim via WhatsApp";
+            if (btnAction) btnAction.style.opacity = "1";
+            showToast("Gagal menyiapkan link WhatsApp. Silakan simpan undangan lalu coba kembali.", "error");
+        }
     }
 
     window.onload = function() {
