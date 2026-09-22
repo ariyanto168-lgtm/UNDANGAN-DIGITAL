@@ -190,7 +190,7 @@
                     <label class="block text-red-300 font-bold">Detail Akad Nikah</label>
                     <input type="text" id="input-akad-waktu" placeholder="Waktu Akad" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
                     <input type="text" id="input-akad-tempat" placeholder="Tempat Akad" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
-                    <input type="text" id="input-akad-maps" placeholder="Link Google Maps Akad (Tempel Link Peta)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
+                    <input type="text" id="input-akad-maps" placeholder="Link Maps atau Ketik Alamat Manual" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
                 </div>
 
                 <!-- Resepsi -->
@@ -198,7 +198,7 @@
                     <label class="block text-red-300 font-bold">Detail Resepsi</label>
                     <input type="text" id="input-resepsi-waktu" placeholder="Waktu Resepsi" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
                     <input type="text" id="input-resepsi-tempat" placeholder="Tempat Resepsi" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
-                    <input type="text" id="input-resepsi-maps" placeholder="Link Google Maps Resepsi (Tempel Link Peta)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
+                    <input type="text" id="input-resepsi-maps" placeholder="Link Maps atau Ketik Alamat Manual" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white">
                 </div>
 
                 <!-- Amplop Digital -->
@@ -337,14 +337,14 @@
                 <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-2xl">Akad Nikah</h3>
                 <p id="view-akad-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
                 <p id="view-akad-place" class="text-[11px] text-zinc-100 mb-3 drop-shadow">Kediaman Mempelai Wanita</p>
-                <a id="view-akad-maps" href="https://www.google.com/maps/search/?api=1&query=Kediaman+Mempelai+Wanita" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
+                <a id="view-akad-maps" href="#" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
             </div>
 
             <div class="max-w-xs w-full space-y-1 pt-2">
                 <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-2xl">Resepsi</h3>
                 <p id="view-resepsi-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
                 <p id="view-resepsi-place" class="text-[11px] text-zinc-100 mb-3 drop-shadow">Dsn. Banjaran RT 03/RW 20 Kel. Bringin, Kec. Ngaliyan</p>
-                <a id="view-resepsi-maps" href="https://www.google.com/maps/search/?api=1&query=Kelurahan+Bringin+Ngaliyan+Semarang" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
+                <a id="view-resepsi-maps" href="#" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
             </div>
         </section>
 
@@ -548,6 +548,25 @@
                 };
                 reader.readAsDataURL(file);
             });
+        }
+
+        // Utility: Konversi Otomatis Teks Manual / Iframe / URL menjadi Tautan Maps yang Valid
+        function cleanMapUrl(input) {
+            if (!input) return "https://www.google.com/maps";
+            input = input.trim();
+            // Jika berupa kode embed iframe
+            if (input.includes("<iframe")) {
+                const match = input.match(/src="([^"]+)"/);
+                if (match && match[1]) {
+                    return match[1];
+                }
+            }
+            // Jika sudah berupa URL (http:// atau https://)
+            if (input.startsWith("http://") || input.startsWith("https://")) {
+                return input;
+            }
+            // Jika diketik berupa teks/alamat manual, ubah menjadi Google Maps Search URL
+            return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(input)}`;
         }
 
         function toggleWAModal() {
@@ -794,10 +813,10 @@
             localStorage.setItem('inv_music_volume', document.getElementById('input-music-volume').value);
             localStorage.setItem('inv_akad_waktu', document.getElementById('input-akad-waktu').value);
             localStorage.setItem('inv_akad_tempat', document.getElementById('input-akad-tempat').value);
-            localStorage.setItem('inv_akad_maps', document.getElementById('input-akad-maps').value);
+            localStorage.setItem('inv_akad_maps', document.getElementById('input-akad-maps').value.trim());
             localStorage.setItem('inv_resepsi_waktu', document.getElementById('input-resepsi-waktu').value);
             localStorage.setItem('inv_resepsi_tempat', document.getElementById('input-resepsi-tempat').value);
-            localStorage.setItem('inv_resepsi_maps', document.getElementById('input-resepsi-maps').value);
+            localStorage.setItem('inv_resepsi_maps', document.getElementById('input-resepsi-maps').value.trim());
             localStorage.setItem('inv_bank_name', document.getElementById('input-bank-name').value);
             localStorage.setItem('inv_bank_holder', document.getElementById('input-bank-holder').value);
             localStorage.setItem('inv_bank_acc', document.getElementById('input-bank-acc').value);
@@ -875,10 +894,10 @@
             const date = localStorage.getItem('inv_date') || defaultData.date;
             const akadWaktu = localStorage.getItem('inv_akad_waktu') || defaultData.akadWaktu;
             const akadTempat = localStorage.getItem('inv_akad_tempat') || defaultData.akadTempat;
-            const akadMaps = localStorage.getItem('inv_akad_maps') || defaultData.akadMaps;
+            const akadMaps = cleanMapUrl(localStorage.getItem('inv_akad_maps') || defaultData.akadMaps);
             const resepsiWaktu = localStorage.getItem('inv_resepsi_waktu') || defaultData.resepsiWaktu;
             const resepsiTempat = localStorage.getItem('inv_resepsi_tempat') || defaultData.resepsiTempat;
-            const resepsiMaps = localStorage.getItem('inv_resepsi_maps') || defaultData.resepsiMaps;
+            const resepsiMaps = cleanMapUrl(localStorage.getItem('inv_resepsi_maps') || defaultData.resepsiMaps);
             const bankName = localStorage.getItem('inv_bank_name') || defaultData.bankName;
             const bankHolder = localStorage.getItem('inv_bank_holder') || defaultData.bankHolder;
             const bankAcc = localStorage.getItem('inv_bank_acc') || defaultData.bankAcc;
