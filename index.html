@@ -166,13 +166,14 @@
                     </div>
                 </div>
 
-                <!-- Tambah Banyak Foto Momen Galeri -->
+                <!-- Tambah Banyak Foto Momen Galeri (Manual dari HP secara Dinamis) -->
                 <div class="border-t border-white/10 pt-3 space-y-2">
-                    <label class="block text-red-300 font-bold">Galeri Momen (Bisa Pilih Banyak Foto Sekaligus)</label>
+                    <label class="block text-red-300 font-bold">Galeri Momen (Pilih Banyak Foto Sekaligus dari HP)</label>
                     <div>
-                        <span class="text-[11px] text-zinc-300 block mb-1">Pilih foto-foto galeri tambahan:</span>
+                        <span class="text-[11px] text-zinc-300 block mb-1">Pilih foto-foto galeri tambahan secara dinamis:</span>
                         <input type="file" id="input-gallery-files" accept="image/*" multiple onchange="handleGalleryFiles(event)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-zinc-300 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-red-800 file:text-white hover:file:bg-red-700">
                     </div>
+                    <button onclick="clearCustomGallery()" class="w-full py-1.5 bg-zinc-800 hover:bg-red-900 text-zinc-300 text-[11px] font-medium rounded-xl transition border border-white/10">🗑️ Reset / Hapus Foto Galeri Tambahan</button>
                 </div>
 
                 <!-- Akad Nikah -->
@@ -294,7 +295,7 @@
             </div>
         </section>
 
-        <!-- SECTION 2: GALERI -->
+        <!-- SECTION 2: GALERI (Dinamis / Banyak Foto dari HP) -->
         <section id="section-galeri" class="inv-section absolute inset-0 hidden flex-col justify-center items-center z-10 overflow-hidden transition-opacity duration-500">
             <div class="text-center mb-6 px-8">
                 <p class="text-[10px] uppercase tracking-[0.25em] text-red-300 font-semibold mb-1 drop-shadow">Our Gallery</p>
@@ -491,7 +492,6 @@
                 document.getElementById('guest-name').innerText = decodeURIComponent(guest);
                 document.getElementById('name-input').value = decodeURIComponent(guest);
                 
-                // Sembunyikan ikon editor jika link dibuka oleh penerima via wa.me
                 const editorGearBtn = document.getElementById('editor-gear-btn');
                 if (editorGearBtn) {
                     editorGearBtn.style.display = 'none';
@@ -502,7 +502,6 @@
             startSlideshow('global-bg-slideshow', 1900);
         });
 
-        // Toggle Modal Database & Kirim WhatsApp Massal
         function toggleWAModal() {
             const waModal = document.getElementById('wa-modal');
             waModal.classList.toggle('hidden');
@@ -511,7 +510,6 @@
             }
         }
 
-        // Tambah Tamu ke Database Tamu Undangan
         function addNewGuest() {
             const inputEl = document.getElementById('input-new-guest-name');
             const guestName = inputEl.value.trim();
@@ -531,7 +529,6 @@
             }
         }
 
-        // Hapus Tamu dari Database
         function removeGuest(index) {
             let guestList = JSON.parse(localStorage.getItem('inv_guest_database') || '[]');
             guestList.splice(index, 1);
@@ -539,7 +536,6 @@
             renderSavedGuestsList();
         }
 
-        // Kirim Undangan ke Semua Tamu Sekaligus (Batch / Bersamaan)
         function sendAllWhatsApp() {
             let guestList = JSON.parse(localStorage.getItem('inv_guest_database') || '[]');
             if (guestList.length === 0) {
@@ -566,11 +562,10 @@
 
                     const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
                     window.open(waLink, '_blank');
-                }, index * 1200); // Jeda 1.2 detik per tab agar aman dari blokir browser
+                }, index * 1200);
             });
         }
 
-        // Render Daftar Tamu Tersimpan di Modal
         function renderSavedGuestsList() {
             const container = document.getElementById('saved-guests-list');
             const badge = document.getElementById('guest-count-badge');
@@ -681,6 +676,7 @@
             }
         }
 
+        // Fungsi Penanganan Unggah Banyak Foto Galeri dari HP Secara Dinamis
         function handleGalleryFiles(event) {
             const files = event.target.files;
             if (files.length > 0) {
@@ -694,11 +690,19 @@
                         if (loadedCount === files.length) {
                             localStorage.setItem('inv_custom_gallery', JSON.stringify(customPhotos));
                             loadGalleryPhotos();
-                            alert(`${files.length} foto baru berhasil ditambahkan ke galeri!`);
+                            alert(`${files.length} foto baru berhasil ditambahkan secara dinamis ke galeri!`);
                         }
                     }
                     reader.readAsDataURL(files[i]);
                 }
+            }
+        }
+
+        function clearCustomGallery() {
+            if (confirm("Hapus semua foto galeri tambahan buatan Anda?")) {
+                localStorage.removeItem('inv_custom_gallery');
+                loadGalleryPhotos();
+                alert("Galeri dikembalikan ke foto bawaan.");
             }
         }
 
@@ -767,8 +771,9 @@
                 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=400'
             ];
 
-            const allPhotos1 = [...defaultPhotos1, ...customPhotos];
-            const allPhotos2 = [...defaultPhotos2, ...customPhotos];
+            // Jika ada foto dari HP, gabungkan atau gunakan secara dinamis
+            const allPhotos1 = customPhotos.length > 0 ? [...customPhotos] : defaultPhotos1;
+            const allPhotos2 = customPhotos.length > 0 ? [...customPhotos].reverse() : defaultPhotos2;
 
             const track1 = document.getElementById('gallery-track-1');
             const track2 = document.getElementById('gallery-track-2');
@@ -890,7 +895,6 @@
             const cover = document.getElementById('cover-section');
             const main = document.getElementById('main-content');
             
-            // Musik langsung diputar otomatis di latar belakang saat tombol buka undangan diklik
             const audioEl = document.getElementById('bg-music');
             if (audioEl) {
                 audioEl.play().then(() => {
