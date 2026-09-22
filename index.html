@@ -38,6 +38,18 @@
             transform: scale(1.05);
         }
         
+        /* Animasi Piringan Hitam Berputar */
+        @keyframes vinylSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinning-disc {
+            animation: vinylSpin 3s linear infinite;
+        }
+        .spinning-disc.paused {
+            animation-play-state: paused;
+        }
+        
         /* Animasi 2 Baris Berlawanan Arah */
         @keyframes slideLeft {
             0% { transform: translateX(0); }
@@ -77,9 +89,17 @@
     <!-- ELEMEN AUDIO LATAR BELAKANG (BGM) -->
     <audio id="bg-music" loop preload="auto"></audio>
 
-    <!-- TOMBOL KONTROL MUSIK MELAYANG (TOP LEFT) -->
-    <button id="music-toggle-btn" onclick="toggleAudioPlay()" class="fixed top-4 left-4 z-[60] p-3 bg-black/60 hover:bg-black/80 text-white rounded-full backdrop-blur-md border border-white/25 shadow-2xl transition hidden items-center justify-center group" title="Putar/Jeda Musik">
-        <span id="music-icon" class="text-base group-hover:scale-110 transition block">🎵</span>
+    <!-- TOMBOL PIRINGAN MUSIK BERPUTAR DI SUDUT KIRI ATAS -->
+    <button id="music-toggle-btn" onclick="toggleAudioPlay()" class="fixed top-4 left-4 z-[60] p-2 bg-black/70 hover:bg-black/90 text-white rounded-full backdrop-blur-md border border-white/25 shadow-2xl transition hidden items-center justify-center group" title="Putar/Jeda Musik">
+        <div id="music-disc" class="w-8 h-8 rounded-full bg-zinc-900 border-2 border-white/40 flex items-center justify-center shadow-lg relative spinning-disc overflow-hidden">
+            <!-- Alur Piringan Hitam -->
+            <div class="absolute inset-1 rounded-full border border-white/10"></div>
+            <div class="absolute inset-2 rounded-full border border-white/10"></div>
+            <!-- Label Tengah Merah -->
+            <div class="w-3 h-3 rounded-full bg-red-600 border border-white/50 z-10 flex items-center justify-center">
+                <div class="w-1 h-1 rounded-full bg-black"></div>
+            </div>
+        </div>
     </button>
 
     <!-- TOMBOL EDITOR ICON GERIGI (⚙️) - Otomatis disembunyikan untuk penerima undangan -->
@@ -293,9 +313,9 @@
                 <span>📩 Buka Undangan</span>
             </button>
 
-            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.4) -->
+            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.6) -->
             <div class="text-[10px] text-zinc-400 tracking-widest uppercase">
-                v1.0.4 • Powered by Audylia
+                v1.0.6 • Powered by Audylia
             </div>
         </div>
     </div>
@@ -394,35 +414,43 @@
             </div>
         </section>
 
-        <!-- SECTION 6: RSVP & UCAPAN -->
-        <section id="section-rsvp" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-12 px-6 z-10 overflow-y-auto transition-opacity duration-500 pb-28">
-            <h2 class="text-2xl font-bold text-center mb-4 text-white drop-shadow-2xl">RSVP & Ucapan</h2>
-            <form id="rsvp-form" onsubmit="handleRSVP(event)" class="space-y-3 max-w-xs w-full bg-black/35 backdrop-blur-md p-4 rounded-3xl border border-white/20 shadow-2xl">
+        <!-- SECTION 6: RSVP & UCAPAN HORIZONTAL BERJALAN SAMPING -->
+        <section id="section-rsvp" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-10 px-6 z-10 overflow-y-auto transition-opacity duration-500 pb-28">
+            <h2 class="text-xl font-bold text-center mb-3 text-white drop-shadow-2xl">RSVP & Ucapan</h2>
+            <form id="rsvp-form" onsubmit="handleRSVP(event)" class="space-y-2.5 max-w-xs w-full bg-black/35 backdrop-blur-md p-3.5 rounded-3xl border border-white/20 shadow-2xl mb-4">
                 <div>
                     <label class="block text-[11px] text-zinc-200 mb-0.5">Nama</label>
-                    <input type="text" id="name-input" required class="w-full bg-black/40 border border-white/25 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-400 backdrop-blur-md">
+                    <input type="text" id="name-input" required class="w-full bg-black/40 border border-white/25 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-400 backdrop-blur-md">
                 </div>
                 <div>
                     <label class="block text-[11px] text-zinc-200 mb-0.5">Konfirmasi Kehadiran</label>
-                    <select id="attendance-input" class="w-full bg-black/60 border border-white/25 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-400">
+                    <select id="attendance-input" class="w-full bg-black/60 border border-white/25 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-400">
                         <option value="Hadir" class="bg-zinc-900">Hadir</option>
                         <option value="Tidak Hadir" class="bg-zinc-900">Tidak Hadir</option>
                         <option value="Masih Ragu" class="bg-zinc-900">Masih Ragu</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-[11px] text-zinc-200 mb-0.5">Ucapan & Doa</label>
-                    <textarea id="message-input" rows="2" required class="w-full bg-black/40 border border-white/25 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-400 backdrop-blur-md" placeholder="Tulis ucapan..."></textarea>
+                    <label class="block text-[11px] text-zinc-200 mb-0.5">Ucapan & Doa (Bisa Panjang)</label>
+                    <textarea id="message-input" rows="2" required class="w-full bg-black/40 border border-white/25 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-400 backdrop-blur-md" placeholder="Tulis ucapan dan doa restu..."></textarea>
                 </div>
-                <button type="submit" class="w-full py-2.5 bg-red-800/80 hover:bg-red-700 text-white text-xs font-medium rounded-xl transition shadow-xl backdrop-blur-md border border-white/20">Kirim Ucapan</button>
+                <button type="submit" class="w-full py-2 bg-red-800/80 hover:bg-red-700 text-white text-xs font-medium rounded-xl transition shadow-xl backdrop-blur-md border border-white/20">Kirim Ucapan</button>
             </form>
-            <div id="wishes-container" class="mt-4 space-y-2 max-w-xs w-full max-h-32 overflow-y-auto pr-1">
-                <div class="bg-black/35 backdrop-blur-md p-3 rounded-2xl border border-white/15 text-xs shadow-xl">
-                    <div class="flex justify-between font-semibold text-red-300 mb-0.5">
-                        <span>Aryak</span>
-                        <span class="text-zinc-300 text-[9px]">Hadir</span>
+
+            <!-- CONTAINER UCAPAN BERJALAN KE SAMPING (HORIZONTAL SLIDER / SCROLL) -->
+            <div class="w-full max-w-xs">
+                <span class="text-[10px] text-red-300 uppercase tracking-widest font-semibold block mb-1 text-left px-1">Daftar Ucapan & Doa (Geser ke Samping ➔)</span>
+                <div id="wishes-container" class="flex gap-3 overflow-x-auto w-full py-1.5 px-1 scroll-smooth snap-x">
+                    <!-- Kartu Ucapan Contoh 1 -->
+                    <div class="w-[260px] flex-shrink-0 snap-center bg-black/45 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-xs shadow-xl text-left flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center font-semibold text-red-300 mb-1">
+                                <span class="truncate max-w-[170px]">Aryak</span>
+                                <span class="text-zinc-300 text-[9px] bg-white/10 px-2 py-0.5 rounded-full">Hadir</span>
+                            </div>
+                            <p class="text-zinc-100 text-[11px] leading-relaxed break-words">Lancar boskuu Samawaaa ghehhh! Semoga menjadi keluarga yang sakinah mawaddah warahmah, bahagia selalu dunia akhirat bersama pasangan tercinta amin.</p>
+                        </div>
                     </div>
-                    <p class="text-zinc-100 text-[11px]">Lancar boskuu Samawaaa ghehhh</p>
                 </div>
             </div>
         </section>
@@ -539,7 +567,6 @@
             startSlideshow('global-bg-slideshow', 1900);
         });
 
-        // Touch Swipe Gesture Handlers for Mobile Browsers
         function handleTouchStart(e) {
             touchStartX = e.changedTouches[0].screenX;
         }
@@ -552,17 +579,14 @@
         function handleSwipeGesture() {
             const threshold = 50;
             if (touchEndX < touchStartX - threshold) {
-                // Swipe Left -> Next Tab
                 currentTabIndex = (currentTabIndex + 1) % tabList.length;
                 manualSwitch(tabList[currentTabIndex]);
             } else if (touchEndX > touchStartX + threshold) {
-                // Swipe Right -> Prev Tab
                 currentTabIndex = (currentTabIndex - 1 + tabList.length) % tabList.length;
                 manualSwitch(tabList[currentTabIndex]);
             }
         }
 
-        // Live Countdown Timer logic
         function startCountdownTimer(targetDateStr) {
             const targetDate = new Date(targetDateStr).getTime();
             if (countdownInterval) clearInterval(countdownInterval);
@@ -593,19 +617,18 @@
             }, 1000);
         }
 
-        // Audio Play/Pause Toggle Button
         function toggleAudioPlay() {
             const audioEl = document.getElementById('bg-music');
-            const iconEl = document.getElementById('music-icon');
+            const discEl = document.getElementById('music-disc');
             if (!audioEl) return;
 
             if (audioEl.paused) {
                 audioEl.play();
-                iconEl.innerText = "🎵";
+                if (discEl) discEl.classList.remove('paused');
                 startVisualizer();
             } else {
                 audioEl.pause();
-                iconEl.innerText = "🔇";
+                if (discEl) discEl.classList.add('paused');
                 stopVisualizer();
             }
         }
@@ -616,7 +639,6 @@
             if (visualizerInterval) clearInterval(visualizerInterval);
         }
 
-        // Utility: Kompresi Gambar
         function resizeImage(file, maxWidth = 800, maxHeight = 800, quality = 0.75) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
@@ -1062,13 +1084,16 @@
             const cover = document.getElementById('cover-section');
             const main = document.getElementById('main-content');
             const musicBtn = document.getElementById('music-toggle-btn');
+            const discEl = document.getElementById('music-disc');
             
             const audioEl = document.getElementById('bg-music');
             if (audioEl) {
                 audioEl.play().then(() => {
                     console.log("Audio berhasil diputar.");
+                    if (discEl) discEl.classList.remove('paused');
                 }).catch(e => {
                     console.log("Autoplay dicegah browser:", e);
+                    if (discEl) discEl.classList.add('paused');
                 });
             }
             startVisualizer();
@@ -1235,23 +1260,28 @@
 
         function handleRSVP(event) {
             event.preventDefault();
-            const name = document.getElementById('name-input').value;
+            const name = document.getElementById('name-input').value.trim();
             const status = document.getElementById('attendance-input').value;
-            const message = document.getElementById('message-input').value;
+            const message = document.getElementById('message-input').value.trim();
+
+            if (!name || !message) return;
 
             const container = document.getElementById('wishes-container');
             const newWish = document.createElement('div');
-            newWish.className = 'bg-black/35 backdrop-blur-md p-3 rounded-2xl border border-white/15 text-xs shadow-xl';
+            newWish.className = 'w-[260px] flex-shrink-0 snap-center bg-black/45 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-xs shadow-xl text-left flex flex-col justify-between';
             newWish.innerHTML = `
-                <div class="flex justify-between font-semibold text-red-300 mb-0.5">
-                    <span>${name}</span>
-                    <span class="text-zinc-300 text-[9px]">${status}</span>
+                <div>
+                    <div class="flex justify-between items-center font-semibold text-red-300 mb-1">
+                        <span class="truncate max-w-[170px]">${name}</span>
+                        <span class="text-zinc-300 text-[9px] bg-white/10 px-2 py-0.5 rounded-full">${status}</span>
+                    </div>
+                    <p class="text-zinc-100 text-[11px] leading-relaxed break-words">${message}</p>
                 </div>
-                <p class="text-zinc-100 text-[11px]">${message}</p>
             `;
             container.prepend(newWish);
             document.getElementById('message-input').value = '';
-            alert('Terima kasih, ucapan Anda telah dikirim!');
+            document.getElementById('name-input').value = '';
+            alert('Terima kasih, ucapan Anda telah dikirim dan langsung tampil di barisan!');
         }
     </script>
 </body>
