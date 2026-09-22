@@ -157,23 +157,32 @@
                     </div>
                 </div>
 
-                <!-- Pengaturan Latar Belakang Multi-Foto (Slideshow) -->
+                <!-- Pengaturan Latar Belakang (Preview & Reset Background) -->
                 <div class="border-t border-white/10 pt-3 space-y-2">
-                    <label class="block text-red-300 font-bold">Background Slideshow (Bisa Pilih Banyak Foto)</label>
-                    <div>
-                        <span class="text-[11px] text-zinc-300 block mb-1">Pilih beberapa foto background dari HP:</span>
-                        <input type="file" id="input-bg-files" accept="image/*" multiple onchange="handleBgFiles(event)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-zinc-300 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-red-800 file:text-white hover:file:bg-red-700">
+                    <label class="block text-red-300 font-bold">Background Slideshow (Preview & Reset)</label>
+                    <span class="text-[11px] text-zinc-300 block mb-1">Pilih beberapa foto background dari HP:</span>
+                    <input type="file" id="input-bg-files" accept="image/*" multiple onchange="handleBgFiles(event)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-zinc-300 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-red-800 file:text-white hover:file:bg-red-700">
+                    
+                    <!-- Kotak Preview Thumbnail Background -->
+                    <div id="editor-bg-preview-container" class="flex gap-2 overflow-x-auto py-1 min-h-[40px] bg-black/40 p-2 rounded-xl border border-white/10">
+                        <span class="text-[10px] text-zinc-500 italic my-auto">Belum ada foto background dipilih</span>
                     </div>
+                    
+                    <button onclick="resetTempBg()" class="w-full py-1.5 bg-zinc-800 hover:bg-red-900 text-zinc-300 text-[11px] font-medium rounded-xl transition border border-white/10">🗑️ Reset / Hapus Background Pilihan</button>
                 </div>
 
-                <!-- Tambah Banyak Foto Momen Galeri (Manual dari HP secara Dinamis) -->
+                <!-- Galeri Momen (Preview & Reset Galeri) -->
                 <div class="border-t border-white/10 pt-3 space-y-2">
-                    <label class="block text-red-300 font-bold">Galeri Momen (Pilih Banyak Foto Sekaligus dari HP)</label>
-                    <div>
-                        <span class="text-[11px] text-zinc-300 block mb-1">Pilih foto-foto galeri tambahan secara dinamis:</span>
-                        <input type="file" id="input-gallery-files" accept="image/*" multiple onchange="handleGalleryFiles(event)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-zinc-300 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-red-800 file:text-white hover:file:bg-red-700">
+                    <label class="block text-red-300 font-bold">Galeri Momen (Preview & Reset)</label>
+                    <span class="text-[11px] text-zinc-300 block mb-1">Pilih foto-foto galeri tambahan dari HP:</span>
+                    <input type="file" id="input-gallery-files" accept="image/*" multiple onchange="handleGalleryFiles(event)" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-zinc-300 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-red-800 file:text-white hover:file:bg-red-700">
+                    
+                    <!-- Kotak Preview Thumbnail Galeri -->
+                    <div id="editor-gallery-preview-container" class="flex gap-2 overflow-x-auto py-1 min-h-[40px] bg-black/40 p-2 rounded-xl border border-white/10">
+                        <span class="text-[10px] text-zinc-500 italic my-auto">Belum ada foto galeri dipilih</span>
                     </div>
-                    <button onclick="clearCustomGallery()" class="w-full py-1.5 bg-zinc-800 hover:bg-red-900 text-zinc-300 text-[11px] font-medium rounded-xl transition border border-white/10">🗑️ Reset / Hapus Foto Galeri Tambahan</button>
+
+                    <button onclick="resetTempGallery()" class="w-full py-1.5 bg-zinc-800 hover:bg-red-900 text-zinc-300 text-[11px] font-medium rounded-xl transition border border-white/10">🗑️ Reset / Hapus Galeri Pilihan</button>
                 </div>
 
                 <!-- Akad Nikah -->
@@ -295,7 +304,7 @@
             </div>
         </section>
 
-        <!-- SECTION 2: GALERI (Dinamis / Banyak Foto dari HP) -->
+        <!-- SECTION 2: GALERI -->
         <section id="section-galeri" class="inv-section absolute inset-0 hidden flex-col justify-center items-center z-10 overflow-hidden transition-opacity duration-500">
             <div class="text-center mb-6 px-8">
                 <p class="text-[10px] uppercase tracking-[0.25em] text-red-300 font-semibold mb-1 drop-shadow">Our Gallery</p>
@@ -453,6 +462,7 @@
         let autoSequenceTimer = null;
         let typewriterTimeout = null;
         let tempCustomBgList = [];
+        let tempCustomGallery = [];
         let tempCustomQris = "";
         let visualizerInterval = null;
 
@@ -653,10 +663,16 @@
             document.getElementById('input-bank-name').value = localStorage.getItem('inv_bank_name') || defaultData.bankName;
             document.getElementById('input-bank-holder').value = localStorage.getItem('inv_bank_holder') || defaultData.bankHolder;
             document.getElementById('input-bank-acc').value = localStorage.getItem('inv_bank_acc') || defaultData.bankAcc;
+            
             tempCustomBgList = JSON.parse(localStorage.getItem('inv_custom_bg_list') || '[]');
+            tempCustomGallery = JSON.parse(localStorage.getItem('inv_custom_gallery') || '[]');
             tempCustomQris = localStorage.getItem('inv_custom_qris') || "";
+
+            renderEditorBgPreview();
+            renderEditorGalleryPreview();
         }
 
+        // Handler Background dengan Preview Thumbnail
         function handleBgFiles(event) {
             const files = event.target.files;
             if (files.length > 0) {
@@ -668,7 +684,7 @@
                         tempCustomBgList.push(e.target.result);
                         loadedCount++;
                         if (loadedCount === files.length) {
-                            alert(`${files.length} foto background berhasil dimuat sementara. Klik "Simpan Perubahan" di bawah.`);
+                            renderEditorBgPreview();
                         }
                     }
                     reader.readAsDataURL(files[i]);
@@ -676,21 +692,35 @@
             }
         }
 
-        // Fungsi Penanganan Unggah Banyak Foto Galeri dari HP Secara Dinamis
+        function renderEditorBgPreview() {
+            const container = document.getElementById('editor-bg-preview-container');
+            if (!container) return;
+            if (tempCustomBgList.length === 0) {
+                container.innerHTML = `<span class="text-[10px] text-zinc-500 italic my-auto">Belum ada foto background dipilih</span>`;
+                return;
+            }
+            container.innerHTML = tempCustomBgList.map(src => `<div class="w-12 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/20"><img src="${src}" class="w-full h-full object-cover"></div>`).join('');
+        }
+
+        function resetTempBg() {
+            tempCustomBgList = [];
+            document.getElementById('input-bg-files').value = '';
+            renderEditorBgPreview();
+        }
+
+        // Handler Galeri dengan Preview Thumbnail
         function handleGalleryFiles(event) {
             const files = event.target.files;
             if (files.length > 0) {
+                tempCustomGallery = [];
                 let loadedCount = 0;
-                let customPhotos = JSON.parse(localStorage.getItem('inv_custom_gallery') || '[]');
                 for (let i = 0; i < files.length; i++) {
                     const reader = new FileReader();
                     reader.onload = function(e) {
-                        customPhotos.push(e.target.result);
+                        tempCustomGallery.push(e.target.result);
                         loadedCount++;
                         if (loadedCount === files.length) {
-                            localStorage.setItem('inv_custom_gallery', JSON.stringify(customPhotos));
-                            loadGalleryPhotos();
-                            alert(`${files.length} foto baru berhasil ditambahkan secara dinamis ke galeri!`);
+                            renderEditorGalleryPreview();
                         }
                     }
                     reader.readAsDataURL(files[i]);
@@ -698,12 +728,20 @@
             }
         }
 
-        function clearCustomGallery() {
-            if (confirm("Hapus semua foto galeri tambahan buatan Anda?")) {
-                localStorage.removeItem('inv_custom_gallery');
-                loadGalleryPhotos();
-                alert("Galeri dikembalikan ke foto bawaan.");
+        function renderEditorGalleryPreview() {
+            const container = document.getElementById('editor-gallery-preview-container');
+            if (!container) return;
+            if (tempCustomGallery.length === 0) {
+                container.innerHTML = `<span class="text-[10px] text-zinc-500 italic my-auto">Belum ada foto galeri dipilih</span>`;
+                return;
             }
+            container.innerHTML = tempCustomGallery.map(src => `<div class="w-12 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/20"><img src="${src}" class="w-full h-full object-cover"></div>`).join('');
+        }
+
+        function resetTempGallery() {
+            tempCustomGallery = [];
+            document.getElementById('input-gallery-files').value = '';
+            renderEditorGalleryPreview();
         }
 
         function previewCustomQris(event) {
@@ -740,7 +778,16 @@
 
             if (tempCustomBgList.length > 0) {
                 localStorage.setItem('inv_custom_bg_list', JSON.stringify(tempCustomBgList));
+            } else {
+                localStorage.removeItem('inv_custom_bg_list');
             }
+
+            if (tempCustomGallery.length > 0) {
+                localStorage.setItem('inv_custom_gallery', JSON.stringify(tempCustomGallery));
+            } else {
+                localStorage.removeItem('inv_custom_gallery');
+            }
+
             if (tempCustomQris) {
                 localStorage.setItem('inv_custom_qris', tempCustomQris);
             }
@@ -771,7 +818,6 @@
                 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=400'
             ];
 
-            // Jika ada foto dari HP, gabungkan atau gunakan secara dinamis
             const allPhotos1 = customPhotos.length > 0 ? [...customPhotos] : defaultPhotos1;
             const allPhotos2 = customPhotos.length > 0 ? [...customPhotos].reverse() : defaultPhotos2;
 
