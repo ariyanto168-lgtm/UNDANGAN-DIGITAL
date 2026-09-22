@@ -317,9 +317,9 @@
                 <span>📩 Buka Undangan</span>
             </button>
 
-            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.7) -->
+            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.8) -->
             <div class="text-[10px] text-zinc-400 tracking-widest uppercase">
-                v1.0.7 • Powered by Audylia
+                v1.0.8 • Powered by Audylia
             </div>
         </div>
     </div>
@@ -360,17 +360,9 @@
             </div>
         </section>
 
-        <!-- SECTION 3: ACARA DENGAN LIVE COUNTDOWN TIMER -->
-        <section id="section-acara" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-10 px-6 text-center z-10 overflow-y-auto space-y-5 transition-opacity duration-500 pb-28">
+        <!-- SECTION 3: ACARA (TANPA HITUNG MUNDUR) -->
+        <section id="section-acara" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-10 px-6 text-center z-10 overflow-y-auto space-y-6 transition-opacity duration-500 pb-28">
             <h2 class="text-xs uppercase tracking-[0.25em] text-red-300 mb-1 drop-shadow">Save The Date</h2>
-            
-            <!-- LIVE COUNTDOWN BOX DINAMIS -->
-            <div class="grid grid-cols-4 gap-2 max-w-xs w-full bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/15 shadow-xl">
-                <div class="flex flex-col"><span id="cd-days" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Hari</span></div>
-                <div class="flex flex-col"><span id="cd-hours" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Jam</span></div>
-                <div class="flex flex-col"><span id="cd-mins" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Menit</span></div>
-                <div class="flex flex-col"><span id="cd-secs" class="text-lg font-bold text-red-300 animate-pulse">00</span><span class="text-[9px] text-zinc-300 uppercase">Detik</span></div>
-            </div>
 
             <div class="max-w-xs w-full space-y-1">
                 <h3 class="text-xl font-bold text-white mb-0.5 drop-shadow-2xl">Akad Nikah</h3>
@@ -379,7 +371,7 @@
                 <a id="view-akad-maps" href="#" target="_blank" class="inline-block text-[10px] font-medium text-white bg-white/20 hover:bg-white/30 py-1.5 px-3.5 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
             </div>
 
-            <div class="max-w-xs w-full space-y-1 pt-1">
+            <div class="max-w-xs w-full space-y-1 pt-2">
                 <h3 class="text-xl font-bold text-white mb-0.5 drop-shadow-2xl">Resepsi</h3>
                 <p id="view-resepsi-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
                 <p id="view-resepsi-place" class="text-[11px] text-zinc-100 mb-2 drop-shadow">Dsn. Banjaran RT 03/RW 20 Kel. Bringin, Kec. Ngaliyan</p>
@@ -441,7 +433,7 @@
                 <button type="submit" class="w-full py-2 bg-red-800/80 hover:bg-red-700 text-white text-xs font-medium rounded-xl transition shadow-xl backdrop-blur-md border border-white/20">Kirim Ucapan</button>
             </form>
 
-            <!-- CONTAINER UCAPAN BERJALAN KE SAMPING (HORIZONTAL SLIDER / SCROLL) -->
+            <!-- CONTAINER UCAPAN BERJALAN KE SAMPING (HORIZONTAL SLIDER / SCROLL MANUAL) -->
             <div class="w-full max-w-xs">
                 <span class="text-[10px] text-red-300 uppercase tracking-widest font-semibold block mb-1 text-left px-1">Daftar Ucapan & Doa (Geser ke Samping ➔)</span>
                 <div id="wishes-container" class="flex gap-3 overflow-x-auto w-full py-1.5 px-1 scroll-smooth snap-x">
@@ -517,7 +509,6 @@
         let tempCustomGallery = [];
         let tempCustomQris = "";
         let visualizerInterval = null;
-        let countdownInterval = null;
 
         const tabList = ['home', 'galeri', 'acara', 'ucapan', 'amplop', 'rsvp'];
         let currentTabIndex = 0;
@@ -553,7 +544,6 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadSavedData();
             renderSavedGuestsList();
-            startCountdownTimer("June 7, 2026 06:00:00");
 
             const urlParams = new URLSearchParams(window.location.search);
             const guest = urlParams.get('to');
@@ -589,36 +579,6 @@
                 currentTabIndex = (currentTabIndex - 1 + tabList.length) % tabList.length;
                 manualSwitch(tabList[currentTabIndex]);
             }
-        }
-
-        function startCountdownTimer(targetDateStr) {
-            const targetDate = new Date(targetDateStr).getTime();
-            if (countdownInterval) clearInterval(countdownInterval);
-
-            countdownInterval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((distance % (1000 * 60)) / 1000);
-
-                const dEl = document.getElementById('cd-days');
-                const hEl = document.getElementById('cd-hours');
-                const mEl = document.getElementById('cd-mins');
-                const sEl = document.getElementById('cd-secs');
-
-                if (dEl) dEl.innerText = String(days).padStart(2, '0');
-                if (hEl) hEl.innerText = String(hours).padStart(2, '0');
-                if (mEl) mEl.innerText = String(mins).padStart(2, '0');
-                if (sEl) sEl.innerText = String(secs).padStart(2, '0');
-            }, 1000);
         }
 
         function toggleAudioPlay() {
