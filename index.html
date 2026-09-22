@@ -21,6 +21,7 @@
             color: var(--custom-color);
             font-size: var(--custom-size);
             overflow: hidden; /* Mencegah scroll luar */
+            user-select: none;
         }
         .font-serif {
             font-family: var(--custom-font);
@@ -75,6 +76,11 @@
 
     <!-- ELEMEN AUDIO LATAR BELAKANG (BGM) -->
     <audio id="bg-music" loop preload="auto"></audio>
+
+    <!-- TOMBOL KONTROL MUSIK MELAYANG (TOP LEFT) -->
+    <button id="music-toggle-btn" onclick="toggleAudioPlay()" class="fixed top-4 left-4 z-[60] p-3 bg-black/60 hover:bg-black/80 text-white rounded-full backdrop-blur-md border border-white/25 shadow-2xl transition hidden items-center justify-center group" title="Putar/Jeda Musik">
+        <span id="music-icon" class="text-base group-hover:scale-110 transition block">🎵</span>
+    </button>
 
     <!-- TOMBOL EDITOR ICON GERIGI (⚙️) - Otomatis disembunyikan untuk penerima undangan -->
     <button id="editor-gear-btn" onclick="toggleEditor()" class="fixed top-4 right-4 z-[60] p-3 bg-black/60 hover:bg-black/80 text-white rounded-full backdrop-blur-md border border-white/25 shadow-2xl transition group" title="Buka Panel Editor Konten">
@@ -221,11 +227,11 @@
         </div>
     </div>
 
-    <!-- POPUP MODAL DAFTAR TAMU & TOMBOL KIRIM BERSAMAAN (MASSAL) -->
+    <!-- POPUP MODAL DAFTAR TAMU & PRATINJAU PESAN WA DINAMIS -->
     <div id="wa-modal" class="fixed inset-0 z-[110] bg-black/85 backdrop-blur-lg hidden flex flex-col p-6 overflow-y-auto">
         <div class="max-w-sm w-full mx-auto bg-zinc-900/95 border border-emerald-500/30 rounded-3xl p-5 shadow-2xl text-white space-y-4 my-auto">
             <div class="flex justify-between items-center border-b border-white/15 pb-2">
-                <h2 class="text-sm font-bold text-emerald-300">📱 Database Tamu & Kirim Massal WA</h2>
+                <h2 class="text-sm font-bold text-emerald-300">📱 Database Tamu & Pesan WA</h2>
                 <button onclick="toggleWAModal()" class="text-zinc-400 hover:text-white text-sm font-bold">✕</button>
             </div>
             
@@ -237,16 +243,17 @@
                     <button onclick="addNewGuest()" class="w-full py-2 bg-zinc-800 hover:bg-zinc-700 text-emerald-300 font-medium rounded-xl transition border border-emerald-500/20">＋ Simpan ke Data Tamu</button>
                 </div>
 
-                <!-- Input Pesan Tambahan / Catatan Undangan -->
+                <!-- Input Pesan Tambahan / Catatan Pengantar Aktif -->
                 <div>
-                    <label class="block text-zinc-300 mb-1">Catatan / Pesan Pengantar (Opsional):</label>
-                    <textarea id="input-wa-note" rows="2" placeholder="Cth: Ditunggu kehadiran serta doa restunya ya kawan..." class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-400 leading-relaxed"></textarea>
+                    <label class="block text-zinc-300 mb-1 font-bold text-emerald-300">Catatan / Pesan Pengantar WA:</label>
+                    <textarea id="input-wa-note" rows="2" oninput="updateWAPreview()" placeholder="Cth: Ditunggu kehadiran serta doa restunya ya kawan..." class="w-full bg-black/50 border border-emerald-500/30 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-400 leading-relaxed"></textarea>
                 </div>
 
-                <!-- TOMBOL KIRIM BERSAMAAN (MASSAL) -->
-                <button onclick="sendAllWhatsApp()" class="w-full py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl transition shadow-lg flex items-center justify-center gap-1.5 border border-emerald-400/40">
-                    <span>🚀 Kirim Undangan ke Semua Tamu Sekaligus</span>
-                </button>
+                <!-- LIVE PRATINJAU FORMAT PESAN WA -->
+                <div class="bg-emerald-950/40 border border-emerald-500/20 p-2.5 rounded-2xl space-y-1">
+                    <span class="text-[10px] text-emerald-400 font-bold block">Pratinjau Format Pesan:</span>
+                    <p id="wa-live-preview-box" class="text-[10px] text-zinc-300 italic whitespace-pre-line leading-snug"></p>
+                </div>
 
                 <!-- Daftar Tamu Tersimpan -->
                 <div class="space-y-1 pt-1 border-t border-white/10">
@@ -256,7 +263,7 @@
                     </div>
                     
                     <!-- Container List Tamu -->
-                    <div id="saved-guests-list" class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+                    <div id="saved-guests-list" class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
                         <!-- Data Tamu Rendered Here -->
                     </div>
                 </div>
@@ -286,15 +293,15 @@
                 <span>📩 Buka Undangan</span>
             </button>
 
-            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.2) -->
+            <!-- Versi & Powered By di Bawah Tombol Buka Undangan (Terupdate ke v1.0.4) -->
             <div class="text-[10px] text-zinc-400 tracking-widest uppercase">
-                v1.0.2 • Powered by Audylia
+                v1.0.4 • Powered by Audylia
             </div>
         </div>
     </div>
 
-    <!-- KANDUNGAN UTAMA (MAIN CONTENT) -->
-    <main id="main-content" class="max-w-md mx-auto h-screen relative hidden overflow-hidden">
+    <!-- KANDUNGAN UTAMA (MAIN CONTENT) DENGAN TOUCH GESTURE -->
+    <main id="main-content" class="max-w-md mx-auto h-screen relative hidden overflow-hidden" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
         
         <div id="global-bg-slideshow" class="fixed inset-0 max-w-md mx-auto pointer-events-none z-0 overflow-hidden">
             <!-- Dynamic Background Slideshow -->
@@ -329,22 +336,30 @@
             </div>
         </section>
 
-        <!-- SECTION 3: ACARA -->
-        <section id="section-acara" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-12 px-6 text-center z-10 overflow-y-auto space-y-6 transition-opacity duration-500 pb-28">
-            <h2 class="text-xs uppercase tracking-[0.25em] text-red-300 mb-2 drop-shadow">Save The Date</h2>
+        <!-- SECTION 3: ACARA DENGAN LIVE COUNTDOWN TIMER -->
+        <section id="section-acara" class="inv-section absolute inset-0 hidden flex-col justify-center items-center py-10 px-6 text-center z-10 overflow-y-auto space-y-5 transition-opacity duration-500 pb-28">
+            <h2 class="text-xs uppercase tracking-[0.25em] text-red-300 mb-1 drop-shadow">Save The Date</h2>
             
-            <div class="max-w-xs w-full space-y-1">
-                <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-2xl">Akad Nikah</h3>
-                <p id="view-akad-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
-                <p id="view-akad-place" class="text-[11px] text-zinc-100 mb-3 drop-shadow">Kediaman Mempelai Wanita</p>
-                <a id="view-akad-maps" href="#" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
+            <!-- LIVE COUNTDOWN BOX DINAMIS -->
+            <div class="grid grid-cols-4 gap-2 max-w-xs w-full bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/15 shadow-xl">
+                <div class="flex flex-col"><span id="cd-days" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Hari</span></div>
+                <div class="flex flex-col"><span id="cd-hours" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Jam</span></div>
+                <div class="flex flex-col"><span id="cd-mins" class="text-lg font-bold text-white">00</span><span class="text-[9px] text-zinc-300 uppercase">Menit</span></div>
+                <div class="flex flex-col"><span id="cd-secs" class="text-lg font-bold text-red-300 animate-pulse">00</span><span class="text-[9px] text-zinc-300 uppercase">Detik</span></div>
             </div>
 
-            <div class="max-w-xs w-full space-y-1 pt-2">
-                <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-2xl">Resepsi</h3>
+            <div class="max-w-xs w-full space-y-1">
+                <h3 class="text-xl font-bold text-white mb-0.5 drop-shadow-2xl">Akad Nikah</h3>
+                <p id="view-akad-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
+                <p id="view-akad-place" class="text-[11px] text-zinc-100 mb-2 drop-shadow">Kediaman Mempelai Wanita</p>
+                <a id="view-akad-maps" href="#" target="_blank" class="inline-block text-[10px] font-medium text-white bg-white/20 hover:bg-white/30 py-1.5 px-3.5 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
+            </div>
+
+            <div class="max-w-xs w-full space-y-1 pt-1">
+                <h3 class="text-xl font-bold text-white mb-0.5 drop-shadow-2xl">Resepsi</h3>
                 <p id="view-resepsi-date" class="text-xs font-medium text-zinc-100 mb-0.5 drop-shadow">Minggu, 7 Juni 2026</p>
-                <p id="view-resepsi-place" class="text-[11px] text-zinc-100 mb-3 drop-shadow">Dsn. Banjaran RT 03/RW 20 Kel. Bringin, Kec. Ngaliyan</p>
-                <a id="view-resepsi-maps" href="#" target="_blank" class="inline-block text-[11px] font-medium text-white bg-white/20 hover:bg-white/30 py-2 px-4 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
+                <p id="view-resepsi-place" class="text-[11px] text-zinc-100 mb-2 drop-shadow">Dsn. Banjaran RT 03/RW 20 Kel. Bringin, Kec. Ngaliyan</p>
+                <a id="view-resepsi-maps" href="#" target="_blank" class="inline-block text-[10px] font-medium text-white bg-white/20 hover:bg-white/30 py-1.5 px-3.5 rounded-full backdrop-blur-md transition border border-white/30 shadow-lg">📍 Google Maps</a>
             </div>
         </section>
 
@@ -454,15 +469,15 @@
                 <span class="text-sm group-hover:scale-125 transition drop-shadow">💌</span>
                 <span class="text-[7px] mt-0.5 tracking-tighter drop-shadow">RSVP</span>
             </button>
-            <!-- TOMBOL WA NAVIGASI: MEMBUKA MODAL DATABASE & KIRIM MASSAL -->
-            <button onclick="toggleWAModal()" class="nav-btn flex flex-col items-center text-emerald-300 hover:text-emerald-200 transition group" title="Database Tamu & Kirim WA">
+            <!-- TOMBOL WA NAVIGASI: MEMBUKA MODAL DATABASE & PESAN PENGANTAR -->
+            <button onclick="toggleWAModal()" class="nav-btn flex flex-col items-center text-emerald-300 hover:text-emerald-200 transition group" title="Database Tamu & Pesan WA">
                 <span class="text-sm group-hover:scale-125 transition drop-shadow">📱</span>
                 <span class="text-[7px] mt-0.5 tracking-tighter drop-shadow">WA</span>
             </button>
         </nav>
     </main>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT DINAMIS LANJUTAN -->
     <script>
         let autoSequenceTimer = null;
         let typewriterTimeout = null;
@@ -470,6 +485,12 @@
         let tempCustomGallery = [];
         let tempCustomQris = "";
         let visualizerInterval = null;
+        let countdownInterval = null;
+
+        const tabList = ['home', 'galeri', 'acara', 'ucapan', 'amplop', 'rsvp'];
+        let currentTabIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         const defaultNames = "Agus & Navinda";
         const defaultMsg = `"Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu pada acara pernikahan kami."\n\nKehadiran serta doa restu Anda adalah kado terindah bagi kami. Terima kasih atas segala perhatian dan kasih sayang yang diberikan.\n\nKami yang berbahagia,\nAgus & Navinda`;
@@ -500,6 +521,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadSavedData();
             renderSavedGuestsList();
+            startCountdownTimer("June 7, 2026 06:00:00");
 
             const urlParams = new URLSearchParams(window.location.search);
             const guest = urlParams.get('to');
@@ -517,7 +539,84 @@
             startSlideshow('global-bg-slideshow', 1900);
         });
 
-        // Utility: Fungsi Kompresi Gambar agar Aman dari Batas Memori HP/Browser
+        // Touch Swipe Gesture Handlers for Mobile Browsers
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }
+
+        function handleSwipeGesture() {
+            const threshold = 50;
+            if (touchEndX < touchStartX - threshold) {
+                // Swipe Left -> Next Tab
+                currentTabIndex = (currentTabIndex + 1) % tabList.length;
+                manualSwitch(tabList[currentTabIndex]);
+            } else if (touchEndX > touchStartX + threshold) {
+                // Swipe Right -> Prev Tab
+                currentTabIndex = (currentTabIndex - 1 + tabList.length) % tabList.length;
+                manualSwitch(tabList[currentTabIndex]);
+            }
+        }
+
+        // Live Countdown Timer logic
+        function startCountdownTimer(targetDateStr) {
+            const targetDate = new Date(targetDateStr).getTime();
+            if (countdownInterval) clearInterval(countdownInterval);
+
+            countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const dEl = document.getElementById('cd-days');
+                const hEl = document.getElementById('cd-hours');
+                const mEl = document.getElementById('cd-mins');
+                const sEl = document.getElementById('cd-secs');
+
+                if (dEl) dEl.innerText = String(days).padStart(2, '0');
+                if (hEl) hEl.innerText = String(hours).padStart(2, '0');
+                if (mEl) mEl.innerText = String(mins).padStart(2, '0');
+                if (sEl) sEl.innerText = String(secs).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Audio Play/Pause Toggle Button
+        function toggleAudioPlay() {
+            const audioEl = document.getElementById('bg-music');
+            const iconEl = document.getElementById('music-icon');
+            if (!audioEl) return;
+
+            if (audioEl.paused) {
+                audioEl.play();
+                iconEl.innerText = "🎵";
+                startVisualizer();
+            } else {
+                audioEl.pause();
+                iconEl.innerText = "🔇";
+                stopVisualizer();
+            }
+        }
+
+        function stopVisualizer() {
+            const viz = document.getElementById('audio-visualizer');
+            if (viz) viz.classList.add('hidden');
+            if (visualizerInterval) clearInterval(visualizerInterval);
+        }
+
+        // Utility: Kompresi Gambar
         function resizeImage(file, maxWidth = 800, maxHeight = 800, quality = 0.75) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
@@ -550,22 +649,14 @@
             });
         }
 
-        // Utility: Konversi Otomatis Teks Manual / Iframe / URL menjadi Tautan Maps yang Valid
         function cleanMapUrl(input) {
             if (!input) return "https://www.google.com/maps";
             input = input.trim();
-            // Jika berupa kode embed iframe
             if (input.includes("<iframe")) {
                 const match = input.match(/src="([^"]+)"/);
-                if (match && match[1]) {
-                    return match[1];
-                }
+                if (match && match[1]) return match[1];
             }
-            // Jika sudah berupa URL (http:// atau https://)
-            if (input.startsWith("http://") || input.startsWith("https://")) {
-                return input;
-            }
-            // Jika diketik berupa teks/alamat manual, ubah menjadi Google Maps Search URL
+            if (input.startsWith("http://") || input.startsWith("https://")) return input;
             return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(input)}`;
         }
 
@@ -574,7 +665,22 @@
             waModal.classList.toggle('hidden');
             if (!waModal.classList.contains('hidden')) {
                 renderSavedGuestsList();
+                updateWAPreview();
             }
+        }
+
+        function updateWAPreview() {
+            const previewBox = document.getElementById('wa-live-preview-box');
+            if (!previewBox) return;
+            const names = localStorage.getItem('inv_names') || defaultData.names;
+            const customNote = document.getElementById('input-wa-note').value.trim();
+
+            let sampleMsg = `Kepada Yth. Bapak/Ibu/Saudara/i *[Nama Tamu]*,\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami, *${names}*.\n\n`;
+            if (customNote) {
+                sampleMsg += `_${customNote}_\n\n`;
+            }
+            sampleMsg += `Berikut link undangan digital kami:\n[Link Undangan]\n\nTerima kasih atas perhatian & kasih sayangnya.`;
+            previewBox.innerText = sampleMsg;
         }
 
         function addNewGuest() {
@@ -603,34 +709,20 @@
             renderSavedGuestsList();
         }
 
-        function sendAllWhatsApp() {
-            let guestList = JSON.parse(localStorage.getItem('inv_guest_database') || '[]');
-            if (guestList.length === 0) {
-                alert("Belum ada data tamu dalam database!");
-                return;
-            }
-
-            if (!confirm(`Sistem akan membuka ${guestList.length} tab WhatsApp secara berurutan untuk semua tamu terdata. Lanjutkan?`)) {
-                return;
-            }
-
+        function sendWhatsAppToGuest(guestName) {
             const names = localStorage.getItem('inv_names') || defaultData.names;
             const baseUrl = window.location.origin + window.location.pathname;
+            const inviteUrl = `${baseUrl}?to=${encodeURIComponent(guestName)}`;
             const customNote = document.getElementById('input-wa-note').value.trim();
 
-            guestList.forEach((guestName, index) => {
-                setTimeout(() => {
-                    const inviteUrl = `${baseUrl}?to=${encodeURIComponent(guestName)}`;
-                    let message = `Kepada Yth. Bapak/Ibu/Saudara/i *${guestName}*,\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami, *${names}*.\n\n`;
-                    if (customNote) {
-                        message += `_${customNote}_\n\n`;
-                    }
-                    message += `Berikut link undangan digital kami:\n${inviteUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\nTerima kasih atas perhatian & kasih sayangnya.`;
+            let message = `Kepada Yth. Bapak/Ibu/Saudara/i *${guestName}*,\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami, *${names}*.\n\n`;
+            if (customNote) {
+                message += `_${customNote}_\n\n`;
+            }
+            message += `Berikut link undangan digital kami:\n${inviteUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\nTerima kasih atas perhatian & kasih sayangnya.`;
 
-                    const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-                    window.open(waLink, '_blank');
-                }, index * 1200);
-            });
+            const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            window.open(waLink, '_blank');
         }
 
         function renderSavedGuestsList() {
@@ -646,27 +738,13 @@
             badge.innerText = `${guestList.length} Tamu`;
             container.innerHTML = '';
 
-            const names = localStorage.getItem('inv_names') || defaultData.names;
-            const baseUrl = window.location.origin + window.location.pathname;
-
             guestList.forEach((guestName, index) => {
-                const inviteUrl = `${baseUrl}?to=${encodeURIComponent(guestName)}`;
-                const customNote = document.getElementById('input-wa-note').value.trim();
-
-                let message = `Kepada Yth. Bapak/Ibu/Saudara/i *${guestName}*,\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami, *${names}*.\n\n`;
-                if (customNote) {
-                    message += `_${customNote}_\n\n`;
-                }
-                message += `Berikut link undangan digital kami:\n${inviteUrl}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\nTerima kasih atas perhatian & kasih sayangnya.`;
-
-                const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-
                 const item = document.createElement('div');
                 item.className = 'flex items-center justify-between bg-black/40 border border-white/10 p-2 rounded-xl text-xs';
                 item.innerHTML = `
                     <span class="font-medium text-zinc-200 truncate max-w-[150px]">${index + 1}. ${guestName}</span>
                     <div class="flex gap-1.5">
-                        <a href="${waLink}" target="_blank" class="px-2.5 py-1 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg font-medium transition shadow" title="Kirim WhatsApp ke ${guestName}">Kirim WA</a>
+                        <button onclick="sendWhatsAppToGuest('${guestName.replace(/'/g, "\\'")}')" class="px-2.5 py-1 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg font-medium transition shadow" title="Kirim WhatsApp ke ${guestName}">Kirim WA</button>
                         <button onclick="removeGuest(${index})" class="px-2 py-1 bg-zinc-800 hover:bg-red-900 text-zinc-400 hover:text-white rounded-lg transition" title="Hapus">✕</button>
                     </div>
                 `;
@@ -729,7 +807,6 @@
             renderEditorGalleryPreview();
         }
 
-        // Handler Background dengan Preview & Kompresi
         async function handleBgFiles(event) {
             const files = event.target.files;
             if (files.length > 0) {
@@ -759,7 +836,6 @@
             renderEditorBgPreview();
         }
 
-        // Handler Galeri Momen dengan Preview & Kompresi
         async function handleGalleryFiles(event) {
             const files = event.target.files;
             if (files.length > 0) {
@@ -985,6 +1061,7 @@
         function openInvitation() {
             const cover = document.getElementById('cover-section');
             const main = document.getElementById('main-content');
+            const musicBtn = document.getElementById('music-toggle-btn');
             
             const audioEl = document.getElementById('bg-music');
             if (audioEl) {
@@ -995,6 +1072,8 @@
                 });
             }
             startVisualizer();
+            if (musicBtn) musicBtn.classList.remove('hidden');
+            if (musicBtn) musicBtn.classList.add('flex');
 
             cover.classList.add('-translate-y-full', 'opacity-0');
             setTimeout(() => {
@@ -1049,6 +1128,7 @@
             const dynamicSpeed = parseInt(localStorage.getItem('inv_typewriter_speed') || defaultData.typewriterSpeed, 10);
 
             switchTab('home');
+            currentTabIndex = 0;
             const namesEl = document.getElementById('home-names');
             const dateEl = document.getElementById('home-date');
             const verseBoxEl = document.getElementById('home-verse');
@@ -1067,6 +1147,7 @@
 
                     autoSequenceTimer = setTimeout(() => {
                         switchTab('acara');
+                        currentTabIndex = 2;
                         const acaraEl = document.getElementById('section-acara');
                         if (acaraEl) acaraEl.classList.add('animate-pulse');
 
@@ -1074,9 +1155,11 @@
                             if (acaraEl) acaraEl.classList.remove('animate-pulse');
 
                             switchTab('galeri');
+                            currentTabIndex = 1;
 
                             autoSequenceTimer = setTimeout(() => {
                                 switchTab('ucapan');
+                                currentTabIndex = 3;
                                 const msgText = localStorage.getItem('inv_custom_msg') || defaultData.customMsg;
 
                                 runTypewriter('typewriter-msg', msgText, dynamicSpeed, () => {
@@ -1106,6 +1189,7 @@
             }
 
             document.getElementById('section-acara').classList.remove('animate-pulse');
+            currentTabIndex = tabList.indexOf(tabId);
             
             if (tabId === 'home') {
                 const namesEl = document.getElementById('home-names');
