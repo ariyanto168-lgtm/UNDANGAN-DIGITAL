@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Agus & Navinda</title>
+    
+    <!-- PWA / Install Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="Logoundangandigital.png">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -1246,6 +1252,19 @@
             document.getElementById('message-input').value = '';
             document.getElementById('name-input').value = '';
             alert('Terima kasih, ucapan Anda telah dikirim dan langsung tampil di barisan!');
+        }
+        
+        // Pendaftaran Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(registration => {
+                    console.log('ServiceWorker terdaftar dengan scope: ', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Pendaftaran ServiceWorker gagal: ', error);
+                });
+            });
         }
     </script>
 </body>
